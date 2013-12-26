@@ -1,0 +1,7 @@
+1 = SiteSetting
+2 = AdminSetting
+3 = FacebookSetting
+4 = GoogleSetting
+5 = YoutubeSetting
+6 = OtherSetting
+7 =TwitterSetting

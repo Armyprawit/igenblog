@@ -1,0 +1,85 @@
+ALTER TABLE  `bl_video` ADD  `vi_text` TEXT NULL AFTER  `vi_description` ;
+ALTER TABLE  `bl_image` ADD  `im_text` TEXT NULL AFTER  `im_description` ;
+ALTER TABLE  `bl_setting` ADD  `se_description` TEXT NULL AFTER  `se_title` ;
+ALTER TABLE  `bl_setting` ADD  `se_update_time` INT( 11 ) NOT NULL DEFAULT  '0' AFTER  `se_value` ;
+ALTER TABLE  `bl_setting` ADD  `se_type` INT( 3 ) NOT NULL DEFAULT  '1' AFTER  `se_update_time` ,
+ADD  `se_status` INT( 3 ) NOT NULL DEFAULT  '1' AFTER  `se_type` ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_title` =  'Facebook [App ID]',
+`se_description` =  'Facebook [App ID]',
+`se_type` =  '3' WHERE  `bl_setting`.`se_id` =3 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_title` =  'Facebook [Admin id]',
+`se_description` =  'Facebook [Admin id]',
+`se_type` =  '3' WHERE  `bl_setting`.`se_id` =4 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_title` =  'Facebook [FanPage]',
+`se_description` =  'Facebook [FanPage]',
+`se_type` =  '3' WHERE  `bl_setting`.`se_id` =12 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_title` =  'Facebook [App Secret]',
+`se_description` =  'Facebook [App Secret]',
+`se_type` =  '3' WHERE  `bl_setting`.`se_id` =15 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_title` =  'Title of Website',
+`se_description` =  'Title of Website' WHERE  `bl_setting`.`se_id` =1 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_title` =  'Full url of Site',
+`se_description` =  'Full url of Site' WHERE  `bl_setting`.`se_id` =2 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_description` =  'Site Name (Ex: youknowup.com)' WHERE  `bl_setting`.`se_id` =5 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_title` =  'Description of Website',
+`se_description` =  'Description of Website' WHERE  `bl_setting`.`se_id` =16 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_title` =  'Website Secret Key',
+`se_description` =  'Website Secret Key' WHERE  `bl_setting`.`se_id` =23 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_title` =  'Username',
+`se_description` =  'Username Login to admin system',
+`se_type` =  '2' WHERE  `bl_setting`.`se_id` =20 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_title` =  'Password',
+`se_description` =  'Password Login to admin system',
+`se_type` =  '2' WHERE  `bl_setting`.`se_id` =21 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_type` =  '6' WHERE  `bl_setting`.`se_id` =6 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_type` =  '6' WHERE  `bl_setting`.`se_id` =7 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_type` =  '6' WHERE  `bl_setting`.`se_id` =8 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_type` =  '6' WHERE  `bl_setting`.`se_id` =11 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_type` =  '6' WHERE  `bl_setting`.`se_id` =17 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_type` =  '6' WHERE  `bl_setting`.`se_id` =18 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_type` =  '6' WHERE  `bl_setting`.`se_id` =19 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_title` =  'Tweet [Load All]',
+`se_description` =  'Tweet [Load All]',
+`se_type` =  '7' WHERE  `bl_setting`.`se_id` =10 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_title` =  'Twitter [href]',
+`se_description` =  'Twitter [href]',
+`se_type` =  '7' WHERE  `bl_setting`.`se_id` =13 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_title` =  'Twitter [App ID]',
+`se_description` =  'Twitter [App ID]',
+`se_type` =  '7' WHERE  `bl_setting`.`se_id` =14 LIMIT 1 ;
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_title` =  'Google [Site Verification]',
+`se_description` =  'Google [Site Verification]',
+`se_type` =  '4' WHERE  `bl_setting`.`se_id` =9 LIMIT 1 ;
+
+ALTER TABLE  `bl_setting` CHANGE  `se_type`  `se_type` INT( 3 ) NOT NULL DEFAULT  '1' COMMENT  '1 = SiteSetting 2 = AdminSetting 3 = FacebookSetting 4 = GoogleSetting 5 = YoutubeSetting 6 = OtherSetting 7 =TwitterSetting';
+
+UPDATE  `igen_blog`.`bl_setting` SET  `se_title` =  'Site [Name]',
+`se_description` =  'Site [Name] ( Ex: igensite.com )' WHERE  `bl_setting`.`se_id` =5 LIMIT 1 ;
+
+ALTER TABLE  `bl_setting` ADD  `se_sort` INT( 3 ) NOT NULL DEFAULT  '0' AFTER  `se_status` ;
+
+ALTER TABLE  `bl_setting` ADD  `se_placeholder` TEXT NULL AFTER  `se_description` ;
+
+ALTER TABLE  `bl_setting` ADD  `se_note` TEXT NULL AFTER  `se_sort` ;

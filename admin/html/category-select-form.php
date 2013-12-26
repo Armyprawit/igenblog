@@ -1,0 +1,1 @@
+<option value="<?php echo $var['ca_id'];?>" <?php if($category_id == $var['ca_id']){echo'selected';}?> ><?php echo $var['ca_title'];?></option>
