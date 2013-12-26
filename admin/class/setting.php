@@ -25,6 +25,7 @@
 	include'class.category.php';
 	include'class.article.php';
 	include'class.photo.php';
+	include'class.banner.php';
 	include'class.fb.php';
 	include'class.setting.php';
 	//include'class.admin.php';
@@ -36,6 +37,7 @@
 	$youtube = new Youtube;
 	$video = new Video;
 	$photo = new Photo;
+	$banner = new Banner;
 	$mydev = new MyDev;
 	$setting = new Setting;
 ?>

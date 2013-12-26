@@ -1,4 +1,7 @@
-            <div class="headTitle"><i class="fa fa-plus-circle"></i> รูปภาพใหม่</div>
+<?php
+	include'../class/setting.php';
+?>
+		    <div class="headTitle"><i class="fa fa-plus-circle"></i> รูปภาพใหม่</div>
             <div class="form">
             <form action="Javascript:createBanner($('#title').val(),$('#image').val(),$('#link').val(),$('#zone').val());">
                 <div class="photoInput">

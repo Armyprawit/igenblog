@@ -3,9 +3,8 @@ var edit = false;
 var state = true;
 
 function editSetting(id,value){
-	// state = true;
-	// showLiveView('close');
-	// $("#console").animate({bottom:"0px"},800);
+
+	$("#loading-"+id).fadeIn(300);
 
 	edit = false;
 	if(window.XMLHttpRequest) { // Mozilla, Safari,...
@@ -27,9 +26,8 @@ function editSetting(id,value){
 		alert('Cannot edit XMLHTTP instance');
 		return false;
 	}
-	var url = 'process/process-article-edit.php';
-	context = context.replace(/\r?\n/g,"<br>");
-	var pmeters = 'id='+id+'&image='+image+'&title='+title+'&context='+context+'&category='+category+'&keyword='+keyword+'&credit='+credit;
+	var url = 'process/process-setting-edit.php';
+	var pmeters = 'id='+id+'&value='+value;
 	edit.open('POST',url,true);
 
 	edit.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -41,11 +39,8 @@ function editSetting(id,value){
 		}
 		if(edit.readyState == 4) // Return Request
 		{
-			$("#console").fadeIn(200).html(edit.responseText);
-			$("#console").delay(3000).animate({bottom:"-50px"},400);
-
-			// toSelectArticle(id);
-			// modeListArticle();
+			$("#loading-"+id).fadeIn(200).html(edit.responseText);
+			$("#loading-"+id).delay(3000).fadeOut(1000);
 		}				
 	}
 }
