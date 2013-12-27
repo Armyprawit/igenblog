@@ -55,7 +55,7 @@
         
         <a href="banner.php" target="_parent">
         <div class="item">
-            <div class="text"> <i class="fa fa-bullhorn"></i>ป้ายโฆษณา</div><div class="s"></div>
+            <div class="text"> <i class="fa fa-bullhorn"></i>ป้ายโฆษณา <span class="total"><?php echo $banner->infoBannerData($dbHandle,'total');?></span></div><div class="s"></div>
         </div>
         </a>
         

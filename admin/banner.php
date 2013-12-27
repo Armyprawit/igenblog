@@ -37,7 +37,7 @@
         <div class="content">
           <!-- Option -->
           <div class="option">
-            <div class="item" onClick="Javascript:toCreateCategory();"><i class="fa fa-plus-circle"></i> เพิ่มหมวดใหม่</div>
+            <div class="item" onClick="Javascript:toCreateBanner();"><i class="fa fa-plus-circle"></i> เพิ่มหมวดใหม่</div>
             <div class="item" id="option-item-1" onClick="Javascript:modeCategory(1);"><i class="fa fa-check-circle-o"></i> Enable</div>
             <div class="item" id="option-item-0" onClick="Javascript:modeCategory(0);"><i class="fa fa-circle-o"></i> Disable</div>
             <div class="search"><input type="text" class="input-text" id="q" OnKeyUp="Javascript:searchCategory(document.getElementById('q').value);" placeholder="ค้นหาชื่อหมวด,url,id"></div>
@@ -46,18 +46,8 @@
 
           <div class="display" id="list">
 
-            <?php for($i=0;$i<12;$i++){?>
-            <div class="bannerItem">
-              <div class="photo">
-                <img src="http://i1.ytimg.com/vi/A3PDXmYoF5U/maxresdefault.jpg">
-              </div>
-              <div class="info">
-                <div class="zone">zone A</div>
-                <div class="text">GoPro HERO3: Almost as Epic as the HERO3+</div>
-                <p>Link: http://www.igensite.com</p>
-              </div>
-            </div>
-            <?php }?>
+            <?php $banner->listBanner($dbHandle,'normal',1,0,5);?>
+
           </div>
         </div>
         <div class="activity">

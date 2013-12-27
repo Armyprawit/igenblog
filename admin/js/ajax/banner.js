@@ -15,7 +15,7 @@ var state = true;
 $(window).scroll(function() {
   if($(window).scrollTop() + $(window).height() >= $(document).height()-50) {
   	if(state){
-  		//loadingPhoto($('#categoryMode').val(),index);
+  		loadingBanner(index);
   	}
   }
 });
@@ -60,13 +60,13 @@ function createBanner(title,image,link,zone){
 			$("#console").fadeIn(200).html(create.responseText);
 			$("#console").delay(3000).animate({bottom:"-50px"},500);
 
-			// modeListPhoto();
+			modeListBanner(1);
 			toCreateBanner();
 		}				
 	}
 }
 
-function editPhoto(id,link,context,category,keyword){
+function editBanner(id,title,image,link,zone){
 	state = true;
 	showLiveView('close');
 	$("#console").animate({bottom:"0px"},800);
@@ -91,14 +91,11 @@ function editPhoto(id,link,context,category,keyword){
 		alert('Cannot edit XMLHTTP instance');
 		return false;
 	}
-	var url = 'process/process-photo-edit.php';
-	context = context.replace(/\r?\n/g,"<br>");
-	var pmeters = 'id='+id+'&image='+link+'&description='+context+'&category='+category+'&keyword='+keyword;
+	var url = 'process/process-banner-edit.php';
+	var pmeters = 'id='+id+'&title='+title+'&image='+image+'&link='+link+'&zone='+zone;
 	edit.open('POST',url,true);
 
 	edit.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	//edit.setRequestHeader("Content-length", pmeters.length);
-	//edit.setRequestHeader("Connection", "close");
 	edit.send(pmeters);			
 	edit.onreadystatechange = function(){
 		if(edit.readyState == 3)  // Loading Request
@@ -110,8 +107,8 @@ function editPhoto(id,link,context,category,keyword){
 			$("#console").fadeIn(200).html(edit.responseText);
 			$("#console").delay(3000).animate({bottom:"-50px"},400);
 
-			toSelectPhoto(id);
-			modeListPhoto(0);
+			toSelectBanner(id);
+			modeListBanner(1);
 		}				
 	}
 }
@@ -161,7 +158,7 @@ function statusPhoto(id,stat){
 	}
 }
 
-function modeListPhoto(category){
+function modeListBanner(type){
 	state = true;
 	$("#list").fadeOut(100);
 
@@ -185,8 +182,8 @@ function modeListPhoto(category){
 		alert('Cannot mode XMLHTTP instance');
 		return false;
 	}
-	var url = 'process/mode-photo.php';
-	var pmeters = 'category='+category;
+	var url = 'process/mode-banner.php';
+	var pmeters = 'type='+type;
 	mode.open('POST',url,true);
 
 	mode.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -250,7 +247,7 @@ function searchPhoto(q){
 	}
 }
 
-function loadingPhoto(category,start){
+function loadingBanner(start){
 	state = true;
 	loading = false;
 
@@ -273,8 +270,8 @@ function loadingPhoto(category,start){
 		alert('Cannot loading XMLHTTP instance');
 		return false;
 	}
-	var url = 'process/process-photo-loading.php';
-	var pmeters = 'start='+start+'&category='+category;
+	var url = 'process/process-banner-loading.php';
+	var pmeters = 'start='+start;
 	loading.open('POST',url,true);
 
 	loading.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -293,7 +290,7 @@ function loadingPhoto(category,start){
 }
 
 // When click clip item is call this function.
-function toSelectPhoto(id){
+function toSelectBanner(id){
 	$("#result").fadeOut(100);
 	document.getElementById("loading-"+id).innerHTML = '<i class="fa fa-spinner fa-spin"></i>';
 
@@ -317,7 +314,7 @@ function toSelectPhoto(id){
 		alert('Cannot editForm XMLHTTP instance');
 		return false;
 	}
-	var url = 'process/edit-photo.php';
+	var url = 'process/edit-banner.php';
 	var pmeters = 'id='+id;
 	editForm.open('POST',url,true);
 
@@ -373,7 +370,7 @@ function toCreateBanner(){
 		if(createForm.readyState == 4) // Return Request
 		{
 			$("#result").fadeIn(200).html(createForm.responseText);
-			//modeListBanner();
+			modeListBanner(1);
 		}				
 	}
 }
