@@ -20,6 +20,7 @@
 	
 	// ALL CLASS ////////////////////////////
 	include'class.mydev.php';
+	include'class.admin.php';
 	include'class.youtube.php';
 	include'class.video.php';
 	include'class.category.php';
@@ -31,7 +32,7 @@
 	//include'class.admin.php';
 	
 	//CREATE OBJECT
-	//$admin = new Admin;
+	$admin = new Admin;
 	$article = new Article;
 	$category = new Category;
 	$youtube = new Youtube;
@@ -40,4 +41,22 @@
 	$banner = new Banner;
 	$mydev = new MyDev;
 	$setting = new Setting;
+
+	if($_GET['e'] == loginG){
+    	if($admin->loginG($dbHandle,$_POST['username'],$_POST['password'])){
+      		$_SESSION['adminG'] = 'igenblog';
+    	}
+    	else{
+     		header('Location:login.php?e=fail');
+    	}
+  	}
+  
+  	else if($_GET['e']=='logoutG'){
+    	session_destroy();
+    	header('Location:login.php');
+  	}
+
+  	if($_SESSION['adminG'] != 'igenblog'){
+		header('Location:login.php');
+	}
 ?>

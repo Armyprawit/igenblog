@@ -1,8 +1,10 @@
 	<header id="header">
         <div class="header">
+            <a href="index.php">
             <div id="logo">
                 <i class="fa fa-leaf"></i> IGENBLOG
             </div>
+            </a>
             <div id="stat">
                 
                 <div class="item">

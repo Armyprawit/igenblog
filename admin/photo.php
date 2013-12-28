@@ -35,7 +35,7 @@
     <div id="mainContent">
         <div class="title">
           <i class="fa fa-home"></i> Photo
-          <span class="categoryMode">
+            <span class="categoryMode">
               <select id="categoryMode" class="input-select" onChange="Javascript:modeListPhoto($('#categoryMode').val());">
                 <option value="0">ทั้งหมด</option>
                 <?php $category->listCategoryToSelectForm($dbHandle,0,1);?>

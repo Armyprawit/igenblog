@@ -71,7 +71,7 @@
         </div>
         </a>
         
-        <a href="index.php" target="_parent">
+        <a href="index.php?e=logoutG" target="_parent">
         <div class="item">
             <div class="text"> <i class="fa fa-reply"></i>ออกจากระบบ</div><div class="s"></div>
         </div>

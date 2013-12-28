@@ -1,0 +1,80 @@
+@charset "utf-8";
+@font-face {
+  font-family: 'ColabThi-webfont';
+  src: url('../font/ColabThi-webfont.eot');
+  src: url('../font/ColabThi-webfont.eot?#iefix') format('embedded-opentype'), url('../font/ColabThi-webfont.woff') format('woff'), url('../font/ColabThi-webfont.ttf') format('truetype'), url('../font/ColabThi-webfont.svg#ColabThi-webfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'thaisansneue-light';
+  src: url('../font/thaisansneue-light.eot');
+  src: url('../font/thaisansneue-light.eot?#iefix') format('embedded-opentype'), url('../font/thaisansneue-light.woff') format('woff'), url('../font/thaisansneue-light.ttf') format('truetype'), url('../font/thaisansneue-light.svg#thaisansneue-light') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+  background: url(../image/backgroud/bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#login {
+  position: fixed;
+  top: 33%;
+  left: 33%;
+  width: 31%;
+  display: inline-block;
+  background: #F5F5F5;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1%;
+  border-radius: 2px;
+}
+#login .title {
+  font-size: 2em;
+  font-family: ColabThi-webfont;
+  margin-bottom: 20px;
+  color: #555555;
+}
+#login .title i {
+  color: #1abc9c;
+}
+#login .input-text {
+  float: left;
+  width: 94%;
+  font-size: 1em;
+  padding: 3%;
+  border: 0px;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #555555;
+}
+#login .input-submit {
+  float: left;
+  width: 100%;
+  background: #1abc9c;
+  color: #FFFFFF;
+  border: 0px;
+  font-size: 1em;
+  padding: 2%;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+#login .input-submit:hover {
+  background: #16a085;
+}
+#login .alert {
+  color: #e74c3c;
+  font-size: 0.9em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+#login p {
+  font-size: 0.8em;
+  text-align: right;
+  color: #AAAAAA;
+}

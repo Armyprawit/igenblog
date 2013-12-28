@@ -69,19 +69,18 @@ class Banner{
 		}
 	}
 
-	public function statusPhoto($dbHandle,$image_id,$status){
+	public function statusBanner($dbHandle,$id,$status){
 
 		global $msg;
 		try{
-			$stmt = $dbHandle->prepare('UPDATE bl_image SET im_status = :status,im_update_time = :update_time WHERE im_id = :id');
+			$stmt = $dbHandle->prepare('UPDATE bl_banner SET ba_status = :status WHERE ba_id = :id');
 
-				$stmt->bindParam(':update_time',time()); //Last time
 				$stmt->bindParam(':status',$status);
-				$stmt->bindParam(':id',$image_id);
+				$stmt->bindParam(':id',$id);
 			
 				$stmt->execute();
 
-				$id = $image_id + 1024;
+				$id = $id + 1024;
 				if($status == 1){
 					return '<span class="style-2"><i class="fa fa-globe"></i> เผยแพร่ #'.$id.'</span>';
 				}
@@ -94,14 +93,23 @@ class Banner{
 		}
 	}
 
-	public function listBanner($dbHandle,$event,$type,$start,$total){
+	public function listBanner($dbHandle,$event,$zone,$start,$total){
 		try{
-			$stmt = $dbHandle->prepare('SELECT ba_id,ba_title,ba_image,ba_link,ba_create_time,ba_zone,ba_status FROM bl_banner WHERE ba_type = :type ORDER BY ba_create_time DESC LIMIT :start,:total');
-			$stmt->bindParam(':type',$type);
+			if($zone == 0){
+				$stmt = $dbHandle->prepare('SELECT ba_id,ba_title,ba_image,ba_link,ba_create_time,ba_zone,ba_status FROM bl_banner ORDER BY ba_create_time DESC LIMIT :start,:total');
 				
-			$stmt->bindParam(':start',$start,PDO::PARAM_INT);
-			$stmt->bindParam(':total',$total,PDO::PARAM_INT);
-    		$stmt->execute();
+				$stmt->bindParam(':start',$start,PDO::PARAM_INT);
+				$stmt->bindParam(':total',$total,PDO::PARAM_INT);
+    			$stmt->execute();
+			}
+			else{
+				$stmt = $dbHandle->prepare('SELECT ba_id,ba_title,ba_image,ba_link,ba_create_time,ba_zone,ba_status FROM bl_banner WHERE ba_zone = :zone ORDER BY ba_create_time DESC LIMIT :start,:total');
+				$stmt->bindParam(':zone',$zone);
+				
+				$stmt->bindParam(':start',$start,PDO::PARAM_INT);
+				$stmt->bindParam(':total',$total,PDO::PARAM_INT);
+    			$stmt->execute();
+			}
 
 			while($var = $stmt->fetch(PDO::FETCH_ASSOC)){
 				if($event == "normal"){

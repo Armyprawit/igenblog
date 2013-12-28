@@ -13,20 +13,22 @@
                     </script>
                 </div>
 
-                <p>ลิ้งออก</p>
-                <input type="text" id="link" class="input-text" autocomplete="off" value="<?php echo $var['ba_link'];?>">
+                <p><i class="fa fa-globe"></i> ลิ้งไปยัง</p>
+                <input type="text" id="link" class="input-text" autocomplete="off" value="<?php echo $var['ba_link'];?>" placeholder="http://igensite.com">
                 <div class="text">อย่าน้อย 6 ตัวอักษร</div>
 
-                <p>ZONE</p>
+                <p><i class="fa fa-desktop"></i> ZONE</p>
                 <select class="input-select s" id="zone">
-                    <option value="1" <?php if($var['ba_zone'] == 1){echo'selected';}?>>A</option>
-                    <option value="2" <?php if($var['ba_zone'] == 2){echo'selected';}?>>B</option>
-                    <option value="3" <?php if($var['ba_zone'] == 3){echo'selected';}?>>C</option>
-                    <option value="4" <?php if($var['ba_zone'] == 4){echo'selected';}?>>D</option>
+                    <option value="1" <?php if($var['ba_zone'] == 1){echo'selected';}?>>ZONE <?php echo $var['ba_zone'];?></option>
+                    <option value="2" <?php if($var['ba_zone'] == 2){echo'selected';}?>>ZONE <?php echo $var['ba_zone'];?></option>
+                    <option value="3" <?php if($var['ba_zone'] == 3){echo'selected';}?>>ZONE <?php echo $var['ba_zone'];?></option>
+                    <option value="4" <?php if($var['ba_zone'] == 4){echo'selected';}?>>ZONE <?php echo $var['ba_zone'];?></option>
+                    <option value="5" <?php if($var['ba_zone'] == 5){echo'selected';}?>>ZONE <?php echo $var['ba_zone'];?></option>
+                    <option value="6" <?php if($var['ba_zone'] == 6){echo'selected';}?>>ZONE <?php echo $var['ba_zone'];?></option>
                 </select>
 
-                <p><i class="fa fa-tag"></i> คำสำคัญ</p>
-                <input type="text" id="title" class="input-text s" placeholder="ดินสอ,ดินสอสี,น้ำยาล้างจาน" value="<?php echo $var['ba_title'];?>">
+                <p><i class="fa fa-pencil"></i> ข้อความ</p>
+                <input type="text" id="title" class="input-text s" placeholder="message..." value="<?php echo $var['ba_title'];?>">
                 
                 <br>
                 <input type="submit" class="input-submit" name="submit" value="อัพเดทข้อมูล">

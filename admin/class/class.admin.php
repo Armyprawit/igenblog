@@ -3,21 +3,25 @@ class Admin extends MyDev{
 	
 	//ADMIN LOGIN
 	public function loginG($dbHandle,$user,$password){
+
+		$user = parent::encryptionKeys($user);
+		$password = parent::encryptionKeys($password);
+
 		try{
-    		$stmt = $dbHandle->prepare('SELECT cf_id FROM ig_config WHERE cf_value = :value AND cf_id = 1');
-			$user = parent::encryptionKeys($user);
+    		$stmt = $dbHandle->prepare('SELECT se_id FROM bl_setting WHERE se_value = :value AND se_id = 20');
+			
 			$stmt->bindParam(':value',$user);
     		$stmt->execute();
 			$var = $stmt->fetch(PDO::FETCH_ASSOC);
-			echo $userC = $var['cf_id'];
-			if($userC == 1){
-				$stmt = $dbHandle->prepare('SELECT cf_id FROM ig_config WHERE cf_value = :value AND cf_id = 2');
-				$password = parent::encryptionKeys($password);
+			
+			if($var['se_id'] == 20){
+
+				$stmt = $dbHandle->prepare('SELECT se_id FROM bl_setting WHERE se_value = :value AND se_id = 21');
 				$stmt->bindParam(':value',$password);
     			$stmt->execute();
 				$var = $stmt->fetch(PDO::FETCH_ASSOC);
-				echo $passwordC = $var['cf_id'];
-				if($passwordC == 2){
+
+				if($var['se_id'] == 21){
 					return true;
 				}
 				else{

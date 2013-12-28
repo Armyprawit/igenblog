@@ -1,4 +1,4 @@
 <?php
 include'../class/setting.php';
-$banner->listBanner($dbHandle,'ajax',1,$_POST['start']+0,5);
+$banner->listBanner($dbHandle,'ajax',$_POST['zone'],$_POST['start']+0,5);
 ?>

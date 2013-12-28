@@ -15,7 +15,7 @@ var state = true;
 $(window).scroll(function() {
   if($(window).scrollTop() + $(window).height() >= $(document).height()-50) {
   	if(state){
-  		loadingBanner(index);
+  		loadingBanner($('#categoryMode').val(),index);
   	}
   }
 });
@@ -60,7 +60,7 @@ function createBanner(title,image,link,zone){
 			$("#console").fadeIn(200).html(create.responseText);
 			$("#console").delay(3000).animate({bottom:"-50px"},500);
 
-			modeListBanner(1);
+			modeListBanner(0);
 			toCreateBanner();
 		}				
 	}
@@ -108,12 +108,12 @@ function editBanner(id,title,image,link,zone){
 			$("#console").delay(3000).animate({bottom:"-50px"},400);
 
 			toSelectBanner(id);
-			modeListBanner(1);
+			modeListBanner(0);
 		}				
 	}
 }
 
-function statusPhoto(id,stat){
+function statusBanner(id,stat){
 	state = true;
 	$("#console").animate({bottom:"0px"},800);
 
@@ -137,7 +137,7 @@ function statusPhoto(id,stat){
 		alert('Cannot status_s XMLHTTP instance');
 		return false;
 	}
-	var url = 'process/process-photo-status.php';
+	var url = 'process/process-banner-status.php';
 	var pmeters = 'id='+id+'&stat='+stat;
 	status_s.open('POST',url,true);
 
@@ -153,7 +153,7 @@ function statusPhoto(id,stat){
 			$("#console").fadeIn(200).html(status_s.responseText);
 			$("#console").delay(3000).animate({bottom:"-50px"},500);
 
-			modeListPhoto(0);
+			modeListBanner(0);
 		}				
 	}
 }
@@ -247,7 +247,7 @@ function searchPhoto(q){
 	}
 }
 
-function loadingBanner(start){
+function loadingBanner(zone,start){
 	state = true;
 	loading = false;
 
@@ -271,7 +271,7 @@ function loadingBanner(start){
 		return false;
 	}
 	var url = 'process/process-banner-loading.php';
-	var pmeters = 'start='+start;
+	var pmeters = 'zone='+zone+'&start='+start;
 	loading.open('POST',url,true);
 
 	loading.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -370,7 +370,7 @@ function toCreateBanner(){
 		if(createForm.readyState == 4) // Return Request
 		{
 			$("#result").fadeIn(200).html(createForm.responseText);
-			modeListBanner(1);
+			modeListBanner(0);
 		}				
 	}
 }

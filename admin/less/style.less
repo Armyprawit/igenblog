@@ -245,11 +245,143 @@ body{
                 }
             }
         }
+
+        #news{
+            width: 99%;
+            display: inline-block;
+            float: left;
+            padding-left: 1%;
+
+            .newsItem{
+                width: 32%;
+                float: left;
+                display: inline-block;
+                margin: 0.5%;
+
+                .image{
+                    width: 100%;
+                    height: 200px;
+                    overflow: hidden;
+
+                    img{
+                        width: 100%;
+                    }
+                }
+
+                .info{
+                    background: #FFFFFF;
+                    padding: 2%;
+                    width: 96%;
+                    display: inline-block;
+                    float: left;
+                    height: 68px;
+                    overflow: hidden;
+
+                    .time{
+                        font-size: 0.7em;
+                        color: #CCCCCC;
+                        text-align: right;
+                    }
+
+                    h1{
+                        font-size: 0.9em;
+                        color: @colorBase4;
+                        margin-bottom: 5px;
+                    }
+                    p{
+                        font-size: 0.8em;
+                        line-height: 22px;
+                        color: #AAAAAA;
+                    }
+                }
+            }
+        }
+
+
         .content{
             width: 49%;
             display: inline-block;
             float: left;
             padding-left: 1%;
+
+            .versionBox{
+                width: 96%;
+                display: inline-block;;
+                float: left;
+                background: #FFFFFF;
+                text-align: center;
+                padding: 2%;
+                margin-bottom: 20px;
+
+                p{
+                    font-size: 1em;
+                    color: #AAAAAA;
+                    background: #F5F5F5;
+                    padding: 20px;
+
+                    .s{
+                        color: @colorBase4;
+                    }
+                }
+
+                .btn{
+                    background: #e74c3c;
+                    color:#FFFFFF;
+                    display: inline-block;
+                    padding: 1%;
+                    border-radius: 2px;
+                    line-height: 20px;
+                    width: 40%;
+                    margin-bottom: 20px;
+                    margin-top: 20px;
+                    cursor: pointer;
+
+                    &:hover{
+                        background: #c0392b;
+                    }
+
+                    p{
+                        font-size: 0.7em;
+                        color: #FFFFFF;
+                        background: none;
+                        padding: 0px;
+                    }
+                }
+
+                .note{
+                    font-size: 0.8em;
+                    color: #555555;
+                    margin-top: 20px; 
+                }
+
+                .update{
+                    background: @colorBase4;
+
+                    &:hover{
+                        background: @colorBase5;
+                    }
+                }
+            }
+
+            .chartBox{
+                width: 96%;
+                display: inline-block;;
+                float: left;
+                background: #FFFFFF;
+                text-align: center;
+                padding: 2%;
+                margin-bottom: 20px;
+
+                .topic{
+                    text-align: left;
+                    font-size: 1em;
+                    color: #555555;
+
+                    i{
+                        color: @colorBase4;
+                    }
+                }
+            }
 
             .option{
                  float: left;
@@ -339,6 +471,10 @@ body{
                         width: 45%;
                         display: inline-block;
                         float:left;
+                        
+                        background-image:url(../image/loading4.gif);
+                        background-position:center;
+                        background-repeat:no-repeat;
 
                         img{
                             width: 100%;
@@ -350,6 +486,60 @@ body{
                         display: inline-block;
                         font-size: 0.9em;
                         line-height: 20px;
+
+                        .head{
+                            .layouts;
+                            font-size: 0.8em;
+                            margin-bottom: 5px;
+
+                            .id{
+                                float: left;
+                                margin-right: 5px;
+                                color: #777777;
+                                background: #DDDDDD;
+                                padding-left: 5px;
+                                padding-right: 5px;
+                                border-radius: 2px;
+                                margin-right: 5px;
+                            }
+                            
+                            .status{
+                                float: left;
+                                padding-left: 5px;
+                                padding-right: 5px;
+                                border-radius: 2px;
+                                margin-right: 5px;
+                                cursor: pointer;
+                            }
+                            .s{
+                                background: #2ecc71;
+                                color:#FFFFFF;
+
+                                &:hover{
+                                    background: #27ae60;
+                                }
+                            }
+                            .d{
+                                background: #AAAAAA;
+                                color: #FFFFFF;
+                                &:hover{
+                                    background: #777777;
+                                }
+                            }
+
+                            .category{
+                                float: right;
+                                background: @colorBase4;
+                                color: #FFFFFF;
+                                padding-left: 5px;
+                                padding-right: 5px;
+                                border-radius: 2px;
+                                cursor: pointer;
+                                 &:hover{
+                                    background: @colorBase5;
+                                 }
+                            }
+                        }
 
                         .zone{
                             font-size: 1em;
@@ -661,6 +851,53 @@ body{
 
                 .id{
                     color: @colorBase4;
+                }
+            }
+
+            .topBox{
+                width: 96%;
+                float: left;
+                display: inline-block;
+                background: #FFFFFF;
+                padding: 2%;
+                margin-bottom: 15px;
+
+                .topic{
+                    font-size: 1em;
+                    margin-bottom: 10px;
+                    color: #555555;
+
+                    i{
+                        color: @colorBase4;
+                    }
+                }
+                .item{
+                    float: left;
+                    width: 96%;
+                    padding: 2%;
+                    display: inline-block;
+                    cursor: pointer;
+
+                    &:hover{
+                        background: #EEEEEE;
+                    }
+
+                    h1{
+                        font-weight: normal;
+                        font-size: 0.9em;
+                        color: @colorBase4;
+                        margin-bottom: 5px;
+                    }
+                    .time{
+                        float: left;
+                        color: #CCCCCC;
+                        font-size: 0.7em;
+                    }
+                    .value{
+                        float: right;
+                        color: #CCCCCC;
+                        font-size: 0.7em;
+                    }
                 }
             }
 

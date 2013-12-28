@@ -33,20 +33,32 @@
     <?php include'header.php';?>
 
     <div id="mainContent">
-        <div class="title"><i class="fa fa-home"></i> Banner <span id="console"></span></div>
+        <div class="title"><i class="fa fa-home"></i> Banner 
+            <span class="categoryMode">
+              <select id="categoryMode" class="input-select" onChange="Javascript:modeListBanner($('#categoryMode').val());">
+                <option value="0">ทั้งหมด</option>
+                <option value="1">ZONE 1</option>
+                <option value="2">ZONE 2</option>
+                <option value="3">ZONE 3</option>
+                <option value="4">ZONE 4</option>
+                <option value="5">ZONE 5</option>
+                <option value="6">ZONE 6</option>
+              </select>
+            </span>
+        </div>
         <div class="content">
           <!-- Option -->
           <div class="option">
-            <div class="item" onClick="Javascript:toCreateBanner();"><i class="fa fa-plus-circle"></i> เพิ่มหมวดใหม่</div>
-            <div class="item" id="option-item-1" onClick="Javascript:modeCategory(1);"><i class="fa fa-check-circle-o"></i> Enable</div>
+            <div class="item" onClick="Javascript:toCreateBanner();"><i class="fa fa-plus-circle"></i> ป้ายโฆษณาใหม่</div>
+            <!-- <div class="item" id="option-item-1" onClick="Javascript:modeCategory(1);"><i class="fa fa-check-circle-o"></i> Enable</div>
             <div class="item" id="option-item-0" onClick="Javascript:modeCategory(0);"><i class="fa fa-circle-o"></i> Disable</div>
-            <div class="search"><input type="text" class="input-text" id="q" OnKeyUp="Javascript:searchCategory(document.getElementById('q').value);" placeholder="ค้นหาชื่อหมวด,url,id"></div>
+            <div class="search"><input type="text" class="input-text" id="q" OnKeyUp="Javascript:searchCategory(document.getElementById('q').value);" placeholder="ค้นหาชื่อหมวด,url,id"></div> -->
           </div>
 
 
           <div class="display" id="list">
 
-            <?php $banner->listBanner($dbHandle,'normal',1,0,5);?>
+            <?php $banner->listBanner($dbHandle,'normal',0,0,5);?>
 
           </div>
         </div>
