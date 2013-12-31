@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="css/style.css" type="text/css"/>
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 
+
 <!-- LIB -->
 <script src="lib/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script src="lib/sbbeditor.js" type="text/javascript"></script>
@@ -35,30 +36,13 @@
     <?php include'header.php';?>
 
     <div id="mainContent">
-
-
-
-        <?php
-          $user = $youtube->getChannelData(0);
-          echo $youtube->newChannel($dbHandle,$user['title'],$user['description'],$user['username'],$user['image'],$user['href'],$user['url'],$user['google'],$user['location']);
-        ?>
-
-
-
         <div class="title"><i class="fa fa-home"></i> Title <?php echo 'Session:'.$_SESSION['adminG'];?></div>
         <div class="option">
         </div>
         <div class="content">
-          <div class="versionBox">
-            <p>เวอร์ชันปัจจุบัน <span class="s">3.0</span></p>
-            <div class="btn">ดาวน์โหลด <p>Version 3.1.2</p></div>
-            <!-- <div class="btn">อัพเดทแล้ว</div> -->
-            <div class="note">หลังจากอัพเดทไฟล์แล้ว ให้ท่านคลิปที่ "ปรับปรุงฐานข้อมูล"</div>
-            <div class="btn update">ปรับปรุงฐานข้อมูล</div>
-          </div>
 
           <div class="chartBox">
-            <div class="topic"><i class="fa fa-bar-chart-o"></i> Topic</div>
+            <div class="topic"><i class="fa fa-bar-chart-o"></i> ความเร็วในการเปิดหน้าเว็บ</div>
             <div id="container"></div>
           </div>
 
@@ -67,9 +51,27 @@
             <div id="container1"></div>
           </div>
 
+          <div class="chartBox">
+            <div class="topic"><i class="fa fa-bar-chart-o"></i> Topic</div>
+            <div id="accessTime"></div>
+          </div>
+
 
         </div>
         <div class="activity">
+
+        	<div class="statBox mini">
+        		<div class="value">231</div>
+        		<p><i class="fa fa-globe"></i> ออนไลน์</p>
+        	</div>
+        	<div class="statBox mini right">
+        		<div class="value">231</div>
+        		<p><i class="fa fa-globe"></i> ออนไลน์</p>
+        	</div>
+        	<div class="statBox full">
+        		<div class="value">231</div>
+        		<p><i class="fa fa-globe"></i> ออนไลน์</p>
+        	</div>
 
           <div class="topBox">
             <div class="topic"><i class="fa fa-arrow-up"></i> บทความยอดนิยม</div>

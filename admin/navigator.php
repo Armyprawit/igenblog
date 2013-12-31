@@ -40,6 +40,12 @@
             <div class="text"> <i class="fa fa-video-camera"></i>วิดีโอคลิป <span class="total"><?php echo $video->infoVideoData($dbHandle,'total');?></span></div><div class="s"></div>
         </div>
         </a>
+
+        <a href="youtube.php" target="_parent">
+        <div class="item sub">
+            <div class="text"> <i class="fa fa-youtube"></i>Youtube channel <span class="total"><?php echo $video->infoVideoData($dbHandle,'total');?></span></div><div class="s"></div>
+        </div>
+        </a>
         
         <a href="article.php" target="_parent">
         <div class="item">

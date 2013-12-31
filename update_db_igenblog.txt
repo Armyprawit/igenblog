@@ -83,3 +83,20 @@ ALTER TABLE  `bl_setting` ADD  `se_sort` INT( 3 ) NOT NULL DEFAULT  '0' AFTER  `
 ALTER TABLE  `bl_setting` ADD  `se_placeholder` TEXT NULL AFTER  `se_description` ;
 
 ALTER TABLE  `bl_setting` ADD  `se_note` TEXT NULL AFTER  `se_sort` ;
+
+CREATE TABLE  `bl_channel` (
+ `ch_id` MEDIUMINT( 11 ) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+ `ch_title` VARCHAR( 200 ) NOT NULL ,
+ `ch_username` VARCHAR( 200 ) NOT NULL ,
+ `ch_image` TEXT NULL ,
+ `ch_href` TEXT NULL ,
+ `ch_url` TEXT NULL ,
+ `ch_google_plus` VARCHAR( 200 ) NULL ,
+ `ch_location` VARCHAR( 100 ) NULL ,
+ `ch_create_time` INT( 11 ) NOT NULL ,
+ `ch_update_time` INT( 11 ) NOT NULL ,
+ `ch_type` INT( 3 ) NOT NULL DEFAULT  '1',
+ `ch_status` INT( 3 ) NOT NULL DEFAULT  '1'
+) ENGINE = MYISAM ;
+
+ALTER TABLE  `bl_channel` ADD  `ch_description` TEXT NOT NULL AFTER  `ch_title` ;
