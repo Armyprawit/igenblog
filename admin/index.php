@@ -35,16 +35,6 @@
     <?php include'header.php';?>
 
     <div id="mainContent">
-
-
-
-        <?php
-          $user = $youtube->getChannelData(0);
-          echo $youtube->newChannel($dbHandle,$user['title'],$user['description'],$user['username'],$user['image'],$user['href'],$user['url'],$user['google'],$user['location']);
-        ?>
-
-
-
         <div class="title"><i class="fa fa-home"></i> Title <?php echo 'Session:'.$_SESSION['adminG'];?></div>
         <div class="option">
         </div>

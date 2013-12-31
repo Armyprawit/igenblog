@@ -8,7 +8,7 @@ include_once'var-message.php';
 
 class Youtube{
 
-	public function getChannelData($username){
+	public function getChannelMeta($username){
 		$url = 'http://gdata.youtube.com/feeds/users/'.$username.'?alt=json';
 		$json = file_get_contents($url);
 		$data = json_decode($json,true);
@@ -191,6 +191,24 @@ class Youtube{
 			}
 		catch(PDOException $e){
 			return $msg['0'];
+		}
+	}
+
+	// GET VIDEO DATA
+	public function getChannelData($dbHandle,$channel_id){
+		$stmt = $dbHandle->prepare('SELECT * FROM bl_channel WHERE ch_id = ?');
+    	$stmt->execute(array($channel_id));
+		$var = $stmt->fetch(PDO::FETCH_ASSOC);
+		
+		return $var;
+	}
+
+	public function infoChannelData($dbHandle,$event){
+		if($event == 'total'){
+			$stmt = $dbHandle->prepare('SELECT COUNT(ch_id) FROM bl_channel');
+    		$stmt->execute(array($id));
+    		$var = $stmt->fetch(PDO::FETCH_ASSOC);
+    		return $var['COUNT(ch_id)'];
 		}
 	}
 }
