@@ -17,6 +17,7 @@
 <script src="lib/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script src="lib/sbbeditor.js" type="text/javascript"></script>
 <script src="lib/mydev.js" type="text/javascript"></script>
+<script src="lib/textarea.autosize.js" type="text/javascript"></script>
 
 <!-- AJAX -->
 <script src="js/ajax/channel.js" type="text/javascript"></script>
@@ -35,6 +36,8 @@
           <i class="fa fa-home"></i> Channel
         </div>
         <div class="content">
+
+          <?php //$youtube->getVideoDataByChannelAPI('beartaihitech');?>
           
           <!-- Option -->
           <div class="option">
@@ -44,14 +47,13 @@
 
           <!-- Display -->
           <div class="display" id="list">
-            <?php //$video->listVideo($dbHandle,'normal',0,1,1,0,5);?>
             <?php $youtube->listChannel($dbHandle,'normal',1,1,0,5);?>
           </div>
         </div>
 
         <div class="activity">
           <div class="display" id="result">
-            <?php //include'html/video-form.php';?>
+            <?php //include'html/channel-form.php';?>
           </div>
           
 

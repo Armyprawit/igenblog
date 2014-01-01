@@ -100,3 +100,19 @@ CREATE TABLE  `bl_channel` (
 ) ENGINE = MYISAM ;
 
 ALTER TABLE  `bl_channel` ADD  `ch_description` TEXT NOT NULL AFTER  `ch_title` ;
+
+INSERT INTO  `igen_blog`.`bl_category` (
+`ca_id` ,
+`ca_title` ,
+`ca_description` ,
+`ca_keyword` ,
+`ca_image` ,
+`ca_create_time` ,
+`ca_last_time` ,
+`ca_url` ,
+`ca_type` ,
+`ca_status`
+)
+VALUES (
+'10000',  'ไม่มีหมวดหมู่',  'ไม่มีหมวดหมู่', NULL , NULL ,  '0',  '0',  'no',  '1',  '1'
+);

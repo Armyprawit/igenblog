@@ -11,7 +11,101 @@ var status_s = false;
 var index = 5;
 var state = true;
 
+// Update Youtube API
+var update = false;
+var totalVideo = 0;
+var wait = 0;
+var href = '';
+
 var usernames = '';
+
+function updateVideoYoutube(channel,http,category,stat,start,total){
+
+	console.log("http:"+http+" / category:"+category+" / Status:"+stat);
+
+	if(start == 1){
+		$("#loading").html(' <i class="fa fa-spinner fa-spin"></i> รอสักครู่...');
+	}
+
+	if(http == 0){
+		href = 'http://gdata.youtube.com/feeds/api/users/'+channel+'/uploads?v=2&alt=jsonc&start-index='+start+'&max-results='+total;
+	}
+	else if(http == 1){
+		href = 'https://gdata.youtube.com/feeds/api/users/'+channel+'/uploads?v=2&alt=jsonc&start-index='+start+'&max-results='+total;
+	}
+
+	$.ajax({
+		url:href,
+		error: function (request, status, error) {
+    	    console.log("Request session again!");
+    	    wait++;
+    	    $('#updateResult').prepend('<div class="waitItem" id="waitItem'+wait+'"><i class="fa fa-exclamation-circle"></i> กำลังขอ Session ใหม่อีกครั้ง ['+wait+']</div>');
+    	    $('#waitItem'+wait).hide().slideDown(700);
+
+    	    updateVideoYoutube(channel,http,category,stat,start,total);
+    	}
+	}).done(function(data){
+		$('#process').html(start+' / <span class="t">'+data.data.totalItems+'<span>');
+		totalVideo = data.data.totalItems;
+
+		$.each(data.data.items,function(k,v){
+			newVideoUpdate(category,v.title,v.description,v.duration,'keyword',v.thumbnail.sqDefault,v.thumbnail.hqDefault,v.id,v.uploader,1,stat,start);
+		});
+
+		start += total;
+		wait = 0;
+
+		if(start > totalVideo){
+			$("#loading").html(' <i class="fa fa-check-circle-o"></i> อัพเดทแล้ว');
+		}
+		else{
+			updateVideoYoutube(channel,http,category,stat,start,total);
+		}
+	}).error();
+}
+
+function newVideoUpdate(category,title,text,duration,keyword,image_mini,image_hd,code,uploader,type,status,start){
+	if(username ==""){
+		return false;
+	}
+
+	newUpdate = false;
+	if(window.XMLHttpRequest) { // Mozilla, Safari,...
+		newUpdate = new XMLHttpRequest();
+			if (newUpdate.overrideMimeType) {
+				newUpdate.overrideMimeType('text/html');
+			}
+	}else if (window.ActiveXObject) { // IE
+		try{
+			newUpdate = new ActiveXObject("Msxml2.XMLHTTP");
+		} catch (e) {
+			try {
+				newUpdate = new ActiveXObject("Microsoft.XMLHTTP");
+			} catch (e) {}
+		}
+	}
+	
+	if (!newUpdate) {
+		alert('Cannot create XMLHTTP instance');
+		return false;
+	}
+	var url = 'process/process-video-youtube-update.php';
+	var pmeters = 'category='+category+'&title='+title+'&text='+text+'&duration='+duration+'&keyword='+keyword+'&image_mini='+image_mini+'&image_hd='+image_hd+'&code='+code+'&uploader='+uploader+'&type='+type+'&status='+status+'&start='+start;
+	newUpdate.open('POST',url,true);
+
+	newUpdate.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	newUpdate.send(pmeters);			
+	newUpdate.onreadystatechange = function(){
+		if(newUpdate.readyState == 3)  // Loading Request
+		{
+		}
+		if(newUpdate.readyState == 4) // Return Request
+		{
+			$('#updateResult').prepend(newUpdate.responseText);
+			$('#vidItem'+start).hide().slideDown(700);
+		}				
+	}
+}
 
 // scroll event to load more Video.
 $(window).scroll(function() {
@@ -338,9 +432,9 @@ function loadingChannel(start){
 }
 
 // When click clip item is call this function.
-function toSelectVideo(id){
+function toSelectChannel(id){
 	$("#result").fadeOut(100);
-	document.getElementById("loading-"+id).innerHTML = '<i class="fa fa-spinner fa-spin"></i>';
+	//document.getElementById("loading-"+id).innerHTML = '<i class="fa fa-spinner fa-spin"></i>';
 
 	editForm = false;
 	if(window.XMLHttpRequest) { // Mozilla, Safari,...
@@ -362,7 +456,7 @@ function toSelectVideo(id){
 		alert('Cannot editForm XMLHTTP instance');
 		return false;
 	}
-	var url = 'process/edit-video.php';
+	var url = 'process/update-channel.php';
 	var pmeters = 'id='+id;
 	editForm.open('POST',url,true);
 
@@ -374,7 +468,7 @@ function toSelectVideo(id){
 		}
 		if(editForm.readyState == 4) // Return Request
 		{
-			document.getElementById("loading-"+id).innerHTML = '';
+			//document.getElementById("loading-"+id).innerHTML = '';
 			$("#result").fadeIn(200).html(editForm.responseText);
 		}				
 	}

@@ -859,11 +859,31 @@ body{
                 border-radius: 3px;
 
                 i{
-                    color: #CCCCCC;
+                    color: @colorBase4;
                 }
 
                 .id{
                     color: @colorBase4;
+                }
+
+                img{
+                    height: 16px;
+                }
+
+                .loading{
+                    color: @colorBase5;
+                    font-size: 0.8em;
+                    margin-left: 5px;
+                }
+
+                #process{
+                    float: right;
+                    font-size: 1em;
+                    color: #555555;
+
+                    .t{
+                        color: @colorBase4;
+                    }
                 }
             }
 
@@ -983,6 +1003,109 @@ body{
                 }
                 .w{
                     color: #e74c3c;
+                }
+
+                // BUTTON STYLE
+                .toProcess{
+                    width: 96%;
+                    background: #CCCCCC;
+                    text-align: center;
+                    margin: auto;
+                    padding: 2%;
+                    border-radius: 2px;
+                    cursor: pointer;
+                    font-size: 0.8em;
+                }
+
+                // Button State style
+                .start{
+                    background:@colorBase4;
+                    color: #FFFFFF;
+
+                    &:hover{
+                        background:@colorBase5;
+                    }
+                }
+                .end{
+                    background: #CCCCCC;
+                    color: #AAAAAA;
+
+                    &:hover{
+                        background: #BBBBBB;
+                    }
+                }
+                .cancel{
+                    background: #e74c3c;
+                    color: #FFFFFF;
+
+                    &:hover{
+                        background: #c0392b;
+                    }
+                }
+
+                .waitItem{
+                    float: left;
+                    width: 98%;
+                    display: inline-block;
+                    background: #F5F5F5;
+                    border-bottom: 1px solid #E5E5E5;
+                    text-align: center;
+                    padding: 1%;
+                    font-size: 0.8em;
+                    color: #e74c3c;
+                    height: 35px;
+                    padding-top: 15px;
+                }
+                .vidItem{
+                    float: left;
+                    width: 100%;
+                    display: inline-block;
+                    background: #F5F5F5;
+                    border-bottom: 1px solid #E5E5E5;
+
+                    // .thumbnail{
+                    //     float: left;
+                    //     width: 10%;
+                    //     display: inline-block;
+
+                    //     img{
+                    //         width: 100%;
+                    //     }
+                    // }
+                    .number{
+                        width: 10%;
+                        text-align: center;
+                        background: @colorBase4;
+                        color: #FFFFFF;
+                        font-size: 1em;
+                        float: left;
+                        height: 35px;
+                        padding-top: 15px;
+                        font-style: @fontStyle1;
+                    }
+                    .duplicate{
+                        background: #AAAAAA;
+                    }
+
+
+                    .detail{
+                        float: right;
+                        width: 89%;
+                        display: inline-block;
+                        height: 40px;
+                        padding-top: 10px;
+
+                        h3{
+                            font-weight: normal;
+                            font-size: 0.8em;
+                            margin-bottom: 5px;
+
+                        }
+                        p{
+                            font-size: 0.7em;
+                            color: @colorBase4;
+                        }
+                    }
                 }
                 
                 .image{

@@ -6,7 +6,7 @@
                 <div class="head">
                   <div class="id">#<?php echo $var['ch_id']+1024;?></div>
 
-                  <div class="category"></div>
+                  <div class="category"><?php echo parent::fb_thaidate($var['ch_update_time']);?></div>
                   <?php
                   if($var['ch_status'] == 1){
                     ?><div class="status s" onClick="Javascript:statusChannel(<?php echo $var['ch_id'];?>,<?php echo $var['ch_status'];?>);"><i class="fa fa-globe"></i> ทำงาน</div><?php

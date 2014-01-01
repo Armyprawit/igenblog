@@ -1,6 +1,23 @@
 <?php
 // CLASS MYDEV this Class by igensite.com
 class MyDev{
+
+	function convDuration($time){
+		$h = round($time/3600,0);
+		$time = $time%3600;
+		$m = round($time/60,0);
+		$time = $time%60;
+		$s = $time;
+		if($h<10){$h = '0'.$h;}
+		if($s<10){$s = '0'.$s;}
+	
+		if($h<1){
+			return "$m:$s";
+		}
+		else{
+			return "$h:$m:$s";
+		}
+	}
 	
 	public function convTextToMetaTag($text){
 		return str_replace('\"','',$text);

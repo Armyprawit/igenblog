@@ -6,7 +6,7 @@ include_once'var-message.php';
 /* CLASS VIDEO. */
 //////////////////
 
-class Youtube{
+class Youtube extends MyDev{
 
 	public function getChannelMeta($username){
 		$url = 'http://gdata.youtube.com/feeds/users/'.$username.'?alt=json';
@@ -51,6 +51,28 @@ class Youtube{
 		}
 	}
 	
+	// GET video data by Youtube API
+	public function getVideoDataByChannelAPI($username,$start,$total){
+		$url = 'http://gdata.youtube.com/feeds/api/users/'.$username.'/uploads?v=2&alt=jsonc&start-index='.$start.'&max-results='.$total;
+		$json = file_get_contents($url);
+		$data = json_decode($json);
+		
+		if($data->data->items){
+			foreach ( $data->data->items as $data ){
+				$video['title'] = $data->title;
+				$video['description'] = $data->description;
+				$video['code'] = $data->id;
+				$video['image_mini'] = $data->thumbnail->sqDefault;
+				$video['image_hd'] = $data->thumbnail->hqDefault;
+				$video['uploader'] = $data->uploader;
+				$video['duration'] = $data->duration;
+			}
+			
+			return $video;
+		}
+	}
+
+
 	// GET video data by Youtube API
 	public function getVideoDataByLinkAPI($link,$mode){
 		$link = $this->findCodeVideoYoutube($link,$mode);
@@ -150,7 +172,7 @@ class Youtube{
 
 	public function listChannel($dbHandle,$event,$type,$status,$start,$total){
 		try{
-			$stmt = $dbHandle->prepare('SELECT ch_id,ch_title,ch_description,ch_username,ch_image,ch_href,ch_url,ch_create_time,ch_status FROM bl_channel WHERE ch_type = :type ORDER BY ch_create_time DESC LIMIT :start,:total');
+			$stmt = $dbHandle->prepare('SELECT ch_id,ch_title,ch_description,ch_username,ch_image,ch_href,ch_url,ch_create_time,ch_update_time,ch_status FROM bl_channel WHERE ch_type = :type ORDER BY ch_create_time DESC LIMIT :start,:total');
 
     		$stmt->bindParam(':type',$type);
 
@@ -193,6 +215,60 @@ class Youtube{
 			return $msg['0'];
 		}
 	}
+
+	//NEW VIDEO
+	public function newVideoYoutube($dbHandle,$category_id,$title,$text,$duration,$keyword,$image_mini,$image_hd,$code,$uploader,$type,$status,$start){
+		global $msg;
+		$duplicate = false;
+
+		$stmt = $dbHandle->prepare('SELECT vi_id FROM bl_video WHERE vi_code = ?');
+    	$stmt->execute(array($code));
+		$var = $stmt->fetch(PDO::FETCH_ASSOC);
+		
+		if($var['vi_id'] == ""){
+
+			$description = strip_tags($text);
+			//$category_id = 0;
+			$user_id = 0;
+			$article_id = 0;
+
+			try{
+				$stmt = $dbHandle->prepare('INSERT INTO bl_video(vi_category_id,vi_user_id,vi_article_id,vi_title,vi_description,vi_text,vi_duration,vi_keyword,vi_image_mini,vi_image_hd,vi_code,vi_uploader,vi_post_time,vi_update_time,vi_type,vi_status) VALUES(:category,:user,:artcle,:title,:description,:context,:duration,:keyword,:image_mini,:image_hd,:code,:uploader,:post_time,:update_time,:type,:status)');
+				$stmt->bindParam(':category',$category_id);
+				$stmt->bindParam(':user',$user_id);
+				$stmt->bindParam(':artcle',$article_id);
+				$stmt->bindParam(':title',$title);
+				$stmt->bindParam(':description',$description);
+				$stmt->bindParam(':context',$text);
+				$stmt->bindParam(':duration',$duration);
+				$stmt->bindParam(':keyword',$keyword);
+				$stmt->bindParam(':image_mini',$image_mini);
+				$stmt->bindParam(':image_hd',$image_hd);
+				$stmt->bindParam(':code',$code);
+				$stmt->bindParam(':uploader',$uploader);
+				$stmt->bindParam(':post_time',time()); //Create Time
+				$stmt->bindParam(':update_time',time()); //Last time
+				$stmt->bindParam(':type',$type);
+				$stmt->bindParam(':status',$status);
+			
+				$stmt->execute();
+
+				include'../html/update-video-item.php';
+				
+				//return $msg['7'];
+			}
+			catch(PDOException $e){
+				//return $msg['5'];
+				//return $e->getMessage();
+			}
+		}
+		else{
+			//return $msg['8'];
+			$duplicate = true;
+			include'../html/update-video-item.php';
+		}
+	}
+
 
 	// GET VIDEO DATA
 	public function getChannelData($dbHandle,$channel_id){
