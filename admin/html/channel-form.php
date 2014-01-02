@@ -1,4 +1,4 @@
-            <div class="headTitle"><?php echo $var['ch_username'];?><span id="loading" class="loading"></span> <div id="process"></div></div>
+            <div class="headTitle"><?php echo $var['ch_username'];?> <span id="loading" class="loading"></span> <span id="setting" class="setting"></span> <div id="process"></div></div>
             <div class="form" id="updateResult">
             	<select id="category" class="input-select s">
                     <?php $category->listCategoryToSelectForm($dbHandle,10000,0);?>

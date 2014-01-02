@@ -11,135 +11,23 @@ var status_s = false;
 var index = 5;
 var state = true;
 
-// Update Youtube API
-var update = false;
-var totalVideo = 0;
-var wait = 0;
-var href = '';
-
-var usernames = '';
-
-function updateVideoYoutube(channel,http,category,stat,start,total){
-
-	console.log("http:"+http+" / category:"+category+" / Status:"+stat);
-
-	var statusStr = '';
-	var httpStr = '';
-
-	if(stat == 0){
-		statusStr = 'บันทึกแบบร่าง';
-	}
-	else if(stat == 1){
-		statusStr = 'เผยแพร่ทันที';
-	}
-
-	if(http == 0){
-		httpStr = 'http';
-	}
-	else if(http == 1){
-		httpStr = 'https';
-	}
-
-	if(start == 1){
-		$("#loading").html(' <i class="fa fa-spinner fa-spin"></i> รอสักครู่...');
-		$("#setting").html('<i class="fa fa-cog"></i> '+httpStr+' / '+statusStr+' / '+category);
-	}
-
-	if(http == 0){
-		href = 'http://gdata.youtube.com/feeds/api/users/'+channel+'/uploads?v=2&alt=jsonc&start-index='+start+'&max-results='+total;
-	}
-	else if(http == 1){
-		href = 'https://gdata.youtube.com/feeds/api/users/'+channel+'/uploads?v=2&alt=jsonc&start-index='+start+'&max-results='+total;
-	}
-
-	$.ajax({
-		url:href,
-		error: function (request, status, error) {
-    	    console.log("Request session again!");
-    	    wait++;
-    	    $('#updateResult').prepend('<div class="waitItem" id="waitItem'+wait+'"><i class="fa fa-exclamation-circle"></i> กำลังขอ Session ใหม่อีกครั้ง ['+wait+']</div>');
-    	    $('#waitItem'+wait).hide().slideDown(700);
-
-    	    updateVideoYoutube(channel,http,category,stat,start,total);
-    	}
-	}).done(function(data){
-		$('#process').html(start+' / <span class="t">'+data.data.totalItems+'<span>');
-		totalVideo = data.data.totalItems;
-
-		$.each(data.data.items,function(k,v){
-			newVideoUpdate(category,v.title,v.description,v.duration,'keyword',v.thumbnail.sqDefault,v.thumbnail.hqDefault,v.id,v.uploader,1,stat,start);
-		});
-
-		start += total;
-		wait = 0;
-
-		if(start > totalVideo){
-			$("#loading").html(' <i class="fa fa-check-circle-o"></i> อัพเดทแล้ว');
-		}
-		else{
-			updateVideoYoutube(channel,http,category,stat,start,total);
-		}
-	}).error();
-}
-
-function newVideoUpdate(category,title,text,duration,keyword,image_mini,image_hd,code,uploader,type,status,start){
-	if(username ==""){
-		return false;
-	}
-
-	newUpdate = false;
-	if(window.XMLHttpRequest) { // Mozilla, Safari,...
-		newUpdate = new XMLHttpRequest();
-			if (newUpdate.overrideMimeType) {
-				newUpdate.overrideMimeType('text/html');
-			}
-	}else if (window.ActiveXObject) { // IE
-		try{
-			newUpdate = new ActiveXObject("Msxml2.XMLHTTP");
-		} catch (e) {
-			try {
-				newUpdate = new ActiveXObject("Microsoft.XMLHTTP");
-			} catch (e) {}
-		}
-	}
-	
-	if (!newUpdate) {
-		alert('Cannot create XMLHTTP instance');
-		return false;
-	}
-	var url = 'process/process-video-youtube-update.php';
-	var pmeters = 'category='+category+'&title='+title+'&text='+text+'&duration='+duration+'&keyword='+keyword+'&image_mini='+image_mini+'&image_hd='+image_hd+'&code='+code+'&uploader='+uploader+'&type='+type+'&status='+status+'&start='+start;
-	newUpdate.open('POST',url,true);
-
-	newUpdate.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	newUpdate.send(pmeters);			
-	newUpdate.onreadystatechange = function(){
-		if(newUpdate.readyState == 3)  // Loading Request
-		{
-		}
-		if(newUpdate.readyState == 4) // Return Request
-		{
-			$('#updateResult').prepend(newUpdate.responseText);
-			$('#vidItem'+start).hide().slideDown(700);
-		}				
-	}
-}
-
 // scroll event to load more Video.
 $(window).scroll(function() {
   if($(window).scrollTop() + $(window).height() >= $(document).height()-50) {
   	if(state){
-  		loadingChannel(index);
+  		loadingVideo($('#categoryMode').val(),index);
   	}
   }
 });
 
 
-function getMetaChannel(username){
-	if(username ==""){
+function getMetaVideo(id){
+	if(id ==""){
 		return false;
 	}
 
+	document.getElementById("loading").innerHTML = '<i class="fa fa-spinner fa-spin"></i>';
+	$("#meta").fadeOut(100);
 	yt = false;
 	if(window.XMLHttpRequest) { // Mozilla, Safari,...
 		yt = new XMLHttpRequest();
@@ -160,8 +48,8 @@ function getMetaChannel(username){
 		alert('Cannot create XMLHTTP instance');
 		return false;
 	}
-	var url = 'process/get-meta-channel.php';
-	var pmeters = 'username='+username;
+	var url = 'process/get-meta-youtube.php';
+	var pmeters = 'id='+id;
 	yt.open('POST',url,true);
 
 	yt.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -172,15 +60,13 @@ function getMetaChannel(username){
 		}
 		if(yt.readyState == 4) // Return Request
 		{
-			if(usernames != username){
-				$('#list').prepend(yt.responseText);
-			}
-			usernames = username;
+			document.getElementById("loading").innerHTML = '<i class="fa fa-check-circle-o"></i>';
+			$("#meta").fadeIn(200).html(yt.responseText);
 		}				
 	}
 }
 
-function createChannel(username){
+function createVideo(id,category,title,context,keyword){
 	state = true;
 	showLiveView('close');
 	$("#console").animate({bottom:"0px"},800);
@@ -205,8 +91,9 @@ function createChannel(username){
 		alert('Cannot create XMLHTTP instance');
 		return false;
 	}
-	var url = 'process/process-channel-create.php';
-	var pmeters = 'username='+username;
+	var url = 'process/process-video-create.php';
+	context = context.replace(/\r?\n/g,"<br>");
+	var pmeters = 'id='+id+'&category='+category+'&title='+title+'&description='+context+'&keyword='+keyword;
 	create.open('POST',url,true);
 
 	create.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -219,8 +106,10 @@ function createChannel(username){
 		{
 			$("#console").fadeIn(200).html(create.responseText);
 			$("#console").delay(3000).animate({bottom:"-50px"},500);
-			modeListChannel();
-			$('#username').val('');
+
+			toCreateVideo();
+			modeListVideo(0);
+			$("#categoryMode").val("0");
 		}				
 	}
 }
@@ -273,7 +162,7 @@ function editVideo(id,category,title,context,keyword){
 }
 
 
-function statusChannel(id,stat){
+function statusVideo(id,stat){
 	state = true;
 	$("#console").animate({bottom:"0px"},800);
 
@@ -297,7 +186,7 @@ function statusChannel(id,stat){
 		alert('Cannot status_s XMLHTTP instance');
 		return false;
 	}
-	var url = 'process/process-channel-status.php';
+	var url = 'process/process-video-status.php';
 	var pmeters = 'id='+id+'&stat='+stat;
 	status_s.open('POST',url,true);
 
@@ -313,12 +202,12 @@ function statusChannel(id,stat){
 			$("#console").fadeIn(200).html(status_s.responseText);
 			$("#console").delay(3000).animate({bottom:"-50px"},500);
 
-			modeListChannel();
+			modeListVideo(0);
 		}				
 	}
 }
 
-function modeListChannel(){
+function modeListVideo(category){
 	state = true;
 	$("#list").fadeOut(100);
 
@@ -342,8 +231,8 @@ function modeListChannel(){
 		alert('Cannot mode XMLHTTP instance');
 		return false;
 	}
-	var url = 'process/mode-channel.php';
-	var pmeters = 'id='+0;
+	var url = 'process/mode-video.php';
+	var pmeters = 'category='+category;
 	mode.open('POST',url,true);
 
 	mode.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -408,7 +297,7 @@ function searchVideo(q){
 	}
 }
 
-function loadingChannel(start){
+function loadingVideo(category,start){
 	state = true;
 	loading = false;
 	if(window.XMLHttpRequest) { // Mozilla, Safari,...
@@ -430,8 +319,8 @@ function loadingChannel(start){
 		alert('Cannot loading XMLHTTP instance');
 		return false;
 	}
-	var url = 'process/process-channel-loading.php';
-	var pmeters = 'start='+start;
+	var url = 'process/process-video-loading.php';
+	var pmeters = 'start='+start+'&category='+category;
 	loading.open('POST',url,true);
 
 	loading.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -450,9 +339,9 @@ function loadingChannel(start){
 }
 
 // When click clip item is call this function.
-function toSelectChannel(id){
+function toSelectVideo(id){
 	$("#result").fadeOut(100);
-	//document.getElementById("loading-"+id).innerHTML = '<i class="fa fa-spinner fa-spin"></i>';
+	document.getElementById("loading-"+id).innerHTML = '<i class="fa fa-spinner fa-spin"></i>';
 
 	editForm = false;
 	if(window.XMLHttpRequest) { // Mozilla, Safari,...
@@ -474,7 +363,7 @@ function toSelectChannel(id){
 		alert('Cannot editForm XMLHTTP instance');
 		return false;
 	}
-	var url = 'process/update-channel.php';
+	var url = 'process/edit-video.php';
 	var pmeters = 'id='+id;
 	editForm.open('POST',url,true);
 
@@ -486,7 +375,7 @@ function toSelectChannel(id){
 		}
 		if(editForm.readyState == 4) // Return Request
 		{
-			//document.getElementById("loading-"+id).innerHTML = '';
+			document.getElementById("loading-"+id).innerHTML = '';
 			$("#result").fadeIn(200).html(editForm.responseText);
 		}				
 	}
