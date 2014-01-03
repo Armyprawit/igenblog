@@ -1,161 +1,59 @@
 <?php
-//Message Set
-include_once'var-message.php';
+class Category extends MyDev{
 
-class Category{
-	public function newCategory($dbHandle,$title,$description,$url,$keyword,$image){
-		global $msg;
-		$stmt = $dbHandle->prepare('SELECT ca_id FROM bl_category WHERE ca_title = ?');
-    	$stmt->execute(array($title));
-		$var = $stmt->fetch(PDO::FETCH_ASSOC);
-		
-		if($var['ca_id'] == ""){
-			try{
-				$stmt = $dbHandle->prepare("INSERT INTO bl_category(ca_title,ca_description,ca_url,ca_keyword,ca_image,ca_create_time,ca_last_time) VALUES(:title,:description,:url,:keyword,:image,:c_time,:l_time)");
-				$stmt->bindParam(':title',$title);
-				$stmt->bindParam(':description',$description);
-				$stmt->bindParam(':url',$url);
-				$stmt->bindParam(':keyword',$keyword);
-				$stmt->bindParam(':image',$image);
-				$stmt->bindParam(':c_time',time()); //Create Time
-				$stmt->bindParam(':l_time',time()); //Last time
-			
-				$stmt->execute();
-				
-				return $msg['7'];
-			}
-			catch(PDOException $e){
-				return $msg['5'];
-			}
-		}
-		else{
-			return $msg['8'];
-		}
-	}
-	public function updateCategory($dbHandle,$category_id,$title,$description,$url,$keyword,$image){
-		global $msg;
-		try{
-    		$stmt = $dbHandle->prepare('UPDATE bl_category SET ca_title = :title,ca_description = :description,ca_url = :url,ca_keyword = :keyword,ca_image = :image,ca_last_time = :time WHERE ca_id = :id');
-			$stmt->bindParam(':title',$title);
-			$stmt->bindParam(':description',$description);
-			$stmt->bindParam(':url',$url);
-			$stmt->bindParam(':keyword',$keyword);
-			$stmt->bindParam(':image',$image);
-			$stmt->bindParam(':time',time());
-			$stmt->bindParam(':id',$category_id);
-			
-			$stmt->execute();
-			
-			return $msg['0'];
-			
-		}
-		catch(PDOException $e){echo'ERROR:'.$e->getMessage();}
-	}
-	
-	//DELETE CATEGORY
-	public function deleteCategory($dbHandle,$category_id){
-		global $msg;
-		$stmt = $dbHandle->prepare('SELECT ca_id FROM ig_category WHERE ca_parent = ?');
-    	$stmt->execute(array($category_id));
-		$var = $stmt->fetch(PDO::FETCH_ASSOC);
-		
-		if($var['ca_id'] == ""){
-			try{
-    			$stmt = $dbHandle->prepare('DELETE FROM ig_category WHERE ca_id = :id');
-				$stmt->bindParam(':id',$category_id);
-    			$stmt->execute();
-				return $msg['0'];
-			}
-			catch(PDOException $e){
-				return $msg['5'];
-			}
-		}
-		else{
-			return $msg['1'];
-		}
-	}
-	
-	//DELETE CATEGORY
-	public function hiddenCategory($dbHandle,$category_id){
-		try{
-    		$stmt = $dbHandle->prepare('DELETE FROM ig_category WHERE ca_id = :id');
-			$stmt->bindParam(':id',$category_id);
-    		$stmt->execute();
-		}
-		catch(PDOException $e){echo'ERROR:'.$e->getMessage();}
-	}
-	
-	public function listCategory($dbHandle,$event,$status,$start,$total){
-		try{
-    		$stmt = $dbHandle->prepare('SELECT ca_id,ca_title,ca_url,ca_description FROM bl_category WHERE ca_status = :status ORDER BY ca_create_time DESC');
-			$stmt->bindParam(':status',$status);
-    		$stmt->execute();
-			while($var = $stmt->fetch(PDO::FETCH_ASSOC)){
-				if($event=="normal"){
-					include'html/category-item.php';
-				}
-				else if($event=="ajax"){
-					include'../html/category-item.php';
-				}
-			}
-		}
-		catch(PDOException $e){echo'ERROR:'.$e->getMessage();}
-	}
-
-	public function searchCategory($dbHandle,$q){
-		try{
-			if($q != ""){
-    			$stmt = $dbHandle->prepare("SELECT ca_id,ca_title,ca_url,ca_description FROM bl_category WHERE ca_title LIKE ? OR ca_url LIKE ? OR ca_description LIKE ? OR ca_id LIKE ? ORDER BY ca_title,ca_url,ca_description");
-    		}
-    		else{
-    			$stmt = $dbHandle->prepare('SELECT ca_id,ca_title,ca_url,ca_description FROM bl_category WHERE ca_status = 1 ORDER BY ca_create_time DESC');
-    		}
-    		$stmt->bindValue(1,"%$q%",PDO::PARAM_STR);
-    		$stmt->bindValue(2,"%$q%",PDO::PARAM_STR);
-    		$stmt->bindValue(3,"%$q%",PDO::PARAM_STR);
-    		$stmt->bindValue(4,"%$q%",PDO::PARAM_STR);
-    		$stmt->execute();
-			while($var = $stmt->fetch(PDO::FETCH_ASSOC)){
-				include'../html/category-item.php';
-			}
-		}
-		catch(PDOException $e){echo'ERROR:'.$e->getMessage();}
-	}
-	
-	public function listCategoryToSelectForm($dbHandle,$category_id,$mode){
+	public function listCategory($dbHandle,$category_id){
 		//Mode :1 = Normal, 0 = Ajax
 		try{
-    		$stmt = $dbHandle->prepare('SELECT ca_id,ca_title FROM bl_category WHERE ca_status = 1 ORDER BY ca_create_time DESC');
+    		$stmt = $dbHandle->prepare('SELECT * FROM bl_category WHERE ca_status = 1 ORDER BY ca_create_time DESC');
     		$stmt->execute();
 			while($var = $stmt->fetch(PDO::FETCH_ASSOC)){
-				if($mode == '1'){
-					include'html/category-select-form.php';
-				}
-				if($mode == '0'){
-					include'../html/category-select-form.php';
-				}
+
+				$stmts = $dbHandle->prepare('SELECT COUNT(tl_id) FROM bl_timeline WHERE tl_status = 1 AND tl_category_id = ?');
+    			$stmts->execute(array($var['ca_id']));
+    			$vars = $stmts->fetch(PDO::FETCH_ASSOC);
+
+				include'html/category-item.php';
 			}
 		}
 		catch(PDOException $e){echo'ERROR:'.$e->getMessage();}
 	}
 	
-	
-	//GET CATEGORY DATA
-	public function getCategoryData($dbHandle,$category_id){
-		$stmt = $dbHandle->prepare('SELECT * FROM bl_category WHERE ca_id = ?');
-    	$stmt->execute(array($category_id));
-		$var = $stmt->fetch(PDO::FETCH_ASSOC);
-		
-		return $var;
-	}
-
-	public function infoCategoryData($dbHandle,$event){
-		if($event == 'total'){
-			$stmt = $dbHandle->prepare('SELECT COUNT(ca_id) FROM bl_category');
-    		$stmt->execute(array($id));
-    		$var = $stmt->fetch(PDO::FETCH_ASSOC);
-    		return $var['COUNT(ca_id)'];
+	// List Category
+	public function listAllCategory($category_id){
+		$query = "SELECT ca_id,ca_title,ca_description,ca_url,ca_status FROM bl_category WHERE ca_status = '1' ORDER BY ca_create_time ASC";
+		mysql_query("SET NAMES UTF8");
+		$result = mysql_query($query);
+		while($category = mysql_fetch_array($result, MYSQL_ASSOC)){
+		?>
+        	<a href="cat_<?php echo $category['ca_url'];?>.html" target="_parent">
+    		<section <?php if($category_id == $category['ca_id']){echo "class=\"category-item-selected\"";}else{echo "class=\"category-item\"";}?>>
+            	<h3>
+					<?php echo $category['ca_title'];?>
+                </h3>
+            </section>
+            </a>
+		<?
 		}
+	}
+	
+	// Get Cetegory Link (Feed Item)
+	public function getCategoryLink($category_id){
+		$query = "SELECT ca_title,ca_url FROM bl_category WHERE ca_id = '".mysql_real_escape_string($category_id)."'";
+		mysql_query("SET NAMES UTF8");
+		$result = mysql_query($query);
+		while($category = mysql_fetch_array($result, MYSQL_ASSOC)){
+		?>
+    		<section class="category-link"><?php echo $category['ca_title'];?></section>
+		<?
+		}
+	}
+	
+	//Get Category Data by URL
+	public function getCategoryDataByURL($url){
+		$query = "SELECT * FROM bl_category WHERE ca_url = '".mysql_real_escape_string($url)."'";
+		mysql_query("SET NAMES UTF8");
+		$result = mysql_query($query);
+		return $category = mysql_fetch_array($result, MYSQL_ASSOC);
 	}
 }
 ?>

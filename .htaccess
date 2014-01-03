@@ -1,0 +1,18 @@
+RewriteEngine On
+
+RewriteRule ^play-([^_]*)-([^_]*)\.html$ /watch.php?v=$1&t=$2 [L]
+RewriteRule ^read-([^_]*)-([^_]*)\.html$ /read.php?a=$1&t=$2 [L]
+RewriteRule ^image-([^_]*)-([^_]*)\.html$ /image.php?i=$1&t=$2 [L]
+
+RewriteRule ^cat-([^_]*)\.html$ /category.php?c=$1 [L]
+RewriteRule ^cat-([^_]*)_([^_]*)\.html$ /category.php?c=$1&page=$2 [L]
+
+RewriteRule ^page_([^_]*)\.html$ /video.php?page=$1 [L]
+
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^(.+) - [PT,L]
+
+RewriteRule ^(.*) index.php
+

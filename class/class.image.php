@@ -1,24 +1,35 @@
 <?php
 class Image{
-
-	public function newImage($dbHandle,$object_id,$album_id,$product_id,$title,$picture,$source){
-		try{
-			$stmt = $dbHandle->prepare("INSERT INTO ig_image(im_object_id,im_album_id,im_product_id,im_title,im_picture,im_source,im_create_time,im_update_time) VALUES(:object,:album,:product,:title,:picture,:source,:create,:update)");
-			$stmt->bindParam(':object',$object_id);
-			$stmt->bindParam(':album',$album_id);
-			$stmt->bindParam(':product',$product_id);
-			$stmt->bindParam(':title',$title);
-			$stmt->bindParam(':picture',$picture);
-			$stmt->bindParam(':source',$source);
-			$stmt->bindParam(':create',time());
-			$stmt->bindParam(':update',time());
-			
-			$stmt->execute();
-		}
-		catch(PDOException $e){
-			return 'ไม่สามารถทำรายการ กรุณาลองอีกครั้งค่ะ !';
-		}
+	
+	// GET VIDEO DATA
+	public function getPhotoData($dbHandle,$image_id){
+		$stmt = $dbHandle->prepare('SELECT * FROM bl_image,bl_category WHERE im_category_id = ca_id AND im_id = ?');
+    	$stmt->execute(array($image_id));
+		$var = $stmt->fetch(PDO::FETCH_ASSOC);
+		
+		return $var;
 	}
-
+	
+	//Update View Video
+	public function updateViewImage($content_id){
+		$query = "SELECT im_c_view FROM bl_image WHERE im_id = '".mysql_real_escape_string($content_id)."'";
+		mysql_query("SET NAMES UTF8");
+		$result = mysql_query($query);
+		$image = mysql_fetch_array($result, MYSQL_ASSOC);
+		
+		$query = "UPDATE bl_image SET im_c_view = '".mysql_real_escape_string(++$image['im_c_view'])."' WHERE im_id = '".mysql_real_escape_string($content_id)."'";
+		mysql_query($query);
+	}
+	
+	//Update Watch Video
+	public function updateWatchImage($content_id){
+		$query = "SELECT im_c_watch FROM bl_image WHERE im_id = '".mysql_real_escape_string($content_id)."'";
+		mysql_query("SET NAMES UTF8");
+		$result = mysql_query($query);
+		$image = mysql_fetch_array($result, MYSQL_ASSOC);
+		
+		$query = "UPDATE bl_image SET im_c_watch = '".mysql_real_escape_string(++$image['im_c_watch'])."' WHERE im_id = '".mysql_real_escape_string($content_id)."'";
+		mysql_query($query);
+	}
 }
 ?>

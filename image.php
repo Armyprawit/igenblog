@@ -1,6 +1,6 @@
 <?php include'class/setting.php';?>
 <?php
-  $articleData = $article->getArticleData($dbHandle,$_GET['a']-1024);
+  $photoData = $image->getPhotoData($dbHandle,$_GET['i']-1024);
 ?>
 <!doctype html>
 <html>
@@ -62,16 +62,17 @@ King Mongkut's University of Technology North Bangkok</div>
   <div class="mainContent">
     
     <div id="show">
-      <h1><?php echo $articleData['ar_title'];?></h1>
+      <h1><?php echo $photoData['im_description'];?></h1>
       <div class="stat">
-        <div class="time"><i class="fa fa-clock-o"></i> <?php echo $mydev->fb_thaidate($articleData['ar_post_time']);?></div>
-        <div class="time"><i class="fa fa-folder"></i> <?php echo $articleData['ca_title'];?></div>
-        <div class="statBox"><i class="fa fa-coffee"></i> <?php echo $articleData['ar_c_view'];?> Read</div>
+        <div class="time"><i class="fa fa-clock-o"></i> <?php echo $mydev->fb_thaidate($photoData['im_post_time']);?></div>
+        <div class="time"><i class="fa fa-folder"></i> <?php echo $photoData['ca_title'];?></div>
+        <div class="statBox"><i class="fa fa-coffee"></i> <?php echo $photoData['im_c_view'];?> Read</div>
       </div>
 
-      <div class="photo"><img class="img" src="<?php echo $articleData['ar_image'];?>" alt=""></div>
+      <div class="photo"><img class="img" src="<?php echo $photoData['im_image'];?>" alt=""></div>
 
-      <div class="text"><?php echo $articleData['ar_text'];?></div>
+      <div class="text"><?php echo $photoData['im_text'];?></div>
+
       <div class="comment">
         <div class="fb-comments" data-href="http://example.com/comments" data-width="500" data-numposts="10" data-colorscheme="light"></div>
       </div>

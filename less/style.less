@@ -102,15 +102,51 @@ body{
             &:hover{
                 color: #FFFFFF;
             }
+
+            .total{
+                float: right;
+                color: #4A6988;
+            }
         }
     }
 
     #navigator{
-        width: 100%;
+        width: 94%;
+        padding: 3%;
         float: left;
         display: inline-block;
+
+        .navItem{
+            float: left;
+            width: 91%;
+            display: inline-block;
+            color: #FFFFFF;
+            background: #2c3e50;
+            font-size: 0.8em;
+            padding: 4%;
+            margin-bottom: 2px;
+
+            &:hover{
+                color: #FFFFFF;
+            }
+        }
     }
 }
+
+/* Scroll Bar */
+/* Let's get this party started */
+#header::-webkit-scrollbar {
+    width: 0px;
+    background:#DDDDDD;
+}
+/* Track */
+#header::-webkit-scrollbar-track { 
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+/* Handle */
+#header::-webkit-scrollbar-thumb {background:#e74c3c;}
+#header::-webkit-scrollbar-thumb:window-inactive {}
 
 #mainContent{
     width: 80%;
@@ -216,6 +252,10 @@ body{
                 display: inline-block;
                 float: left;
 
+                background-image:url(../image/loading4.gif);
+                background-position:center;
+                background-repeat:no-repeat;
+
                 img{
                     width: 100%;
                 }
@@ -232,8 +272,11 @@ body{
                 h1{
                     font-size: 0.9em;
                     line-height: 18px;
-                    color: #34495e;
                     margin-bottom: 5px;
+
+                    a{
+                        color: #34495e;
+                    }
                 } 
                 p{
                     font-size: 0.85em;

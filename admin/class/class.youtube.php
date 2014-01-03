@@ -253,6 +253,9 @@ class Youtube extends MyDev{
 			
 				$stmt->execute();
 
+				// Add Video To Timeline.
+				$this->addToTimeLine($dbHandle,$category_id,1,$this->getLastVideoID($dbHandle),$status,time());
+
 				include'../html/update-video-item.php';
 				
 				//return $msg['7'];
@@ -267,6 +270,40 @@ class Youtube extends MyDev{
 			$duplicate = true;
 			include'../html/update-video-item.php';
 		}
+	}
+
+	// Add Video To Timeline.
+	// Time Type of Content
+	// 1 = Video
+	// 2 = Article
+	// 3 = Photo
+	// 4 = Category
+	public function addToTimeLine($dbHandle,$category_id,$type,$content_id,$status,$timepost){
+		$stmt = $dbHandle->prepare('SELECT tl_id FROM bl_timeline WHERE tl_type = ? AND tl_content_id = ?');
+    	$stmt->execute(array($type,$content_id));
+		$var = $stmt->fetch(PDO::FETCH_ASSOC);
+		
+		if($var['tl_id'] == ""){
+
+			$stmt = $dbHandle->prepare('INSERT INTO bl_timeline(tl_category_id,tl_type,tl_content_id,tl_post_time,tl_last_time,tl_status) VALUES (:category,:type,:id,:post_time,:update_time,:status)');
+
+				$stmt->bindParam(':category',$category_id);
+				$stmt->bindParam(':type',$type);
+				$stmt->bindParam(':id',$content_id);
+				$stmt->bindParam(':post_time',time()); //Create Time
+				$stmt->bindParam(':update_time',time()); //Last time
+				$stmt->bindParam(':status',$status);
+			
+				$stmt->execute();
+		}
+	}
+	// GET Last Id of Content
+	public function getLastVideoID($dbHandle){
+		$stmt = $dbHandle->prepare('SELECT vi_id FROM bl_video ORDER BY vi_post_time DESC LIMIT 1');
+    	$stmt->execute();
+		$var = $stmt->fetch(PDO::FETCH_ASSOC);
+		
+		return $var['vi_id'];
 	}
 
 

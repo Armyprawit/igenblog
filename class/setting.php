@@ -19,44 +19,38 @@
 	define("START_QUERIES",$igen['Value']);
 	
 	// ALL CLASS ////////////////////////////
-	include'class.mydev.php';
-	include'class.admin.php';
-	include'class.youtube.php';
-	include'class.video.php';
-	include'class.category.php';
-	include'class.article.php';
-	include'class.photo.php';
-	include'class.banner.php';
-	include'class.fb.php';
-	include'class.setting.php';
+	// include'class.mydev.php';
+	// include'class.admin.php';
+	// include'class.youtube.php';
+	// include'class.video.php';
+	// include'class.category.php';
+	// include'class.article.php';
+	// include'class.photo.php';
+	// include'class.banner.php';
+	// include'class.fb.php';
+	// include'class.setting.php';
 	//include'class.admin.php';
+
+	include'class.license.php';
+	include'class.setting.php';
+	include'class.mydev.php';
+	include'class.meta.php';
+	include'class.category.php';
+	include'class.timeline.php';
+	include'class.analytic.php';
+	include'class.article.php';
+	include'class.video.php';
+	include'class.image.php';
+	include'class.banner.php';
 	
 	//CREATE OBJECT
-	$admin = new Admin;
+	$timeline = new timeline;
 	$article = new Article;
 	$category = new Category;
-	$youtube = new Youtube;
+	// $youtube = new Youtube;
 	$video = new Video;
-	$photo = new Photo;
-	$banner = new Banner;
+	$image = new Image;
+	// $banner = new Banner;
 	$mydev = new MyDev;
-	$setting = new Setting;
-
-	if($_GET['e'] == loginG){
-    	if($admin->loginG($dbHandle,$_POST['username'],$_POST['password'])){
-      		$_SESSION['adminG'] = 'igenblog';
-    	}
-    	else{
-     		header('Location:login.php?e=fail');
-    	}
-  	}
-  
-  	else if($_GET['e']=='logoutG'){
-    	session_destroy();
-    	header('Location:login.php');
-  	}
-
-  	if($_SESSION['adminG'] != 'igenblog'){
-		header('Location:login.php');
-	}
+	// $setting = new Setting;
 ?>

@@ -82,10 +82,43 @@ body {
 #header #category .categoryItem:hover {
   color: #FFFFFF;
 }
+#header #category .categoryItem .total {
+  float: right;
+  color: #4A6988;
+}
 #header #navigator {
-  width: 100%;
+  width: 94%;
+  padding: 3%;
   float: left;
   display: inline-block;
+}
+#header #navigator .navItem {
+  float: left;
+  width: 91%;
+  display: inline-block;
+  color: #FFFFFF;
+  background: #2c3e50;
+  font-size: 0.8em;
+  padding: 4%;
+  margin-bottom: 2px;
+}
+#header #navigator .navItem:hover {
+  color: #FFFFFF;
+}
+/* Scroll Bar */
+/* Let's get this party started */
+#header::-webkit-scrollbar {
+  width: 0px;
+  background: #DDDDDD;
+}
+/* Track */
+#header::-webkit-scrollbar-track {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+/* Handle */
+#header::-webkit-scrollbar-thumb {
+  background: #e74c3c;
 }
 #mainContent {
   width: 80%;
@@ -175,6 +208,9 @@ body {
   overflow: hidden;
   display: inline-block;
   float: left;
+  background-image: url(../image/loading4.gif);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 #mainContent .mainContent .feedItem .image img {
   width: 100%;
@@ -190,8 +226,10 @@ body {
 #mainContent .mainContent .feedItem .detail h1 {
   font-size: 0.9em;
   line-height: 18px;
-  color: #34495e;
   margin-bottom: 5px;
+}
+#mainContent .mainContent .feedItem .detail h1 a {
+  color: #34495e;
 }
 #mainContent .mainContent .feedItem .detail p {
   font-size: 0.85em;

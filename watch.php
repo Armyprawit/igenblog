@@ -1,6 +1,6 @@
 <?php include'class/setting.php';?>
 <?php
-  $articleData = $article->getArticleData($dbHandle,$_GET['a']-1024);
+  $videoData = $video->getVideoData($dbHandle,$_GET['v']-1024);
 ?>
 <!doctype html>
 <html>
@@ -62,16 +62,45 @@ King Mongkut's University of Technology North Bangkok</div>
   <div class="mainContent">
     
     <div id="show">
-      <h1><?php echo $articleData['ar_title'];?></h1>
+      <h1><?php echo $videoData['vi_title'];?></h1>
       <div class="stat">
-        <div class="time"><i class="fa fa-clock-o"></i> <?php echo $mydev->fb_thaidate($articleData['ar_post_time']);?></div>
-        <div class="time"><i class="fa fa-folder"></i> <?php echo $articleData['ca_title'];?></div>
-        <div class="statBox"><i class="fa fa-coffee"></i> <?php echo $articleData['ar_c_view'];?> Read</div>
+        <div class="time"><i class="fa fa-clock-o"></i> <?php echo $mydev->fb_thaidate($videoData['vi_post_time']);?></div>
+        <div class="time"><i class="fa fa-folder"></i> <?php echo $videoData['ca_title'];?></div>
+        <div class="statBox"><i class="fa fa-coffee"></i> <?php echo $videoData['vi_c_view'];?> Read</div>
       </div>
 
-      <div class="photo"><img class="img" src="<?php echo $articleData['ar_image'];?>" alt=""></div>
+      <!-- Type of Video Embed.
+      1 = Youtube
+      2 = Vimeo
+      3 = Dailymotion
+      4 = Facebook -->
 
-      <div class="text"><?php echo $articleData['ar_text'];?></div>
+      <?php
+      if($videoData['vi_type'] == 1){
+        // 1 = Youtube
+        ?><div class="video"><iframe src="//www.youtube.com/embed/<?php echo $videoData['vi_code'];?>" allowfullscreen></iframe></div><?php
+      }
+      else if($videoData['vi_type'] == 2){
+        // 2 = Vimeo
+        ?><div class="video"><iframe src="//player.vimeo.com/video/82557065" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><?php
+      }
+      else if($videoData['vi_type'] == 3){
+        // 3 = Dailymotion
+        ?><div class="video"><iframe src="http://www.dailymotion.com/embed/video/x14zqxn"></iframe></div><?php
+      }
+      else if($videoData['vi_type'] == 4){
+        // 4 = Facebook
+        ?><div class="video"><iframe src="http://www.facebook.com/video/embed?video_id=553655174718668" allowfullscreen></iframe></div><?php
+      }
+      ?>
+
+      <!-- <div class="video"><iframe src="http://www.dailymotion.com/embed/video/x14zqxn"></iframe></div>
+      <div class="video"><iframe src="//player.vimeo.com/video/82557065" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+      <div class="video"><iframe src="http://www.facebook.com/video/embed?video_id=553655174718668" allowfullscreen></iframe>
+      <div class="video"><iframe src="//www.youtube.com/embed/xp8jgTl-xw0" allowfullscreen></iframe></div> -->      
+
+      <div class="text"><?php echo $videoData['vi_text'];?></div>
+
       <div class="comment">
         <div class="fb-comments" data-href="http://example.com/comments" data-width="500" data-numposts="10" data-colorscheme="light"></div>
       </div>
