@@ -7,9 +7,9 @@ var state = true;
 
 // scroll event to load more Video.
 $(window).scroll(function() {
-  if($(window).scrollTop() + $(window).height() >= $(document).height()-100) {
+  if($(window).scrollTop() + $(window).height() >= $(document).height()-30) {
   	if(state){
-  		loadingFeed(0,0,index);
+  		loadingFeed($("#category").val(),$("#type").val(),index);
   	}
   }
 });
@@ -49,7 +49,7 @@ function loadingFeed(category,type,start){
 		if(loading.readyState == 4) // Return Request
 		{
 			$('#feedDisplay').append(loading.responseText);
-			console.log("start:"+start);
+			console.log("start:"+start+' / type:'+type+' / cat:'+category);
 			index+=21;
 		}				
 	}

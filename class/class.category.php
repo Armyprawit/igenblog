@@ -17,6 +17,23 @@ class Category extends MyDev{
 		}
 		catch(PDOException $e){echo'ERROR:'.$e->getMessage();}
 	}
+
+	//Get Category Data by URL
+	public function getCategoryDataByURL($dbHandle,$url){
+		try{
+    		$stmt = $dbHandle->prepare('SELECT * FROM bl_category WHERE ca_url = ?');
+    		$stmt->execute(array($url));
+			$var = $stmt->fetch(PDO::FETCH_ASSOC);
+
+			return $var;
+		}
+		catch(PDOException $e){echo'ERROR:'.$e->getMessage();}
+	}
+
+
+
+
+	
 	
 	// List Category
 	public function listAllCategory($category_id){
@@ -46,14 +63,6 @@ class Category extends MyDev{
     		<section class="category-link"><?php echo $category['ca_title'];?></section>
 		<?
 		}
-	}
-	
-	//Get Category Data by URL
-	public function getCategoryDataByURL($url){
-		$query = "SELECT * FROM bl_category WHERE ca_url = '".mysql_real_escape_string($url)."'";
-		mysql_query("SET NAMES UTF8");
-		$result = mysql_query($query);
-		return $category = mysql_fetch_array($result, MYSQL_ASSOC);
 	}
 }
 ?>

@@ -4,12 +4,29 @@ class Timeline extends Mydev{
 	// Get Feed Timeline.
 	public function getFeedTimeline($dbHandle,$event,$type,$category_id,$start,$total){
 		try{
-			if($type == 1){}
-			else if($type == 2){}
-			else if($type == 3){}
-			else if($type == 4){}
+			if($type == 1){
+				// echo'Video Mode';
+				$stmt = $dbHandle->prepare('SELECT tl_id,tl_category_id,tl_type,tl_content_id,tl_post_time,tl_last_time,tl_status FROM bl_timeline WHERE tl_status = 1 AND tl_type = :type ORDER BY tl_post_time DESC LIMIT :start,:total');
+				$stmt->bindParam(':type',$type);
+			}
+			else if($type == 2){
+				// echo'Article Mode';
+				$stmt = $dbHandle->prepare('SELECT tl_id,tl_category_id,tl_type,tl_content_id,tl_post_time,tl_last_time,tl_status FROM bl_timeline WHERE tl_status = 1 AND tl_type = :type ORDER BY tl_post_time DESC LIMIT :start,:total');
+				$stmt->bindParam(':type',$type);
+			}
+			else if($type == 3){
+				// echo'Photo Mode';
+				$stmt = $dbHandle->prepare('SELECT tl_id,tl_category_id,tl_type,tl_content_id,tl_post_time,tl_last_time,tl_status FROM bl_timeline WHERE tl_status = 1 AND tl_type = :type ORDER BY tl_post_time DESC LIMIT :start,:total');
+				$stmt->bindParam(':type',$type);
+			}
+			else if($type == 4){
+				// echo'Category Mode';
+				$stmt = $dbHandle->prepare('SELECT tl_id,tl_category_id,tl_type,tl_content_id,tl_post_time,tl_last_time,tl_status FROM bl_timeline WHERE tl_status = 1 AND tl_category_id = :category ORDER BY tl_post_time DESC LIMIT :start,:total');
+				$stmt->bindParam(':category',$category_id);
+			}
 			else{
-				$stmt = $dbHandle->prepare('SELECT tl_id,tl_category_id,tl_type,tl_content_id,tl_post_time,tl_last_time,tl_status FROM bl_timeline ORDER BY tl_post_time DESC LIMIT :start,:total');
+				// echo'Other Mode';
+				$stmt = $dbHandle->prepare('SELECT tl_id,tl_category_id,tl_type,tl_content_id,tl_post_time,tl_last_time,tl_status FROM bl_timeline WHERE tl_status = 1 ORDER BY tl_post_time DESC LIMIT :start,:total');
 			}
 				
 			// $stmt->bindParam(':type',$type);
@@ -23,12 +40,15 @@ class Timeline extends Mydev{
     		while($var = $stmt->fetch(PDO::FETCH_ASSOC)){
     			
 				if($var['tl_type'] == 1){// Video Feed
+					// echo 'Type:'.$type.' / Cat:'.$category_id.'<br>';
 					$this->getVideoByContentID($dbHandle,$event,$var['tl_content_id']);
 				}
 				else if($var['tl_type'] == 2){// Article Feed
+					// echo 'Type:'.$type.' / Cat:'.$category_id.'<br>';
 					$this->getArticleByContentID($dbHandle,$event,$var['tl_content_id']);
 				}
 				else if($var['tl_type'] == 3){// Image Feed
+					// echo 'Type:'.$type.' / Cat:'.$category_id.'<br>';
 					$this->getPhotoByContentID($dbHandle,$event,$var['tl_content_id']);
 				}
 			}

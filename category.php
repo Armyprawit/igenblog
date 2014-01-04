@@ -1,4 +1,7 @@
 <?php include'class/setting.php';?>
+<?php
+	$categoryData = $category->getCategoryDataByURL($dbHandle,$_GET['c']);
+?>
 <!doctype html>
 <html>
 <head>
@@ -18,17 +21,27 @@
 <script src="lib/jquery.imagefill.js" type="text/javascript"></script>
 <script src="lib/mydev.js" type="text/javascript"></script>
 
+<!-- AJAX -->
+<script src="js/ajax/feed.js" type="text/javascript"></script>
+
 </head>
 
 <body>
+
+<input type="hidden" id="category" value="<?php echo $categoryData['ca_id'];?>">
+<input type="hidden" id="type" value="4">
 
 <?php
 include'header.php';
 ?>
 
 <div id="mainContent">
-  <div class="mainContent">
-    <?php $timeline->getFeedTimeline($dbHandle,0,0,0,21);?>
+  <div class="mainContent" id="feedDisplay">
+  	<div id="title">
+  		<h1><?php echo $categoryData['ca_title'];?></h1>
+  		<p><?php echo $categoryData['ca_description'];?></p>
+  	</div>
+    <?php $timeline->getFeedTimeline($dbHandle,'normal',4,$categoryData['ca_id'],0,21);?>
   </div>
 </div>
 

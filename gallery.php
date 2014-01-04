@@ -18,17 +18,23 @@
 <script src="lib/jquery.imagefill.js" type="text/javascript"></script>
 <script src="lib/mydev.js" type="text/javascript"></script>
 
+<!-- AJAX -->
+<script src="js/ajax/feed.js" type="text/javascript"></script>
+
 </head>
 
 <body>
+
+<input type="hidden" id="category" value="0">
+<input type="hidden" id="type" value="3">
 
 <?php
 include'header.php';
 ?>
 
 <div id="mainContent">
-  <div class="mainContent">
-    <?php $timeline->getFeedTimeline($dbHandle,0,0,0,21);?>
+  <div class="mainContent" id="feedDisplay">
+    <?php $timeline->getFeedTimeline($dbHandle,'normal',3,0,0,21);?>
   </div>
 </div>
 

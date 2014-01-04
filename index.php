@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="css/reset.css" type="text/css"/>
 <link rel="stylesheet" href="css/style.css" type="text/css"/>
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link href='http://fonts.googleapis.com/css?family=Unica+One' rel='stylesheet' type='text/css'>
 
 <!-- LIB -->
 <script src="lib/jquery-1.7.2.min.js" type="text/javascript"></script>
@@ -24,6 +25,9 @@
 </head>
 
 <body>
+
+<input type="hidden" id="category" value="0">
+<input type="hidden" id="type" value="0">
 
 <?php
 include'header.php';

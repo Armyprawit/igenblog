@@ -3,6 +3,12 @@
   width: 100%;
   display: inline-block;
 }
+.transition {
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+}
 @charset "utf-8";
 /*********** IMPORT FONT FILE TO WEB **************/
 @font-face {
@@ -37,6 +43,7 @@ body::-webkit-scrollbar-thumb {
 body {
   font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
   background: #EEEEEE;
+  overflow: scroll;
 }
 #header {
   position: fixed;
@@ -44,14 +51,23 @@ body {
   height: 100%;
   background: #34495e;
   overflow: auto;
+  box-shadow: 2px 0px 3px #222222;
 }
 #header #logo {
   width: 94%;
   padding: 3%;
   float: left;
   display: inline-block;
-  font-family: ColabThi-webfont;
-  font-size: 3em;
+  font-family: 'Unica One', cursive;
+  font-size: 3.5em;
+  text-align: center;
+  color: #EEEEEE;
+  text-shadow: 2px 2px 3px #444444;
+}
+#header #logo .s {
+  color: #FFFFFF;
+}
+#header #logo:hover {
   color: #FFFFFF;
 }
 #header #description {
@@ -61,49 +77,69 @@ body {
   display: inline-block;
   font-size: 0.9em;
   line-height: 20px;
-  color: #AAAAAA;
+  color: #CCCCCC;
 }
-#header #category {
-  width: 94%;
-  padding: 3%;
-  float: left;
-  display: inline-block;
+#header #description i {
+  color: #4a6988;
 }
-#header #category .categoryItem {
-  float: left;
-  width: 91%;
-  display: inline-block;
-  color: #FFFFFF;
-  background: #2c3e50;
-  font-size: 0.8em;
-  padding: 4%;
-  margin-bottom: 2px;
-}
-#header #category .categoryItem:hover {
-  color: #FFFFFF;
-}
-#header #category .categoryItem .total {
-  float: right;
-  color: #4A6988;
-}
+#header #category,
 #header #navigator {
   width: 94%;
   padding: 3%;
   float: left;
   display: inline-block;
 }
+#header #category .categoryItem,
+#header #navigator .categoryItem,
+#header #category .navItem,
 #header #navigator .navItem {
   float: left;
   width: 91%;
   display: inline-block;
-  color: #FFFFFF;
+  color: #AAAAAA;
   background: #2c3e50;
   font-size: 0.8em;
   padding: 4%;
   margin-bottom: 2px;
+  border-radius: 2px;
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
 }
+#header #category .categoryItem:hover,
+#header #navigator .categoryItem:hover,
+#header #category .navItem:hover,
 #header #navigator .navItem:hover {
   color: #FFFFFF;
+  margin-left: 10px;
+}
+#header #category .categoryItem:hover i,
+#header #navigator .categoryItem:hover i,
+#header #category .navItem:hover i,
+#header #navigator .navItem:hover i {
+  color: #4a6988;
+}
+#header #category .categoryItem i,
+#header #navigator .categoryItem i,
+#header #category .navItem i,
+#header #navigator .navItem i {
+  color: #34495e;
+  margin-right: 5px;
+}
+#header #category .categoryItem .total,
+#header #navigator .categoryItem .total,
+#header #category .navItem .total,
+#header #navigator .navItem .total {
+  float: right;
+  color: #4a6988;
+}
+#header .active {
+  color: #FFFFFF !important;
+  margin-left: 10px;
+}
+#header .active i {
+  color: #4a6988 !important;
 }
 /* Scroll Bar */
 /* Let's get this party started */
@@ -118,11 +154,11 @@ body {
 }
 /* Handle */
 #header::-webkit-scrollbar-thumb {
-  background: #e74c3c;
+  background: #DDDDDD;
 }
 #mainContent {
-  width: 80%;
-  margin-left: 20%;
+  width: 79%;
+  margin-left: 21%;
   display: inline-block;
 }
 #mainContent .mainContent {
@@ -195,12 +231,32 @@ body {
 #mainContent .mainContent #show .comment .fb-comments * {
   width: 100% !important;
 }
+#mainContent .mainContent #title {
+  width: 96%;
+  float: left;
+  display: inline-block;
+  padding: 2%;
+  background: #EEEEEE;
+  text-align: right;
+  border-bottom: 1px dotted #DDDDDD;
+}
+#mainContent .mainContent #title h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  font-weight: normal;
+  color: #34495e;
+}
+#mainContent .mainContent #title p {
+  font-size: 0.9em;
+  color: #AAAAAA;
+}
 #mainContent .mainContent .feedItem {
   float: left;
   width: 31%;
   display: inline-block;
   margin: 1%;
   background: #FFFFFF;
+  box-shadow: 0px 0px 3px #AAAAAA;
 }
 #mainContent .mainContent .feedItem .image {
   width: 100%;
