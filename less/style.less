@@ -72,6 +72,7 @@ body{
     background: @colorBase1;
     overflow: auto;
     box-shadow: 2px 0px 3px #222222;
+    border-radius: 0px;
 
     #logo{
         width: 94%;
@@ -99,11 +100,55 @@ body{
         float: left;
         display: inline-block;
         font-size: 0.9em;
-        line-height: 20px;
+        line-height: 10px;
         color: #CCCCCC;
 
         i{
             color: @colorBase3;
+        }
+    }
+
+    .banner{
+        width: 94%;
+        padding: 3%;
+        float: left;
+        display: inline-block;
+        margin-bottom: 10px;
+
+        .bannerItem{
+            float: left;
+            width: 96%;
+            padding: 2%;
+            display: inline-block;
+            margin-bottom: 1px;
+            background: @colorBase2;
+            border-radius: 2px;
+            position: relative;
+
+            img{
+                width: 100%;
+            }
+
+            &:hover{
+                .title{
+                    opacity: 1;
+                }
+            }
+
+            .title{
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
+                background: #111111;
+                background: rgba(0,0,0,0.6);
+                color: #FFFFFF;
+                font-size: 0.7em;
+                padding: 5px;
+                border-radius: 1px;
+                opacity: 0;
+
+                .transition;
+            }
         }
     }
 
@@ -154,6 +199,26 @@ body{
             color: @colorBase3 !important;
         }
     }
+
+    #footer{
+        width: 94%;
+        padding: 3%;
+        float: left;
+        display: inline-block;
+        font-size: 0.7em;
+        color:#AAAAAA;
+        line-height: 15px;
+        text-align: center;
+
+        a{
+            color: #FFFFFF;
+        }
+
+        .cr{
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+    }
 }
 
 /* Scroll Bar */
@@ -189,8 +254,18 @@ body{
 
             .photo{
                 width: 100%;
-                height: 500px;
+                display: inline-block;
+                float: left;
                 margin-bottom: 20px;
+
+                background-image:url(../image/loading4.gif);
+                background-position:center;
+                background-repeat:no-repeat;
+
+                img{
+                    width: 100%;
+                    box-shadow: 1px 1px 3px #777777;
+                }
             }
 
             .video{
@@ -203,6 +278,11 @@ body{
                     width:100%;
                     height:500px;
                     border:0px;
+                    box-shadow: 1px 1px 3px #777777;
+
+                    background-image:url(../image/loading4.gif);
+                    background-position:center;
+                    background-repeat:no-repeat;
                 }
 
                 .fb-post{
@@ -222,6 +302,15 @@ body{
 
                 .time{
                     float: left;
+                    margin-right: 10px;
+
+                    a{
+                        color: @colorBase1;
+
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
                 }
                 .statBox{
                     float: right;
@@ -233,6 +322,24 @@ body{
                 margin-bottom: 20px;
                 color: @colorBase1;
                 line-height: 35px;
+            }
+            .hidden{
+                display: none;
+            }
+
+            .social{
+                float: left;
+                width: 100%;
+                display: inline-block;
+                margin-top: 20px;
+                margin-bottom: 20px;
+
+                .item{
+                    float: left;
+                    margin-right: 10px;
+                    display: inline-block !important;
+                    text-align: center;
+                }
             }
 
             .text{
@@ -279,6 +386,10 @@ body{
             p{
                 font-size: 0.9em;
                 color: #AAAAAA;
+
+                i{
+                    color: #DDDDDD;
+                }
             }
         }
 
@@ -290,6 +401,7 @@ body{
             margin: 1%;
             background: #FFFFFF;
             box-shadow: 0px 0px 3px #AAAAAA;
+            border-radius: 2px;
 
             .image{
                 width: 100%;
@@ -297,10 +409,36 @@ body{
                 overflow: hidden;
                 display: inline-block;
                 float: left;
+                position: relative;
+                border-top-left-radius: 2px;
+                border-top-right-radius: 2px;
 
                 background-image:url(../image/loading4.gif);
                 background-position:center;
                 background-repeat:no-repeat;
+
+                .tri{
+                    position: absolute;
+                    bottom: 0px;
+                    left: 5%;
+
+                    border-top: 10px solid transparent;
+                    border-bottom: 10px solid #FFFFFF;
+                    border-right: 10px solid transparent;
+                    border-left: 10px solid transparent;
+                }
+
+                .duration{
+                    position: absolute;
+                    right: 5px;
+                    bottom: 5px;
+                    background: #111111;
+                    background: rgba(0, 0, 0, 0.5);
+                    color: #FFFFFF;
+                    font-size: 0.7em;
+                    padding: 5px;
+                    border-radius: 2px;
+                }
 
                 img{
                     width: 100%;
@@ -322,6 +460,10 @@ body{
 
                     a{
                         color: @colorBase1;
+
+                        &:hover{
+                            text-decoration: underline;
+                        }
                     }
                 } 
                 p{
@@ -344,11 +486,30 @@ body{
 
                 .time{
                     float: left;
+                    margin-right: 5px;
+
+                    a{
+                        color: @colorBase1;
+
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
                 }
                 .statBox{
                     float: right;
                 }
             }
+        }
+
+        .loading{
+            width: 96%;
+            float: left;
+            display: inline-block;
+            padding: 2%;
+            text-align: center;
+            font-size: 0.9em;
+            color: @colorBase1;
         }
     }
 }
@@ -356,10 +517,72 @@ body{
 #feature{
     position: fixed;
     width: 20%;
-    height: 100%;
+    height: 98%;
     top: 0px;
     right: 1%;
     overflow: auto;
+    padding-top: 2%;
+
+    .banner{
+        float: left;
+        width: 100%;
+        display: inline-block;
+        overflow: hidden;
+
+        .bannerItem{
+            float: left;
+            width: 92%;
+            display: inline-block;
+            background: #FFFFFF;
+            margin: 2%;
+            padding: 2%;
+            box-shadow: 0px 0px 3px #AAAAAA;
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+
+            img{
+                width: 100%;
+            }
+
+            &:hover{
+                .title{
+                    opacity: 1;
+                }
+            }
+
+            .title{
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
+                background: #111111;
+                background: rgba(0,0,0,0.6);
+                color: #FFFFFF;
+                font-size: 0.7em;
+                padding: 5px;
+                border-radius: 1px;
+                opacity: 0;
+
+                .transition;
+            }
+        }
+    }
+
+    .likeBox{
+        float: left;
+        width: 96%;
+        display: inline-block;
+        margin-bottom: 20px;
+        background: #FFFFFF;
+        margin: 2%;
+        box-shadow: 0px 0px 3px #AAAAAA;
+        border-radius: 2px;
+        overflow: hidden;
+
+        .fb-like-box{
+            width: 100% !important;
+        }
+    }
 
     .featureItem{
         float: left;
@@ -367,6 +590,9 @@ body{
         display: inline-block;
         background: #FFFFFF;
         margin: 2%;
+        box-shadow: 0px 0px 3px #AAAAAA;
+        border-radius: 2px;
+        overflow: hidden;
 
         .photo{
             width: 100%;
@@ -374,6 +600,34 @@ body{
             float: left;
             display: inline-block;
             overflow: hidden;
+            position: relative;
+
+            background-image:url(../image/loading4.gif);
+            background-position:center;
+            background-repeat:no-repeat;
+
+            .tri{
+                position: absolute;
+                bottom: 0px;
+                left: 5%;
+
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid #FFFFFF;
+                border-right: 10px solid transparent;
+                border-left: 10px solid transparent;
+            }
+
+            .duration{
+                position: absolute;
+                right: 5px;
+                bottom: 5px;
+                background: #111111;
+                background: rgba(0, 0, 0, 0.5);
+                color: #FFFFFF;
+                font-size: 0.7em;
+                padding: 5px;
+                border-radius: 2px;
+            }
         }
         .detail{
             width: 94%;
@@ -383,9 +637,17 @@ body{
 
             h2{
                 font-size: 0.8em;
-                    line-height: 18px;
+                line-height: 18px;
+                color: @colorBase1;
+                margin-bottom: 5px;
+
+                a{
                     color: @colorBase1;
-                    margin-bottom: 5px;
+
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
             }
         }
         .stat{
@@ -402,6 +664,15 @@ body{
 
             .time{
                 float: left;
+                margin-right: 5px;
+
+                a{
+                    color: @colorBase1;
+
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
             }
             .statBox{
                 float: right;

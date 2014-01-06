@@ -52,6 +52,7 @@ body {
   background: #34495e;
   overflow: auto;
   box-shadow: 2px 0px 3px #222222;
+  border-radius: 0px;
 }
 #header #logo {
   width: 94%;
@@ -76,11 +77,50 @@ body {
   float: left;
   display: inline-block;
   font-size: 0.9em;
-  line-height: 20px;
+  line-height: 10px;
   color: #CCCCCC;
 }
 #header #description i {
   color: #4a6988;
+}
+#header .banner {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+#header .banner .bannerItem {
+  float: left;
+  width: 96%;
+  padding: 2%;
+  display: inline-block;
+  margin-bottom: 1px;
+  background: #2c3e50;
+  border-radius: 2px;
+  position: relative;
+}
+#header .banner .bannerItem img {
+  width: 100%;
+}
+#header .banner .bannerItem:hover .title {
+  opacity: 1;
+}
+#header .banner .bannerItem .title {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: #111111;
+  background: rgba(0, 0, 0, 0.6);
+  color: #FFFFFF;
+  font-size: 0.7em;
+  padding: 5px;
+  border-radius: 1px;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
 }
 #header #category,
 #header #navigator {
@@ -141,6 +181,23 @@ body {
 #header .active i {
   color: #4a6988 !important;
 }
+#header #footer {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+  font-size: 0.7em;
+  color: #AAAAAA;
+  line-height: 15px;
+  text-align: center;
+}
+#header #footer a {
+  color: #FFFFFF;
+}
+#header #footer .cr {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
 /* Scroll Bar */
 /* Let's get this party started */
 #header::-webkit-scrollbar {
@@ -174,8 +231,16 @@ body {
 }
 #mainContent .mainContent #show .photo {
   width: 100%;
-  height: 500px;
+  display: inline-block;
+  float: left;
   margin-bottom: 20px;
+  background-image: url(../image/loading4.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#mainContent .mainContent #show .photo img {
+  width: 100%;
+  box-shadow: 1px 1px 3px #777777;
 }
 #mainContent .mainContent #show .video {
   width: 100%;
@@ -187,6 +252,10 @@ body {
   width: 100%;
   height: 500px;
   border: 0px;
+  box-shadow: 1px 1px 3px #777777;
+  background-image: url(../image/loading4.gif);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 #mainContent .mainContent #show .video .fb-post {
   width: 100% !important;
@@ -203,6 +272,13 @@ body {
 }
 #mainContent .mainContent #show .stat .time {
   float: left;
+  margin-right: 10px;
+}
+#mainContent .mainContent #show .stat .time a {
+  color: #34495e;
+}
+#mainContent .mainContent #show .stat .time a:hover {
+  text-decoration: underline;
 }
 #mainContent .mainContent #show .stat .statBox {
   float: right;
@@ -212,6 +288,22 @@ body {
   margin-bottom: 20px;
   color: #34495e;
   line-height: 35px;
+}
+#mainContent .mainContent #show .hidden {
+  display: none;
+}
+#mainContent .mainContent #show .social {
+  float: left;
+  width: 100%;
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#mainContent .mainContent #show .social .item {
+  float: left;
+  margin-right: 10px;
+  display: inline-block !important;
+  text-align: center;
 }
 #mainContent .mainContent #show .text {
   width: 100%;
@@ -250,6 +342,9 @@ body {
   font-size: 0.9em;
   color: #AAAAAA;
 }
+#mainContent .mainContent #title p i {
+  color: #DDDDDD;
+}
 #mainContent .mainContent .feedItem {
   float: left;
   width: 31%;
@@ -257,6 +352,7 @@ body {
   margin: 1%;
   background: #FFFFFF;
   box-shadow: 0px 0px 3px #AAAAAA;
+  border-radius: 2px;
 }
 #mainContent .mainContent .feedItem .image {
   width: 100%;
@@ -264,9 +360,32 @@ body {
   overflow: hidden;
   display: inline-block;
   float: left;
+  position: relative;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
   background-image: url(../image/loading4.gif);
   background-position: center;
   background-repeat: no-repeat;
+}
+#mainContent .mainContent .feedItem .image .tri {
+  position: absolute;
+  bottom: 0px;
+  left: 5%;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid #FFFFFF;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+}
+#mainContent .mainContent .feedItem .image .duration {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  background: #111111;
+  background: rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+  font-size: 0.7em;
+  padding: 5px;
+  border-radius: 2px;
 }
 #mainContent .mainContent .feedItem .image img {
   width: 100%;
@@ -287,6 +406,9 @@ body {
 #mainContent .mainContent .feedItem .detail h1 a {
   color: #34495e;
 }
+#mainContent .mainContent .feedItem .detail h1 a:hover {
+  text-decoration: underline;
+}
 #mainContent .mainContent .feedItem .detail p {
   font-size: 0.85em;
   line-height: 19px;
@@ -305,17 +427,88 @@ body {
 }
 #mainContent .mainContent .feedItem .stat .time {
   float: left;
+  margin-right: 5px;
+}
+#mainContent .mainContent .feedItem .stat .time a {
+  color: #34495e;
+}
+#mainContent .mainContent .feedItem .stat .time a:hover {
+  text-decoration: underline;
 }
 #mainContent .mainContent .feedItem .stat .statBox {
   float: right;
 }
+#mainContent .mainContent .loading {
+  width: 96%;
+  float: left;
+  display: inline-block;
+  padding: 2%;
+  text-align: center;
+  font-size: 0.9em;
+  color: #34495e;
+}
 #feature {
   position: fixed;
   width: 20%;
-  height: 100%;
+  height: 98%;
   top: 0px;
   right: 1%;
   overflow: auto;
+  padding-top: 2%;
+}
+#feature .banner {
+  float: left;
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+}
+#feature .banner .bannerItem {
+  float: left;
+  width: 92%;
+  display: inline-block;
+  background: #FFFFFF;
+  margin: 2%;
+  padding: 2%;
+  box-shadow: 0px 0px 3px #AAAAAA;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+#feature .banner .bannerItem img {
+  width: 100%;
+}
+#feature .banner .bannerItem:hover .title {
+  opacity: 1;
+}
+#feature .banner .bannerItem .title {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: #111111;
+  background: rgba(0, 0, 0, 0.6);
+  color: #FFFFFF;
+  font-size: 0.7em;
+  padding: 5px;
+  border-radius: 1px;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+}
+#feature .likeBox {
+  float: left;
+  width: 96%;
+  display: inline-block;
+  margin-bottom: 20px;
+  background: #FFFFFF;
+  margin: 2%;
+  box-shadow: 0px 0px 3px #AAAAAA;
+  border-radius: 2px;
+  overflow: hidden;
+}
+#feature .likeBox .fb-like-box {
+  width: 100% !important;
 }
 #feature .featureItem {
   float: left;
@@ -323,6 +516,9 @@ body {
   display: inline-block;
   background: #FFFFFF;
   margin: 2%;
+  box-shadow: 0px 0px 3px #AAAAAA;
+  border-radius: 2px;
+  overflow: hidden;
 }
 #feature .featureItem .photo {
   width: 100%;
@@ -330,6 +526,30 @@ body {
   float: left;
   display: inline-block;
   overflow: hidden;
+  position: relative;
+  background-image: url(../image/loading4.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#feature .featureItem .photo .tri {
+  position: absolute;
+  bottom: 0px;
+  left: 5%;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid #FFFFFF;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+}
+#feature .featureItem .photo .duration {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  background: #111111;
+  background: rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+  font-size: 0.7em;
+  padding: 5px;
+  border-radius: 2px;
 }
 #feature .featureItem .detail {
   width: 94%;
@@ -342,6 +562,12 @@ body {
   line-height: 18px;
   color: #34495e;
   margin-bottom: 5px;
+}
+#feature .featureItem .detail h2 a {
+  color: #34495e;
+}
+#feature .featureItem .detail h2 a:hover {
+  text-decoration: underline;
 }
 #feature .featureItem .stat {
   width: 94%;
@@ -356,6 +582,13 @@ body {
 }
 #feature .featureItem .stat .time {
   float: left;
+  margin-right: 5px;
+}
+#feature .featureItem .stat .time a {
+  color: #34495e;
+}
+#feature .featureItem .stat .time a:hover {
+  text-decoration: underline;
 }
 #feature .featureItem .stat .statBox {
   float: right;

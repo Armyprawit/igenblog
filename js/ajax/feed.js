@@ -48,6 +48,7 @@ function loadingFeed(category,type,start){
 		}
 		if(loading.readyState == 4) // Return Request
 		{
+
 			$('#feedDisplay').append(loading.responseText);
 			console.log("start:"+start+' / type:'+type+' / cat:'+category);
 			index+=21;

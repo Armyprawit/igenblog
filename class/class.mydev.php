@@ -1,35 +1,32 @@
 <?php
 // CLASS MYDEV this Class by igensite.com
 class MyDev extends License{
+
+	function convDuration($time){
+		$h = round($time/3600,0);
+		$time = $time%3600;
+		$m = round($time/60,0);
+		$time = $time%60;
+		$s = $time;
+		if($h<10){$h = '0'.$h;}
+		if($s<10){$s = '0'.$s;}
 	
-	
-	//Get URL for SEO
-	/*
-	public function urlSEO($raw){
-     	$raw = preg_replace('#[^-ก-๙a-zA-Z0-9]#u','-', $raw);
-     	$raw =  ereg_replace("-+","-",$raw);
-     	if(substr($raw,0,1) == '-'){
-			$raw = substr($raw,1);
+		if($h<1){
+			return "$m:$s";
 		}
-     	if(substr($game_url,-1) == '-'){
-          $raw = substr($raw,0,-1);
-	 	}
-     	return urlencode($raw);
+		else{
+			return "$h:$m:$s";
+		}
 	}
-	*/
-	//Random Color of Aff Button
-	public function randomColorAffBtn(){
-		$i = rand(1,8);
-		if($i==1){$color="style=\"background:#1abc9c;\"";}
-		else if($i==2){$color="style=\"background:#2980b9;\"";}
-		else if($i==3){$color="style=\"background:#f1c40f;\"";}
-		else if($i==4){$color="style=\"background:#e74c3c;\"";}
-		else if($i==5){$color="style=\"background:#8e44ad;\"";}
-		else if($i==6){$color="style=\"background:#34495e;\"";}
-		else if($i==7){$color="style=\"background:#7f8c8d;\"";}
-		else if($i==8){$color="style=\"background:#2ecc71;\"";}
-		else{$color="style=\"background:#2c3e50;\"";}
-		return $color;
+
+	public function convTextToMetaTag($text){
+		$text = str_replace(array("\t","\n"),"",$text);
+		$text = str_replace(array('\"'),'',$text);
+		return iconv_substr($text,0,280,"UTF-8");
+	}
+
+	function br2nl($string){
+    	return preg_replace('/\<br(\s*)?\/?\>/i',"\n", $string);
 	}
 	
 	public function urlSEO($data){

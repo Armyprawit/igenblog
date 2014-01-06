@@ -226,7 +226,7 @@ class Youtube extends MyDev{
 		$var = $stmt->fetch(PDO::FETCH_ASSOC);
 		
 		if($var['vi_id'] == ""){
-
+			//$text = str_replace(array("\r\n","\n\r","\r","\n"),"",$text);
 			$description = strip_tags($text);
 			//$category_id = 0;
 			$user_id = 0;

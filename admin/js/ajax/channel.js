@@ -67,7 +67,9 @@ function updateVideoYoutube(channel,http,category,stat,start,total){
 		totalVideo = data.data.totalItems;
 
 		$.each(data.data.items,function(k,v){
-			newVideoUpdate(category,v.title,v.description,v.duration,'keyword',v.thumbnail.sqDefault,v.thumbnail.hqDefault,v.id,v.uploader,1,stat,start);
+			var videoText = v.description;
+			videoText = videoText.replace(/\r?\n/g,"<br>");
+			newVideoUpdate(category,v.title,videoText,v.duration,'keyword',v.thumbnail.sqDefault,v.thumbnail.hqDefault,v.id,v.uploader,1,stat,start);
 		});
 
 		start += total;

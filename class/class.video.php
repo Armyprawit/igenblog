@@ -9,27 +9,32 @@ class Video{
 		
 		return $var;
 	}
-	
-	//Update View Video
-	public function updateViewVideo($content_id){
-		$query = "SELECT vi_c_view FROM bl_video WHERE vi_id = '".mysql_real_escape_string($content_id)."'";
-		mysql_query("SET NAMES UTF8");
-		$result = mysql_query($query);
-		$video = mysql_fetch_array($result, MYSQL_ASSOC);
-		
-		$query = "UPDATE bl_video SET vi_c_view = '".mysql_real_escape_string(++$video['vi_c_view'])."' WHERE vi_id = '".mysql_real_escape_string($content_id)."'";
-		mysql_query($query);
-	}
-	
-	//Update Watch Video
-	public function updateWatchVideo($content_id){
-		$query = "SELECT vi_c_watch FROM bl_video WHERE vi_id = '".mysql_real_escape_string($content_id)."'";
-		mysql_query("SET NAMES UTF8");
-		$result = mysql_query($query);
-		$video = mysql_fetch_array($result, MYSQL_ASSOC);
-		
-		$query = "UPDATE bl_video SET vi_c_watch = '".mysql_real_escape_string(++$video['vi_c_watch'])."' WHERE vi_id = '".mysql_real_escape_string($content_id)."'";
-		mysql_query($query);
+
+	public function updateStatus($dbHandle,$event,$id){
+		if($event == 'view'){
+			$stmt = $dbHandle->prepare('SELECT vi_c_view FROM bl_video WHERE vi_id = ?');
+    		$stmt->execute(array($id));
+			$var = $stmt->fetch(PDO::FETCH_ASSOC);
+			$var['vi_c_view']++;
+
+			$stmt = $dbHandle->prepare('UPDATE bl_video SET vi_c_view = :view,vi_update_time = :update_time WHERE vi_id = :id');
+			$stmt->bindParam(':view',$var['vi_c_view']);
+			$stmt->bindParam(':update_time',time());
+			$stmt->bindParam(':id',$id);
+    		$stmt->execute();
+		}
+		else if($event == 'watch'){
+			$stmt = $dbHandle->prepare('SELECT vi_c_watch FROM bl_video WHERE vi_id = ?');
+    		$stmt->execute(array($id));
+			$var = $stmt->fetch(PDO::FETCH_ASSOC);
+			$var['vi_c_watch']++;
+
+			$stmt = $dbHandle->prepare('UPDATE bl_video SET vi_c_watch = :view,vi_update_time = :update_time WHERE vi_id = :id');
+			$stmt->bindParam(':view',$var['vi_c_watch']);
+			$stmt->bindParam(':update_time',time());
+			$stmt->bindParam(':id',$id);
+    		$stmt->execute();
+		}
 	}
 }
 ?>

@@ -116,3 +116,35 @@ INSERT INTO  `igen_blog`.`bl_category` (
 VALUES (
 '10000',  'ไม่มีหมวดหมู่',  'ไม่มีหมวดหมู่', NULL , NULL ,  '0',  '0',  'no',  '1',  '1'
 );
+
+INSERT INTO  `igen_blog`.`bl_setting` (
+`se_id` ,
+`se_title` ,
+`se_description` ,
+`se_placeholder` ,
+`se_value` ,
+`se_update_time` ,
+`se_type` ,
+`se_status` ,
+`se_sort` ,
+`se_note`
+)
+VALUES (
+'24',  'Keyword of Web site',  'Keyword of Web site', NULL , NULL ,  '0',  '1',  '1',  '0', NULL
+);
+
+INSERT INTO  `igen_blog`.`bl_setting` (
+`se_id` ,
+`se_title` ,
+`se_description` ,
+`se_placeholder` ,
+`se_value` ,
+`se_update_time` ,
+`se_type` ,
+`se_status` ,
+`se_sort` ,
+`se_note`
+)
+VALUES (
+'25',  'Site Name (Logo)',  'Site Name (Logo)', NULL ,  'IGENBLOG',  '0',  '1',  '1',  '0', NULL
+);

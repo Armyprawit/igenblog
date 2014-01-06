@@ -17,19 +17,6 @@
 	$res = mysql_query("SHOW SESSION STATUS LIKE 'Questions'");
 	$igen = mysql_fetch_array($res, MYSQL_ASSOC);
 	define("START_QUERIES",$igen['Value']);
-	
-	// ALL CLASS ////////////////////////////
-	// include'class.mydev.php';
-	// include'class.admin.php';
-	// include'class.youtube.php';
-	// include'class.video.php';
-	// include'class.category.php';
-	// include'class.article.php';
-	// include'class.photo.php';
-	// include'class.banner.php';
-	// include'class.fb.php';
-	// include'class.setting.php';
-	//include'class.admin.php';
 
 	include'class.license.php';
 	include'class.setting.php';
@@ -50,7 +37,7 @@
 	// $youtube = new Youtube;
 	$video = new Video;
 	$image = new Image;
-	// $banner = new Banner;
+	$banner = new Banner;
 	$mydev = new MyDev;
-	// $setting = new Setting;
+	$setting = new Setting;
 ?>

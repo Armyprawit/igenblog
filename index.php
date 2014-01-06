@@ -2,11 +2,58 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>IGENBLOG</title>
 
-<!-- Favicon -->
+<!-- favicon -->
 <link rel="shortcut icon" href="image/favicon/icon.ico" />
+<!-- For all other browsers -->
+<link rel="icon" href="image/favicon/icon.ico"/>
+<link rel="address bar icon" href="image/favicon/icon.ico">
+<!-- For Modern Browsers with PNG Support -->
+<link rel="icon" type="image/png" href="image/favicon/icon32x32.png" sizes="32x32">
+
+<!-- For rounded corners and reflective shine in Apple devices -->
+<!-- Default 57x57 -->
+<link rel="apple-touch-icon" href="image/favicon/icon57x57.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="image/favicon/icon72x72.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="image/favicon/icon144x144.png" />
+<!-- Favicon without reflective shine -->
+<link rel="apple-touch-icon-precomposed" href="image/favicon/icon57x57.png" />
+
+<!-- ICON FOR Windows 8 -->
+<meta name="msapplication-TileColor" content="#FFFFFF">
+<meta name="msapplication-TileImage" content="image/favicon/icon72x72.png">
+
+<!-- Meta Tag -->
+<meta charset="utf-8">
+<!-- Responsive -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="google-site-verification" content="<?php echo $setting->getSetting($dbHandle,9);?>" />
+
+<!-- Meta Tag Main -->
+<meta name="description"          content="<?php echo $setting->getSetting($dbHandle,16);?>">
+<meta name="keywords"             content="<?php echo $setting->getSetting($dbHandle,24);?>" />
+
+<meta property="og:title"         content="<?php echo $setting->getSetting($dbHandle,1);?>"/>
+<meta property="og:description"   content="<?php echo $setting->getSetting($dbHandle,16);?>"/>
+<meta property="og:url"           content="<?php echo $setting->getSetting($dbHandle,2);?>"/>
+<meta property="og:image"         content="<?php echo $setting->getSetting($dbHandle,2);?>/logo.png"/>
+
+<meta property="og:type"          content="website"/>
+<meta property="og:site_name"     content="<?php echo $setting->getSetting($dbHandle,5);?>"/>
+<meta property="fb:app_id"        content="<?php echo $setting->getSetting($dbHandle,3);?>"/>
+<meta property="fb:admins"        content="<?php echo $setting->getSetting($dbHandle,4);?>"/>
+
+<meta name="author" content="Igensite">
+<meta name="generator" content="IGenBlog 3.0" />
+
+<!-- Add the following three tags inside head. -->
+<meta itemprop="name" content="<?php echo $setting->getSetting($dbHandle,1);?>">
+<meta itemprop="description" content="<?php echo $setting->getSetting($dbHandle,16);?>">
+<meta itemprop="image" content="<?php echo $setting->getSetting($dbHandle,2);?>/logo.png">
+
+<title><?php echo $setting->getSetting($dbHandle,1);?></title>
+
 
 <!-- Style File -->
 <link rel="stylesheet" href="css/reset.css" type="text/css"/>
@@ -35,7 +82,8 @@ include'header.php';
 
 <div id="mainContent">
   <div class="mainContent" id="feedDisplay">
-    <?php $timeline->getFeedTimeline($dbHandle,'normal',0,0,0,21);?>
+    <?php $timeline->getFeedTimeline($dbHandle,'feed','normal',0,0,0,21);?>
+    <!-- <div class="loading" id="loadingMore"><i class="fa fa-spinner fa-spin"></i> กำลังโหลด...</div> -->
   </div>
 </div>
 
