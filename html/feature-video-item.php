@@ -8,7 +8,7 @@
     </a>
 
     <div class="detail">
-      <h2><a href="play-<?php echo $var['vi_id']+1024;?>-<?php echo parent::urlSEO($var['vi_title']);?>.html" target="_parent"><?php echo stripslashes($var['vi_title']);?></a></h2>
+      <h2><a href="play-<?php echo $var['vi_id']+1024;?>-<?php echo parent::urlSEO($var['vi_title']);?>.html" target="_parent"><?php echo stripslashes($var['vi_title']);?> <i class="fa fa-youtube-play"></i></a></h2>
     </div>
     <div class="stat">
       <div class="time"><i class="fa fa-clock-o"></i> <?php echo parent::fb_thaidate($var['vi_post_time']);?></div>

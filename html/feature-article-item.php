@@ -7,7 +7,7 @@
     </a>
 
     <div class="detail">
-      <h2><a href="read-<?php echo $var['ar_id']+1024;?>-<?php echo parent::urlSEO($var['ar_title']);?>.html" target="_parent"><?php echo stripslashes($var['ar_title']);?></a></h2>
+      <h2><a href="read-<?php echo $var['ar_id']+1024;?>-<?php echo parent::urlSEO($var['ar_title']);?>.html" target="_parent"><?php echo stripslashes($var['ar_title']);?> <i class="fa fa-book"></i></a></h2>
     </div>
     <div class="stat">
     	<div class="time"><i class="fa fa-clock-o"></i> <?php echo parent::fb_thaidate($var['ar_post_time']);?></div>

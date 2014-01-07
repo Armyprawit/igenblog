@@ -29,9 +29,9 @@
   ?>
 
   <div id="navigator">
-    <a href="video.php" target="_parent"><div class="navItem"><i class="fa fa-youtube-play"></i> Video <span class="total">34</span></div></a>
-    <a href="article.php" target="_parent"><div class="navItem"><i class="fa fa-book"></i> Article <span class="total">194</span></div></a>
-    <a href="gallery.php" target="_parent"><div class="navItem"><i class="fa fa-camera"></i> Photo <span class="total">4</span></div></a>
+    <a href="video.php" target="_parent"><div class="navItem"><i class="fa fa-youtube-play"></i> Video <!-- <span class="total">34</span> --></div></a>
+    <a href="article.php" target="_parent"><div class="navItem"><i class="fa fa-book"></i> Article <!-- <span class="total">194</span> --></div></a>
+    <a href="gallery.php" target="_parent"><div class="navItem"><i class="fa fa-camera"></i> Photo <!-- <span class="total">4</span> --></div></a>
   </div>
 
   <!-- ZONE 3 -->

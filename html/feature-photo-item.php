@@ -7,7 +7,7 @@
     </a>
     
     <div class="detail">
-      <h2><a href="image-<?php echo $var['im_id']+1024;?>-<?php echo parent::urlSEO(iconv_substr($var['im_description'],0,70,"UTF-8"));?>.html" target="_parent"><?php echo stripslashes($var['im_title']);?></a></h2>
+      <h2><a href="image-<?php echo $var['im_id']+1024;?>-<?php echo parent::urlSEO(iconv_substr($var['im_description'],0,70,"UTF-8"));?>.html" target="_parent"><?php echo stripslashes($var['im_description']);?> <i class="fa fa-camera"></i></a></h2>
     </div>
     <div class="stat">
     	<div class="time"><i class="fa fa-clock-o"></i> <?php echo parent::fb_thaidate($var['im_post_time']);?></div>

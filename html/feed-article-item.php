@@ -8,7 +8,7 @@
       </a>
 
       <div class="detail">
-        <h1><a href="read-<?php echo $var['ar_id']+1024;?>-<?php echo parent::urlSEO($var['ar_title']);?>.html" target="_parent"><?php echo stripslashes($var['ar_title']);?></a></h1>
+        <h1><a href="read-<?php echo $var['ar_id']+1024;?>-<?php echo parent::urlSEO($var['ar_title']);?>.html" target="_parent"><?php echo stripslashes($var['ar_title']);?> <i class="fa fa-book"></i></a></h1>
         <p><?php echo stripslashes($var['ar_description']);?></p>
       </div>
       <div class="stat">

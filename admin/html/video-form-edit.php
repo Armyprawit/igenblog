@@ -15,7 +15,7 @@
                     </div>
 
                     <p><i class="fa fa-pencil"></i> ข้อความ</p>
-                    <input type="text" id="title" class="input-text" autocomplete="off" placeholder="หัวข้อบทความ" autofocus required value="<?php echo $var['vi_title'];?>">
+                    <input type="text" id="title" class="input-text" autocomplete="off" placeholder="หัวข้อบทความ" autofocus required value="<?php echo stripslashes($var['vi_title']);?>">
                 
                     <textarea id="textArea" class="input-area animated" placeholder="เขียนบทความ , สามารถใช้แท็ก html ได้" onKeyUp="Javascript:exampleArticle($('#textArea').val());"><?php echo stripslashes($mydev->br2nl($var['vi_text']));?></textarea>
                     <?php include'editor.php';?>

@@ -22,6 +22,12 @@ class Article extends MyDev{
 			$stmt->bindParam(':update_time',time());
 			$stmt->bindParam(':id',$id);
     		$stmt->execute();
+
+    		// Update Last time of Timeline
+    		$stmt = $dbHandle->prepare('UPDATE bl_timeline SET tl_last_time = :update_time WHERE tl_content_id = :id AND tl_type = 2');
+			$stmt->bindParam(':update_time',time());
+			$stmt->bindParam(':id',$id);
+    		$stmt->execute();
 		}
 		else if($event == 'watch'){
 			$stmt = $dbHandle->prepare('SELECT ar_c_read FROM bl_article WHERE ar_id = ?');

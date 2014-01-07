@@ -9,7 +9,7 @@
       </a>
       
       <div class="detail">
-        <h1><a href="play-<?php echo $var['vi_id']+1024;?>-<?php echo parent::urlSEO($var['vi_title']);?>.html" target="_parent"><?php echo stripslashes($var['vi_title']);?></a></h1>
+        <h1><a href="play-<?php echo $var['vi_id']+1024;?>-<?php echo parent::urlSEO($var['vi_title']);?>.html" target="_parent"><?php echo stripslashes($var['vi_title']);?> <i class="fa fa-youtube-play"></i></a></h1>
         <p><?php echo stripslashes($var['vi_description']);?></p>
       </div>
       <div class="stat">

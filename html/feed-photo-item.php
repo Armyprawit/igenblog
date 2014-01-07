@@ -8,7 +8,7 @@
       </a>
 
       <div class="detail">
-        <h1><a href="image-<?php echo $var['im_id']+1024;?>-<?php echo parent::urlSEO(iconv_substr($var['im_description'],0,70,"UTF-8"));?>.html" target="_parent"><?php echo stripslashes($var['im_title']);?></a></h1>
+        <h1><a href="image-<?php echo $var['im_id']+1024;?>-<?php echo parent::urlSEO(iconv_substr($var['im_description'],0,70,"UTF-8"));?>.html" target="_parent"><?php echo stripslashes($var['im_title']);?> <i class="fa fa-camera"></i></a></h1>
         <p><?php echo stripslashes($var['im_description']);?></p>
       </div>
       <div class="stat">

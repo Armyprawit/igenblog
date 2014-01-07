@@ -14,15 +14,15 @@ class Timeline extends Mydev{
 			*/
 			if($feed == 'feed'){
 				if($type == 1){
-					$stmt = $dbHandle->prepare('SELECT tl_id,tl_category_id,tl_type,tl_content_id,tl_post_time,tl_last_time,tl_status FROM bl_timeline WHERE tl_status = 1 AND tl_type = :type ORDER BY tl_post_time DESC LIMIT :start,:total');
+					$stmt = $dbHandle->prepare('SELECT tl_id,tl_category_id,tl_type,tl_content_id,tl_post_time,tl_last_time,tl_status FROM bl_timeline WHERE tl_status = 1 AND tl_type = :type ORDER BY tl_last_time DESC,tl_post_time DESC LIMIT :start,:total');
 					$stmt->bindParam(':type',$type);
 				}
 				else if($type == 2){
-					$stmt = $dbHandle->prepare('SELECT tl_id,tl_category_id,tl_type,tl_content_id,tl_post_time,tl_last_time,tl_status FROM bl_timeline WHERE tl_status = 1 AND tl_type = :type ORDER BY tl_post_time DESC LIMIT :start,:total');
+					$stmt = $dbHandle->prepare('SELECT tl_id,tl_category_id,tl_type,tl_content_id,tl_post_time,tl_last_time,tl_status FROM bl_timeline WHERE tl_status = 1 AND tl_type = :type ORDER BY tl_last_time DESC,tl_post_time DESC LIMIT :start,:total');
 					$stmt->bindParam(':type',$type);
 				}
 				else if($type == 3){
-					$stmt = $dbHandle->prepare('SELECT tl_id,tl_category_id,tl_type,tl_content_id,tl_post_time,tl_last_time,tl_status FROM bl_timeline WHERE tl_status = 1 AND tl_type = :type ORDER BY tl_post_time DESC LIMIT :start,:total');
+					$stmt = $dbHandle->prepare('SELECT tl_id,tl_category_id,tl_type,tl_content_id,tl_post_time,tl_last_time,tl_status FROM bl_timeline WHERE tl_status = 1 AND tl_type = :type ORDER BY tl_last_time DESC,tl_post_time DESC LIMIT :start,:total');
 					$stmt->bindParam(':type',$type);
 				}
 				else if($type == 4){
@@ -30,7 +30,7 @@ class Timeline extends Mydev{
 					$stmt->bindParam(':category',$category_id);
 				}
 				else{
-					$stmt = $dbHandle->prepare('SELECT tl_id,tl_category_id,tl_type,tl_content_id,tl_post_time,tl_last_time,tl_status FROM bl_timeline WHERE tl_status = 1 ORDER BY tl_post_time DESC LIMIT :start,:total');
+					$stmt = $dbHandle->prepare('SELECT tl_id,tl_category_id,tl_type,tl_content_id,tl_post_time,tl_last_time,tl_status FROM bl_timeline WHERE tl_status = 1 ORDER BY tl_last_time DESC,tl_post_time DESC LIMIT :start,:total');
 				}
 			}
 			else if($feed == 'feature'){
