@@ -2,7 +2,7 @@
 //Message Set
 include_once'var-message.php';
 
-class Video{
+class Video extends MyDev{
 	public function newVideo($dbHandle,$category_id,$user_id,$article_id,$title,$text,$duration,$keyword,$image_mini,$image_hd,$code,$uploader,$type,$status){
 		global $msg;
 		$stmt = $dbHandle->prepare('SELECT vi_id FROM bl_video WHERE vi_code = ?');
@@ -213,6 +213,21 @@ class Video{
     		$stmt->execute(array($id));
     		$var = $stmt->fetch(PDO::FETCH_ASSOC);
     		return $var['COUNT(vi_id)'];
+		}
+	}
+
+	public function monitorAllVideo($dbHandle,$event,$total){
+		if($event == 'view'){
+			$stmt = $dbHandle->prepare('SELECT vi_id,vi_title,vi_c_view,vi_c_watch,vi_post_time,vi_update_time,ca_id,ca_title,ca_url FROM bl_video,bl_category WHERE vi_type = 1 AND vi_status = 1 AND vi_category_id = ca_id ORDER BY vi_c_view DESC LIMIT :total');
+		}
+		else if($event == 'last'){
+			$stmt = $dbHandle->prepare('SELECT vi_id,vi_title,vi_c_view,vi_c_watch,vi_post_time,vi_update_time,ca_id,ca_title,ca_url FROM bl_video,bl_category WHERE vi_type = 1 AND vi_status = 1 AND vi_category_id = ca_id ORDER BY vi_update_time DESC LIMIT :total');
+		}
+
+		$stmt->bindParam(':total',$total,PDO::PARAM_INT);
+		$stmt->execute();
+		while($var = $stmt->fetch(PDO::FETCH_ASSOC)){
+			include'html/feed-video-item.php';
 		}
 	}
 }

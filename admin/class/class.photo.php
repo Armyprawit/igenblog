@@ -2,7 +2,7 @@
 //Message Set
 include_once'var-message.php';
 
-class Photo{
+class Photo extends MyDev{
 	public function newPhoto($dbHandle,$category_id,$user_id,$article_id,$title,$text,$keyword,$image,$type,$status){
 
 		global $msg;
@@ -220,6 +220,21 @@ class Photo{
     		$stmt->execute(array($id));
     		$var = $stmt->fetch(PDO::FETCH_ASSOC);
     		return $var['COUNT(im_id)'];
+		}
+	}
+
+	public function monitorAllPhoto($dbHandle,$event,$total){
+		if($event == 'view'){
+			$stmt = $dbHandle->prepare('SELECT im_id,im_description,im_c_view,im_c_watch,im_post_time,im_update_time,ca_id,ca_title,ca_url FROM bl_image,bl_category WHERE im_type = 1 AND im_status = 1 AND im_category_id = ca_id ORDER BY im_c_view DESC LIMIT :total');
+		}
+		else if($event == 'last'){
+			$stmt = $dbHandle->prepare('SELECT im_id,im_description,im_c_view,im_c_watch,im_post_time,im_update_time,ca_id,ca_title,ca_url FROM bl_image,bl_category WHERE im_type = 1 AND im_status = 1 AND im_category_id = ca_id ORDER BY im_update_time DESC LIMIT :total');
+		}
+
+		$stmt->bindParam(':total',$total,PDO::PARAM_INT);
+		$stmt->execute();
+		while($var = $stmt->fetch(PDO::FETCH_ASSOC)){
+			include'html/feed-photo-item.php';
 		}
 	}
 }

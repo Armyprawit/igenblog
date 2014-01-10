@@ -21,7 +21,9 @@
 	// ALL CLASS ////////////////////////////
 	include'class.mydev.php';
 	include'class.admin.php';
+	include'class.analytic.php';
 	include'class.youtube.php';
+	include'class.timeline.php';
 	include'class.video.php';
 	include'class.category.php';
 	include'class.article.php';
@@ -29,18 +31,21 @@
 	include'class.banner.php';
 	include'class.fb.php';
 	include'class.setting.php';
-	//include'class.admin.php';
+	include'class.api.php';
 	
 	//CREATE OBJECT
 	$admin = new Admin;
+	$analytic = new Analytic;
 	$article = new Article;
 	$category = new Category;
+	$timeline = new Timeline;
 	$youtube = new Youtube;
 	$video = new Video;
 	$photo = new Photo;
 	$banner = new Banner;
 	$mydev = new MyDev;
 	$setting = new Setting;
+	$api = new Api;
 
 	if($_GET['e'] == loginG){
     	if($admin->loginG($dbHandle,$_POST['username'],$_POST['password'])){

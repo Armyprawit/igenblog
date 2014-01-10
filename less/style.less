@@ -65,6 +65,25 @@ body{
     overflow: scroll;
 }
 
+#btnMenu{
+    position: fixed;
+    top: 1%;
+    right: 1%;
+    font-size: 1.5em;
+    z-index: 20;
+    background: #000000;
+    background: rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+    padding: 2%;
+    border-radius: 3px;
+    cursor: pointer;
+    display: none;
+
+    &:hover{
+        background: #000000;
+    }
+}
+
 #header{
     position: fixed;
     width: 20%;
@@ -73,6 +92,7 @@ body{
     overflow: auto;
     box-shadow: 2px 0px 3px #222222;
     border-radius: 0px;
+    z-index: 10;
 
     #logo{
         width: 94%;
@@ -229,8 +249,8 @@ body{
 }
 /* Track */
 #header::-webkit-scrollbar-track { 
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
 }
 /* Handle */
 #header::-webkit-scrollbar-thumb {background:#DDDDDD;}
@@ -361,10 +381,10 @@ body{
 
                 a{
                     color: @colorBase1;
-                    text-decoration: underline;
 
                     &:hover{
                         color: @colorBase4;
+                        text-decoration: underline;
                     }
                 }
 
@@ -372,12 +392,37 @@ body{
                     width: 100%;
                     display: inline-block;
                     float: left;
+                    box-shadow: 1px 1px 3px #777777;
+                    margin-bottom: 5px;
+
+                    background-image:url(../image/loading4.gif);
+                    background-position:center;
+                    background-repeat:no-repeat;
+                }
+
+                figcaption{
+                    width: 100%;
+                    font-size: 0.8em;
+                    text-align: right;
                     margin-bottom: 20px;
+                    text-decoration: none !important;
+                }
+
+                iframe{
+                    width:100%;
+                    height:500px;
+                    border:0px;
                     box-shadow: 1px 1px 3px #777777;
 
                     background-image:url(../image/loading4.gif);
                     background-position:center;
                     background-repeat:no-repeat;
+                }
+
+                .fb-post{
+                    width:100% !important;
+                    height:500px !important;
+                    border:0px !important;
                 }
                 
                 // -webkit-column-count: 2; 
@@ -746,3 +791,182 @@ body{
 /* Handle */
 #feature::-webkit-scrollbar-thumb {background:#e74c3c;}
 #feature::-webkit-scrollbar-thumb:window-inactive {}
+
+
+@media only screen and (min-width:760px) and (max-width:1099px){
+}
+
+@media only screen and (min-width:520px) and (max-width:759px){
+}
+
+@media only screen and (min-width:0px) and (max-width :519px){
+
+#btnMenu{
+    display: block;
+}
+
+#header{
+    left: -82%;
+    width: 80%;
+
+    #logo{
+        font-size: 1.5em;
+    }
+    #description{
+        font-size: 0.7em;
+    }
+    #category,#navigator{
+        .categoryItem,.navItem{
+            font-size: 0.7em;
+            i{
+                
+            }
+        }
+    }
+    #footer{
+        font-size: 0.6em;
+    }
+}
+
+#mainContent{
+    width: 98%;
+    margin-left: 1%;
+
+    .mainContent{
+        #show{
+            width: 98%;
+            padding: 1%;
+
+            .photo{
+                width: 100%;
+                display: inline-block;
+                float: left;
+                margin-bottom: 20px;
+
+                background-image:url(../image/loading4.gif);
+                background-position:center;
+                background-repeat:no-repeat;
+
+                img{
+                    width: 100%;
+                    box-shadow: 1px 1px 3px #777777;
+                }
+            }
+
+            .video{
+
+                iframe{
+                    height:220px;
+                }
+
+                .fb-post{
+                    height:220px !important;
+                }
+            }
+
+            .stat{
+                margin-bottom: 15px;
+                font-size: 0.7em;
+            }
+
+            h1{
+                font-size: 1em;
+                margin-bottom: 15px;
+                line-height: 25px;
+            }
+
+            .social{
+
+                .item{
+                    width: 49%;
+                    float: left;
+                    margin-right: 1%;
+                    margin-bottom: 10px;
+                    display: inline-block !important;
+                    text-align: left;
+                }
+            }
+
+            .text{
+                line-height: 20px;
+                font-size: 0.9em;
+
+                strong{
+                    color: @colorBase1;
+                }
+
+                em{
+                    color: @colorBase4;
+                }
+
+                a{
+                    color: @colorBase1;
+
+                    &:hover{
+                        color: @colorBase4;
+                        text-decoration: underline;
+                    }
+                }
+
+                figcaption{
+                    font-size: 0.7em;
+                }
+
+                iframe{
+                    height:220px;
+                }
+
+                .fb-post{
+                    height:220px !important;
+                }
+            }
+        }
+
+        #title{
+
+            h1{
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+            p{
+                font-size: 0.8em;
+            }
+        }
+
+
+        .feedItem{
+            width: 98%;
+            margin-bottom: 10px;
+
+            .image{
+                height: 200px;
+            }
+
+            .detail{
+                height: 90px;
+
+                h1{
+                    font-size: 0.8em;
+                    line-height: 15px;
+                } 
+                p{
+                    font-size: 0.7em;
+                    line-height: 16px;
+                }
+            }
+            .stat{
+                font-size: 0.6em;
+                padding-top: 20px;
+                .statBox{
+                }
+            }
+        }
+    }
+}
+
+#feature{
+    display: none;
+}
+
+
+}

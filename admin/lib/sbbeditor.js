@@ -46,15 +46,15 @@ function addtag(elementName, tag) {
 
         // PHOTO
         case "photo":
-            imgURL = prompt("Photo URL without http://\nExample: www.example.com/image.jpg", "");
-            imgALT = prompt("Photo Title\nExample: www.example.com/image.jpg", "");
+            imgURL = prompt("ลิ้งรูปภาพ\nตัวอย่าง: http://www.example.com/image.jpg", "");
+            imgALT = prompt("คำอธิบายรูปภาพ", "");
 
             if (imgURL == null) {
                 break;
             }
 
-            tagOpen = '<img src="'+imgURL+'" alt="'+imgALT+'">';
-            tagClose = "";
+            tagOpen = '<figure><a class="fancybox" rel="group" href="'+imgURL+'" title="'+imgALT+'"><img src="'+imgURL+'" alt="'+imgALT+'"><figcaption>'+imgALT+'</figcaption>';
+            tagClose = "</a></figure>";
 
             newText = beforeText + tagOpen + selectedText + tagClose + afterText;
         break;
@@ -65,8 +65,12 @@ function addtag(elementName, tag) {
             if (vidURL == null) {
                 break;
             }
+            else{
+                var n = vidURL.indexOf("v=");
+                vidURL = vidURL.substring(n+2,n+2+11);
+            }
 
-            tagOpen = '<iframe src="'+vidURL+'" allowfullscreen>';
+            tagOpen = '<iframe src="//www.youtube.com/embed/'+vidURL+'?version=3&amp&rel=0&showinfo=0&autohide=1&theme=light&autoplay=0" allowfullscreen>';
             tagClose = "</iframe>";
 
             newText = beforeText + tagOpen + selectedText + tagClose + afterText;
@@ -80,7 +84,7 @@ function addtag(elementName, tag) {
                 break;
             }
 
-            tagOpen = '<a href="'+linkURL+'" title="'+linkTITLE+'">';
+            tagOpen = '<a href="'+linkURL+'" title="'+linkTITLE+'" target="_bank">';
             tagClose = "</a>";
 
             newText = beforeText + tagOpen + selectedText + tagClose + afterText;

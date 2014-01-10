@@ -8,7 +8,7 @@
             <div id="stat">
                 
                 <div class="item">
-                    <i class="fa fa-search"></i> <span class="text">5,121,654 VIEW</span>
+                    <i class="fa fa-search"></i> <span class="text"><?php echo $analytic->pageViewData($dbHandle,1)?> VIEW</span>
                 </div>
                 
                 <div class="item">

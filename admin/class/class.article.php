@@ -2,7 +2,7 @@
 //Message Set
 include_once'var-message.php';
 
-class Article{
+class Article extends MyDev{
 	public function newArticle($dbHandle,$category_id,$user_id,$title,$keyword,$image,$text,$credit,$type,$status){
 
 		global $msg;
@@ -230,6 +230,21 @@ class Article{
     		$stmt->execute(array($id));
     		$var = $stmt->fetch(PDO::FETCH_ASSOC);
     		return $var['COUNT(ar_id)'];
+		}
+	}
+
+	public function monitorAllArticle($dbHandle,$event,$total){
+		if($event == 'view'){
+			$stmt = $dbHandle->prepare('SELECT ar_id,ar_title,ar_c_view,ar_c_read,ar_post_time,ar_update_time,ca_id,ca_title,ca_url FROM bl_article,bl_category WHERE ar_type = 1 AND ar_status = 1 AND ar_category_id = ca_id ORDER BY ar_c_view DESC LIMIT :total');
+		}
+		else if($event == 'last'){
+			$stmt = $dbHandle->prepare('SELECT ar_id,ar_title,ar_c_view,ar_c_read,ar_post_time,ar_update_time,ca_id,ca_title,ca_url FROM bl_article,bl_category WHERE ar_type = 1 AND ar_status = 1 AND ar_category_id = ca_id ORDER BY ar_update_time DESC LIMIT :total');
+		}
+
+		$stmt->bindParam(':total',$total,PDO::PARAM_INT);
+		$stmt->execute();
+		while($var = $stmt->fetch(PDO::FETCH_ASSOC)){
+			include'html/feed-article-item.php';
 		}
 	}
 }

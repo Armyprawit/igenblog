@@ -24,7 +24,7 @@
     </div>
     
     <form action="index.php?e=loginG" target="_parent" method="POST">
-      <input type="text" name="username" class="input-text" placeholder="username" autofocus>
+      <input type="text" name="username" class="input-text" placeholder="username" autofocus autocomplete="off">
       <input type="password" name="password" class="input-text" placeholder="password">
       <?php if($_GET['e'] == 'fail'){?>
         <div class="alert"><i class="fa fa-exclamation-circle"></i> ตรวจสอบ Username หรือ Password อีกครั้ง</div>

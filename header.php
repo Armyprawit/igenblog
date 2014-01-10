@@ -1,3 +1,4 @@
+<div id="btnMenu" onclick="Javascript:headerBar();"><i class="fa fa-bars"></i></div>
 <header id="header">
   <a href="index.php" target="_parent"><div id="logo"><?php echo $setting->getSetting($dbHandle,25);?></div></a>
   <div id="description"><i class="fa fa-quote-left"></i> <?php echo $setting->getSetting($dbHandle,16);?> <i class="fa fa-quote-right"></i></div>
