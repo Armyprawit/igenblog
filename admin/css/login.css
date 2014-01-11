@@ -78,3 +78,57 @@ body {
   text-align: right;
   color: #AAAAAA;
 }
+@media only screen and (min-width: 760px) and (max-width: 1099px) {
+  #login {
+    top: 20%;
+    left: 22%;
+    width: 50%;
+    padding: 2%;
+  }
+  #login .title {
+    font-size: 1.7em;
+  }
+  #login .input-text {
+    font-size: 0.9em;
+  }
+  #login .input-submit {
+    font-size: 0.9em;
+    padding: 2%;
+  }
+}
+@media only screen and (min-width: 520px) and (max-width: 759px) {
+  #login {
+    top: 20%;
+    left: 2%;
+    width: 90%;
+    padding: 2%;
+  }
+  #login .title {
+    font-size: 1.5em;
+  }
+  #login .input-text {
+    font-size: 0.9em;
+  }
+  #login .input-submit {
+    font-size: 0.8em;
+    padding: 2%;
+  }
+}
+@media only screen and (min-width: 0px) and (max-width: 519px) {
+  #login {
+    top: 20%;
+    left: 2%;
+    width: 90%;
+    padding: 3%;
+  }
+  #login .title {
+    font-size: 1.5em;
+  }
+  #login .input-text {
+    font-size: 0.9em;
+  }
+  #login .input-submit {
+    font-size: 0.8em;
+    padding: 3%;
+  }
+}

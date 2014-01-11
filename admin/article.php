@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>บทความ :: IGenGoods</title>
+<title>บทความ : IGENBLOG <?php echo $setting->getSetting($dbHandle,26);?></title>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="image/favicon/icon.ico" />
@@ -33,7 +33,7 @@
 
     <div id="mainContent">
         <div class="title">
-          <i class="fa fa-home"></i> Article 
+          <i class="fa fa-pencil-square-o"></i> บทความ 
             <span class="categoryMode">
               <select id="categoryMode" class="input-select" onChange="Javascript:modeListArticle($('#categoryMode').val());">
                 <option value="0">ทั้งหมด</option>
@@ -41,6 +41,13 @@
               </select>
             </span>
         </div>
+
+        <div class="activity">
+          <div class="display" id="result">
+            <?php include'html/article-form.php';?>
+          </div>
+        </div>
+
         <div class="content">
           <!-- Option -->
           <div class="option">
@@ -55,13 +62,7 @@
             <?php $article->listArticle($dbHandle,'normal',0,1,1,0,5);?>
           </div>
         </div>
-        <div class="activity">
-          <div class="display" id="result">
-            <?php include'html/article-form.php';?>
-          </div>
-          
-
-        </div>
+        
     </div>
 </div>
 

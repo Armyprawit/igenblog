@@ -1,3 +1,16 @@
+var headerBarState = 'show';
+
+function headerBar(){
+  if(headerBarState == 'show'){
+    $("#navigator").animate({left:"0%"},400);
+    headerBarState = 'close';
+  }
+  else if(headerBarState == 'close'){
+    $("#navigator").animate({left:"-82%"},600);
+    headerBarState = 'show';
+  }
+}
+
 $(function(){
   $('.animated').autosize({append:"\n"});
 });

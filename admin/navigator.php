@@ -11,11 +11,11 @@
         </div>
         </a>
         
-        <a href="igensite.php" target="_parent">
+        <!-- <a href="igensite.php" target="_parent">
         <div class="item">
             <div class="text"> <i class="fa fa-coffee"></i>IGensite</div><div class="s"></div>
         </div>
-        </a>
+        </a> -->
         
         <a href="stat.php" target="_parent">
         <div class="item">
@@ -76,6 +76,12 @@
             <div class="text"> <i class="fa fa-lock"></i>เปลี่ยนรหัสผ่าน</div><div class="s"></div>
         </div>
         </a> -->
+
+        <a href="../" target="_bank">
+        <div class="item">
+            <div class="text"> <i class="fa fa-desktop"></i>หน้าเว็บ</div><div class="s"></div>
+        </div>
+        </a>
         
         <a href="index.php?e=logoutG" target="_parent">
         <div class="item">

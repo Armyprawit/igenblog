@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>ระบบจัดการร้านค้า :: IGenGoods</title>
+<title>ป้ายโฆษณา : IGENBLOG <?php echo $setting->getSetting($dbHandle,26);?></title>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="image/favicon/icon.ico" />
@@ -33,7 +33,7 @@
     <?php include'header.php';?>
 
     <div id="mainContent">
-        <div class="title"><i class="fa fa-home"></i> Banner 
+        <div class="title"><i class="fa fa-bullhorn"></i> ป้ายโฆษณา 
             <span class="categoryMode">
               <select id="categoryMode" class="input-select" onChange="Javascript:modeListBanner($('#categoryMode').val());">
                 <option value="0">ทั้งหมด</option>
@@ -46,6 +46,13 @@
               </select>
             </span>
         </div>
+
+        <div class="activity">
+          <div class="display" id="result">
+            <?php include'html/banner-form.php';?>
+          </div>
+        </div>
+
         <div class="content">
           <!-- Option -->
           <div class="option">
@@ -62,13 +69,7 @@
 
           </div>
         </div>
-        <div class="activity">
-          <div class="display" id="result">
-            <?php include'html/banner-form.php';?>
-          </div>
-          
-
-        </div>
+        
     </div>
 </div>
 

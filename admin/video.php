@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>ระบบจัดการร้านค้า :: IGenGoods</title>
+<title>คลิปวิดีโอ : IGENBLOG <?php echo $setting->getSetting($dbHandle,26);?></title>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="image/favicon/icon.ico" />
@@ -17,6 +17,7 @@
 <script src="lib/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script src="lib/sbbeditor.js" type="text/javascript"></script>
 <script src="lib/mydev.js" type="text/javascript"></script>
+<script src="lib/textarea.autosize.js" type="text/javascript"></script>
 
 <!-- AJAX -->
 <script src="js/ajax/video.js" type="text/javascript"></script>
@@ -32,7 +33,7 @@
 
     <div id="mainContent">
         <div class="title">
-          <i class="fa fa-home"></i> Video
+          <i class="fa fa-video-camera"></i> คลิปวิดีโอ
           <span class="categoryMode">
               <select id="categoryMode" class="input-select" onChange="Javascript:modeListVideo($('#categoryMode').val());">
                 <option value="0">ทั้งหมด</option>
@@ -40,6 +41,13 @@
               </select>
             </span>
         </div>
+
+        <div class="activity">
+          <div class="display" id="result">
+            <?php include'html/video-form.php';?>
+          </div>
+        </div>
+
         <div class="content">
           
           <!-- Option -->
@@ -56,13 +64,6 @@
           </div>
         </div>
 
-        <div class="activity">
-          <div class="display" id="result">
-            <?php include'html/video-form.php';?>
-          </div>
-          
-
-        </div>
     </div>
 </div>
 

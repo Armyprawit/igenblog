@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>ตั้งค่า :: IGenGoods</title>
+<title>ตั้งค่า : IGENBLOG <?php echo $setting->getSetting($dbHandle,26);?></title>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="image/favicon/icon.ico" />
@@ -32,7 +32,13 @@
     <?php include'header.php';?>
 
     <div id="mainContent">
-        <div class="title"><i class="fa fa-home"></i> Setting <span id="console"></span></div>
+        <div class="title"><i class="fa fa-cog"></i> ตั้งค่า <span id="console"></span></div>
+
+        <div class="activity">
+          <div class="display" id="result">
+          </div>
+        </div>
+
         <div class="content">
 
           <div class="display" id="list">
@@ -75,11 +81,7 @@
 
           </div>
         </div>
-        <div class="activity">
-          <div class="display" id="result">
-          </div>
-          
-        </div>
+
     </div>
 </div>
 

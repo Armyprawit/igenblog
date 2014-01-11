@@ -35,9 +35,13 @@
         <div class="title">
           <i class="fa fa-home"></i> Channel
         </div>
-        <div class="content">
 
-          <?php //$youtube->getVideoDataByChannelAPI('beartaihitech');?>
+        <div class="activity">
+          <div class="display" id="result">
+          </div>
+        </div>
+
+        <div class="content">
           
           <!-- Option -->
           <div class="option">
@@ -51,13 +55,6 @@
           </div>
         </div>
 
-        <div class="activity">
-          <div class="display" id="result">
-            <?php //include'html/channel-form.php';?>
-          </div>
-          
-
-        </div>
     </div>
 </div>
 

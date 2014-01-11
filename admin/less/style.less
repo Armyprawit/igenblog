@@ -59,6 +59,40 @@
     font-style: normal;
 }
 
+#btnMenu{
+    position: fixed;
+    top: 1%;
+    right: 1%;
+    font-size: 1.5em;
+    z-index: 50;
+    background: #000000;
+    background: rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+    padding: 2%;
+    border-radius: 3px;
+    cursor: pointer;
+    display: none;
+
+    &:hover{
+        background: #000000;
+    }
+}
+
+/* Scroll Bar */
+/* Let's get this party started */
+body::-webkit-scrollbar {
+    width: 7px;
+    background: #EEEEEE;
+}
+/* Track */
+body::-webkit-scrollbar-track { 
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+/* Handle */
+body::-webkit-scrollbar-thumb {background:@colorBase4;}
+body::-webkit-scrollbar-thumb:window-inactive {}
+
 body{
     font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
     background: @bgColor;
@@ -70,6 +104,8 @@ body{
     position: fixed;
     top:0px;
     left: 0px;
+    overflow: auto;
+    z-index: 10;
 
     #facebookLogin{
         width: 100%;
@@ -156,6 +192,21 @@ body{
         }
     }
 }
+
+/* Scroll Bar */
+/* Let's get this party started */
+#navigator::-webkit-scrollbar {
+    width: 0px;
+    background:#DDDDDD;
+}
+/* Track */
+#navigator::-webkit-scrollbar-track { 
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+/* Handle */
+#navigator::-webkit-scrollbar-thumb {background:#DDDDDD;}
+#navigator::-webkit-scrollbar-thumb:window-inactive {}
 
 
 #display{
@@ -1415,4 +1466,386 @@ body{
     /* Handle */
     .display::-webkit-scrollbar-thumb {background:@colorBase4;}
     .display::-webkit-scrollbar-thumb:window-inactive {}
+}
+
+@media only screen and (min-width:760px) and (max-width:1099px){
+
+}
+
+@media only screen and (min-width:520px) and (max-width:759px){
+
+}
+
+@media only screen and (min-width:0px) and (max-width :519px){
+
+#btnMenu{
+    display: block;
+}
+
+#navigator{
+    background: @headerColor;
+    box-shadow: 1px 0px 2px #CCCCCC;
+    width: 80%;
+    left: -80%;
+
+    #mainMenu{
+        .sub{
+            width: 90%;
+        }
+    }
+}
+
+#display{
+    width: 100%;
+    margin-left: 0%;
+
+    #header{
+
+        #logo{
+            font-size: 2em;
+        }
+
+        #stat{
+            display: none;
+        }
+    }
+
+    #mainContent{
+
+        .title{
+            font-size: 2em;
+
+            #console{
+                font-size: 0.4em;
+            }
+
+            .categoryMode{
+
+                .input-select{
+                    float: right;
+                    font-size: 0.5em;
+                    padding: 2%;
+                    width: 50%;
+                }
+            }
+        }
+
+        #news{
+            width: 99%;
+            display: inline-block;
+            float: left;
+            padding-left: 1%;
+
+            .newsItem{
+                width: 98%;
+                margin: 1%;
+                margin-bottom: 7px;
+            }
+        }
+
+
+        .content{
+            width: 98%;
+            display: inline-block;
+            float: right;
+            padding: 1%;
+
+            .versionBox{
+                width: 96%;
+                padding: 2%;
+                margin-bottom: 7px;
+
+                p{
+                    font-size: 1em;
+                    padding: 10px;
+
+                    .s{
+                        color: @colorBase4;
+                    }
+                }
+
+                .btn{
+                    padding: 2%;
+                    width: 80%;
+
+                    p{
+                        font-size: 0.6em;
+                    }
+                }
+
+                .note{
+                    font-size: 0.7em;
+                    margin-top: 15px; 
+                }
+            }
+
+            .chartBox{
+                margin-bottom: 7px;
+
+                .topic{
+                    font-size: 0.6em;
+
+                    i{
+                        color: @colorBase4;
+                    }
+                }
+            }
+
+            .option{
+                .search{
+                    float: left;
+                    width: 100%;
+                    display: inline-block;
+                    margin-top: 5px;
+
+                    .input-text{
+                        font-size: 0.9em;
+                        padding: 3%;
+                        width: 93%;
+                    }
+                }
+                .btn{
+                    float: right;
+                    margin-left: 5px;
+                }
+            }
+
+
+            .display{
+
+                .settingItem{
+                    margin-bottom: 7px;
+                }
+
+                .bannerItem{
+                    margin-bottom: 7px;
+
+                    .photo{
+                        width: 35%;
+                    }
+                    .info{
+                        width: 63%;
+                        font-size: 0.9em;
+                        line-height: 16px;
+
+                        .head{
+                            .layouts;
+                            font-size: 0.8em;
+                            margin-bottom: 5px;
+
+                            .id{
+                                padding: 5px;
+                            }
+                            
+                            .status{
+                                padding: 5px;                            }
+                                .category{
+                                    padding: 5px;
+                                }
+
+                        }
+                    }
+                }
+
+
+                .photoItem , .articleItem{
+                    margin-bottom: 7px;
+
+                    .photo{
+                        width: 30%;
+                    }
+                    .info{
+                        width: 67%;
+
+                        .head{
+                            .layouts;
+                            font-size: 0.8em;
+                            margin-bottom: 5px;
+
+                            .id{
+                                padding: 5px;
+                            }
+                            
+                            .status{
+                                padding: 5px;
+                            }
+                            
+
+                            .category{
+                                padding: 5px;
+                            }
+                        }
+
+                        h1{
+                            font-size: 1em;
+                            margin-bottom: 5px;
+                            color: @textColor4;
+
+                            i{
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                .videoItem{
+                    margin-bottom: 7px;
+
+                    .image{
+                        width: 30%;
+                    }
+                    .info{
+                        width: 68%;
+
+                        .head{
+                            .layouts;
+                            font-size: 0.8em;
+                            margin-bottom: 10px;
+
+                            .id{
+                                padding: 5px;
+                            }
+                            
+                            .status{
+                                padding: 5px;
+                            }
+                            
+
+                            .category{
+                                padding: 5px;
+                            }
+                        }
+                    }
+                }
+
+                .categoryItem{
+                    margin-bottom: 7px;
+
+                    .name{
+                        .layouts;
+                        font-size: 1em;
+                        margin-bottom: 10px;
+
+                        .url{
+                            font-size: 0.8em;
+                            text-decoration: underline;
+                            color: @textColor2;
+                            cursor: pointer;
+
+                            &:hover{
+                                color: @textColor1;
+                            }
+                        }
+                    }
+                    .description{
+                        .layouts;
+                        font-size: 0.8em;
+                    }
+
+                    .control{
+                        .layouts;
+                        .btn{
+                            float: right;
+                            margin-left: 10px;
+                            font-size: 0.8em;
+                        }
+                    }
+                }
+            }
+        }
+        .activity{
+            width: 98%;
+            display: inline-block;
+            float: right;
+            padding: 1%;
+
+            .headTitle{
+                font-size: 0.9em;
+            }
+
+            .statBox{
+                margin-bottom: 7px;
+
+                .value{
+                    font-size: 2em;
+                }
+                p{
+                    font-size: 0.8em;
+                }
+
+            }
+
+            .topBox{
+                margin-bottom: 7px;
+
+                .topic{
+                    font-size: 0.9em;
+                }
+            }
+
+            .form{
+                .layouts;
+                padding: 3%;
+                width: 94%;
+                font-size: 1em;
+
+                .photoInput{
+                    float: left;
+                    width: 100%;
+                    display: inline-block;
+                    margin-bottom: 20px;
+
+                    .imageResult{
+                        width: 28%;
+                        height: 150px;
+                    }
+                    .input{
+                        float: right;
+                        width: 68%;
+                        display: inline-block;
+                    }
+                }
+
+                .input-text{
+                    padding: 2%;
+                    width: 96%;
+                }
+
+                .input-select{
+                    padding: 2%;
+                    width: 100%;
+                }
+
+                .control{
+                    width: 100%;
+                    float: left;
+                    display: inline-block;
+                    margin-bottom: 20px;
+
+                    .btn{
+                        padding: 10px;
+                        font-size: 0.7em;
+                        margin-right: 5px;
+                        margin-bottom: 5px;
+                    }
+
+                    .right{
+                        float: left;
+                    }
+                }
+                .input-area{
+                    padding: 2%;
+                    width: 96%;
+                }
+
+                .input-submit{
+                    font-size: 0.9em;
+                    width: 100%;
+                    padding: 2%;
+                }
+            }
+        }
+    }
+}
+    
 }

@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>ระบบจัดการร้านค้า :: IGenGoods</title>
+<title>รูปภาพ / ภาพถ่าย : IGENBLOG <?php echo $setting->getSetting($dbHandle,26);?></title>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="image/favicon/icon.ico" />
@@ -34,7 +34,7 @@
 
     <div id="mainContent">
         <div class="title">
-          <i class="fa fa-home"></i> Photo
+          <i class="fa fa-camera"></i> รูปภาพ
             <span class="categoryMode">
               <select id="categoryMode" class="input-select" onChange="Javascript:modeListPhoto($('#categoryMode').val());">
                 <option value="0">ทั้งหมด</option>
@@ -42,6 +42,13 @@
               </select>
             </span>
         </div>
+
+        <div class="activity">
+          <div class="display" id="result">
+            <?php include'html/photo-form.php';?>
+          </div>
+        </div>
+
         <div class="content">
           <!-- Option -->
           <div class="option">
@@ -56,13 +63,7 @@
             <?php $photo->listPhoto($dbHandle,'normal',0,1,1,0,5);?>
           </div>
         </div>
-        <div class="activity">
-          <div class="display" id="result">
-            <?php include'html/photo-form.php';?>
-          </div>
-          
-
-        </div>
+        
     </div>
 </div>
 

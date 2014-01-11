@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>ระบบจัดการร้านค้า :: IGenGoods</title>
+<title>สถิติ : IGENBLOG <?php echo $setting->getSetting($dbHandle,26);?></title>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="image/favicon/icon.ico" />
@@ -36,7 +36,7 @@
     <?php include'header.php';?>
 
     <div id="mainContent">
-        <div class="title"><i class="fa fa-home"></i> สถิติ</div>
+        <div class="title"><i class="fa fa-bar-chart-o"></i> สถิติ</div>
         <div class="option">
         </div>
         <div class="content">

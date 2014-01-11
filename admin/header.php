@@ -1,4 +1,5 @@
-	<header id="header">
+	<div id="btnMenu" onclick="Javascript:headerBar();"><i class="fa fa-bars"></i></div>
+    <header id="header">
         <div class="header">
             <a href="index.php">
             <div id="logo">

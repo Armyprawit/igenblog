@@ -100,7 +100,7 @@ body{
         float: left;
         display: inline-block;
         font-family: 'Unica One', cursive;
-        font-size: 3.5em;
+        font-size: 4em;
         text-align: center;
         color: #EEEEEE;
         text-shadow: 2px 2px 3px #444444;
@@ -187,13 +187,14 @@ body{
             font-size: 0.8em;
             padding: 4%;
             margin-bottom: 2px;
-            border-radius: 2px;
+            border-radius: 1px;
 
             .transition;
 
             &:hover{
                 color: #FFFFFF;
-                margin-left: 10px;
+                // margin-left: 10px;
+                border-left: 6px solid #FFFFFF;
 
                 i{
                     color: @colorBase3;
@@ -213,7 +214,7 @@ body{
     }
     .active{
         color: #FFFFFF !important;
-        margin-left: 10px;
+        border-left: 6px solid #FFFFFF;
 
         i{
             color: @colorBase3 !important;
@@ -794,9 +795,344 @@ body{
 
 
 @media only screen and (min-width:760px) and (max-width:1099px){
+
+#btnMenu{
+    display: none;
+}
+
+#header{
+    width: 30%;
+
+    #logo{
+        font-size: 3em;
+    }
+    #description{
+        font-size: 0.7em;
+    }
+    #category,#navigator{
+        .categoryItem,.navItem{
+            font-size: 0.8em;
+            i{
+                
+            }
+        }
+    }
+    #footer{
+        font-size: 0.6em;
+    }
+}
+
+#mainContent{
+    width: 68%;
+    margin-left: 31%;
+
+    .mainContent{
+        #show{
+            width: 98%;
+            padding: 1%;
+
+            .photo{
+                width: 100%;
+                display: inline-block;
+                float: left;
+                margin-bottom: 20px;
+
+                background-image:url(../image/loading4.gif);
+                background-position:center;
+                background-repeat:no-repeat;
+
+                img{
+                    width: 100%;
+                    box-shadow: 1px 1px 3px #777777;
+                }
+            }
+
+            .video{
+
+                iframe{
+                    height:220px;
+                }
+
+                .fb-post{
+                    height:220px !important;
+                }
+            }
+
+            .stat{
+                margin-bottom: 15px;
+                font-size: 0.7em;
+            }
+
+            h1{
+                font-size: 1em;
+                margin-bottom: 15px;
+                line-height: 25px;
+            }
+
+            .social{
+
+                .item{
+                    width: 49%;
+                    float: left;
+                    margin-right: 1%;
+                    margin-bottom: 10px;
+                    display: inline-block !important;
+                    text-align: left;
+                }
+            }
+
+            .text{
+                line-height: 20px;
+                font-size: 0.9em;
+
+                strong{
+                    color: @colorBase1;
+                }
+
+                em{
+                    color: @colorBase4;
+                }
+
+                a{
+                    color: @colorBase1;
+
+                    &:hover{
+                        color: @colorBase4;
+                        text-decoration: underline;
+                    }
+                }
+
+                figcaption{
+                    font-size: 0.7em;
+                }
+
+                iframe{
+                    height:220px;
+                }
+
+                .fb-post{
+                    height:220px !important;
+                }
+            }
+        }
+
+        #title{
+
+            h1{
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+            p{
+                font-size: 0.8em;
+            }
+        }
+
+
+        .feedItem{
+            width: 48%;
+            margin-bottom: 10px;
+
+            .image{
+                height: 200px;
+            }
+
+            .detail{
+                height: 90px;
+
+                h1{
+                    font-size: 0.8em;
+                    line-height: 15px;
+                } 
+                p{
+                    font-size: 0.7em;
+                    line-height: 16px;
+                }
+            }
+            .stat{
+                font-size: 0.6em;
+                padding-top: 20px;
+                .statBox{
+                }
+            }
+        }
+    }
+}
+
+#feature{
+    display: none;
+}
+
 }
 
 @media only screen and (min-width:520px) and (max-width:759px){
+
+#btnMenu{
+    display: block;
+}
+
+#header{
+    left: -82%;
+    width: 80%;
+
+    #logo{
+        font-size: 3em;
+    }
+    #description{
+        font-size: 0.7em;
+    }
+    #category,#navigator{
+        .categoryItem,.navItem{
+            font-size: 0.8em;
+            i{
+                
+            }
+        }
+    }
+    #footer{
+        font-size: 0.6em;
+    }
+}
+
+#mainContent{
+    width: 98%;
+    margin-left: 1%;
+
+    .mainContent{
+        #show{
+            width: 98%;
+            padding: 1%;
+
+            .photo{
+                width: 100%;
+                display: inline-block;
+                float: left;
+                margin-bottom: 20px;
+
+                background-image:url(../image/loading4.gif);
+                background-position:center;
+                background-repeat:no-repeat;
+
+                img{
+                    width: 100%;
+                    box-shadow: 1px 1px 3px #777777;
+                }
+            }
+
+            .video{
+
+                iframe{
+                    height:220px;
+                }
+
+                .fb-post{
+                    height:220px !important;
+                }
+            }
+
+            .stat{
+                margin-bottom: 15px;
+                font-size: 0.7em;
+            }
+
+            h1{
+                font-size: 1em;
+                margin-bottom: 15px;
+                line-height: 25px;
+            }
+
+            .social{
+
+                .item{
+                    width: 49%;
+                    float: left;
+                    margin-right: 1%;
+                    margin-bottom: 10px;
+                    display: inline-block !important;
+                    text-align: left;
+                }
+            }
+
+            .text{
+                line-height: 20px;
+                font-size: 0.9em;
+
+                strong{
+                    color: @colorBase1;
+                }
+
+                em{
+                    color: @colorBase4;
+                }
+
+                a{
+                    color: @colorBase1;
+
+                    &:hover{
+                        color: @colorBase4;
+                        text-decoration: underline;
+                    }
+                }
+
+                figcaption{
+                    font-size: 0.7em;
+                }
+
+                iframe{
+                    height:220px;
+                }
+
+                .fb-post{
+                    height:220px !important;
+                }
+            }
+        }
+
+        #title{
+
+            h1{
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+            p{
+                font-size: 0.8em;
+            }
+        }
+
+
+        .feedItem{
+            width: 48%;
+            margin-bottom: 10px;
+
+            .image{
+                height: 200px;
+            }
+
+            .detail{
+                height: 90px;
+
+                h1{
+                    font-size: 0.8em;
+                    line-height: 15px;
+                } 
+                p{
+                    font-size: 0.7em;
+                    line-height: 16px;
+                }
+            }
+            .stat{
+                font-size: 0.6em;
+                padding-top: 20px;
+                .statBox{
+                }
+            }
+        }
+    }
+}
+
+#feature{
+    display: none;
+}
+
 }
 
 @media only screen and (min-width:0px) and (max-width :519px){
@@ -810,7 +1146,7 @@ body{
     width: 80%;
 
     #logo{
-        font-size: 1.5em;
+        font-size: 3em;
     }
     #description{
         font-size: 0.7em;
