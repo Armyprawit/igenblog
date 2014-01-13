@@ -22,6 +22,7 @@
 	include'class.mydev.php';
 	include'class.admin.php';
 	include'class.analytic.php';
+	include'class.fanpage.php';
 	include'class.youtube.php';
 	include'class.timeline.php';
 	include'class.video.php';
@@ -29,7 +30,6 @@
 	include'class.article.php';
 	include'class.photo.php';
 	include'class.banner.php';
-	include'class.fb.php';
 	include'class.setting.php';
 	include'class.api.php';
 	
@@ -46,6 +46,7 @@
 	$mydev = new MyDev;
 	$setting = new Setting;
 	$api = new Api;
+	$facebookpage = new FacebookPage;
 
 	if($_GET['e'] == loginG){
     	if($admin->loginG($dbHandle,$_POST['username'],$_POST['password'])){

@@ -2,7 +2,7 @@
 var loading = false;
 var mode = false;
 var search = false;
-var index = 21;
+var index = 9;
 var state = true;
 
 // scroll event to load more Video.

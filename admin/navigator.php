@@ -1,9 +1,26 @@
 <nav id="navigator">
+    <!-- Facebook Account and Login -->
     <div id="facebookLogin">
-        <div class="photo">
-            <img src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-prn2/960060_10200263455428557_1541239435_n.jpg">
+        <?php
+        if($user){
+        ?>
+        <div class="photo" title="<?php echo $user_profile['first_name'].' '.$user_profile['last_name'];?>">
+            <img src="https://graph.facebook.com/<?php echo $user;?>/picture">
         </div>
+        <div class="logout"><a href="<?php echo $logoutUrl; ?>">logout</a></div>
+        <?php
+        }
+        else{
+        ?>
+        <div class="photo">
+            <a href="<?php echo $loginUrl; ?>"><img src="http://climbersagainstcancer.org/wp-content/uploads/facebook-icon.gif"></a>
+        </div>
+        <?php
+        }
+        ?>
     </div>
+
+    <!-- Main Menu -->
     <div id="mainMenu">
     	<a href="index.php" target="_parent">
         <div class="item">
@@ -64,12 +81,19 @@
             <div class="text"> <i class="fa fa-bullhorn"></i>ป้ายโฆษณา <span class="total"><?php echo $banner->infoBannerData($dbHandle,'total');?></span></div><div class="s"></div>
         </div>
         </a>
+
+        <a href="fanpage.php" target="_parent">
+        <div class="item">
+            <div class="text"> <i class="fa fa-facebook-square"></i> Facebook Page</div><div class="s"></div>
+        </div>
+        </a>
         
         <a href="setting.php" target="_parent">
         <div class="item">
             <div class="text"> <i class="fa fa-cog"></i>ตั้งค่า</div><div class="s"></div>
         </div>
         </a>
+
         
         <!-- <a href="password.php" target="_parent">
         <div class="item">

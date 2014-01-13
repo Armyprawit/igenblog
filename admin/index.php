@@ -1,4 +1,6 @@
 <?php include'class/setting.php';?>
+<?php require'sdk/facebook-sdk/facebook.php';?>
+<?php include'get-facebook-user.php'?>
 <!doctype html>
 <html>
 <head>

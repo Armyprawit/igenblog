@@ -1,9 +1,11 @@
 <?php include'class/setting.php';?>
+<?php require'sdk/facebook-sdk/facebook.php';?>
+<?php include'get-facebook-user.php'?>
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>ระบบจัดการร้านค้า :: IGenGoods</title>
+<title>Youtube : IGENBLOG <?php echo $setting->getSetting($dbHandle,26);?></title>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="image/favicon/icon.ico" />

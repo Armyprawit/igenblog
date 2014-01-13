@@ -1,11 +1,11 @@
 <?php include'class/setting.php';?>
 <?php require'sdk/facebook-sdk/facebook.php';?>
-<?php include'get-facebook-user.php'?>
+<?php include'get-facebook-user.php';?>
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>รูปภาพ / ภาพถ่าย : IGENBLOG <?php echo $setting->getSetting($dbHandle,26);?></title>
+<title>แฟนเพจ : IGENBLOG <?php echo $setting->getSetting($dbHandle,26);?></title>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="image/favicon/icon.ico" />
@@ -22,8 +22,7 @@
 <script src="lib/textarea.autosize.js" type="text/javascript"></script>
 
 <!-- AJAX -->
-<script src="js/ajax/photo.js" type="text/javascript"></script>
-
+<script src="js/ajax/fanpage.js" type="text/javascript"></script>
 
 </head>
 
@@ -36,36 +35,28 @@
 
     <div id="mainContent">
         <div class="title">
-          <i class="fa fa-camera"></i> รูปภาพ
-            <span class="categoryMode">
-              <select id="categoryMode" class="input-select" onChange="Javascript:modeListPhoto($('#categoryMode').val());">
-                <option value="0">ทั้งหมด</option>
-                <?php $category->listCategoryToSelectForm($dbHandle,0,1);?>
-              </select>
-            </span>
+          <i class="fa fa-facebook-square"></i> Facebook Page
         </div>
 
         <div class="activity">
           <div class="display" id="result">
-            <?php include'html/photo-form.php';?>
           </div>
         </div>
 
         <div class="content">
+          
           <!-- Option -->
           <div class="option">
-            <div class="item" onClick="Javascript:toCreatePhoto();"><i class="fa fa-plus-circle"></i> รูปภาพใหม่</div>
-            <!-- <div class="item" id="option-item-1" onClick="Javascript:modeCategory(1);"><i class="fa fa-check-circle-o"></i> Enable</div> -->
-            <!-- <div class="item" id="option-item-0" onClick="Javascript:modeCategory(0);"><i class="fa fa-circle-o"></i> Disable</div> -->
-            <div class="search"><input type="text" class="input-text" id="q" OnKeyUp="Javascript:searchPhoto(document.getElementById('q').value);" placeholder="ค้นหารูปภาพ"></div>
+            <div class="item btn" onClick="Javascript:createFanpage($('#username').val());"><i class="fa fa-plus-circle"></i> แฟนเพจใหม่</div>
+            <div class="search"><input type="text" class="input-text" id="username" OnKeyUp="Javascript:getMetaFanpage($('#username').val());" placeholder="ค้นหาชื่อหมวด,url,id"></div>
           </div>
 
-
+          <!-- Display -->
           <div class="display" id="list">
-            <?php $photo->listPhoto($dbHandle,'normal',0,1,1,0,5);?>
+			<?php $facebookpage->listFacebookPage($dbHandle,'normal',1,1,0,5);?>
           </div>
         </div>
-        
+
     </div>
 </div>
 

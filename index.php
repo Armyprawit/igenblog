@@ -82,7 +82,7 @@ include'header.php';
 
 <div id="mainContent">
   <div class="mainContent" id="feedDisplay">
-    <?php $timeline->getFeedTimeline($dbHandle,'feed','normal',0,0,0,21);?>
+    <?php $timeline->getFeedTimeline($dbHandle,'feed','normal',0,0,0,9);?>
     <!-- <div class="loading" id="loadingMore"><i class="fa fa-spinner fa-spin"></i> กำลังโหลด...</div> -->
   </div>
 </div>
