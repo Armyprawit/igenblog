@@ -1,10 +1,10 @@
 @colorBase1:#FFFFFF; // Header Color
 @colorBase2:#FFFFFF; //Navigator Background
-@colorBase3:#F5F5F5; //Navigator Background Hover
+@colorBase3:#FAFAFA; //Navigator Background Hover
 @colorBase4:#1abc9c;
 @colorBase5:#16a085;
 
-@bgColor:#EAEAEA;
+@bgColor:#ecf0f1;
 @headerColor:#FFFFFF;
 
 @textColor1:#333333; // Main Font Color
@@ -97,6 +97,25 @@ body{
     font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
     background: @bgColor;
 }
+
+#loadingProcess{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 99%;
+    display: inline-block;
+    background: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 0.5%;
+    box-shadow: 0px -1px 3px #CCCCCC;
+    display: none;
+
+    p{
+        color: @colorBase4;
+        font-size: 0.9em;
+        padding: 5px;
+    }
+}
 #navigator{
     background: @headerColor;
     width: @navigatorWidth;
@@ -122,8 +141,17 @@ body{
             overflow: hidden;
             margin: auto;
             cursor: pointer;
+            box-shadow: 0px 0px 3px #777777;
             img{
                 width: 70px;
+            }
+        }
+        .logout{
+            font-size: 0.8em;
+            padding: 5px;
+
+            a{
+                color: #AAAAAA;
             }
         }
     }
@@ -222,15 +250,17 @@ body{
         left: 0px;
         width: 100%;
         height: 36px;
-        background: @headerColor;
+        background: @colorBase4;
         padding-top: 9px;
         padding-bottom: 5px;
+        border-bottom: 5px solid @colorBase5;
+        box-shadow: 0px 1px 2px #AAAAAA;
 
         #logo{
             float: left;
             font-family: @fontStyle1;
             font-size: 2.2em;
-            color: @textColor1;
+            color: #FFFFFF;
             margin-left: 1%;
 
             img{
@@ -238,7 +268,7 @@ body{
             }
 
             i{
-                color: @colorBase4;
+                color: #FFFFFF;
             }
         }
 
@@ -248,17 +278,18 @@ body{
 
             .item{
                 float: right;
-                color: @textColor1;
-                background: #EAEAEA;
                 font-size: 0.8em;
                 margin-right: 5px;
                 border-radius: 2px;
-                border: 1px solid #D5D5D5;
+                border:1px solid @colorBase5;
+                background: @colorBase5;
+                color: #FFFFFF;
 
                 i{
                     padding: 8px;
                     font-size: 1.2em;
-                    background:#DDDDDD;
+                    background: @colorBase4;
+                    color: @colorBase5;
                 }
                 .text{
                     padding: 5px;
@@ -360,6 +391,7 @@ body{
             float: left;
             padding-left: 1%;
 
+            // Version Box index.php
             .versionBox{
                 width: 96%;
                 display: inline-block;;
@@ -368,12 +400,15 @@ body{
                 text-align: center;
                 padding: 2%;
                 margin-bottom: 20px;
+                box-shadow: 0px 1px 2px #AAAAAA;
+                border-radius: 2px;
 
                 p{
                     font-size: 1em;
-                    color: #AAAAAA;
+                    color: #000000;
                     background: #F5F5F5;
                     padding: 20px;
+                    border:1px solid #EEEEEE;
 
                     .s{
                         color: @colorBase4;
@@ -384,7 +419,8 @@ body{
                     background: #e74c3c;
                     color:#FFFFFF;
                     display: inline-block;
-                    padding: 1%;
+                    border:2px solid #c0392b;
+                    padding: 0.5%;
                     border-radius: 2px;
                     line-height: 20px;
                     width: 40%;
@@ -397,21 +433,23 @@ body{
                     }
 
                     p{
-                        font-size: 0.7em;
+                        font-size: 0.8em;
                         color: #FFFFFF;
                         background: none;
                         padding: 0px;
+                        border:0px;
                     }
                 }
 
                 .note{
                     font-size: 0.8em;
-                    color: #555555;
+                    color: #000000;
                     margin-top: 20px; 
                 }
 
                 .update{
                     background: @colorBase4;
+                    border:2px solid @colorBase5;
 
                     &:hover{
                         background: @colorBase5;
@@ -419,6 +457,8 @@ body{
                 }
             }
 
+
+            // Chart Box
             .chartBox{
                 width: 96%;
                 display: inline-block;;
@@ -427,6 +467,8 @@ body{
                 text-align: center;
                 padding: 2%;
                 margin-bottom: 20px;
+                box-shadow: 0px 1px 2px #AAAAAA;
+                border-radius: 2px;
 
                 .topic{
                     text-align: left;
@@ -439,8 +481,10 @@ body{
                 }
             }
 
+
+            
             .option{
-                 float: left;
+                float: left;
                 width: 100%;
                 display: inline-block;
                 margin-bottom: 10px;
@@ -482,23 +526,26 @@ body{
                 }
             }
 
+            // Left Display on Page
             .display{
                 float: left;
                 width: 100%;
                 display: inline-block;
                 color: @textColor1;
 
+
+                // Setting Item setting.php
                 .settingItem{
                     background: @colorBase2;
                     float: left;
                     width: 96%;
                     padding: 2%;
                     display: inline-block;
-                    margin-bottom: 10px;
-                    border-radius: 3px;
-                    border: 1px solid #DDDDDD;
                     font-size: 1em;
                     cursor: pointer;
+                    margin-bottom: 5px;
+                    border-radius: 2px;
+                    box-shadow: 1px 1px 3px #DDDDDD;
 
                     &:hover{
                         background: @colorBase3;
@@ -512,16 +559,18 @@ body{
                     }
                 }
 
+
+                // Banner item banner.php
                 .bannerItem{
                     background: @colorBase2;
                     float: left;
-                    width: 96%;
-                    padding: 2%;
+                    width: 98%;
+                    padding: 1%;
                     display: inline-block;
-                    margin-bottom: 10px;
-                    border-radius: 3px;
-                    border: 1px solid #DDDDDD;
                     cursor: pointer;
+                    margin-bottom: 5px;
+                    border-radius: 2px;
+                    box-shadow: 1px 1px 3px #DDDDDD;
 
                     &:hover{
                         background: @colorBase3;
@@ -549,55 +598,39 @@ body{
 
                         .head{
                             .layouts;
-                            font-size: 0.8em;
-                            margin-bottom: 5px;
+                            margin-bottom: 10px;
 
-                            .id{
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 1%;
+                                border-radius: 1px;
+                                margin-right: 5px;
+                            }
+                            .left{
                                 float: left;
-                                margin-right: 5px;
-                                color: #777777;
-                                background: #DDDDDD;
-                                padding-left: 5px;
-                                padding-right: 5px;
-                                border-radius: 2px;
-                                margin-right: 5px;
                             }
-                            
-                            .status{
-                                float: left;
-                                padding-left: 5px;
-                                padding-right: 5px;
-                                border-radius: 2px;
-                                margin-right: 5px;
-                                cursor: pointer;
-                            }
-                            .s{
-                                background: #2ecc71;
-                                color:#FFFFFF;
-
-                                &:hover{
-                                    background: #27ae60;
-                                }
-                            }
-                            .d{
-                                background: #AAAAAA;
-                                color: #FFFFFF;
-                                &:hover{
-                                    background: #777777;
-                                }
-                            }
-
-                            .category{
+                            .right{
                                 float: right;
+                                margin-right: 0px;
+                                margin-left: 5px;
+                            }
+                            .normal{
                                 background: @colorBase4;
+                                border:1px solid @colorBase5;
                                 color: #FFFFFF;
-                                padding-left: 5px;
-                                padding-right: 5px;
-                                border-radius: 2px;
-                                cursor: pointer;
-                                 &:hover{
+                                &:hover{
                                     background: @colorBase5;
-                                 }
+                                }
+                            }
+                            .delete{
+                                background: #DDDDDD;
+                                border:1px solid #BBBBBB;
+                                color: #AAAAAA;
+                                &:hover{
+                                    background: #BBBBBB;
+                                    color: #777777;
+                                }
                             }
                         }
 
@@ -608,29 +641,37 @@ body{
                         }
                         .text{
                             font-size: 1em;
+                            color: #000000;
+                            margin-bottom: 10px;
                         }
                         p{
-                            font-size: 0.9em;
-                            text-decoration: underline;
+                            font-size: 0.8em;
+                            color: @colorBase5;
+
+                            i{
+                                color: #555555;
+                            }
                         }
                     }
                 }
 
 
-
+                // This Content is show loading meta data (no Save!)
                 .draft{
                     opacity: 0.5;
                 }
+
+                // Photo , Article Item (photo.php / article.php)
                 .photoItem , .articleItem{
                     background: @colorBase2;
                     float: left;
-                    width: 96%;
-                    padding: 2%;
+                    width: 98%;
+                    padding: 1%;
                     display: inline-block;
-                    margin-bottom: 10px;
-                    border-radius: 3px;
-                    border: 1px solid #DDDDDD;
                     cursor: pointer;
+                    margin-bottom: 5px;
+                    border-radius: 2px;
+                    box-shadow: 1px 1px 3px #DDDDDD;
 
                     &:hover{
                         background: @colorBase3;
@@ -658,55 +699,39 @@ body{
 
                         .head{
                             .layouts;
-                            font-size: 0.8em;
-                            margin-bottom: 5px;
+                            margin-bottom: 10px;
 
-                            .id{
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 1%;
+                                border-radius: 1px;
+                                margin-right: 5px;
+                            }
+                            .left{
                                 float: left;
-                                margin-right: 5px;
-                                color: #777777;
-                                background: #DDDDDD;
-                                padding-left: 5px;
-                                padding-right: 5px;
-                                border-radius: 2px;
-                                margin-right: 5px;
                             }
-                            
-                            .status{
-                                float: left;
-                                padding-left: 5px;
-                                padding-right: 5px;
-                                border-radius: 2px;
-                                margin-right: 5px;
-                                cursor: pointer;
-                            }
-                            .s{
-                                background: #2ecc71;
-                                color:#FFFFFF;
-
-                                &:hover{
-                                    background: #27ae60;
-                                }
-                            }
-                            .d{
-                                background: #AAAAAA;
-                                color: #FFFFFF;
-                                &:hover{
-                                    background: #777777;
-                                }
-                            }
-
-                            .category{
+                            .right{
                                 float: right;
+                                margin-right: 0px;
+                                margin-left: 5px;
+                            }
+                            .normal{
                                 background: @colorBase4;
+                                border:1px solid @colorBase5;
                                 color: #FFFFFF;
-                                padding-left: 5px;
-                                padding-right: 5px;
-                                border-radius: 2px;
-                                cursor: pointer;
-                                 &:hover{
+                                &:hover{
                                     background: @colorBase5;
-                                 }
+                                }
+                            }
+                            .delete{
+                                background: #DDDDDD;
+                                border:1px solid #BBBBBB;
+                                color: #AAAAAA;
+                                &:hover{
+                                    background: #BBBBBB;
+                                    color: #777777;
+                                }
                             }
                         }
 
@@ -729,15 +754,16 @@ body{
                     }
                 }
 
+                // Video Item video.php
                 .videoItem{
                     background: @colorBase2;
                     float: left;
-                    width: 96%;
-                    padding: 2%;
+                    width: 98%;
+                    padding: 1%;
                     display: inline-block;
-                    margin-bottom: 10px;
-                    border-radius: 3px;
-                    border: 1px solid #DDDDDD;
+                    margin-bottom: 5px;
+                    border-radius: 2px;
+                    box-shadow: 1px 1px 3px #DDDDDD;
                     cursor: pointer;
 
                     &:hover{
@@ -761,53 +787,39 @@ body{
 
                         .head{
                             .layouts;
-                            font-size: 0.8em;
                             margin-bottom: 10px;
 
-                            .id{
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 1%;
+                                border-radius: 1px;
+                                margin-right: 5px;
+                            }
+                            .left{
                                 float: left;
-                                margin-right: 5px;
-                                color: #777777;
-                                background: #DDDDDD;
-                                padding: 3px;
-                                border-radius: 2px;
-                                margin-right: 5px;
-                                cursor: pointer;
                             }
-                            
-                            .status{
-                                float: left;
-                                padding: 3px;
-                                border-radius: 2px;
-                                margin-right: 5px;
-                                cursor: pointer;
-                            }
-                            .s{
-                                background: #2ecc71;
-                                color:#FFFFFF;
-
-                                &:hover{
-                                    background: #27ae60;
-                                }
-                            }
-                            .d{
-                                background: #AAAAAA;
-                                color: #FFFFFF;
-                                &:hover{
-                                    background: #777777;
-                                }
-                            }
-
-                            .category{
+                            .right{
                                 float: right;
+                                margin-right: 0px;
+                                margin-left: 5px;
+                            }
+                            .normal{
                                 background: @colorBase4;
+                                border:1px solid @colorBase5;
                                 color: #FFFFFF;
-                                padding: 3px;
-                                border-radius: 2px;
-                                cursor: pointer;
-                                 &:hover{
+                                &:hover{
                                     background: @colorBase5;
-                                 }
+                                }
+                            }
+                            .delete{
+                                background: #DDDDDD;
+                                border:1px solid #BBBBBB;
+                                color: #AAAAAA;
+                                &:hover{
+                                    background: #BBBBBB;
+                                    color: #777777;
+                                }
                             }
                         }
 
@@ -836,48 +848,204 @@ body{
                         }
                     }
                 }
-                .meta{
-                    opacity: 0.5;
-                }
 
-                .categoryItem{
+
+                
+                // Item style of channel yotube , fanpage item
+                .fanpageItem ,.channelItem,.facebookFeedItem{
                     background: @colorBase2;
                     float: left;
-                    width: 96%;
-                    padding: 2%;
+                    width: 98%;
+                    padding: 1%;
                     display: inline-block;
-                    margin-bottom: 10px;
-                    border-radius: 3px;
-                    border: 1px solid #DDDDDD;
+                    margin-bottom: 5px;
+                    border-radius: 2px;
                     cursor: pointer;
+                    box-shadow: 1px 1px 3px #DDDDDD;
 
                     &:hover{
                         background: @colorBase3;
                     }
 
-                    i{
-                        margin-right: 5px;
+                    .image{
+                        width: 20%;
+                        float: left;
+                        display: inline-block;
+
+                        img{
+                            width: 100%;
+                            border-radius: 2px;
+                            overflow: hidden;
+
+                            &:hover{
+                                box-shadow: 0px 0px 5px #777777;
+                            }
+                        }
+                    }
+                    .info{
+                        width: 79%;
+                        float: right;
+                        display: inline-block;
+                        word-wrap:break-word;
+
+                        .head{
+                            .layouts;
+                            margin-bottom: 10px;
+
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 1%;
+                                border-radius: 1px;
+                                margin-right: 5px;
+                            }
+                            .left{
+                                float: left;
+                            }
+                            .right{
+                                float: right;
+                                margin-right: 0px;
+                                margin-left: 5px;
+                            }
+                            .normal{
+                                background: @colorBase4;
+                                border:1px solid @colorBase5;
+                                color: #FFFFFF;
+                                &:hover{
+                                    background: @colorBase5;
+                                }
+                            }
+                            .delete{
+                                background: #DDDDDD;
+                                border:1px solid #BBBBBB;
+                                color: #AAAAAA;
+                                &:hover{
+                                    background: #BBBBBB;
+                                    color: #777777;
+                                }
+                            }
+                        }
+
+                        .fanpage{
+                            float: left;
+                            width: 100%;
+                            display: inline-block;
+                            font-size: 0.7em;
+                            text-align: left;
+                            margin-bottom: 5px;
+                            color: #CCCCCC;
+
+                            a{
+                                color: #CCCCCC;
+
+                                &:hover{
+                                    text-decoration: underline;
+                                    color: #3498db;
+                                }
+                            }
+                        }
+
+                        .name{
+                            font-size: 0.9em;
+                            margin-bottom: 5px;
+                            color: @textColor4;
+
+                            i{
+                                color: #AAAAAA;
+                                &:hover{
+                                    color: #333333;
+                                }
+                            }
+                        }
+                        .link{
+                            font-size: 0.7em;
+                            margin-bottom: 5px;
+                            color: @colorBase5;
+                        }
+                        .description{
+                            font-size: 0.8em;
+                            line-height: 17px;
+                            color: @textColor2;
+                            color: #000000;
+                        }
+                    }
+                }
+
+                .meta{
+                    opacity: 0.5;
+                }
+
+                // Category Item category.php
+                .categoryItem{
+                    background: @colorBase2;
+                    float: left;
+                    width: 98%;
+                    padding: 1%;
+                    display: inline-block;
+                    cursor: pointer;
+                    margin-bottom: 5px;
+                    border-radius: 2px;
+                    box-shadow: 1px 1px 3px #DDDDDD;
+
+                    &:hover{
+                        background: @colorBase3;
+                    }
+
+                    .info{
+                        width: 100%;
+                        float: right;
+                        display: inline-block;
+                        word-wrap:break-word;
+
+                        .head{
+                            .layouts;
+                            margin-bottom: 10px;
+
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 1%;
+                                border-radius: 1px;
+                                margin-right: 5px;
+                            }
+                            .left{
+                                float: left;
+                            }
+                            .right{
+                                float: right;
+                                margin-right: 0px;
+                                margin-left: 5px;
+                            }
+                            .normal{
+                                background: @colorBase4;
+                                border:1px solid @colorBase5;
+                                color: #FFFFFF;
+                                &:hover{
+                                    background: @colorBase5;
+                                }
+                            }
+                            .delete{
+                                background: #DDDDDD;
+                                border:1px solid #BBBBBB;
+                                color: #AAAAAA;
+                                &:hover{
+                                    background: #BBBBBB;
+                                    color: #777777;
+                                }
+                            }
+                        }
                     }
 
                     .name{
                         .layouts;
-                        font-size: 1em;
+                        font-size: 1.3em;
                         margin-bottom: 10px;
-
-                        .url{
-                            font-size: 0.8em;
-                            text-decoration: underline;
-                            color: @textColor2;
-                            cursor: pointer;
-
-                            &:hover{
-                                color: @textColor1;
-                            }
-                        }
+                        color: #000000;
                     }
                     .description{
                         .layouts;
                         font-size: 0.8em;
+                        color: #777777;
                     }
 
                     .control{
@@ -948,21 +1116,59 @@ body{
                 }
             }
 
+
+            // Start Update Feed Facebook Page Display
+            .fanpageForm{
+                float: left;
+                width: 96%;
+                display: inline-block;
+                background: #FFFFFF;
+                padding: 2%;
+
+                .startBtn{
+                    width: 40%;
+                    background: @colorBase4;
+                    border:1px solid @colorBase5;
+                    color: #FFFFFF;
+                    padding: 1.5%;
+                    margin: auto;
+                    text-align: center;
+                    border-radius: 2px;
+                    cursor: pointer;
+                    font-size: 0.9em;
+
+                    &:hover{
+                        background: @colorBase5;
+                    }
+                }
+                .note{
+                    font-size: 0.9em;
+                    color: #000000;
+                    text-align: center;
+                    padding: 20px;
+                }
+            }
+
+
+            // Stat Box Display stat.php
             .statBox{
                 float: left;
                 display: inline-block;
                 background: #FFFFFF;
                 margin-bottom: 15px;
                 text-align: center;
+                box-shadow: 0px 1px 2px #AAAAAA;
+                border-radius: 2px;
 
                 .value{
                     font-size: 3em;
                     margin-bottom: 10px;
                     color:@colorBase5;
+                    font-family: @fontStyle1;
                 }
                 p{
-                    font-size: 0.9em;
-                    color: #555555;
+                    font-size: 0.8em;
+                    color: #000000;
 
                     i{
                         color:@colorBase4;
@@ -992,6 +1198,8 @@ body{
             }
 
 
+
+            // Top Box of Content index.php
             .topBox{
                 width: 96%;
                 float: left;
@@ -999,15 +1207,14 @@ body{
                 background: #FFFFFF;
                 padding: 2%;
                 margin-bottom: 15px;
+                box-shadow: 0px 1px 2px #AAAAAA;
+                border-radius: 2px;
 
                 .topic{
                     font-size: 1em;
                     margin-bottom: 10px;
                     color: #555555;
-
-                    i{
-                        color: @colorBase4;
-                    }
+                    color: @colorBase4;
                 }
                 .item{
                     float: left;
@@ -1023,7 +1230,7 @@ body{
                     h1{
                         font-weight: normal;
                         font-size: 0.9em;
-                        color: @colorBase4;
+                        color: #000000;
                         margin-bottom: 5px;
                     }
                     .time{
@@ -1033,12 +1240,14 @@ body{
                     }
                     .value{
                         float: right;
-                        color: #CCCCCC;
-                        font-size: 0.7em;
+                        color: @colorBase5;
+                        font-size: 0.8em;
                     }
                 }
             }
 
+
+            // Form Main Display
             .form{
                 .layouts;
                 padding: 3%;
@@ -1047,7 +1256,7 @@ body{
                 color: @textColor1;
                 font-size: 1em;
                 border: 1px solid #DDDDDD;
-                border-radius: 3px;
+                border-radius: 2px;
 
                 p{
                     font-size: 0.8em;
@@ -1117,6 +1326,7 @@ body{
                     height: 35px;
                     padding-top: 15px;
                 }
+
                 .vidItem{
                     float: left;
                     width: 100%;
@@ -1124,15 +1334,6 @@ body{
                     background: #F5F5F5;
                     border-bottom: 1px solid #E5E5E5;
 
-                    // .thumbnail{
-                    //     float: left;
-                    //     width: 10%;
-                    //     display: inline-block;
-
-                    //     img{
-                    //         width: 100%;
-                    //     }
-                    // }
                     .number{
                         width: 10%;
                         text-align: center;
@@ -1210,7 +1411,7 @@ body{
                         text-align: center;
                         padding: 1%;
 
-                        background-image:url(../image/icon/photo.png);
+                        background-image:url(../image/loading3.gif);
                         background-position:center;
                         background-repeat:no-repeat;
 
@@ -1225,22 +1426,20 @@ body{
                     }
                 }
 
-                // .margins{
-                //     margin-bottom: 20px;
-                //     color: #FF0000;
-                //     background: #FAFFCC;
-                // }
-
                 .input-text{
                     background:@colorBase3;
                     border: 0px;
-                    font-size: 0.8em;
-                    padding: 1%;
-                    width: 98%;
+                    font-size: 0.9em;
+                    padding: 1.5%;
+                    width: 97%;
                     color: @textColor1;
                     margin-bottom: 5px;
                     border-radius: 2px;
                     border: 1px solid #EEEEEE;
+
+                    &:focus{
+                        border: 1px dotted #AAAAAA;
+                    }
                 }
 
                 .input-select{
@@ -1254,6 +1453,10 @@ body{
                     border-radius: 2px;
                     border: 1px solid #EEEEEE;
                     outline: 0;
+
+                    &:focus{
+                        border: 1px dotted #AAAAAA;
+                    }
                 }
 
                 .control{
@@ -1265,6 +1468,7 @@ body{
                     .btn{
                         float: left;
                         background: @colorBase4;
+                        border:1px solid @colorBase5;
                         color: #FFFFFF;
                         padding: 5px;
                         font-size: 0.7em;
@@ -1282,13 +1486,14 @@ body{
                         float: right;
                     }
                 }
+
                 .input-area{
                     background:@colorBase3;
                     border: 0px;
                     height: 200px;
-                    font-size: 0.8em;
-                    padding: 1%;
-                    width: 98%;
+                    font-size: 0.9em;
+                    padding: 1.5%;
+                    width: 97%;
                     color: @textColor1;
                     max-height: 1000px;
                     margin-bottom: 5px;
@@ -1296,6 +1501,10 @@ body{
                     border-radius: 2px;
                     border: 1px solid #EEEEEE;
                     resize: vertical;
+
+                    &:focus{
+                        border: 1px dotted #AAAAAA;
+                    }
                 }
 
                 /* Scroll Bar */
@@ -1332,14 +1541,13 @@ body{
 
                 .input-submit{
                     background:@colorBase4;
-                    border: 0px;
-                    font-size: 1em;
-                    width: 50%;
-                    padding: 2%;
+                    border:1px solid @colorBase5;
+                    font-size: 0.9em;
+                    padding: 1.5%;
                     color:#FFFFFF;
                     cursor: pointer;
                     border-radius: 2px;
-                    float: right;
+                    float: left;
 
                     &:hover{
                         background: @colorBase5;

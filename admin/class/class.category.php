@@ -52,42 +52,35 @@ class Category{
 		catch(PDOException $e){echo'ERROR:'.$e->getMessage();}
 	}
 	
-	//DELETE CATEGORY
-	public function deleteCategory($dbHandle,$category_id){
+	//CHANGE STATUS
+	public function statusCategory($dbHandle,$id,$status){
 		global $msg;
-		$stmt = $dbHandle->prepare('SELECT ca_id FROM ig_category WHERE ca_parent = ?');
-    	$stmt->execute(array($category_id));
-		$var = $stmt->fetch(PDO::FETCH_ASSOC);
-		
-		if($var['ca_id'] == ""){
-			try{
-    			$stmt = $dbHandle->prepare('DELETE FROM ig_category WHERE ca_id = :id');
-				$stmt->bindParam(':id',$category_id);
-    			$stmt->execute();
-				return $msg['0'];
-			}
-			catch(PDOException $e){
-				return $msg['5'];
-			}
-		}
-		else{
-			return $msg['1'];
-		}
-	}
-	
-	//DELETE CATEGORY
-	public function hiddenCategory($dbHandle,$category_id){
 		try{
-    		$stmt = $dbHandle->prepare('DELETE FROM ig_category WHERE ca_id = :id');
-			$stmt->bindParam(':id',$category_id);
-    		$stmt->execute();
+			$stmt = $dbHandle->prepare('UPDATE bl_category SET ca_status = :status,ca_last_time = :update_time WHERE ca_id = :id');
+
+				$stmt->bindParam(':update_time',time()); //Last time
+				$stmt->bindParam(':status',$status);
+				$stmt->bindParam(':id',$id);
+			
+				$stmt->execute();
+
+				$id = 0;
+				if($status == 1){
+					return '<span class="style-2"><i class="fa fa-globe"></i> เผยแพร่ #'.$id.'</span>';
+				}
+				else if($status == 0){
+					return '<span class="style-3"><i class="fa fa-file-text-o"></i> ฉบับร่าง #'.$id.'</span>';
+				}
+			}
+		catch(PDOException $e){
+			return $msg['0'];
 		}
-		catch(PDOException $e){echo'ERROR:'.$e->getMessage();}
 	}
+
 	
 	public function listCategory($dbHandle,$event,$status,$start,$total){
 		try{
-    		$stmt = $dbHandle->prepare('SELECT ca_id,ca_title,ca_url,ca_description FROM bl_category WHERE ca_status = :status ORDER BY ca_create_time DESC');
+    		$stmt = $dbHandle->prepare('SELECT ca_id,ca_title,ca_url,ca_description,ca_status FROM bl_category WHERE ca_status = :status ORDER BY ca_create_time DESC');
 			$stmt->bindParam(':status',$status);
     		$stmt->execute();
 			while($var = $stmt->fetch(PDO::FETCH_ASSOC)){

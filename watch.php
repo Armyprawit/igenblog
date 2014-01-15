@@ -148,7 +148,7 @@ include'header.php';
       }
       else if($videoData['vi_type'] == 4){
         // 4 = Facebook
-        ?><div class="video"><iframe src="http://www.facebook.com/video/embed?video_id=553655174718668" allowfullscreen></iframe></div><?php
+        ?><div class="video"><iframe src="http://www.facebook.com/video/embed?video_id=<?php echo $videoData['vi_code'];?>" allowfullscreen></iframe></div><?php
       }
       ?>
 

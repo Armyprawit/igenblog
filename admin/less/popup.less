@@ -1,0 +1,205 @@
+@colorBase1:#FFFFFF; // Header Color
+@colorBase2:#FFFFFF; //Navigator Background
+@colorBase3:#F5F5F5; //Navigator Background Hover
+@colorBase4:#1abc9c;
+@colorBase5:#16a085;
+
+@bgColor:#EAEAEA;
+@headerColor:#FFFFFF;
+
+@textColor1:#333333; // Main Font Color
+@textColor2:#AAAAAA;
+@textColor3:#555555;
+@textColor4:#1abc9c;
+
+@fontStyle1:ColabThi-webfont;
+@fontStyle2:thaisansneue-light;
+
+@navigatorWidth:13%;
+@pageWidth:100-(@navigatorWidth);
+
+.layouts{
+    float: left;
+    width: 100%;
+    display: inline-block;
+}
+
+
+@charset "utf-8";
+/*********** IMPORT FONT FILE TO WEB **************/
+@font-face {
+    font-family: 'ColabThi-webfont';
+    src: url('../font/ColabThi-webfont.eot');
+    src: url('../font/ColabThi-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/ColabThi-webfont.woff') format('woff'),
+         url('../font/ColabThi-webfont.ttf') format('truetype'),
+         url('../font/ColabThi-webfont.svg#ColabThi-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'thaisansneue-light';
+    src: url('../font/thaisansneue-light.eot');
+    src: url('../font/thaisansneue-light.eot?#iefix') format('embedded-opentype'),
+         url('../font/thaisansneue-light.woff') format('woff'),
+         url('../font/thaisansneue-light.ttf') format('truetype'),
+         url('../font/thaisansneue-light.svg#thaisansneue-light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Scroll Bar */
+/* Let's get this party started */
+body::-webkit-scrollbar {
+    width: 7px;
+    background: #EEEEEE;
+}
+/* Track */
+body::-webkit-scrollbar-track { 
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+/* Handle */
+body::-webkit-scrollbar-thumb {background:@colorBase4;}
+body::-webkit-scrollbar-thumb:window-inactive {}
+
+body{
+    font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+    background: @bgColor;
+}
+
+#stopBtn{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 96%;
+    background: #FFFFFF;
+    background: rgba(255, 255, 255, 0.7);
+    color: #e74c3c;
+    padding: 2%;
+    text-align: center;
+    font-size: 1em;
+    cursor: pointer;
+
+    &:hover{
+        background: #e74c3c;
+        color: #FFFFFF;
+    }
+}
+
+#header{
+    width: 96%;
+    float: left;
+    display: inline-block;
+    background: @colorBase4;
+    padding: 2%;
+    text-align: center;
+    color: #FFFFFF;
+    box-shadow: 0px 1px 3px #777777;
+}
+
+#content{
+    width: 100%;
+    float: left;
+    display: inline-block;
+
+    .content{
+        width: 100%;
+        margin: auto;
+
+        #page{
+            width: 94%;
+            float: left;
+            display: inline-block;
+            background: #FFFFFF;
+            margin: 2%;
+            padding: 1%;
+            border-radius: 2px;
+
+            .image{
+                width: 10%;
+                float: left;
+
+                img{
+                    width: 100%;
+                }
+            }
+            .detail{
+                width: 58%;
+                float: left;
+                margin-left: 2%;
+
+                h1{
+                    font-size: 0.9em;
+                    margin-bottom: 5px;
+                    color: @colorBase5;
+                }
+                p{
+                    font-size: 0.8em;
+                    color: #777777;
+                }
+            }
+            .page,.feed{
+                width: 13%;
+                float: left;
+                text-align: center;
+                padding: 1%;
+
+                .value{
+                    font-size: 1.4em;
+                    color: @colorBase5;
+                }
+                p{
+                    font-size: 0.8em;
+                    color: #CCCCCC;
+                }
+            }
+        }
+
+        .loading{
+            float: left;
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+        }
+
+        #result{
+            width: 96%;
+            float: left;
+            display: inline-block;
+            margin: 2%;
+
+            .resultItem{
+                width: 98%;
+                background: #FFFFFF;
+                padding: 1%;
+                float: left;
+                display: inline-block;
+                font-size: 0.8em;
+                text-align: center;
+                margin-bottom: 5px;
+
+                .type{
+                    width: 10%;
+                    float: left;
+                    color: #555555;
+                }
+                .id{
+                    width: 70%;
+                    float: left;
+                    color: #555555;
+                }
+                .status{
+                    width: 20%;
+                    float: right;
+                }
+                .done{
+                    color: #2ecc71;
+                }
+                .already{
+                    color: #7f8c8d;
+                }
+            }
+        }
+    }
+}

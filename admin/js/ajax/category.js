@@ -3,6 +3,7 @@ var category = false;
 var mode = false;
 var form = false;
 var search = false;
+var status_s = false;
 
 function showCategory(id){
 	$("#result").fadeOut(100);
@@ -190,6 +191,51 @@ function searchCategory(q){
 		{
 			//document.getElementById("loading-"+id).innerHTML = '';
 			$("#list").fadeIn(200).html(search.responseText);
+		}				
+	}
+}
+
+function statusCategory(id,stat){
+	state = true;
+	$("#console").animate({bottom:"0px"},800);
+
+	status_s = false;
+	if(window.XMLHttpRequest) { // Mozilla, Safari,...
+		status_s = new XMLHttpRequest();
+			if (status_s.overrideMimeType) {
+				status_s.overrideMimeType('text/html');
+			}
+	}else if (window.ActiveXObject) { // IE
+		try{
+			status_s = new ActiveXObject("Msxml2.XMLHTTP");
+		} catch (e) {
+			try {
+				status_s = new ActiveXObject("Microsoft.XMLHTTP");
+			} catch (e) {}
+		}
+	}
+	
+	if (!status_s) {
+		alert('Cannot status_s XMLHTTP instance');
+		return false;
+	}
+	var url = 'process/process-category-status.php';
+	var pmeters = 'id='+id+'&stat='+stat;
+	status_s.open('POST',url,true);
+
+	status_s.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	status_s.send(pmeters);			
+	status_s.onreadystatechange = function(){
+		if(status_s.readyState == 3)  // Loading Request
+		{
+			$("#console").html('<i class="fa fa-spinner fa-spin"></i> รอสักครู่...');
+		}
+		if(status_s.readyState == 4) // Return Request
+		{
+			$("#console").fadeIn(200).html(status_s.responseText);
+			$("#console").delay(3000).animate({bottom:"-50px"},500);
+
+			modeCategory(1);
 		}				
 	}
 }

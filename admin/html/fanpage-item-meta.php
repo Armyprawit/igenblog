@@ -1,4 +1,4 @@
-            <div class="videoItem">
+            <div class="fanpageItem meta">
               <div class="image">
                 <img src="https://graph.facebook.com/<?php echo $fanpage['id'];?>/picture">
               </div>

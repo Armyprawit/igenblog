@@ -15,11 +15,7 @@
 }
 body {
   font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
-  background: url(../image/backgroud/bg.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background: #1abc9c;
 }
 #login {
   position: fixed;
@@ -27,38 +23,40 @@ body {
   left: 33%;
   width: 31%;
   display: inline-block;
-  background: #F5F5F5;
-  background: rgba(255, 255, 255, 0.95);
+  background: #ecf0f1;
   padding: 1%;
   border-radius: 2px;
+  border: 2px solid #16a085;
+  box-shadow: 1px 1px 5px #16a085;
 }
 #login .title {
   font-size: 2em;
   font-family: ColabThi-webfont;
   margin-bottom: 20px;
-  color: #555555;
-}
-#login .title i {
-  color: #1abc9c;
+  color: #000000;
 }
 #login .input-text {
+  background: #FFFFFF;
   float: left;
-  width: 94%;
-  font-size: 1em;
-  padding: 3%;
-  border: 0px;
+  width: 96%;
+  font-size: 0.9em;
+  padding: 2%;
   margin-bottom: 15px;
   text-align: center;
   color: #555555;
+  border: 1px solid #DDDDDD;
+}
+#login .input-text:focus {
+  border: 1px dotted #222222;
 }
 #login .input-submit {
   float: left;
   width: 100%;
   background: #1abc9c;
+  border: 1px solid #16a085;
   color: #FFFFFF;
-  border: 0px;
-  font-size: 1em;
-  padding: 2%;
+  font-size: 0.9em;
+  padding: 1.5%;
   border-radius: 2px;
   margin-bottom: 10px;
   cursor: pointer;

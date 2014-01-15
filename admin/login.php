@@ -20,7 +20,7 @@
 <body>
   <div id="login">
     <div class="title">
-      <i class="fa fa-leaf"></i> IGENBLOG
+      IGENBLOG
     </div>
     
     <form action="index.php?e=loginG" target="_parent" method="POST">

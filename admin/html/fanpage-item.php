@@ -1,28 +1,26 @@
-            <div class="videoItem">
+            <div class="fanpageItem" onclick="Javascript:toSelectFanpage(<?php echo $var['fp_id'];?>);">
               <div class="image">
                 <img src="https://graph.facebook.com/<?php echo $var['fp_id'];?>/picture">
               </div>
               <div class="info">
                 <div class="head">
-                  <div class="id">#<?php echo $var['fp_id'];?></div>
 
-                  <div class="category"><?php echo parent::fb_thaidate($var['fp_update_time']);?></div>
                   <?php
-                  if($var['ch_status'] == 1){
-                    ?><div class="status s" onClick="Javascript:statusChannel(<?php echo $var['ch_id'];?>,<?php echo $var['ch_status'];?>);"><i class="fa fa-globe"></i> ทำงาน</div><?php
+                  if($var['fp_status'] == 1){
+                    ?><div class="btn left normal" onClick="Javascript:statusFanpage(<?php echo $var['fp_id'];?>,<?php echo $var['fp_status'];?>);"><i class="fa fa-globe"></i> ทำงาน</div><?php
                   }
                   else{
-                    ?><div class="status d" onClick="Javascript:statusChannel(<?php echo $var['ch_id'];?>,<?php echo $var['ch_status'];?>);"><i class="fa fa-file-text-o"></i> ปิดอัพเดท</div><?php
+                    ?><div class="btn left delete" onClick="Javascript:statusFanpage(<?php echo $var['fp_id'];?>,<?php echo $var['fp_status'];?>);"><i class="fa fa-file-text-o"></i> ปิดอัพเดท</div><?php
                   }
                   ?>
                   
                   
                 </div>
 
-                <?php $var['ch_title'] = str_replace($q,"<span class=\"highlight\">$q</span>",$var['ch_title']);?>
-                <?php $var['ch_description'] = str_replace($q,"<span class=\"highlight\">$q</span>",$var['ch_description']);?>
+                <?php $var['fp_title'] = str_replace($q,"<span class=\"highlight\">$q</span>",$var['fp_title']);?>
+                <?php $var['fp_description'] = str_replace($q,"<span class=\"highlight\">$q</span>",$var['fp_description']);?>
 
-                <div class="name"><?php echo $var['fp_name'];?> <span id="loading-<?php echo $var['vi_id'];?>"></span></div>
-                <div class="description"><?php echo $var['fp_link'];?></div>
+                <div class="fanpage"><i class="fa fa-clock-o"></i> <?php echo parent::fb_thaidate($var['ff_update_time']);?> / <a href="<?php echo $var['fp_link'];?>" target="_bank"><i class="fa fa-facebook-square"></i> <?php echo $var['fp_name'];?></a></div>
+                <div class="name"><?php echo stripslashes($var['fp_name']);?> <span id="loading-<?php echo $var['vi_id'];?>"></span></div>
               </div>
             </div>

@@ -13,7 +13,7 @@
         else{
         ?>
         <div class="photo">
-            <a href="<?php echo $loginUrl; ?>"><img src="http://climbersagainstcancer.org/wp-content/uploads/facebook-icon.gif"></a>
+            <a href="<?php echo $loginUrl; ?>"><img src="image/icon/facebook-login.gif"></a>
         </div>
         <?php
         }
@@ -82,9 +82,15 @@
         </div>
         </a>
 
+        <a href="facebook-feed.php" target="_parent">
+        <div class="item">
+            <div class="text"> <i class="fa fa-facebook-square"></i> Facebook Feed <span class="total"><?php echo $facebookpage->infoFeedData($dbHandle,'total');?></div><div class="s"></div>
+        </div>
+        </a>
+
         <a href="fanpage.php" target="_parent">
         <div class="item">
-            <div class="text"> <i class="fa fa-facebook-square"></i> Facebook Page</div><div class="s"></div>
+            <div class="text"> <i class="fa fa-facebook-square"></i> Facebook Page <span class="total"><?php echo $facebookpage->infoFanpageData($dbHandle,'total');?></div><div class="s"></div>
         </div>
         </a>
         

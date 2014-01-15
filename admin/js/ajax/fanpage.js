@@ -4,6 +4,7 @@ var links = '';
 
 var create = false;
 var loading = false;
+var editForm = false;
 var index = 5;
 var state = true;
 
@@ -144,6 +145,49 @@ function modeListFanpage(){
 		}				
 	}
 	index = 5;
+}
+
+// When click clip item is call this function.
+function toSelectFanpage(id){
+	$("#result").fadeOut(100);
+	//document.getElementById("loading-"+id).innerHTML = '<i class="fa fa-spinner fa-spin"></i>';
+
+	editForm = false;
+	if(window.XMLHttpRequest) { // Mozilla, Safari,...
+		editForm = new XMLHttpRequest();
+			if (editForm.overrideMimeType) {
+				editForm.overrideMimeType('text/html');
+			}
+	}else if (window.ActiveXObject) { // IE
+		try{
+			editForm = new ActiveXObject("Msxml2.XMLHTTP");
+		} catch (e) {
+			try {
+				editForm = new ActiveXObject("Microsoft.XMLHTTP");
+			} catch (e) {}
+		}
+	}
+	
+	if (!editForm) {
+		alert('Cannot editForm XMLHTTP instance');
+		return false;
+	}
+	var url = 'process/update-fanpage.php';
+	var pmeters = 'id='+id;
+	editForm.open('POST',url,true);
+
+	editForm.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	editForm.send(pmeters);			
+	editForm.onreadystatechange = function(){
+		if(editForm.readyState == 3)  // Loading Request
+		{
+		}
+		if(editForm.readyState == 4) // Return Request
+		{
+			//document.getElementById("loading-"+id).innerHTML = '';
+			$("#result").fadeIn(200).html(editForm.responseText);
+		}				
+	}
 }
 
 function loadingFanpage(category,start){
