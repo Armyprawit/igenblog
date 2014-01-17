@@ -227,7 +227,7 @@ class Article extends MyDev{
 	public function infoArticleData($dbHandle,$event){
 		if($event == 'total'){
 			$stmt = $dbHandle->prepare('SELECT COUNT(ar_id) FROM bl_article');
-    		$stmt->execute(array($id));
+    		$stmt->execute();
     		$var = $stmt->fetch(PDO::FETCH_ASSOC);
     		return $var['COUNT(ar_id)'];
 		}

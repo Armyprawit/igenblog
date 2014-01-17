@@ -1,10 +1,17 @@
 <?php include'class/setting.php';?>
 <?php require'sdk/facebook-sdk/facebook.php';?>
-<?php include'get-facebook-user.php'?>
+<?php include'get-facebook-user.php';?>
+<?php
+  //Page this Active (Menu Navigator Css Style)
+  $pageActive = 'article';
+?>
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
+<!-- Responsive -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>บทความ : IGENBLOG <?php echo $setting->getSetting($dbHandle,26);?></title>
 
 <!-- Favicon -->
@@ -18,8 +25,11 @@
 <!-- LIB -->
 <script src="lib/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script src="lib/sbbeditor.js" type="text/javascript"></script>
+<script src="lib/jquery.touchSwipe.min.js" type="text/javascript"></script>
 <script src="lib/mydev.js" type="text/javascript"></script>
 <script src="lib/textarea.autosize.js" type="text/javascript"></script>
+<script src="lib/offline.js" type="text/javascript"></script>
+<script src="js/connection.js" type="text/javascript"></script>
 
 <!-- AJAX -->
 <script src="js/ajax/article.js" type="text/javascript"></script>
@@ -34,14 +44,15 @@
     <?php include'header.php';?>
 
     <div id="mainContent">
-        <div class="title">
-          <i class="fa fa-pencil-square-o"></i> บทความ 
-            <span class="categoryMode">
-              <select id="categoryMode" class="input-select" onChange="Javascript:modeListArticle($('#categoryMode').val());">
-                <option value="0">ทั้งหมด</option>
-                <?php $category->listCategoryToSelectForm($dbHandle,0,1);?>
-              </select>
-            </span>
+        <!-- HEAD TITLE -->
+        <div class="mainHead">
+          <div class="title"><i class="fa fa-pencil-square-o"></i> บทความ</div>
+          <div class="categoryMode">
+            <select id="categoryMode" class="input-select" onChange="Javascript:modeListArticle($('#categoryMode').val());">
+              <option value="0">ทั้งหมด</option>
+              <?php $category->listCategoryToSelectForm($dbHandle,0,1);?>
+            </select>
+          </div>
         </div>
 
         <div class="activity">
@@ -76,6 +87,7 @@
 </div>
 
 <div id="console" onClick="Javascript:$(this).hide();"></div>
+<?php include'html/loading-process.php';?>
 
 </body>
 </html>

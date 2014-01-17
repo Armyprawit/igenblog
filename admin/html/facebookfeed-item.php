@@ -12,13 +12,13 @@
                   }
                   else if($var['ff_type'] == 'photo'){
                     ?>
-                    <div class="btn left normal" onclick="Javascript:feedToPost('article','<?php echo $var['ff_id'];?>');"><i class="fa fa-coffee"></i> โพสบทความ</div>
+                    <div class="btn left normal" onclick="Javascript:feedToPost('article','<?php echo $var['ff_id'];?>');">โพสบทความ</div>
 
-                    <div class="btn left normal" onclick="Javascript:feedToPost('photo','<?php echo $var['ff_id'];?>');"><i class="fa fa-camera"></i> โพสภาพถ่าย</div>
+                    <div class="btn left normal" onclick="Javascript:feedToPost('photo','<?php echo $var['ff_id'];?>');">โพสภาพถ่าย</div>
                     <?php
                   }
                   ?>
-                  <div class="btn right delete" ondblclick="Javascript:deleteFeed('<?php echo $var['ff_id'];?>');"><i class="fa fa-trash-o"></i> ลบ</div>
+                  <div class="btn right delete" ondblclick="Javascript:deleteFeed('<?php echo $var['ff_id'];?>');">ลบ</div>
                   
                 </div>
 

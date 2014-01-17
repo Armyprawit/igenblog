@@ -163,7 +163,7 @@ class FacebookPage extends MyDev{
 	public function infoFanpageData($dbHandle,$event){
 		if($event == 'total'){
 			$stmt = $dbHandle->prepare('SELECT COUNT(fp_id) FROM bl_facebook_page');
-    		$stmt->execute(array($id));
+    		$stmt->execute();
     		$var = $stmt->fetch(PDO::FETCH_ASSOC);
     		return $var['COUNT(fp_id)'];
 		}
@@ -173,7 +173,7 @@ class FacebookPage extends MyDev{
 	public function infoFeedData($dbHandle,$event){
 		if($event == 'total'){
 			$stmt = $dbHandle->prepare('SELECT COUNT(ff_id) FROM bl_facebook_feed WHERE ff_status = 0 AND (ff_type = "video" OR ff_type = "photo")');
-    		$stmt->execute(array($id));
+    		$stmt->execute();
     		$var = $stmt->fetch(PDO::FETCH_ASSOC);
     		return $var['COUNT(ff_id)'];
 		}

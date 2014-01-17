@@ -77,6 +77,47 @@ class Category{
 		}
 	}
 
+	// Delete Category with Change Category id all content
+	public function deleteCategory($dbHandle,$category_id){
+		global $msg;
+		try{
+			// Update Category on Timeline
+			$stmt = $dbHandle->prepare('UPDATE bl_timeline SET tl_category_id = 10000 WHERE tl_category_id = :category_id');
+			$stmt->bindParam(':category_id',$category_id);
+			
+			$stmt->execute();
+
+			// Update Category on Article
+			$stmt = $dbHandle->prepare('UPDATE bl_article SET ar_category_id = 10000 WHERE ar_category_id = :category_id');
+			$stmt->bindParam(':category_id',$category_id);
+			
+			$stmt->execute();
+
+			// Update Category on Photo
+			$stmt = $dbHandle->prepare('UPDATE bl_image SET im_category_id = 10000 WHERE im_category_id = :category_id');
+			$stmt->bindParam(':category_id',$category_id);
+			
+			$stmt->execute();
+
+			// Update Category on Video
+			$stmt = $dbHandle->prepare('UPDATE bl_video SET vi_category_id = 10000 WHERE vi_category_id = :category_id');
+			$stmt->bindParam(':category_id',$category_id);
+			
+			$stmt->execute();
+
+			// Delete Category
+			$stmt = $dbHandle->prepare('DELETE FROM bl_category WHERE ca_id = :category_id');
+			$stmt->bindParam(':category_id',$category_id);
+			
+			$stmt->execute();
+
+			return $msg['7'];
+		}
+		catch(PDOException $e){
+			return $msg['0'];
+		}
+	}
+
 	
 	public function listCategory($dbHandle,$event,$status,$start,$total){
 		try{
@@ -145,7 +186,7 @@ class Category{
 	public function infoCategoryData($dbHandle,$event){
 		if($event == 'total'){
 			$stmt = $dbHandle->prepare('SELECT COUNT(ca_id) FROM bl_category');
-    		$stmt->execute(array($id));
+    		$stmt->execute();
     		$var = $stmt->fetch(PDO::FETCH_ASSOC);
     		return $var['COUNT(ca_id)'];
 		}

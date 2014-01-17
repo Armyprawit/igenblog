@@ -300,6 +300,9 @@ function searchVideo(q){
 function loadingVideo(category,start){
 	state = true;
 	loading = false;
+
+	$("#loadingProcess").slideDown('fast');
+
 	if(window.XMLHttpRequest) { // Mozilla, Safari,...
 		loading = new XMLHttpRequest();
 			if (loading.overrideMimeType) {
@@ -334,6 +337,8 @@ function loadingVideo(category,start){
 			$('#list').append(loading.responseText);
 			console.log("start:"+start);
 			index+=5;
+
+			$("#loadingProcess").slideUp('fast');
 		}				
 	}
 }

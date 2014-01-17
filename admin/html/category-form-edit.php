@@ -2,7 +2,7 @@
             <div class="form">
             <form action="Javascript:formCategory('edit',<?php echo $var['ca_id'];?>,document.getElementById('title').value,document.getElementById('url').value,document.getElementById('description').value,document.getElementById('keyword').value,document.getElementById('image').value);">
                 <p>ชื่อหมวด</p>
-                <input type="text" name="title" id="title" class="input-text" autocomplete="off" autofocus required value="<?php echo $var['ca_title'];?>">
+                <input type="text" name="title" id="title" class="input-text" autocomplete="off" required value="<?php echo $var['ca_title'];?>">
                 <div class="text">อย่าน้อย 6 ตัวอักษร</div>
                 
                 <p>ลิ้งหมดวหมู่</p>

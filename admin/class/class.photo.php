@@ -217,7 +217,7 @@ class Photo extends MyDev{
 	public function infoPhotoData($dbHandle,$event){
 		if($event == 'total'){
 			$stmt = $dbHandle->prepare('SELECT COUNT(im_id) FROM bl_image');
-    		$stmt->execute(array($id));
+    		$stmt->execute();
     		$var = $stmt->fetch(PDO::FETCH_ASSOC);
     		return $var['COUNT(im_id)'];
 		}

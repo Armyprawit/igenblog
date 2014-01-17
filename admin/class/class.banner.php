@@ -136,7 +136,7 @@ class Banner{
 	public function infoBannerData($dbHandle,$event){
 		if($event == 'total'){
 			$stmt = $dbHandle->prepare('SELECT COUNT(ba_id) FROM bl_banner');
-    		$stmt->execute(array($id));
+    		$stmt->execute();
     		$var = $stmt->fetch(PDO::FETCH_ASSOC);
     		return $var['COUNT(ba_id)'];
 		}

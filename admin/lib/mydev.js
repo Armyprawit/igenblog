@@ -6,10 +6,34 @@ function headerBar(){
     headerBarState = 'close';
   }
   else if(headerBarState == 'close'){
-    $("#navigator").animate({left:"-82%"},600);
+    $("#navigator").animate({left:"-102%"},600);
     headerBarState = 'show';
   }
 }
+
+/*
+$(function() {      
+  $("body").swipe({
+    swipeLeft:function(event, direction, distance, duration, fingerCount){
+      $("#navigator").animate({left:"-102%"},600);
+      headerBarState = 'show';
+    },
+    swipeRight:function(event, direction, distance, duration, fingerCount){
+      $("#navigator").animate({left:"0%"},400);
+      headerBarState = 'close';
+    },
+    threshold:0
+  });
+  
+  $("#navigator").swipe({
+    swipeLeft:function(event, direction, distance, duration, fingerCount){
+      $("#navigator").animate({left:"-102%"},600);
+      headerBarState = 'show';
+    },
+    threshold:0
+  });
+});
+*/
 
 $(function(){
   $('.animated').autosize({append:"\n"});
@@ -31,23 +55,9 @@ function showLiveView(event){
     $("#viewExample").animate({left:"0%"},800);
   }
   else if(event == 'close'){
-    $("#viewExample").animate({left:"-60%"},800);
+    $("#viewExample").animate({left:"-90%"},800);
   }
 }
-
-// function clearStyle(context){
-//  context = strip_tags(context,'<p><a>');
-//  $("#textArea").fadeIn(200).val(context);
-// }
-
-// function strip_tags (input, allowed) {
-//   allowed = (((allowed || "") + "").toLowerCase().match(/<[a-z][a-z0-9]*>/g) || []).join('');
-//   var tags = /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi,
-//     commentsAndPhpTags = /<!--[\s\S]*?-->|<\?(?:php)?[\s\S]*?\?>/gi;
-//   return input.replace(commentsAndPhpTags, '').replace(tags, function ($0, $1) {
-//     return allowed.indexOf('<' + $1.toLowerCase() + '>') > -1 ? $0 : '';
-//   });
-// }
 
 function updateClock(){
   var currentTime = new Date ( );

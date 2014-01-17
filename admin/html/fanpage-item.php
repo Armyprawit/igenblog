@@ -7,10 +7,10 @@
 
                   <?php
                   if($var['fp_status'] == 1){
-                    ?><div class="btn left normal" onClick="Javascript:statusFanpage(<?php echo $var['fp_id'];?>,<?php echo $var['fp_status'];?>);"><i class="fa fa-globe"></i> ทำงาน</div><?php
+                    ?><div class="btn left normal" onClick="Javascript:statusFanpage(<?php echo $var['fp_id'];?>,<?php echo $var['fp_status'];?>);">ทำงาน</div><?php
                   }
                   else{
-                    ?><div class="btn left delete" onClick="Javascript:statusFanpage(<?php echo $var['fp_id'];?>,<?php echo $var['fp_status'];?>);"><i class="fa fa-file-text-o"></i> ปิดอัพเดท</div><?php
+                    ?><div class="btn left delete" onClick="Javascript:statusFanpage(<?php echo $var['fp_id'];?>,<?php echo $var['fp_status'];?>);">ปิดอัพเดท</div><?php
                   }
                   ?>
                   

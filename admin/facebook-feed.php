@@ -1,10 +1,17 @@
 <?php include'class/setting.php';?>
 <?php require'sdk/facebook-sdk/facebook.php';?>
 <?php include'get-facebook-user.php';?>
+<?php
+  //Page this Active (Menu Navigator Css Style)
+  $pageActive = 'facebookfeed';
+?>
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
+<!-- Responsive -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Facebook Feed : IGENBLOG <?php echo $setting->getSetting($dbHandle,26);?></title>
 
 <!-- Favicon -->
@@ -18,8 +25,11 @@
 <!-- LIB -->
 <script src="lib/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script src="lib/sbbeditor.js" type="text/javascript"></script>
+<script src="lib/jquery.touchSwipe.min.js" type="text/javascript"></script>
 <script src="lib/mydev.js" type="text/javascript"></script>
 <script src="lib/textarea.autosize.js" type="text/javascript"></script>
+<script src="lib/offline.js" type="text/javascript"></script>
+<script src="js/connection.js" type="text/javascript"></script>
 
 <!-- AJAX -->
 <script src="js/ajax/facebook-feed.js" type="text/javascript"></script>
@@ -34,17 +44,18 @@
     <?php include'header.php';?>
 
     <div id="mainContent">
-        <div class="title">
-          <i class="fa fa-facebook-square"></i> Facebook Feed
-            <span class="categoryMode">
-              <select id="feedType" class="input-select" onChange="Javascript:modeListFacebookFeed($('#feedType').val());">
-                <option value="all">ทั้งหมด</option>
-                <option value="photo">Photo</option>
-                <option value="video">Video</option>
-                <!-- <option value="link">Link</option>
-                <option value="status">Status</option> -->
-              </select>
-            </span>
+        <!-- HEAD TITLE -->
+        <div class="mainHead">
+          <div class="title"><i class="fa fa-facebook-square"></i> Facebook Feed</div>
+          <div class="categoryMode">
+            <select id="feedType" class="input-select" onChange="Javascript:modeListFacebookFeed($('#feedType').val());">
+              <option value="all">ทั้งหมด</option>
+              <option value="photo">Photo</option>
+              <option value="video">Video</option>
+              <!-- <option value="link">Link</option>
+              <option value="status">Status</option> -->
+            </select>
+          </div>
         </div>
 
         <div class="activity">
@@ -77,10 +88,7 @@
 
 <div id="console" onClick="Javascript:$(this).hide();"></div>
 
-<div id="loadingProcess">
-  <p><img src="image/loading4.gif" alt="loading"></p>
-  <p>กำลังโหลดข้อมูล</p>
-</div>
+<?php include'html/loading-process.php';?>
 
 </body>
 </html>

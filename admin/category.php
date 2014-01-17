@@ -1,10 +1,17 @@
 <?php include'class/setting.php';?>
 <?php require'sdk/facebook-sdk/facebook.php';?>
-<?php include'get-facebook-user.php'?>
+<?php include'get-facebook-user.php';?>
+<?php
+  //Page this Active (Menu Navigator Css Style)
+  $pageActive = 'category';
+?>
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
+<!-- Responsive -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>หมวดหมู่ : IGENBLOG <?php echo $setting->getSetting($dbHandle,26);?></title>
 
 <!-- Favicon -->
@@ -18,8 +25,11 @@
 <!-- LIB -->
 <script src="lib/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script src="lib/sbbeditor.js" type="text/javascript"></script>
+<script src="lib/jquery.touchSwipe.min.js" type="text/javascript"></script>
 <script src="lib/mydev.js" type="text/javascript"></script>
 <script src="lib/textarea.autosize.js" type="text/javascript"></script>
+<script src="lib/offline.js" type="text/javascript"></script>
+<script src="js/connection.js" type="text/javascript"></script>
 
 <!-- AJAX -->
 <script src="js/ajax/category.js" type="text/javascript"></script>
@@ -35,7 +45,10 @@
     <?php include'header.php';?>
 
     <div id="mainContent">
-        <div class="title"><i class="fa fa-folder-open"></i> หมวดหมู่ <span id="console"></span></div>
+        <!-- HEAD TITLE -->
+        <div class="mainHead">
+          <div class="title"><i class="fa fa-folder-open"></i> หมวดหมู่</div>
+        </div>
 
         <div class="activity">
           <div class="display" id="result">
@@ -46,7 +59,7 @@
         <div class="content">
           <!-- Option -->
           <div class="option">
-            <div class="item" onClick="Javascript:toCreateCategory();"><i class="fa fa-plus-circle"></i> เพิ่มหมวดใหม่</div>
+            <div class="item" onClick="Javascript:toCreateCategory();"><i class="fa fa-plus-circle"></i> เพิ่มหมวด</div>
             <div class="item" id="option-item-1" onClick="Javascript:modeCategory(1);"><i class="fa fa-check-circle-o"></i> Enable</div>
             <div class="item" id="option-item-0" onClick="Javascript:modeCategory(0);"><i class="fa fa-circle-o"></i> Disable</div>
             <div class="search"><input type="text" class="input-text" id="q" OnKeyUp="Javascript:searchCategory(document.getElementById('q').value);" placeholder="ค้นหาชื่อหมวด,url,id"></div>

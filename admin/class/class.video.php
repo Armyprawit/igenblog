@@ -210,7 +210,7 @@ class Video extends MyDev{
 	public function infoVideoData($dbHandle,$event){
 		if($event == 'total'){
 			$stmt = $dbHandle->prepare('SELECT COUNT(vi_id) FROM bl_video');
-    		$stmt->execute(array($id));
+    		$stmt->execute();
     		$var = $stmt->fetch(PDO::FETCH_ASSOC);
     		return $var['COUNT(vi_id)'];
 		}

@@ -4,15 +4,15 @@
               </div>
               <div class="info">
                 <div class="head">
-                  <div class="btn left delete"><?php echo $var['vi_id']+1024;?></div>
+                  <!-- <div class="btn left delete"><?php //echo $var['vi_id']+1024;?></div> -->
 
-                  <div class="btn right delete" onClick="Javascript:modeListVideo(<?php echo $var['ca_id'];?>);$('#categoryMode').val('<?php echo $var['ca_id'];?>');"><i class="fa fa-folder-open"></i> <?php echo $var['ca_title'];?></div>
+                  <div class="btn right delete" onClick="Javascript:modeListVideo(<?php echo $var['ca_id'];?>);$('#categoryMode').val('<?php echo $var['ca_id'];?>');"><?php echo $var['ca_title'];?></div>
                   <?php
                   if($var['vi_status'] == 1){
-                    ?><div class="btn left normal" onClick="Javascript:statusVideo(<?php echo $var['vi_id'];?>,<?php echo $var['vi_status'];?>);"><i class="fa fa-globe"></i> เผยแพร่</div><?php
+                    ?><div class="btn left normal" onClick="Javascript:statusVideo(<?php echo $var['vi_id'];?>,<?php echo $var['vi_status'];?>);">เผยแพร่</div><?php
                   }
                   else{
-                    ?><div class="btn left delete" onClick="Javascript:statusVideo(<?php echo $var['vi_id'];?>,<?php echo $var['vi_status'];?>);"><i class="fa fa-file-text-o"></i> แบบร่าง</div><?php
+                    ?><div class="btn left delete" onClick="Javascript:statusVideo(<?php echo $var['vi_id'];?>,<?php echo $var['vi_status'];?>);">แบบร่าง</div><?php
                   }
                   ?>
                   

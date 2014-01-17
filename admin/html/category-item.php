@@ -1,19 +1,23 @@
-			<div class="categoryItem" onClick="Javascript:showCategory(<?php echo $var['ca_id'];?>);">
+			<div class="categoryItem" onClick="Javascript:showCategory(<?php echo $var['ca_id'];?>);" id="<?php echo $var['ca_id'];?>">
 				<div class="info">
 					<div class="head">
 
-                  <div class="btn left delete"><i class="fa fa-hand-o-up"></i> <?php echo $var['ca_url'];?></div>
+                  <div class="btn left delete"><?php echo $var['ca_url'];?></div>
                   <?php
                   if($var['ca_status'] == 1){
-                    ?><div class="btn left normal" onClick="Javascript:statusCategory(<?php echo $var['ca_id'];?>,<?php echo $var['ca_status'];?>);"><i class="fa fa-globe"></i> เผยแพร่</div><?php
+                    ?><div class="btn left normal" onClick="Javascript:statusCategory(<?php echo $var['ca_id'];?>,<?php echo $var['ca_status'];?>);">เผยแพร่</div><?php
                   }
                   else{
-                    ?><div class="btn left delete" onClick="Javascript:statusCategory(<?php echo $var['ca_id'];?>,<?php echo $var['ca_status'];?>);"><i class="fa fa-file-text-o"></i> แบบร่าง</div><?php
+                    ?><div class="btn left delete" onClick="Javascript:statusCategory(<?php echo $var['ca_id'];?>,<?php echo $var['ca_status'];?>);">แบบร่าง</div><?php
                   }
                   ?>
 
-                  <div class="btn right delete" ondblclick="Javascript:deleteFeed('<?php echo $var['ff_id'];?>');"><i class="fa fa-trash-o"></i> ลบ</div>
-                  
+                  <?php
+                  if($var['ca_id'] != 10000){
+                  ?>
+                  <div class="btn right delete" ondblclick="Javascript:deleteCategory('<?php echo $var['ca_id'];?>');">ลบ</div>
+                  <?php
+                  }?>
               		
               	</div>
               	</div>

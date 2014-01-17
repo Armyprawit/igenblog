@@ -4,13 +4,13 @@
               </div>
               <div class="info">
                 <div class="head">
-                  <div class="btn left delete">#<?php echo $var['ch_id']+1024;?></div>
+                  <!-- <div class="btn left delete">#<?php //echo $var['ch_id']+1024;?></div> -->
                   <?php
                   if($var['ch_status'] == 1){
-                    ?><div class="btn left normal" onClick="Javascript:statusChannel(<?php echo $var['ch_id'];?>,<?php echo $var['ch_status'];?>);"><i class="fa fa-globe"></i> ทำงาน</div><?php
+                    ?><div class="btn left normal" onClick="Javascript:statusChannel(<?php echo $var['ch_id'];?>,<?php echo $var['ch_status'];?>);">ทำงาน</div><?php
                   }
                   else{
-                    ?><div class="btn left delete" onClick="Javascript:statusChannel(<?php echo $var['ch_id'];?>,<?php echo $var['ch_status'];?>);"><i class="fa fa-file-text-o"></i> ปิดอัพเดท</div><?php
+                    ?><div class="btn left delete" onClick="Javascript:statusChannel(<?php echo $var['ch_id'];?>,<?php echo $var['ch_status'];?>);">ปิดอัพเดท</div><?php
                   }
                   ?>
                   

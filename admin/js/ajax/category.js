@@ -4,6 +4,7 @@ var mode = false;
 var form = false;
 var search = false;
 var status_s = false;
+var deletes = false;
 
 function showCategory(id){
 	$("#result").fadeOut(100);
@@ -191,6 +192,53 @@ function searchCategory(q){
 		{
 			//document.getElementById("loading-"+id).innerHTML = '';
 			$("#list").fadeIn(200).html(search.responseText);
+		}				
+	}
+}
+
+function deleteCategory(id){
+	state = true;
+	showLiveView('close');
+	$("#console").animate({bottom:"0px"},800);
+
+	deletes = false;
+	if(window.XMLHttpRequest) { // Mozilla, Safari,...
+		deletes = new XMLHttpRequest();
+			if (deletes.overrideMimeType) {
+				deletes.overrideMimeType('text/html');
+			}
+	}else if (window.ActiveXObject) { // IE
+		try{
+			deletes = new ActiveXObject("Msxml2.XMLHTTP");
+		} catch (e) {
+			try {
+				deletes = new ActiveXObject("Microsoft.XMLHTTP");
+			} catch (e) {}
+		}
+	}
+	
+	if (!deletes) {
+		alert('Cannot delete XMLHTTP instance');
+		return false;
+	}
+	var url = 'process/process-category-delete.php';
+	var pmeters = 'id='+id;
+	deletes.open('POST',url,true);
+
+	deletes.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	deletes.send(pmeters);			
+	deletes.onreadystatechange = function(){
+		if(deletes.readyState == 3)  // Loading Request
+		{
+			$("#console").html('<i class="fa fa-spinner fa-spin"></i> รอสักครู่...');
+		}
+		if(deletes.readyState == 4) // Return Request
+		{
+			$("#console").fadeIn(200).html(deletes.responseText);
+			$("#console").delay(3000).animate({bottom:"-50px"},500);
+
+			//modeListFacebookFeed($('#feedType').val());
+			$("#"+id+"").slideUp(400);
 		}				
 	}
 }

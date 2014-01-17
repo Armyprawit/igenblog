@@ -24,15 +24,11 @@
     display: inline-block;
 }
 
-.highlight{
-    color: #e74c3c;
-    text-decoration: underline;
-}
-::selection{
-    background: @textColor4;
-}
-::-moz-selection {
-    background: @textColor4;
+.transitions{
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
 }
 
 
@@ -59,25 +55,6 @@
     font-style: normal;
 }
 
-#btnMenu{
-    position: fixed;
-    top: 1%;
-    right: 1%;
-    font-size: 1.5em;
-    z-index: 50;
-    background: #000000;
-    background: rgba(0, 0, 0, 0.5);
-    color: #FFFFFF;
-    padding: 2%;
-    border-radius: 3px;
-    cursor: pointer;
-    display: none;
-
-    &:hover{
-        background: #000000;
-    }
-}
-
 /* Scroll Bar */
 /* Let's get this party started */
 body::-webkit-scrollbar {
@@ -96,28 +73,49 @@ body::-webkit-scrollbar-thumb:window-inactive {}
 body{
     font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
     background: @bgColor;
+    overflow: scroll;
+}
+
+#btnMenu{
+    position: fixed;
+    top: 1%;
+    right: 1%;
+    font-size: 1.5em;
+    z-index: 50;
+    background: #333333;
+    background: rgba(0, 0, 0, 0.7);
+    color: #FFFFFF;
+    padding: 2%;
+    border-radius: 2px;
+    cursor: pointer;
+    display: none;
+
+    &:hover{
+        background: #333333;
+    }
 }
 
 #loadingProcess{
     position: fixed;
     bottom: 0px;
     left: 0px;
-    width: 99%;
+    width: 98%;
     display: inline-block;
-    background: rgba(255,255,255,0.7);
+    background: #FFFFFF;
+    border-top: 1px solid #777777;
     text-align: center;
-    padding: 0.5%;
+    padding: 1%;
     box-shadow: 0px -1px 3px #CCCCCC;
     display: none;
 
     p{
-        color: @colorBase4;
+        color: #333333;
         font-size: 0.9em;
         padding: 5px;
     }
 }
 #navigator{
-    background: @headerColor;
+    background: #FFFFFF;
     width: @navigatorWidth;
     height: 100%;
     position: fixed;
@@ -131,8 +129,8 @@ body{
         float: left;
         display: inline-block;
         text-align: center;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
 
         .photo{
             width: 70px;
@@ -148,7 +146,7 @@ body{
         }
         .logout{
             font-size: 0.8em;
-            padding: 5px;
+            padding: 7px;
 
             a{
                 color: #AAAAAA;
@@ -160,25 +158,37 @@ body{
         width: 100%;
         float: left;
         display: inline-block;
+        font-family: @fontStyle2;
 
         .item{
             float: left;
-            width: 95%;
-            @itemHeight:40px;
+            width: 100%;
+            @itemHeight:45px;
             height: @itemHeight;
             color: @textColor1;
-            font-size: 0.9em;
-            padding-left: 5%;
+            font-size: 1.3em;
             cursor: pointer;
+            border-bottom: 1px solid @bgColor;
+
+            i{
+                font-size: 0.8em;
+            }
+
+            .s{
+                width: 2%;
+                height: @itemHeight;
+                float: left;
+                background: @colorBase4;
+            }
 
             .text{
-                width: 96%;
-                float: left;
+                width: 94%;
+                float: right;
                 height: @itemHeight;
                 padding-top: 12px;
 
                 i{
-                    margin-right: 10px;
+                    color: #16a085;
                 }
 
                 .total{
@@ -188,34 +198,84 @@ body{
                     overflow: hidden;
                     display: inline-block;
                     padding-right:10px;
-                    color:@colorBase4;
+                    color:#34495e;
                 }
-            }
-
-            .s{
-                width: 4%;
-                height: @itemHeight;
-                float: right;
             }
 
             &:hover{
-                background: #EAEAEA;
-
-                .s{
-                    background: @colorBase4;
-                }
+                background: @bgColor;
+                text-shadow: 0px 1px 1px #CCCCCC;
             }
         }
 
-        .sub{
-            width: 90%;
-            padding-left: 10%;
+        .active{
+            background: @bgColor;
+            text-shadow: 0px 1px 1px #CCCCCC;
         }
 
-        .active{
-            background: @colorBase3;
+
+        // Color Type of Menu
+        .facebook{
             .s{
-                background: @colorBase4;
+                background: #2980b9;
+            }
+
+            i{
+                color: #2980b9 !important;
+            }
+        }
+
+        .youtube{
+            .s{
+                background: #c0392b;
+            }
+            i{
+                color: #c0392b !important;
+            }
+        }
+
+        .stat{
+            .s{
+                background: #8e44ad;
+            }
+            i{
+                color: #8e44ad !important;
+            }
+        }
+
+        .category{
+            .s{
+                background: #2c3e50;
+            }
+            i{
+                color: #2c3e50 !important;
+            }
+        }
+
+        .content{
+            .s{
+                background: #27ae60;
+            }
+            i{
+                color: #27ae60 !important;
+            }
+        }
+
+        .banner{
+            .s{
+                background: #d35400;
+            }
+            i{
+                color: #d35400 !important;
+            }
+        }
+
+        .logout{
+            .s{
+                background: #c0392b;
+            }
+            i{
+                color: #c0392b !important;
             }
         }
     }
@@ -243,33 +303,26 @@ body{
     float: left;
     display: inline-block;
     position: relative;
+    padding-bottom: 50px;
 
     #header{
         position: absolute;
         top: 0px;
         left: 0px;
         width: 100%;
-        height: 36px;
-        background: @colorBase4;
+        height: 40px;
+        background: #FFFFFF;
         padding-top: 9px;
         padding-bottom: 5px;
-        border-bottom: 5px solid @colorBase5;
-        box-shadow: 0px 1px 2px #AAAAAA;
+        // border-bottom: 5px solid @colorBase5;
+        // box-shadow: 0px 1px 2px #AAAAAA;
 
         #logo{
             float: left;
             font-family: @fontStyle1;
-            font-size: 2.2em;
-            color: #FFFFFF;
-            margin-left: 1%;
-
-            img{
-                height: 25px;
-            }
-
-            i{
-                color: #FFFFFF;
-            }
+            font-size: 2.5em;
+            color: #333333;
+            text-shadow: 0px 1px 1px #AAAAAA;
         }
 
         #stat{
@@ -281,9 +334,8 @@ body{
                 font-size: 0.8em;
                 margin-right: 5px;
                 border-radius: 2px;
-                border:1px solid @colorBase5;
-                background: @colorBase5;
-                color: #FFFFFF;
+                border:1px solid @colorBase4;
+                color: @colorBase4;
 
                 i{
                     padding: 8px;
@@ -301,33 +353,51 @@ body{
     #mainContent{
         margin-top: 50px;
         width: 100%;
+        float: left;
         display: inline-block;
 
-        .title{
-            width: 98%;
-            display: inline-block;
+        // Head Title of Page
+        .mainHead{
             float: left;
-            color: #CCCCCC;
-            font-size: 2.5em;
-            padding: 1%;
-            margin-top: 20px;
-            margin-bottom: 20px;
+            width: 99%;
+            display: inline-block;
+            padding-left: 1%;
+            margin-top: 10px;
+            margin-bottom: 30px;
 
-            #console{
-                font-size: 0.4em;
+            .title{
+                width: 70%;
+                font-family: @fontStyle2;
+                display: inline-block;
+                float: left;
+                color: #AAAAAA;
+                font-size: 3.5em;
+
+                i{
+                    font-size: 0.6em;
+                    color: #DDDDDD;
+                }
+
+                #console{
+                    font-size: 0.4em;
+                }
             }
 
             .categoryMode{
+                float: right;
+                width: 30%;
+                display: inline-block;
 
                 .input-select{
-                    background:@colorBase3;
+                    background:@bgColor;
                     border: 0px;
-                    font-size: 0.4em;
-                    padding: 0.5%;
-                    width: 25%;
-                    color: @textColor1;
+                    font-size: 1em;
+                    padding: 2%;
+                    width: 96%;
+                    color: #AAAAAA;
                     border-radius: 2px;
-                    border: 1px solid #DDDDDD;
+                    margin-top: 3%;
+                    border: 1px solid #CCCCCC;
                     outline: 0;
                 }
             }
@@ -405,7 +475,7 @@ body{
 
                 p{
                     font-size: 1em;
-                    color: #000000;
+                    color: #333333;
                     background: #F5F5F5;
                     padding: 20px;
                     border:1px solid #EEEEEE;
@@ -416,12 +486,12 @@ body{
                 }
 
                 .btn{
-                    background: #e74c3c;
-                    color:#FFFFFF;
+                    background: #FAC5BF;
+                    color:#e74c3c;
                     display: inline-block;
-                    border:2px solid #c0392b;
-                    padding: 0.5%;
-                    border-radius: 2px;
+                    border:1px solid #e74c3c;
+                    padding: 1%;
+                    border-radius: 3px;
                     line-height: 20px;
                     width: 40%;
                     margin-bottom: 20px;
@@ -429,12 +499,13 @@ body{
                     cursor: pointer;
 
                     &:hover{
-                        background: #c0392b;
+                        color: #c0392b;
+                        border:1px solid #c0392b;
                     }
 
                     p{
                         font-size: 0.8em;
-                        color: #FFFFFF;
+                        color: #c0392b;
                         background: none;
                         padding: 0px;
                         border:0px;
@@ -443,16 +514,19 @@ body{
 
                 .note{
                     font-size: 0.8em;
-                    color: #000000;
+                    color: #333333;
                     margin-top: 20px; 
                 }
 
                 .update{
-                    background: @colorBase4;
-                    border:2px solid @colorBase5;
+                    background: #BFFCF0;
+                    border:1px solid @colorBase4;
+                    color: @colorBase4;
 
                     &:hover{
-                        background: @colorBase5;
+                        background: #BFFCF0;
+                        border:1px solid @colorBase5;
+                        color: @colorBase5;
                     }
                 }
             }
@@ -472,8 +546,8 @@ body{
 
                 .topic{
                     text-align: left;
-                    font-size: 1em;
-                    color: #555555;
+                    font-size: 0.9em;
+                    color: #777777;
 
                     i{
                         color: @colorBase4;
@@ -514,7 +588,7 @@ body{
                         border: 1px solid #DDDDDD;
                         font-size: 0.9em;
                         padding: 10px;
-                        width: 200px;
+                        width: 250px;
                         text-align: left;
                         border-radius: 3px;
                         color: #555555;
@@ -541,14 +615,16 @@ body{
                     width: 96%;
                     padding: 2%;
                     display: inline-block;
-                    font-size: 1em;
-                    cursor: pointer;
-                    margin-bottom: 5px;
-                    border-radius: 2px;
+                    margin-bottom: 7px;
+                    border-radius: 3px;
                     box-shadow: 1px 1px 3px #DDDDDD;
+                    border:1px solid #CCCCCC;
+                    cursor: pointer;
+
+                    .transitions;
 
                     &:hover{
-                        background: @colorBase3;
+                        border:1px solid #999999;
                     }
 
                     p{
@@ -567,13 +643,16 @@ body{
                     width: 98%;
                     padding: 1%;
                     display: inline-block;
-                    cursor: pointer;
-                    margin-bottom: 5px;
-                    border-radius: 2px;
+                    margin-bottom: 7px;
+                    border-radius: 3px;
                     box-shadow: 1px 1px 3px #DDDDDD;
+                    border:1px solid #CCCCCC;
+                    cursor: pointer;
+
+                    .transitions;
 
                     &:hover{
-                        background: @colorBase3;
+                        border:1px solid #999999;
                     }
 
                     .photo{
@@ -587,6 +666,8 @@ body{
 
                         img{
                             width: 100%;
+                            border-radius: 3px;
+                            overflow: hidden;
                         }
                     }
                     .info{
@@ -604,7 +685,7 @@ body{
                             .btn{
                                 font-size: 0.8em;
                                 padding: 1%;
-                                border-radius: 1px;
+                                border-radius: 2px;
                                 margin-right: 5px;
                             }
                             .left{
@@ -616,20 +697,19 @@ body{
                                 margin-left: 5px;
                             }
                             .normal{
-                                background: @colorBase4;
-                                border:1px solid @colorBase5;
-                                color: #FFFFFF;
+                                border:1px solid #2ecc71;
+                                color: #2ecc71;
                                 &:hover{
-                                    background: @colorBase5;
+                                    border:1px solid #27ae60;
+                                    color: #27ae60;
                                 }
                             }
                             .delete{
-                                background: #DDDDDD;
-                                border:1px solid #BBBBBB;
-                                color: #AAAAAA;
+                                border:1px solid #bdc3c7;
+                                color: #bdc3c7;
                                 &:hover{
-                                    background: #BBBBBB;
-                                    color: #777777;
+                                    border:1px solid #7f8c8d;
+                                    color: #7f8c8d;
                                 }
                             }
                         }
@@ -640,17 +720,14 @@ body{
                             color: @textColor4;
                         }
                         .text{
-                            font-size: 1em;
-                            color: #000000;
-                            margin-bottom: 10px;
+                            font-size: 0.8em;
+                            line-height: 17px;
+                            color: #777777;
                         }
                         p{
                             font-size: 0.8em;
-                            color: @colorBase5;
-
-                            i{
-                                color: #555555;
-                            }
+                            color: #777777;
+                            padding: 1%;
                         }
                     }
                 }
@@ -668,13 +745,16 @@ body{
                     width: 98%;
                     padding: 1%;
                     display: inline-block;
-                    cursor: pointer;
-                    margin-bottom: 5px;
-                    border-radius: 2px;
+                    margin-bottom: 7px;
+                    border-radius: 3px;
                     box-shadow: 1px 1px 3px #DDDDDD;
+                    border:1px solid #CCCCCC;
+                    cursor: pointer;
+
+                    .transitions;
 
                     &:hover{
-                        background: @colorBase3;
+                        border:1px solid #999999;
                     }
 
                     .photo{
@@ -687,6 +767,8 @@ body{
 
                         img{
                             width: 100%;
+                            border-radius: 3px;
+                            overflow: hidden;
                         }
                     }
                     .info{
@@ -705,7 +787,7 @@ body{
                             .btn{
                                 font-size: 0.8em;
                                 padding: 1%;
-                                border-radius: 1px;
+                                border-radius: 2px;
                                 margin-right: 5px;
                             }
                             .left{
@@ -717,38 +799,33 @@ body{
                                 margin-left: 5px;
                             }
                             .normal{
-                                background: @colorBase4;
-                                border:1px solid @colorBase5;
-                                color: #FFFFFF;
+                                border:1px solid #2ecc71;
+                                color: #2ecc71;
                                 &:hover{
-                                    background: @colorBase5;
+                                    border:1px solid #27ae60;
+                                    color: #27ae60;
                                 }
                             }
                             .delete{
-                                background: #DDDDDD;
-                                border:1px solid #BBBBBB;
-                                color: #AAAAAA;
+                                border:1px solid #bdc3c7;
+                                color: #bdc3c7;
                                 &:hover{
-                                    background: #BBBBBB;
-                                    color: #777777;
+                                    border:1px solid #7f8c8d;
+                                    color: #7f8c8d;
                                 }
                             }
                         }
 
                         h1{
                             font-size: 1em;
-                            margin-bottom: 5px;
-                            color: @textColor4;
-
-                            i{
-                                color: #AAAAAA;
-                                &:hover{
-                                    color: #333333;
-                                }
-                            }
+                            margin-bottom: 7px;
+                            line-height: 20px;
+                            color: #333333;
+                            font-weight: bold;
                         }
                         .text{
-                            font-size: 0.9em;
+                            font-size: 0.8em;
+                            line-height: 17px;
                             color: #777777;
                         }
                     }
@@ -761,13 +838,16 @@ body{
                     width: 98%;
                     padding: 1%;
                     display: inline-block;
-                    margin-bottom: 5px;
-                    border-radius: 2px;
+                    margin-bottom: 7px;
+                    border-radius: 3px;
                     box-shadow: 1px 1px 3px #DDDDDD;
+                    border:1px solid #CCCCCC;
                     cursor: pointer;
 
+                    .transitions;
+
                     &:hover{
-                        background: @colorBase3;
+                        border:1px solid #999999;
                     }
 
                     .image{
@@ -777,6 +857,8 @@ body{
 
                         img{
                             width: 100%;
+                            border-radius: 3px;
+                            overflow: hidden;
                         }
                     }
                     .info{
@@ -793,7 +875,7 @@ body{
                             .btn{
                                 font-size: 0.8em;
                                 padding: 1%;
-                                border-radius: 1px;
+                                border-radius: 2px;
                                 margin-right: 5px;
                             }
                             .left{
@@ -805,45 +887,39 @@ body{
                                 margin-left: 5px;
                             }
                             .normal{
-                                background: @colorBase4;
-                                border:1px solid @colorBase5;
-                                color: #FFFFFF;
+                                border:1px solid #2ecc71;
+                                color: #2ecc71;
                                 &:hover{
-                                    background: @colorBase5;
+                                    border:1px solid #27ae60;
+                                    color: #27ae60;
                                 }
                             }
                             .delete{
-                                background: #DDDDDD;
-                                border:1px solid #BBBBBB;
-                                color: #AAAAAA;
+                                border:1px solid #bdc3c7;
+                                color: #bdc3c7;
                                 &:hover{
-                                    background: #BBBBBB;
-                                    color: #777777;
+                                    border:1px solid #7f8c8d;
+                                    color: #7f8c8d;
                                 }
                             }
                         }
 
                         .name{
                             font-size: 0.9em;
-                            margin-bottom: 5px;
-                            color: @textColor4;
-
-                            i{
-                                color: #AAAAAA;
-                                &:hover{
-                                    color: #333333;
-                                }
-                            }
+                            margin-bottom: 7px;
+                            line-height: 20px;
+                            color: #333333;
+                            font-weight: bold;
                         }
                         .link{
                             font-size: 0.7em;
                             margin-bottom: 5px;
-                            color: @colorBase5;
+                            color: #AAAAAA;
+                            text-decoration: underline;
                         }
                         .description{
                             font-size: 0.8em;
                             line-height: 17px;
-                            color: @textColor2;
                             color: #777777;
                         }
                     }
@@ -858,13 +934,16 @@ body{
                     width: 98%;
                     padding: 1%;
                     display: inline-block;
-                    margin-bottom: 5px;
-                    border-radius: 2px;
-                    cursor: pointer;
+                    margin-bottom: 7px;
+                    border-radius: 3px;
                     box-shadow: 1px 1px 3px #DDDDDD;
+                    border:1px solid #CCCCCC;
+                    cursor: pointer;
+
+                    .transitions;
 
                     &:hover{
-                        background: @colorBase3;
+                        border:1px solid #999999;
                     }
 
                     .image{
@@ -874,7 +953,7 @@ body{
 
                         img{
                             width: 100%;
-                            border-radius: 2px;
+                            border-radius: 3px;
                             overflow: hidden;
 
                             &:hover{
@@ -896,7 +975,7 @@ body{
                             .btn{
                                 font-size: 0.8em;
                                 padding: 1%;
-                                border-radius: 1px;
+                                border-radius: 2px;
                                 margin-right: 5px;
                             }
                             .left{
@@ -908,20 +987,19 @@ body{
                                 margin-left: 5px;
                             }
                             .normal{
-                                background: @colorBase4;
-                                border:1px solid @colorBase5;
-                                color: #FFFFFF;
+                                border:1px solid #2ecc71;
+                                color: #2ecc71;
                                 &:hover{
-                                    background: @colorBase5;
+                                    border:1px solid #27ae60;
+                                    color: #27ae60;
                                 }
                             }
                             .delete{
-                                background: #DDDDDD;
-                                border:1px solid #BBBBBB;
-                                color: #AAAAAA;
+                                border:1px solid #bdc3c7;
+                                color: #bdc3c7;
                                 &:hover{
-                                    background: #BBBBBB;
-                                    color: #777777;
+                                    border:1px solid #7f8c8d;
+                                    color: #7f8c8d;
                                 }
                             }
                         }
@@ -947,26 +1025,20 @@ body{
 
                         .name{
                             font-size: 0.9em;
-                            margin-bottom: 5px;
-                            color: @textColor4;
-
-                            i{
-                                color: #AAAAAA;
-                                &:hover{
-                                    color: #333333;
-                                }
-                            }
+                            margin-bottom: 7px;
+                            line-height: 20px;
+                            color: #333333;
+                            font-weight: bold;
                         }
-                        .link{
-                            font-size: 0.7em;
-                            margin-bottom: 5px;
-                            color: @colorBase5;
-                        }
+                        // .link{
+                        //     font-size: 0.7em;
+                        //     margin-bottom: 5px;
+                        //     color: @colorBase5;
+                        // }
                         .description{
                             font-size: 0.8em;
                             line-height: 17px;
-                            color: @textColor2;
-                            color: #000000;
+                            color: #777777;
                         }
                     }
                 }
@@ -982,13 +1054,16 @@ body{
                     width: 98%;
                     padding: 1%;
                     display: inline-block;
-                    cursor: pointer;
-                    margin-bottom: 5px;
-                    border-radius: 2px;
+                    margin-bottom: 7px;
+                    border-radius: 3px;
                     box-shadow: 1px 1px 3px #DDDDDD;
+                    border:1px solid #CCCCCC;
+                    cursor: pointer;
+
+                    .transitions;
 
                     &:hover{
-                        background: @colorBase3;
+                        border:1px solid #999999;
                     }
 
                     .info{
@@ -1005,7 +1080,7 @@ body{
                             .btn{
                                 font-size: 0.8em;
                                 padding: 1%;
-                                border-radius: 1px;
+                                border-radius: 2px;
                                 margin-right: 5px;
                             }
                             .left{
@@ -1017,20 +1092,19 @@ body{
                                 margin-left: 5px;
                             }
                             .normal{
-                                background: @colorBase4;
-                                border:1px solid @colorBase5;
-                                color: #FFFFFF;
+                                border:1px solid #2ecc71;
+                                color: #2ecc71;
                                 &:hover{
-                                    background: @colorBase5;
+                                    border:1px solid #27ae60;
+                                    color: #27ae60;
                                 }
                             }
                             .delete{
-                                background: #DDDDDD;
-                                border:1px solid #BBBBBB;
-                                color: #AAAAAA;
+                                border:1px solid #bdc3c7;
+                                color: #bdc3c7;
                                 &:hover{
-                                    background: #BBBBBB;
-                                    color: #777777;
+                                    border:1px solid #7f8c8d;
+                                    color: #7f8c8d;
                                 }
                             }
                         }
@@ -1040,11 +1114,12 @@ body{
                         .layouts;
                         font-size: 1.3em;
                         margin-bottom: 10px;
-                        color: #000000;
+                        color: #333333;
                     }
                     .description{
                         .layouts;
                         font-size: 0.8em;
+                        line-height: 17px;
                         color: #777777;
                     }
 
@@ -1127,9 +1202,8 @@ body{
 
                 .startBtn{
                     width: 40%;
-                    background: @colorBase4;
-                    border:1px solid @colorBase5;
-                    color: #FFFFFF;
+                    color: @colorBase4;
+                    border:1px solid @colorBase4;
                     padding: 1.5%;
                     margin: auto;
                     text-align: center;
@@ -1138,12 +1212,13 @@ body{
                     font-size: 0.9em;
 
                     &:hover{
-                        background: @colorBase5;
+                        color: @colorBase5;
+                        border:1px solid @colorBase5;
                     }
                 }
                 .note{
                     font-size: 0.9em;
-                    color: #000000;
+                    color: #333333;
                     text-align: center;
                     padding: 20px;
                 }
@@ -1168,7 +1243,7 @@ body{
                 }
                 p{
                     font-size: 0.8em;
-                    color: #000000;
+                    color: #333333;
 
                     i{
                         color:@colorBase4;
@@ -1211,9 +1286,9 @@ body{
                 border-radius: 2px;
 
                 .topic{
-                    font-size: 1em;
                     margin-bottom: 10px;
-                    color: #555555;
+                    font-size: 0.9em;
+                    color: #777777;
                     color: @colorBase4;
                 }
                 .item{
@@ -1230,7 +1305,7 @@ body{
                     h1{
                         font-weight: normal;
                         font-size: 0.9em;
-                        color: #000000;
+                        color: #333333;
                         margin-bottom: 5px;
                     }
                     .time{
@@ -1419,6 +1494,10 @@ body{
                             height: 150px;
                         }
                     }
+                    p{
+                        width: 68%;
+                        float: left;
+                    }
                     .input{
                         float: right;
                         width: 68%;
@@ -1593,12 +1672,13 @@ body{
 #viewExample{
     position: fixed;
     top: 0px;
-    left: -60%;
-    width: 55%;
-    height: 100%;
-    padding: 1%;
+    left: -90%;
+    width: 84%;
+    height: 94%;
+    padding: 3%;
     background: #FFFFFF;
     border: 1px solid #DDDDDD;
+    z-index: 50;
 
     .control{
         .layouts;
@@ -1607,8 +1687,8 @@ body{
             float: right;
             display: inline-block;
             text-align: center;
-            background:@colorBase4;
-            color: #FFFFFF;
+            color:@colorBase4;
+            border: 1px solid @colorBase4;
             font-size: 0.8em;
             padding: 1%;
             margin-top: 5px;
@@ -1617,7 +1697,8 @@ body{
             cursor: pointer;
 
             &:hover{
-                background:@colorBase5;
+                color:@colorBase5;
+                border: 1px solid @colorBase5;
             }
         }
     }
@@ -1678,62 +1759,113 @@ body{
 
 @media only screen and (min-width:760px) and (max-width:1099px){
 
-}
-
-@media only screen and (min-width:520px) and (max-width:759px){
-
-}
-
-@media only screen and (min-width:0px) and (max-width :519px){
-
 #btnMenu{
-    display: block;
+    display: none;
 }
 
+#loadingProcess{
+    bottom: 0px;
+    left: 0px;
+    width: 98%;
+    padding: 1%;
+
+    p{
+        font-size: 0.9em;
+        padding: 5px;
+    }
+}
 #navigator{
-    background: @headerColor;
-    box-shadow: 1px 0px 2px #CCCCCC;
-    width: 80%;
-    left: -80%;
+    background: #FFFFFF;
+    width: 35%;
+    height: 100%;
+    position: fixed;
+    top:0px;
+    left: 0%;
+    overflow: auto;
+    z-index: 10;
 
     #mainMenu{
-        .sub{
-            width: 90%;
+        width: 100%;
+        float: left;
+        display: inline-block;
+        font-family: @fontStyle2;
+
+        .item{
+            @itemHeight:55px;
+            height: @itemHeight;
+            font-size: 1.5em;
+
+            .s{
+                height: @itemHeight;
+            }
+
+            .text{
+                height: @itemHeight;
+                padding-top: 18px;
+
+            }
         }
     }
 }
 
 #display{
-    width: 100%;
-    margin-left: 0%;
+    width: 63%;
+    margin-left:35%;
+    padding: 1%;
+    padding-bottom: 20px;
 
     #header{
+        width: 100%;
+        height: 40px;
+        padding-top: 9px;
+        padding-bottom: 5px;
 
         #logo{
-            font-size: 2em;
+            font-size: 2.5em;
+            margin-left: 1%;
         }
 
         #stat{
-            display: none;
+            display: block;
         }
     }
 
     #mainContent{
+        margin-top: 50px;
+        width: 100%;
+        float: left;
+        display: inline-block;
 
-        .title{
-            font-size: 2em;
+        // Head Title of Page
+        .mainHead{
+            width: 99%;
+            padding-left: 1%;
+            margin-top: 10px;
+            margin-bottom: 10px;
 
-            #console{
-                font-size: 0.4em;
+            .title{
+                width: 50%;
+                font-size: 2.5em;
+
+                i{
+                    font-size: 0.6em;
+                }
+
+                #console{
+                    font-size: 0.4em;
+                }
             }
 
             .categoryMode{
+                float: right;
+                width: 50%;
 
                 .input-select{
-                    float: right;
-                    font-size: 0.5em;
+                    font-size: 1em;
                     padding: 2%;
-                    width: 50%;
+                    width: 96%;
+                    margin-top: 3%;
+                    border: 1px solid #CCCCCC;
                 }
             }
         }
@@ -1745,71 +1877,123 @@ body{
             padding-left: 1%;
 
             .newsItem{
-                width: 98%;
-                margin: 1%;
-                margin-bottom: 7px;
+                width: 32%;
+                float: left;
+                display: inline-block;
+                margin: 0.5%;
+
+                .image{
+                    width: 100%;
+                    height: 200px;
+                    overflow: hidden;
+
+                    img{
+                        width: 100%;
+                    }
+                }
+
+                .info{
+                    background: #FFFFFF;
+                    padding: 2%;
+                    width: 96%;
+                    display: inline-block;
+                    float: left;
+                    height: 68px;
+                    overflow: hidden;
+
+                    .time{
+                        font-size: 0.7em;
+                        color: #CCCCCC;
+                        text-align: right;
+                    }
+
+                    h1{
+                        font-size: 0.9em;
+                        color: @colorBase4;
+                        margin-bottom: 5px;
+                    }
+                    p{
+                        font-size: 0.8em;
+                        line-height: 22px;
+                        color: #AAAAAA;
+                    }
+                }
             }
         }
 
 
         .content{
-            width: 98%;
-            display: inline-block;
-            float: right;
-            padding: 1%;
+            width: 99%;
+            float: left;
+            padding-left: 1%;
 
+            // Version Box index.php
             .versionBox{
                 width: 96%;
                 padding: 2%;
-                margin-bottom: 7px;
+                margin-bottom: 20px;
 
                 p{
                     font-size: 1em;
-                    padding: 10px;
-
-                    .s{
-                        color: @colorBase4;
-                    }
+                    padding: 20px;
                 }
 
                 .btn{
-                    padding: 2%;
-                    width: 80%;
+                    padding: 1%;
+                    line-height: 20px;
+                    width: 60%;
+                    margin-bottom: 20px;
+                    margin-top: 20px;
 
                     p{
-                        font-size: 0.6em;
+                        font-size: 0.8em;
                     }
                 }
 
                 .note{
-                    font-size: 0.7em;
-                    margin-top: 15px; 
+                    font-size: 0.8em;
+                    margin-top: 20px; 
                 }
             }
 
+
+            // Chart Box
             .chartBox{
-                margin-bottom: 7px;
+                width: 96%;
+                padding: 2%;
+                margin-bottom: 10px;
 
                 .topic{
-                    font-size: 0.6em;
-
-                    i{
-                        color: @colorBase4;
-                    }
+                    font-size: 0.9em;
                 }
             }
 
+
+            
             .option{
+                width: 100%;
+                margin-bottom: 10px;
+                margin-top: 10px;
+
+                .item{
+                    width: 25%;
+                    padding: 3%;
+                    font-size: 0.9em;
+                    margin-right: 1%;
+                    text-align: center;
+                }
+
                 .search{
-                    float: left;
+                    float: right;
                     width: 100%;
                     display: inline-block;
-                    margin-top: 5px;
+                    margin-top: 10px;
 
                     .input-text{
                         font-size: 0.9em;
                         padding: 3%;
-                        width: 93%;
+                        width: 94%;
+                        text-align: left;
                     }
                 }
                 .btn{
@@ -1818,194 +2002,421 @@ body{
                 }
             }
 
-
+            // Left Display on Page
             .display{
+                float: left;
+                width: 100%;
+                display: inline-block;
+                color: @textColor1;
 
+
+                // Setting Item setting.php
                 .settingItem{
+                    width: 94%;
+                    padding: 3%;
                     margin-bottom: 7px;
+                    box-shadow: 0px 0px 0px #DDDDDD;
+
+                    p{
+                        font-size: 0.8em;
+                        margin-top: 8px;
+                        margin-left: 20px;
+                    }
                 }
 
+
+                // Banner item banner.php
                 .bannerItem{
+                    width: 96%;
+                    padding: 2%;
                     margin-bottom: 7px;
+                    box-shadow: 0px 0px 0px #DDDDDD;
 
                     .photo{
-                        width: 35%;
+                        width: 45%;
                     }
                     .info{
-                        width: 63%;
+                        width: 53%;
                         font-size: 0.9em;
-                        line-height: 16px;
+                        line-height: 20px;
 
                         .head{
-                            .layouts;
-                            font-size: 0.8em;
-                            margin-bottom: 5px;
+                            margin-bottom: 10px;
 
-                            .id{
-                                padding: 5px;
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 2%;
+                                border-radius: 2px;
+                                margin-right: 5px;
                             }
-                            
-                            .status{
-                                padding: 5px;                            }
-                                .category{
-                                    padding: 5px;
-                                }
-
+                        }
+                        .text{
+                            font-size: 0.8em;
+                            line-height: 17px;
+                        }
+                        p{
+                            font-size: 0.8em;
+                            padding: 1%;
                         }
                     }
                 }
 
-
+                // Photo , Article Item (photo.php / article.php)
                 .photoItem , .articleItem{
+                    width: 96%;
+                    padding: 2%;
                     margin-bottom: 7px;
+                    box-shadow: 0px 0px 0px #DDDDDD;
 
                     .photo{
-                        width: 30%;
+                        width: 25%;
                     }
                     .info{
-                        width: 67%;
+                        width: 73%;
+                        font-size: 0.9em;
+                        line-height: 20px;
 
                         .head{
-                            .layouts;
-                            font-size: 0.8em;
-                            margin-bottom: 5px;
+                            margin-bottom: 10px;
 
-                            .id{
-                                padding: 5px;
-                            }
-                            
-                            .status{
-                                padding: 5px;
-                            }
-                            
-
-                            .category{
-                                padding: 5px;
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 2%;
+                                border-radius: 2px;
+                                margin-right: 5px;
                             }
                         }
 
                         h1{
                             font-size: 1em;
-                            margin-bottom: 5px;
-                            color: @textColor4;
-
-                            i{
-                                display: none;
-                            }
+                            margin-bottom: 7px;
+                            line-height: 20px;
+                        }
+                        .text{
+                            font-size: 0.8em;
+                            line-height: 17px;
                         }
                     }
                 }
 
+                // Video Item video.php
                 .videoItem{
+                    width: 96%;
+                    padding: 2%;
                     margin-bottom: 7px;
+                    box-shadow: 0px 0px 0px #DDDDDD;
 
                     .image{
                         width: 30%;
                     }
                     .info{
-                        width: 68%;
+                        width: 69%;
 
                         .head{
-                            .layouts;
-                            font-size: 0.8em;
                             margin-bottom: 10px;
 
-                            .id{
-                                padding: 5px;
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 2%;
+                                border-radius: 2px;
+                                margin-right: 5px;
                             }
-                            
-                            .status{
-                                padding: 5px;
-                            }
-                            
+                        }
 
-                            .category{
-                                padding: 5px;
-                            }
+                        .name{
+                            font-size: 0.9em;
+                            margin-bottom: 7px;
+                            line-height: 20px;
+                        }
+                        .link{
+                            font-size: 0.7em;
+                            margin-bottom: 5px;
+                        }
+                        .description{
+                            font-size: 0.8em;
+                            line-height: 17px;
                         }
                     }
                 }
 
-                .categoryItem{
+
+                
+                // Item style of channel yotube , fanpage item
+                .fanpageItem ,.channelItem,.facebookFeedItem{
+                    width: 96%;
+                    padding: 2%;
                     margin-bottom: 7px;
+                    box-shadow: 0px 0px 0px #DDDDDD;
 
-                    .name{
-                        .layouts;
-                        font-size: 1em;
-                        margin-bottom: 10px;
+                    .image{
+                        width: 20%;
+                    }
+                    .info{
+                        width: 78%;
 
-                        .url{
+                        .head{
+                            margin-bottom: 10px;
+
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 2%;
+                                border-radius: 2px;
+                                margin-right: 5px;
+                            }
+                        }
+
+                        .fanpage{
+                            font-size: 0.7em;
+                            margin-bottom: 5px;
+                        }
+
+                        .name{
+                            font-size: 0.9em;
+                            margin-bottom: 7px;
+                            line-height: 20px;
+                        }
+                        .description{
                             font-size: 0.8em;
-                            text-decoration: underline;
-                            color: @textColor2;
-                            cursor: pointer;
+                            line-height: 17px;
+                        }
+                    }
+                }
 
-                            &:hover{
-                                color: @textColor1;
+                // Category Item category.php
+                .categoryItem{
+                    width: 96%;
+                    padding: 2%;
+                    margin-bottom: 7px;
+                    box-shadow: 0px 0px 0px #DDDDDD;
+
+                    .info{
+                        width: 100%;
+
+                        .head{
+                            margin-bottom: 10px;
+
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 2%;
+                                border-radius: 2px;
+                                margin-right: 5px;
                             }
                         }
                     }
-                    .description{
-                        .layouts;
-                        font-size: 0.8em;
-                    }
 
-                    .control{
-                        .layouts;
-                        .btn{
-                            float: right;
-                            margin-left: 10px;
-                            font-size: 0.8em;
-                        }
+                    .name{
+                        font-size: 1.3em;
+                        margin-bottom: 10px;
+                    }
+                    .description{
+                        font-size: 0.8em;
+                        line-height: 17px;
                     }
                 }
             }
         }
+
+
         .activity{
-            width: 98%;
-            display: inline-block;
-            float: right;
-            padding: 1%;
+            width: 99%;
+            float: left;
+            padding-left: 0%;
+            margin-right: 1%;
 
             .headTitle{
+                padding: 3%;
+                width: 94%;
                 font-size: 0.9em;
-            }
-
-            .statBox{
                 margin-bottom: 7px;
 
-                .value{
-                    font-size: 2em;
-                }
-                p{
+                .loading{
                     font-size: 0.8em;
+                    margin-left: 5px;
                 }
 
+                .setting{
+                    font-size: 0.8em;
+                    margin-left: 5px;
+                }
+
+                #process{
+                    font-size: 1em;
+                }
             }
 
-            .topBox{
-                margin-bottom: 7px;
 
-                .topic{
+            // Start Update Feed Facebook Page Display
+            .fanpageForm{
+                width: 96%;
+                padding: 2%;
+
+                .startBtn{
+                    width: 70%;
+                    padding: 3%;
                     font-size: 0.9em;
                 }
+                .note{
+                    font-size: 0.9em;
+                    padding: 20px;
+                    line-height: 20px;
+                }
             }
 
+
+            // Stat Box Display stat.php
+            .statBox{
+                margin-bottom: 10px;
+            }
+
+            // Top Box of Content index.php
+            .topBox{
+                width: 96%;
+                padding: 2%;
+                margin-bottom: 10px;
+
+                .topic{
+                    margin-bottom: 10px;
+                    font-size: 0.9em;
+                }
+                .item{
+                    width: 96%;
+                    padding: 2%;
+
+                    h1{
+                        font-size: 0.9em;
+                    }
+                    .time{
+                        font-size: 0.7em;
+                    }
+                    .value{
+                        font-size: 0.8em;
+                    }
+                }
+            }
+
+
+            // Form Main Display
             .form{
-                .layouts;
                 padding: 3%;
                 width: 94%;
                 font-size: 1em;
 
-                .photoInput{
+                p{
+                    font-size: 0.8em;
+                    margin-bottom: 10px;
+                }
+
+                .text{
+                    font-size: 0.7em;
+                    margin-bottom: 10px;
+                }
+
+                // BUTTON STYLE
+                .toProcess{
+                    width: 96%;
+                    background: #CCCCCC;
+                    text-align: center;
+                    margin: auto;
+                    padding: 2%;
+                    border-radius: 2px;
+                    cursor: pointer;
+                    font-size: 0.8em;
+                }
+
+                .waitItem{
+                    float: left;
+                    width: 98%;
+                    display: inline-block;
+                    background: #F5F5F5;
+                    border-bottom: 1px solid #E5E5E5;
+                    text-align: center;
+                    padding: 1%;
+                    font-size: 0.8em;
+                    color: #e74c3c;
+                    height: 35px;
+                    padding-top: 15px;
+                }
+
+                .vidItem{
                     float: left;
                     width: 100%;
                     display: inline-block;
+                    background: #F5F5F5;
+                    border-bottom: 1px solid #E5E5E5;
+
+                    .number{
+                        width: 10%;
+                        text-align: center;
+                        background: @colorBase4;
+                        color: #FFFFFF;
+                        font-size: 1em;
+                        float: left;
+                        height: 35px;
+                        padding-top: 15px;
+                        font-style: @fontStyle1;
+                    }
+                    .duplicate{
+                        background: #AAAAAA;
+                    }
+
+
+                    .detail{
+                        float: right;
+                        width: 89%;
+                        display: inline-block;
+                        height: 40px;
+                        padding-top: 10px;
+
+                        h3{
+                            font-weight: normal;
+                            font-size: 0.8em;
+                            margin-bottom: 5px;
+
+                        }
+                        p{
+                            font-size: 0.7em;
+                            color: @colorBase4;
+                        }
+                    }
+                }
+                
+                .image{
+                    background: #EEEEEE;
+                    border: 1px solid #DDDDDD;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    width: 100%;
+                    display: inline-block;
+                    float: left;
+                    border-radius: 2px;
+
+                    .item{
+                        float: left;
+                        width: 29%;
+                        display: inline-block;
+                        margin: 2%;
+                        border-radius: 2px;
+                        overflow: hidden;
+
+                        img{
+                            width: 100%;
+                        }
+                    }
+                }
+
+
+                .photoInput{
                     margin-bottom: 20px;
 
                     .imageResult{
                         width: 28%;
                         height: 150px;
+                        padding: 1%;
                     }
                     .input{
                         float: right;
@@ -2015,44 +2426,1714 @@ body{
                 }
 
                 .input-text{
-                    padding: 2%;
-                    width: 96%;
+                    font-size: 0.9em;
+                    padding: 3%;
+                    width: 94%;
+                    margin-bottom: 5px;
+                    border-radius: 2px;
+                    border: 1px solid #EEEEEE;
                 }
 
                 .input-select{
-                    padding: 2%;
+                    font-size: 0.9em;
+                    padding: 3%;
                     width: 100%;
+                    margin-bottom: 5px;
                 }
 
                 .control{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
                     margin-bottom: 20px;
 
                     .btn{
-                        padding: 10px;
-                        font-size: 0.7em;
-                        margin-right: 5px;
-                        margin-bottom: 5px;
+                        padding: 3%;
+                        font-size: 0.8em;
+                        margin-right: 3px;
+                        margin-bottom: 3px;
                     }
 
                     .right{
                         float: left;
                     }
                 }
+
                 .input-area{
-                    padding: 2%;
-                    width: 96%;
+                    border: 0px;
+                    height: 100px;
+                    font-size: 0.9em;
+                    padding: 3%;
+                    width: 94%;
+                    max-height: 1000px;
+                    margin-bottom: 5px;
+                }
+
+                .btn-delete{
+                    background: #ea6153;
+                    color: #FFFFFF;
+                    padding: 7px;
+                    text-align: center;
+                    font-size: 0.7em;
+                    float: left;
+                    display: inline-block;
+                    border-radius: 2px;
+                    cursor: pointer;
+
+                    &:hover{
+                        background: #c0392b;
+                    }
                 }
 
                 .input-submit{
                     font-size: 0.9em;
-                    width: 100%;
-                    padding: 2%;
+                    padding: 3%;
+                }
+
+                .s{
+                    margin-bottom: 20px;
                 }
             }
         }
+    }
+}
+
+#console{
+    width: 92%;
+    padding: 4%;
+    font-size: 1em;
+}
+
+#viewExample{
+    top: 0px;
+    left: -90%;
+    width: 84%;
+    height: 100%;
+    padding: 2%;
+
+    .control{
+        .layouts;
+
+        .item{
+            font-size: 0.8em;
+            padding: 3%;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+    }
+    .display{
+        height: 92%;
+        font-size: 0.9em;
+        line-height: 20px;
+
+        h1{
+            font-size: 1em;
+            margin: 0px;
+            padding: 0px;
+        }
+        p{
+            margin: 0px;
+            padding: 0px;
+        }
+        img{
+            width: 100%;
+        }
+
+        iframe{
+            width: 100%;
+            height: 200px;
+        }
+
+
+    }
+}
+
+}
+
+@media only screen and (min-width:520px) and (max-width:759px){
+
+#btnMenu{
+    position: fixed;
+    top: 1%;
+    right: 1%;
+    font-size: 2em;
+    padding: 2%;
+    border-radius: 3px;
+    display: block;
+}
+
+#loadingProcess{
+    bottom: 0px;
+    left: 0px;
+    width: 98%;
+    padding: 1%;
+
+    p{
+        font-size: 0.9em;
+        padding: 5px;
+    }
+}
+#navigator{
+    background: #FFFFFF;
+    width: 69%;
+    height: 100%;
+    position: fixed;
+    top:0px;
+    left: -102%;
+    overflow: auto;
+    z-index: 10;
+
+    #mainMenu{
+        width: 100%;
+        float: left;
+        display: inline-block;
+        font-family: @fontStyle2;
+
+        .item{
+            @itemHeight:55px;
+            height: @itemHeight;
+            font-size: 1.5em;
+
+            .s{
+                height: @itemHeight;
+            }
+
+            .text{
+                height: @itemHeight;
+                padding-top: 18px;
+
+            }
+        }
+    }
+}
+
+#display{
+    width: 98%;
+    margin-left:0%;
+    padding: 1%;
+    padding-bottom: 20px;
+
+    #header{
+        width: 100%;
+        height: 40px;
+        padding-top: 9px;
+        padding-bottom: 5px;
+
+        #logo{
+            font-size: 2.5em;
+            margin-left: 1%;
+        }
+
+        #stat{
+            display: block;
+        }
+    }
+
+    #mainContent{
+        margin-top: 50px;
+        width: 100%;
+        float: left;
+        display: inline-block;
+
+        // Head Title of Page
+        .mainHead{
+            width: 99%;
+            padding-left: 1%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+            .title{
+                width: 50%;
+                font-size: 2.5em;
+
+                i{
+                    font-size: 0.6em;
+                }
+
+                #console{
+                    font-size: 0.4em;
+                }
+            }
+
+            .categoryMode{
+                float: right;
+                width: 50%;
+
+                .input-select{
+                    font-size: 1em;
+                    padding: 2%;
+                    width: 96%;
+                    margin-top: 3%;
+                    border: 1px solid #CCCCCC;
+                }
+            }
+        }
+
+        #news{
+            width: 99%;
+            display: inline-block;
+            float: left;
+            padding-left: 1%;
+
+            .newsItem{
+                width: 32%;
+                float: left;
+                display: inline-block;
+                margin: 0.5%;
+
+                .image{
+                    width: 100%;
+                    height: 200px;
+                    overflow: hidden;
+
+                    img{
+                        width: 100%;
+                    }
+                }
+
+                .info{
+                    background: #FFFFFF;
+                    padding: 2%;
+                    width: 96%;
+                    display: inline-block;
+                    float: left;
+                    height: 68px;
+                    overflow: hidden;
+
+                    .time{
+                        font-size: 0.7em;
+                        color: #CCCCCC;
+                        text-align: right;
+                    }
+
+                    h1{
+                        font-size: 0.9em;
+                        color: @colorBase4;
+                        margin-bottom: 5px;
+                    }
+                    p{
+                        font-size: 0.8em;
+                        line-height: 22px;
+                        color: #AAAAAA;
+                    }
+                }
+            }
+        }
+
+
+        .content{
+            width: 99%;
+            float: left;
+            padding-left: 1%;
+
+            // Version Box index.php
+            .versionBox{
+                width: 96%;
+                padding: 2%;
+                margin-bottom: 20px;
+
+                p{
+                    font-size: 1em;
+                    padding: 20px;
+                }
+
+                .btn{
+                    padding: 1%;
+                    line-height: 20px;
+                    width: 60%;
+                    margin-bottom: 20px;
+                    margin-top: 20px;
+
+                    p{
+                        font-size: 0.8em;
+                    }
+                }
+
+                .note{
+                    font-size: 0.8em;
+                    margin-top: 20px; 
+                }
+            }
+
+
+            // Chart Box
+            .chartBox{
+                width: 96%;
+                padding: 2%;
+                margin-bottom: 10px;
+
+                .topic{
+                    font-size: 0.9em;
+                }
+            }
+
+
+            
+            .option{
+                width: 100%;
+                margin-bottom: 10px;
+                margin-top: 10px;
+
+                .item{
+                    width: 25%;
+                    padding: 3%;
+                    font-size: 0.9em;
+                    margin-right: 1%;
+                    text-align: center;
+                }
+
+                .search{
+                    float: right;
+                    width: 100%;
+                    display: inline-block;
+                    margin-top: 10px;
+
+                    .input-text{
+                        font-size: 0.9em;
+                        padding: 3%;
+                        width: 94%;
+                        text-align: left;
+                    }
+                }
+                .btn{
+                    float: right;
+                    margin-left: 5px;
+                }
+            }
+
+            // Left Display on Page
+            .display{
+                float: left;
+                width: 100%;
+                display: inline-block;
+                color: @textColor1;
+
+
+                // Setting Item setting.php
+                .settingItem{
+                    width: 94%;
+                    padding: 3%;
+                    margin-bottom: 7px;
+                    box-shadow: 0px 0px 0px #DDDDDD;
+
+                    p{
+                        font-size: 0.8em;
+                        margin-top: 8px;
+                        margin-left: 20px;
+                    }
+                }
+
+
+                // Banner item banner.php
+                .bannerItem{
+                    width: 96%;
+                    padding: 2%;
+                    margin-bottom: 7px;
+                    box-shadow: 0px 0px 0px #DDDDDD;
+
+                    .photo{
+                        width: 45%;
+                    }
+                    .info{
+                        width: 53%;
+                        font-size: 0.9em;
+                        line-height: 20px;
+
+                        .head{
+                            margin-bottom: 10px;
+
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 2%;
+                                border-radius: 2px;
+                                margin-right: 5px;
+                            }
+                        }
+                        .text{
+                            font-size: 0.8em;
+                            line-height: 17px;
+                        }
+                        p{
+                            font-size: 0.8em;
+                            padding: 1%;
+                        }
+                    }
+                }
+
+                // Photo , Article Item (photo.php / article.php)
+                .photoItem , .articleItem{
+                    width: 96%;
+                    padding: 2%;
+                    margin-bottom: 7px;
+                    box-shadow: 0px 0px 0px #DDDDDD;
+
+                    .photo{
+                        width: 25%;
+                    }
+                    .info{
+                        width: 73%;
+                        font-size: 0.9em;
+                        line-height: 20px;
+
+                        .head{
+                            margin-bottom: 10px;
+
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 2%;
+                                border-radius: 2px;
+                                margin-right: 5px;
+                            }
+                        }
+
+                        h1{
+                            font-size: 1em;
+                            margin-bottom: 7px;
+                            line-height: 20px;
+                        }
+                        .text{
+                            font-size: 0.8em;
+                            line-height: 17px;
+                        }
+                    }
+                }
+
+                // Video Item video.php
+                .videoItem{
+                    width: 96%;
+                    padding: 2%;
+                    margin-bottom: 7px;
+                    box-shadow: 0px 0px 0px #DDDDDD;
+
+                    .image{
+                        width: 30%;
+                    }
+                    .info{
+                        width: 69%;
+
+                        .head{
+                            margin-bottom: 10px;
+
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 2%;
+                                border-radius: 2px;
+                                margin-right: 5px;
+                            }
+                        }
+
+                        .name{
+                            font-size: 0.9em;
+                            margin-bottom: 7px;
+                            line-height: 20px;
+                        }
+                        .link{
+                            font-size: 0.7em;
+                            margin-bottom: 5px;
+                        }
+                        .description{
+                            font-size: 0.8em;
+                            line-height: 17px;
+                        }
+                    }
+                }
+
+
+                
+                // Item style of channel yotube , fanpage item
+                .fanpageItem ,.channelItem,.facebookFeedItem{
+                    width: 96%;
+                    padding: 2%;
+                    margin-bottom: 7px;
+                    box-shadow: 0px 0px 0px #DDDDDD;
+
+                    .image{
+                        width: 20%;
+                    }
+                    .info{
+                        width: 78%;
+
+                        .head{
+                            margin-bottom: 10px;
+
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 2%;
+                                border-radius: 2px;
+                                margin-right: 5px;
+                            }
+                        }
+
+                        .fanpage{
+                            font-size: 0.7em;
+                            margin-bottom: 5px;
+                        }
+
+                        .name{
+                            font-size: 0.9em;
+                            margin-bottom: 7px;
+                            line-height: 20px;
+                        }
+                        .description{
+                            font-size: 0.8em;
+                            line-height: 17px;
+                        }
+                    }
+                }
+
+                // Category Item category.php
+                .categoryItem{
+                    width: 96%;
+                    padding: 2%;
+                    margin-bottom: 7px;
+                    box-shadow: 0px 0px 0px #DDDDDD;
+
+                    .info{
+                        width: 100%;
+
+                        .head{
+                            margin-bottom: 10px;
+
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 2%;
+                                border-radius: 2px;
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+
+                    .name{
+                        font-size: 1.3em;
+                        margin-bottom: 10px;
+                    }
+                    .description{
+                        font-size: 0.8em;
+                        line-height: 17px;
+                    }
+                }
+            }
+        }
+
+
+        .activity{
+            width: 99%;
+            float: left;
+            padding-left: 0%;
+            margin-right: 1%;
+
+            .headTitle{
+                padding: 3%;
+                width: 94%;
+                font-size: 0.9em;
+                margin-bottom: 7px;
+
+                .loading{
+                    font-size: 0.8em;
+                    margin-left: 5px;
+                }
+
+                .setting{
+                    font-size: 0.8em;
+                    margin-left: 5px;
+                }
+
+                #process{
+                    font-size: 1em;
+                }
+            }
+
+
+            // Start Update Feed Facebook Page Display
+            .fanpageForm{
+                width: 96%;
+                padding: 2%;
+
+                .startBtn{
+                    width: 70%;
+                    padding: 3%;
+                    font-size: 0.9em;
+                }
+                .note{
+                    font-size: 0.9em;
+                    padding: 20px;
+                    line-height: 20px;
+                }
+            }
+
+
+            // Stat Box Display stat.php
+            .statBox{
+                margin-bottom: 10px;
+            }
+
+            // Top Box of Content index.php
+            .topBox{
+                width: 96%;
+                padding: 2%;
+                margin-bottom: 10px;
+
+                .topic{
+                    margin-bottom: 10px;
+                    font-size: 0.9em;
+                }
+                .item{
+                    width: 96%;
+                    padding: 2%;
+
+                    h1{
+                        font-size: 0.9em;
+                    }
+                    .time{
+                        font-size: 0.7em;
+                    }
+                    .value{
+                        font-size: 0.8em;
+                    }
+                }
+            }
+
+
+            // Form Main Display
+            .form{
+                padding: 3%;
+                width: 94%;
+                font-size: 1em;
+
+                p{
+                    font-size: 0.8em;
+                    margin-bottom: 10px;
+                }
+
+                .text{
+                    font-size: 0.7em;
+                    margin-bottom: 10px;
+                }
+
+                // BUTTON STYLE
+                .toProcess{
+                    width: 96%;
+                    background: #CCCCCC;
+                    text-align: center;
+                    margin: auto;
+                    padding: 2%;
+                    border-radius: 2px;
+                    cursor: pointer;
+                    font-size: 0.8em;
+                }
+
+                .waitItem{
+                    float: left;
+                    width: 98%;
+                    display: inline-block;
+                    background: #F5F5F5;
+                    border-bottom: 1px solid #E5E5E5;
+                    text-align: center;
+                    padding: 1%;
+                    font-size: 0.8em;
+                    color: #e74c3c;
+                    height: 35px;
+                    padding-top: 15px;
+                }
+
+                .vidItem{
+                    float: left;
+                    width: 100%;
+                    display: inline-block;
+                    background: #F5F5F5;
+                    border-bottom: 1px solid #E5E5E5;
+
+                    .number{
+                        width: 10%;
+                        text-align: center;
+                        background: @colorBase4;
+                        color: #FFFFFF;
+                        font-size: 1em;
+                        float: left;
+                        height: 35px;
+                        padding-top: 15px;
+                        font-style: @fontStyle1;
+                    }
+                    .duplicate{
+                        background: #AAAAAA;
+                    }
+
+
+                    .detail{
+                        float: right;
+                        width: 89%;
+                        display: inline-block;
+                        height: 40px;
+                        padding-top: 10px;
+
+                        h3{
+                            font-weight: normal;
+                            font-size: 0.8em;
+                            margin-bottom: 5px;
+
+                        }
+                        p{
+                            font-size: 0.7em;
+                            color: @colorBase4;
+                        }
+                    }
+                }
+                
+                .image{
+                    background: #EEEEEE;
+                    border: 1px solid #DDDDDD;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    width: 100%;
+                    display: inline-block;
+                    float: left;
+                    border-radius: 2px;
+
+                    .item{
+                        float: left;
+                        width: 29%;
+                        display: inline-block;
+                        margin: 2%;
+                        border-radius: 2px;
+                        overflow: hidden;
+
+                        img{
+                            width: 100%;
+                        }
+                    }
+                }
+
+
+                .photoInput{
+                    margin-bottom: 20px;
+
+                    .imageResult{
+                        width: 28%;
+                        height: 150px;
+                        padding: 1%;
+                    }
+                    .input{
+                        float: right;
+                        width: 68%;
+                        display: inline-block;
+                    }
+                }
+
+                .input-text{
+                    font-size: 0.9em;
+                    padding: 3%;
+                    width: 94%;
+                    margin-bottom: 5px;
+                    border-radius: 2px;
+                    border: 1px solid #EEEEEE;
+                }
+
+                .input-select{
+                    font-size: 0.9em;
+                    padding: 3%;
+                    width: 100%;
+                    margin-bottom: 5px;
+                }
+
+                .control{
+                    margin-bottom: 20px;
+
+                    .btn{
+                        padding: 3%;
+                        font-size: 0.8em;
+                        margin-right: 3px;
+                        margin-bottom: 3px;
+                    }
+
+                    .right{
+                        float: left;
+                    }
+                }
+
+                .input-area{
+                    border: 0px;
+                    height: 100px;
+                    font-size: 0.9em;
+                    padding: 3%;
+                    width: 94%;
+                    max-height: 1000px;
+                    margin-bottom: 5px;
+                }
+
+                .btn-delete{
+                    background: #ea6153;
+                    color: #FFFFFF;
+                    padding: 7px;
+                    text-align: center;
+                    font-size: 0.7em;
+                    float: left;
+                    display: inline-block;
+                    border-radius: 2px;
+                    cursor: pointer;
+
+                    &:hover{
+                        background: #c0392b;
+                    }
+                }
+
+                .input-submit{
+                    font-size: 0.9em;
+                    padding: 3%;
+                }
+
+                .s{
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}
+
+#console{
+    width: 92%;
+    padding: 4%;
+    font-size: 1em;
+}
+
+#viewExample{
+    top: 0px;
+    left: -90%;
+    width: 84%;
+    height: 100%;
+    padding: 2%;
+
+    .control{
+        .layouts;
+
+        .item{
+            font-size: 0.8em;
+            padding: 3%;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+    }
+    .display{
+        height: 92%;
+        font-size: 0.9em;
+        line-height: 20px;
+
+        h1{
+            font-size: 1em;
+            margin: 0px;
+            padding: 0px;
+        }
+        p{
+            margin: 0px;
+            padding: 0px;
+        }
+        img{
+            width: 100%;
+        }
+
+        iframe{
+            width: 100%;
+            height: 200px;
+        }
+
+
+    }
+}
+
+}
+
+@media only screen and (min-width:0px) and (max-width :519px){
+
+#btnMenu{
+    position: fixed;
+    top: 2%;
+    right: 2%;
+    font-size: 2em;
+    padding: 3%;
+    border-radius: 3px;
+    display: block;
+}
+
+#loadingProcess{
+    bottom: 0px;
+    left: 0px;
+    width: 98%;
+    padding: 1%;
+
+    p{
+        font-size: 0.9em;
+        padding: 5px;
+    }
+}
+#navigator{
+    background: #FFFFFF;
+    width: 99%;
+    height: 100%;
+    position: fixed;
+    top:0px;
+    left: -102%;
+    overflow: auto;
+    z-index: 10;
+
+    #mainMenu{
+        width: 100%;
+        float: left;
+        display: inline-block;
+        font-family: @fontStyle2;
+
+        .item{
+            @itemHeight:55px;
+            height: @itemHeight;
+            font-size: 1.5em;
+
+            .s{
+                height: @itemHeight;
+            }
+
+            .text{
+                height: @itemHeight;
+                padding-top: 18px;
+
+            }
+        }
+    }
+}
+
+#display{
+    width: 98%;
+    margin-left:0%;
+    padding: 1%;
+    padding-bottom: 20px;
+
+    #header{
+        width: 100%;
+        height: 40px;
+        padding-top: 9px;
+        padding-bottom: 5px;
+
+        #logo{
+            font-size: 2.5em;
+            margin-left: 1%;
+        }
+
+        #stat{
+            display: none;
+        }
+    }
+
+    #mainContent{
+        margin-top: 50px;
+        width: 100%;
+        float: left;
+        display: inline-block;
+
+        // Head Title of Page
+        .mainHead{
+            width: 99%;
+            padding-left: 1%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+            .title{
+                width: 50%;
+                font-size: 2.5em;
+
+                i{
+                    font-size: 0.6em;
+                }
+
+                #console{
+                    font-size: 0.4em;
+                }
+            }
+
+            .categoryMode{
+                float: right;
+                width: 50%;
+
+                .input-select{
+                    font-size: 1em;
+                    padding: 2%;
+                    width: 96%;
+                    margin-top: 3%;
+                    border: 1px solid #CCCCCC;
+                }
+            }
+        }
+
+        #news{
+            width: 99%;
+            display: inline-block;
+            float: left;
+            padding-left: 1%;
+
+            .newsItem{
+                width: 32%;
+                float: left;
+                display: inline-block;
+                margin: 0.5%;
+
+                .image{
+                    width: 100%;
+                    height: 200px;
+                    overflow: hidden;
+
+                    img{
+                        width: 100%;
+                    }
+                }
+
+                .info{
+                    background: #FFFFFF;
+                    padding: 2%;
+                    width: 96%;
+                    display: inline-block;
+                    float: left;
+                    height: 68px;
+                    overflow: hidden;
+
+                    .time{
+                        font-size: 0.7em;
+                        color: #CCCCCC;
+                        text-align: right;
+                    }
+
+                    h1{
+                        font-size: 0.9em;
+                        color: @colorBase4;
+                        margin-bottom: 5px;
+                    }
+                    p{
+                        font-size: 0.8em;
+                        line-height: 22px;
+                        color: #AAAAAA;
+                    }
+                }
+            }
+        }
+
+
+        .content{
+            width: 99%;
+            float: left;
+            padding-left: 1%;
+
+            // Version Box index.php
+            .versionBox{
+                width: 96%;
+                padding: 2%;
+                margin-bottom: 20px;
+
+                p{
+                    font-size: 1em;
+                    padding: 20px;
+                }
+
+                .btn{
+                    padding: 1%;
+                    line-height: 20px;
+                    width: 60%;
+                    margin-bottom: 20px;
+                    margin-top: 20px;
+
+                    p{
+                        font-size: 0.8em;
+                    }
+                }
+
+                .note{
+                    font-size: 0.8em;
+                    margin-top: 20px; 
+                }
+            }
+
+
+            // Chart Box
+            .chartBox{
+                width: 96%;
+                padding: 2%;
+                margin-bottom: 10px;
+
+                .topic{
+                    font-size: 0.9em;
+                }
+            }
+
+
+            
+            .option{
+                width: 100%;
+                margin-bottom: 10px;
+                margin-top: 10px;
+
+                .item{
+                    width: 25%;
+                    padding: 3%;
+                    font-size: 0.9em;
+                    margin-right: 1%;
+                    text-align: center;
+                }
+
+                .search{
+                    float: right;
+                    width: 100%;
+                    display: inline-block;
+                    margin-top: 10px;
+
+                    .input-text{
+                        font-size: 0.9em;
+                        padding: 3%;
+                        width: 94%;
+                        text-align: left;
+                    }
+                }
+                .btn{
+                    float: right;
+                    margin-left: 5px;
+                }
+            }
+
+            // Left Display on Page
+            .display{
+                float: left;
+                width: 100%;
+                display: inline-block;
+                color: @textColor1;
+
+
+                // Setting Item setting.php
+                .settingItem{
+                    width: 94%;
+                    padding: 3%;
+                    margin-bottom: 7px;
+                    box-shadow: 0px 0px 0px #DDDDDD;
+
+                    p{
+                        font-size: 0.8em;
+                        margin-top: 8px;
+                        margin-left: 20px;
+                    }
+                }
+
+
+                // Banner item banner.php
+                .bannerItem{
+                    width: 96%;
+                    padding: 2%;
+                    margin-bottom: 7px;
+                    box-shadow: 0px 0px 0px #DDDDDD;
+
+                    .photo{
+                        width: 45%;
+                    }
+                    .info{
+                        width: 53%;
+                        font-size: 0.9em;
+                        line-height: 20px;
+
+                        .head{
+                            margin-bottom: 10px;
+
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 2%;
+                                border-radius: 2px;
+                                margin-right: 5px;
+                            }
+                        }
+                        .text{
+                            font-size: 0.8em;
+                            line-height: 17px;
+                        }
+                        p{
+                            font-size: 0.8em;
+                            padding: 1%;
+                        }
+                    }
+                }
+
+                // Photo , Article Item (photo.php / article.php)
+                .photoItem , .articleItem{
+                    width: 96%;
+                    padding: 2%;
+                    margin-bottom: 7px;
+                    box-shadow: 0px 0px 0px #DDDDDD;
+
+                    .photo{
+                        width: 25%;
+                    }
+                    .info{
+                        width: 73%;
+                        font-size: 0.9em;
+                        line-height: 20px;
+
+                        .head{
+                            margin-bottom: 10px;
+
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 2%;
+                                border-radius: 2px;
+                                margin-right: 5px;
+                            }
+                        }
+
+                        h1{
+                            font-size: 1em;
+                            margin-bottom: 7px;
+                            line-height: 20px;
+                        }
+                        .text{
+                            font-size: 0.8em;
+                            line-height: 17px;
+                        }
+                    }
+                }
+
+                // Video Item video.php
+                .videoItem{
+                    width: 96%;
+                    padding: 2%;
+                    margin-bottom: 7px;
+                    box-shadow: 0px 0px 0px #DDDDDD;
+
+                    .image{
+                        width: 30%;
+                    }
+                    .info{
+                        width: 69%;
+
+                        .head{
+                            margin-bottom: 10px;
+
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 2%;
+                                border-radius: 2px;
+                                margin-right: 5px;
+                            }
+                        }
+
+                        .name{
+                            font-size: 0.9em;
+                            margin-bottom: 7px;
+                            line-height: 20px;
+                        }
+                        .link{
+                            font-size: 0.7em;
+                            margin-bottom: 5px;
+                        }
+                        .description{
+                            font-size: 0.8em;
+                            line-height: 17px;
+                        }
+                    }
+                }
+
+
+                
+                // Item style of channel yotube , fanpage item
+                .fanpageItem ,.channelItem,.facebookFeedItem{
+                    width: 96%;
+                    padding: 2%;
+                    margin-bottom: 7px;
+                    box-shadow: 0px 0px 0px #DDDDDD;
+
+                    .image{
+                        width: 20%;
+                    }
+                    .info{
+                        width: 78%;
+
+                        .head{
+                            margin-bottom: 10px;
+
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 2%;
+                                border-radius: 2px;
+                                margin-right: 5px;
+                            }
+                        }
+
+                        .fanpage{
+                            font-size: 0.7em;
+                            margin-bottom: 5px;
+                        }
+
+                        .name{
+                            font-size: 0.9em;
+                            margin-bottom: 7px;
+                            line-height: 20px;
+                        }
+                        .description{
+                            font-size: 0.8em;
+                            line-height: 17px;
+                        }
+                    }
+                }
+
+                // Category Item category.php
+                .categoryItem{
+                    width: 96%;
+                    padding: 2%;
+                    margin-bottom: 7px;
+                    box-shadow: 0px 0px 0px #DDDDDD;
+
+                    .info{
+                        width: 100%;
+
+                        .head{
+                            margin-bottom: 10px;
+
+                            //Button Style
+                            .btn{
+                                font-size: 0.8em;
+                                padding: 2%;
+                                border-radius: 2px;
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+
+                    .name{
+                        font-size: 1.3em;
+                        margin-bottom: 10px;
+                    }
+                    .description{
+                        font-size: 0.8em;
+                        line-height: 17px;
+                    }
+                }
+            }
+        }
+
+
+        .activity{
+            width: 99%;
+            float: left;
+            padding-left: 0%;
+            margin-right: 1%;
+
+            .headTitle{
+                padding: 3%;
+                width: 94%;
+                font-size: 0.9em;
+                margin-bottom: 7px;
+
+                .loading{
+                    font-size: 0.8em;
+                    margin-left: 5px;
+                }
+
+                .setting{
+                    font-size: 0.8em;
+                    margin-left: 5px;
+                }
+
+                #process{
+                    font-size: 1em;
+                }
+            }
+
+
+            // Start Update Feed Facebook Page Display
+            .fanpageForm{
+                width: 96%;
+                padding: 2%;
+
+                .startBtn{
+                    width: 70%;
+                    padding: 3%;
+                    font-size: 0.9em;
+                }
+                .note{
+                    font-size: 0.9em;
+                    padding: 20px;
+                    line-height: 20px;
+                }
+            }
+
+
+            // Stat Box Display stat.php
+            .statBox{
+                margin-bottom: 10px;
+            }
+
+            // Top Box of Content index.php
+            .topBox{
+                width: 96%;
+                padding: 2%;
+                margin-bottom: 10px;
+
+                .topic{
+                    margin-bottom: 10px;
+                    font-size: 0.9em;
+                }
+                .item{
+                    width: 96%;
+                    padding: 2%;
+
+                    h1{
+                        font-size: 0.9em;
+                    }
+                    .time{
+                        font-size: 0.7em;
+                    }
+                    .value{
+                        font-size: 0.8em;
+                    }
+                }
+            }
+
+
+            // Form Main Display
+            .form{
+                padding: 3%;
+                width: 94%;
+                font-size: 1em;
+
+                p{
+                    font-size: 0.8em;
+                    margin-bottom: 10px;
+                }
+
+                .text{
+                    font-size: 0.7em;
+                    margin-bottom: 10px;
+                }
+
+                // BUTTON STYLE
+                .toProcess{
+                    width: 96%;
+                    background: #CCCCCC;
+                    text-align: center;
+                    margin: auto;
+                    padding: 2%;
+                    border-radius: 2px;
+                    cursor: pointer;
+                    font-size: 0.8em;
+                }
+
+                .waitItem{
+                    float: left;
+                    width: 98%;
+                    display: inline-block;
+                    background: #F5F5F5;
+                    border-bottom: 1px solid #E5E5E5;
+                    text-align: center;
+                    padding: 1%;
+                    font-size: 0.8em;
+                    color: #e74c3c;
+                    height: 35px;
+                    padding-top: 15px;
+                }
+
+                .vidItem{
+                    float: left;
+                    width: 100%;
+                    display: inline-block;
+                    background: #F5F5F5;
+                    border-bottom: 1px solid #E5E5E5;
+
+                    .number{
+                        width: 10%;
+                        text-align: center;
+                        background: @colorBase4;
+                        color: #FFFFFF;
+                        font-size: 1em;
+                        float: left;
+                        height: 35px;
+                        padding-top: 15px;
+                        font-style: @fontStyle1;
+                    }
+                    .duplicate{
+                        background: #AAAAAA;
+                    }
+
+
+                    .detail{
+                        float: right;
+                        width: 89%;
+                        display: inline-block;
+                        height: 40px;
+                        padding-top: 10px;
+
+                        h3{
+                            font-weight: normal;
+                            font-size: 0.8em;
+                            margin-bottom: 5px;
+
+                        }
+                        p{
+                            font-size: 0.7em;
+                            color: @colorBase4;
+                        }
+                    }
+                }
+                
+                .image{
+                    background: #EEEEEE;
+                    border: 1px solid #DDDDDD;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    width: 100%;
+                    display: inline-block;
+                    float: left;
+                    border-radius: 2px;
+
+                    .item{
+                        float: left;
+                        width: 29%;
+                        display: inline-block;
+                        margin: 2%;
+                        border-radius: 2px;
+                        overflow: hidden;
+
+                        img{
+                            width: 100%;
+                        }
+                    }
+                }
+
+
+                .photoInput{
+                    margin-bottom: 20px;
+
+                    .imageResult{
+                        width: 28%;
+                        height: 150px;
+                        padding: 1%;
+                    }
+                    .input{
+                        float: right;
+                        width: 68%;
+                        display: inline-block;
+                    }
+                }
+
+                .input-text{
+                    font-size: 0.9em;
+                    padding: 3%;
+                    width: 94%;
+                    margin-bottom: 5px;
+                    border-radius: 2px;
+                    border: 1px solid #EEEEEE;
+                }
+
+                .input-select{
+                    font-size: 0.9em;
+                    padding: 3%;
+                    width: 100%;
+                    margin-bottom: 5px;
+                }
+
+                .control{
+                    margin-bottom: 20px;
+
+                    .btn{
+                        padding: 3%;
+                        font-size: 0.8em;
+                        margin-right: 3px;
+                        margin-bottom: 3px;
+                    }
+
+                    .right{
+                        float: left;
+                    }
+                }
+
+                .input-area{
+                    border: 0px;
+                    height: 100px;
+                    font-size: 0.9em;
+                    padding: 3%;
+                    width: 94%;
+                    max-height: 1000px;
+                    margin-bottom: 5px;
+                }
+
+                .btn-delete{
+                    background: #ea6153;
+                    color: #FFFFFF;
+                    padding: 7px;
+                    text-align: center;
+                    font-size: 0.7em;
+                    float: left;
+                    display: inline-block;
+                    border-radius: 2px;
+                    cursor: pointer;
+
+                    &:hover{
+                        background: #c0392b;
+                    }
+                }
+
+                .input-submit{
+                    font-size: 0.9em;
+                    padding: 3%;
+                }
+
+                .s{
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}
+
+#console{
+    width: 92%;
+    padding: 4%;
+    font-size: 1em;
+}
+
+#viewExample{
+    top: 0px;
+    left: -90%;
+    width: 84%;
+    height: 100%;
+    padding: 2%;
+
+    .control{
+        .layouts;
+
+        .item{
+            font-size: 0.8em;
+            padding: 3%;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+    }
+    .display{
+        height: 92%;
+        font-size: 0.9em;
+        line-height: 20px;
+
+        h1{
+            font-size: 1em;
+            margin: 0px;
+            padding: 0px;
+        }
+        p{
+            margin: 0px;
+            padding: 0px;
+        }
+        img{
+            width: 100%;
+        }
+
+        iframe{
+            width: 100%;
+            height: 200px;
+        }
+
+
     }
 }
     
