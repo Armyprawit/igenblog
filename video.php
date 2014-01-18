@@ -93,3 +93,16 @@ include'header.php';
 
 </body>
 </html>
+
+<?php
+	// Analytic Event to log
+	$log['url'] = 'video.php';
+	$log['target'] = 'video';
+	$log['action'] = 'view';
+	$log['user'] = '0';
+
+  $analytic->updatePageview($dbHandle,1);
+  $analytic->updatePageview($dbHandle,3);
+
+	include'footer.php';
+?>

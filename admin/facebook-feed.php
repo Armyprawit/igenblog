@@ -46,7 +46,7 @@
     <div id="mainContent">
         <!-- HEAD TITLE -->
         <div class="mainHead">
-          <div class="title"><i class="fa fa-facebook-square"></i> Facebook Feed</div>
+          <div class="title"><i class="fa fa-facebook-square"></i> FB Feed</div>
           <div class="categoryMode">
             <select id="feedType" class="input-select" onChange="Javascript:modeListFacebookFeed($('#feedType').val());">
               <option value="all">ทั้งหมด</option>

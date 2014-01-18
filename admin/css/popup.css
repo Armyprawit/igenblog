@@ -163,3 +163,82 @@ body {
 #content .content #result .resultItem .already {
   color: #7f8c8d;
 }
+@media only screen and (min-width: 0px) and (max-width: 519px) {
+  #stopBtn {
+    width: 92%;
+    padding: 4%;
+    font-size: 1em;
+  }
+  #header {
+    width: 96%;
+    padding: 2%;
+  }
+  #content {
+    width: 100%;
+  }
+  #content .content {
+    width: 100%;
+  }
+  #content .content #page {
+    width: 94%;
+    float: left;
+    display: inline-block;
+    background: #FFFFFF;
+    margin: 2%;
+    padding: 1%;
+    border-radius: 2px;
+  }
+  #content .content #page .image {
+    width: 10%;
+    float: left;
+  }
+  #content .content #page .image img {
+    width: 100%;
+  }
+  #content .content #page .detail {
+    width: 58%;
+    margin-left: 2%;
+  }
+  #content .content #page .detail h1 {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+  }
+  #content .content #page .detail p {
+    font-size: 0.6em;
+  }
+  #content .content #page .page,
+  #content .content #page .feed {
+    width: 13%;
+    padding: 1%;
+  }
+  #content .content #page .page .value,
+  #content .content #page .feed .value {
+    font-size: 1.3em;
+  }
+  #content .content #page .page p,
+  #content .content #page .feed p {
+    font-size: 0.8em;
+  }
+  #content .content .loading {
+    width: 100%;
+  }
+  #content .content #result {
+    width: 96%;
+    margin: 2%;
+  }
+  #content .content #result .resultItem {
+    width: 96%;
+    padding: 2%;
+    font-size: 0.6em;
+    margin-bottom: 5px;
+  }
+  #content .content #result .resultItem .type {
+    width: 5%;
+  }
+  #content .content #result .resultItem .id {
+    width: 75%;
+  }
+  #content .content #result .resultItem .status {
+    width: 20%;
+  }
+}

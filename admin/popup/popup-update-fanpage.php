@@ -22,6 +22,9 @@
 <html>
 <head>
 <meta charset="utf-8">
+<!-- Responsive -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>อัพเดท : IGENBLOG <?php echo $setting->getSetting($dbHandle,26);?></title>
 
 <!-- Favicon -->

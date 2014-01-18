@@ -13,5 +13,10 @@
 	$dbHandle->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	// always disable emulated prepared statement when using the MySQL driver
 	$dbHandle->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-	//$dbHandle->exec("SET CHARACTER SET utf8"); 
+	//$dbHandle->exec("SET CHARACTER SET utf8");
+
+	// Connect to Database type Mysql Connection.
+	$conMysql = mysql_connect('localhost', $config['username'], $config['password']) or die ('Error connecting to mysql');
+	mysql_query("SET NAMES UTF8");
+	mysql_select_db($config['dbname']);
 ?>

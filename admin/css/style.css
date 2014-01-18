@@ -9,6 +9,10 @@
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
 }
+.highlight {
+  color: #e74c3c;
+  text-decoration: underline;
+}
 @charset "utf-8";
 /*********** IMPORT FONT FILE TO WEB **************/
 @font-face {
@@ -133,7 +137,7 @@ body {
   border-bottom: 1px solid #ecf0f1;
 }
 #navigator #mainMenu .item i {
-  font-size: 0.8em;
+  font-size: 0.7em;
 }
 #navigator #mainMenu .item .s {
   width: 2%;
@@ -148,7 +152,7 @@ body {
   padding-top: 12px;
 }
 #navigator #mainMenu .item .text i {
-  color: #16a085;
+  color: #BBBBBB;
 }
 #navigator #mainMenu .item .text .total {
   float: right;
@@ -170,44 +174,23 @@ body {
 #navigator #mainMenu .facebook .s {
   background: #2980b9;
 }
-#navigator #mainMenu .facebook i {
-  color: #2980b9 !important;
-}
 #navigator #mainMenu .youtube .s {
   background: #c0392b;
-}
-#navigator #mainMenu .youtube i {
-  color: #c0392b !important;
 }
 #navigator #mainMenu .stat .s {
   background: #8e44ad;
 }
-#navigator #mainMenu .stat i {
-  color: #8e44ad !important;
-}
 #navigator #mainMenu .category .s {
   background: #2c3e50;
-}
-#navigator #mainMenu .category i {
-  color: #2c3e50 !important;
 }
 #navigator #mainMenu .content .s {
   background: #27ae60;
 }
-#navigator #mainMenu .content i {
-  color: #27ae60 !important;
-}
 #navigator #mainMenu .banner .s {
   background: #d35400;
 }
-#navigator #mainMenu .banner i {
-  color: #d35400 !important;
-}
 #navigator #mainMenu .logout .s {
   background: #c0392b;
-}
-#navigator #mainMenu .logout i {
-  color: #c0392b !important;
 }
 /* Scroll Bar */
 /* Let's get this party started */
@@ -606,9 +589,6 @@ body {
   color: #777777;
   padding: 1%;
 }
-#display #mainContent .content .display .draft {
-  opacity: 0.5;
-}
 #display #mainContent .content .display .photoItem,
 #display #mainContent .content .display .articleItem {
   background: #ffffff;
@@ -735,6 +715,9 @@ body {
   width: 30%;
   float: left;
   display: inline-block;
+  background-image: url(../image/loading4.gif);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 #display #mainContent .content .display .videoItem .image img {
   width: 100%;
@@ -830,6 +813,9 @@ body {
   width: 20%;
   float: left;
   display: inline-block;
+  background-image: url(../image/loading4.gif);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 #display #mainContent .content .display .fanpageItem .image img,
 #display #mainContent .content .display .channelItem .image img,

@@ -65,10 +65,10 @@
           
           <!-- Option -->
           <div class="option">
-            <div class="item" onClick="Javascript:toCreateVideo();"><i class="fa fa-plus-circle"></i> คลิปวิดีโอใหม่</div>
+            <div class="item" onClick="Javascript:toCreateVideo();"><i class="fa fa-plus-circle"></i> เพิ่มคลิป</div>
             <!-- <div class="item" id="option-item-1" onClick="Javascript:modeCategory(1);"><i class="fa fa-check-circle-o"></i> Enable</div> -->
             <!-- <div class="item" id="option-item-0" onClick="Javascript:modeCategory(0);"><i class="fa fa-circle-o"></i> Disable</div> -->
-            <div class="search"><input type="text" class="input-text" id="q" OnKeyUp="Javascript:searchVideo(document.getElementById('q').value);" placeholder="ค้นหาชื่อหมวด,url,id"></div>
+            <div class="search"><input type="text" class="input-text" id="q" OnKeyUp="Javascript:searchVideo(document.getElementById('q').value);" placeholder="ค้นหาคลิปวิดีโอ"></div>
           </div>
 
           <!-- Display -->

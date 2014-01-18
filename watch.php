@@ -212,3 +212,16 @@ include'header.php';
 
 </body>
 </html>
+
+<?php
+  // Analytic Event to log
+  $log['url'] = 'watch.php';
+  $log['target'] = 'watch';
+  $log['action'] = 'view';
+  $log['user'] = '0';
+
+  $analytic->updatePageview($dbHandle,1);
+  $analytic->updatePageview($dbHandle,7);
+
+  include'footer.php';
+?>

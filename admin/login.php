@@ -21,10 +21,9 @@
 </head>
 
 <body>
+  <div class="title">IGENBLOG</div>
   <div id="login">
-    <div class="title">
-      IGENBLOG
-    </div>
+    
     
     <form action="index.php?e=loginG" target="_parent" method="POST">
       <input type="text" name="username" class="input-text" placeholder="username" autofocus autocomplete="off">

@@ -1,4 +1,4 @@
-            <div class="articleItem">
+            <div class="articleItem <?php if($var['ar_status'] == 0){echo'draft';}?>">
               <div class="photo" onClick="Javascript:toSelectArticle(<?php echo $var['ar_id'];?>);">
                 <img src="<?php echo $var['ar_image'];?>">
               </div>
@@ -7,8 +7,7 @@
               		<!-- <div class="btn left delete"><?php //echo $var['ar_id']+1024;?></div> -->
 
                   <div class="btn right delete" onClick="Javascript:modeListArticle(<?php echo $var['ca_id'];?>);$('#categoryMode').val('<?php echo $var['ca_id'];?>');"><?php echo $var['ca_title'];?></div>
-
-                  <div id="status-<?php echo $var['ar_id'];?>">
+                  <div id="status"></div>
                   <?php
                   if($var['ar_status'] == 1){
                     ?><div class="btn left normal" onClick="Javascript:statusArticle(<?php echo $var['ar_id'];?>,<?php echo $var['ar_status'];?>);">เผยแพร่</div><?php
@@ -17,7 +16,6 @@
                     ?><div class="btn left delete" onClick="Javascript:statusArticle(<?php echo $var['ar_id'];?>,<?php echo $var['ar_status'];?>);">แบบร่าง</div><?php
                   }
                   ?>
-                  </div>
                   
               		
               	</div>

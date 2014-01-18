@@ -31,6 +31,10 @@
     -o-transition: all 0.2s ease-in-out;
 }
 
+.highlight{
+    color: #e74c3c;
+    text-decoration: underline;
+}
 
 @charset "utf-8";
 /*********** IMPORT FONT FILE TO WEB **************/
@@ -165,13 +169,13 @@ body{
             width: 100%;
             @itemHeight:45px;
             height: @itemHeight;
-            color: @textColor1;
+            color: #333333;
             font-size: 1.3em;
             cursor: pointer;
             border-bottom: 1px solid @bgColor;
 
             i{
-                font-size: 0.8em;
+                font-size: 0.7em;
             }
 
             .s{
@@ -188,7 +192,7 @@ body{
                 padding-top: 12px;
 
                 i{
-                    color: #16a085;
+                    color: #BBBBBB;
                 }
 
                 .total{
@@ -219,18 +223,11 @@ body{
             .s{
                 background: #2980b9;
             }
-
-            i{
-                color: #2980b9 !important;
-            }
         }
 
         .youtube{
             .s{
                 background: #c0392b;
-            }
-            i{
-                color: #c0392b !important;
             }
         }
 
@@ -238,17 +235,11 @@ body{
             .s{
                 background: #8e44ad;
             }
-            i{
-                color: #8e44ad !important;
-            }
         }
 
         .category{
             .s{
                 background: #2c3e50;
-            }
-            i{
-                color: #2c3e50 !important;
             }
         }
 
@@ -256,26 +247,17 @@ body{
             .s{
                 background: #27ae60;
             }
-            i{
-                color: #27ae60 !important;
-            }
         }
 
         .banner{
             .s{
                 background: #d35400;
             }
-            i{
-                color: #d35400 !important;
-            }
         }
 
         .logout{
             .s{
                 background: #c0392b;
-            }
-            i{
-                color: #c0392b !important;
             }
         }
     }
@@ -732,12 +714,6 @@ body{
                     }
                 }
 
-
-                // This Content is show loading meta data (no Save!)
-                .draft{
-                    opacity: 0.5;
-                }
-
                 // Photo , Article Item (photo.php / article.php)
                 .photoItem , .articleItem{
                     background: @colorBase2;
@@ -761,6 +737,7 @@ body{
                         width: 25%;
                         display: inline-block;
                         float:left;
+
                         background-image:url(../image/loading4.gif);
                         background-position:center;
                         background-repeat:no-repeat;
@@ -854,6 +831,10 @@ body{
                         width: 30%;
                         float: left;
                         display: inline-block;
+
+                        background-image:url(../image/loading4.gif);
+                        background-position:center;
+                        background-repeat:no-repeat;
 
                         img{
                             width: 100%;
@@ -951,10 +932,16 @@ body{
                         float: left;
                         display: inline-block;
 
+                        background-image:url(../image/loading4.gif);
+                        background-position:center;
+                        background-repeat:no-repeat;
+
                         img{
                             width: 100%;
                             border-radius: 3px;
                             overflow: hidden;
+
+
 
                             &:hover{
                                 box-shadow: 0px 0px 5px #777777;

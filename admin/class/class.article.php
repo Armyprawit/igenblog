@@ -2,7 +2,7 @@
 //Message Set
 include_once'var-message.php';
 
-class Article extends MyDev{
+class Article extends Mydev{
 	public function newArticle($dbHandle,$category_id,$user_id,$title,$keyword,$image,$text,$credit,$type,$status){
 
 		global $msg;

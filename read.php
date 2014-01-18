@@ -179,3 +179,16 @@ include'header.php';
 
 </body>
 </html>
+
+<?php
+  // Analytic Event to log
+  $log['url'] = 'read.php';
+  $log['target'] = 'read';
+  $log['action'] = 'view';
+  $log['user'] = '0';
+
+  $analytic->updatePageview($dbHandle,1);
+  $analytic->updatePageview($dbHandle,6);
+
+  include'footer.php';
+?>

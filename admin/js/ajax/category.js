@@ -245,7 +245,6 @@ function deleteCategory(id){
 
 function statusCategory(id,stat){
 	state = true;
-	$("#console").animate({bottom:"0px"},800);
 
 	status_s = false;
 	if(window.XMLHttpRequest) { // Mozilla, Safari,...
@@ -280,10 +279,7 @@ function statusCategory(id,stat){
 		}
 		if(status_s.readyState == 4) // Return Request
 		{
-			$("#console").fadeIn(200).html(status_s.responseText);
-			$("#console").delay(3000).animate({bottom:"-50px"},500);
-
-			modeCategory(1);
+			$("#status-"+id).fadeIn(200).html(status_s.responseText);
 		}				
 	}
 }

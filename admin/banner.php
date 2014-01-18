@@ -70,7 +70,7 @@
         <div class="content">
           <!-- Option -->
           <div class="option">
-            <div class="item" onClick="Javascript:toCreateBanner();"><i class="fa fa-plus-circle"></i> ป้ายโฆษณาใหม่</div>
+            <div class="item" onClick="Javascript:toCreateBanner();"><i class="fa fa-plus-circle"></i> ป้ายใหม่</div>
             <!-- <div class="item" id="option-item-1" onClick="Javascript:modeCategory(1);"><i class="fa fa-check-circle-o"></i> Enable</div>
             <div class="item" id="option-item-0" onClick="Javascript:modeCategory(0);"><i class="fa fa-circle-o"></i> Disable</div>
             <div class="search"><input type="text" class="input-text" id="q" OnKeyUp="Javascript:searchCategory(document.getElementById('q').value);" placeholder="ค้นหาชื่อหมวด,url,id"></div> -->

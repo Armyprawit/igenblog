@@ -87,5 +87,20 @@ include'header.php';
   </div>
 </div>
 
+<!-- <div class="showQ">Query:</div> -->
+
 </body>
 </html>
+
+<?php
+	// Analytic Event to log
+	$log['url'] = 'index.php';
+	$log['target'] = 'index';
+	$log['action'] = 'view';
+	$log['user'] = '0';
+
+	$analytic->updatePageview($dbHandle,1);
+	$analytic->updatePageview($dbHandle,9);
+
+	include'footer.php';
+?>

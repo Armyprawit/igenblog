@@ -164,7 +164,6 @@ function editVideo(id,category,title,context,keyword){
 
 function statusVideo(id,stat){
 	state = true;
-	$("#console").animate({bottom:"0px"},800);
 
 	status_s = false;
 	if(window.XMLHttpRequest) { // Mozilla, Safari,...
@@ -199,10 +198,7 @@ function statusVideo(id,stat){
 		}
 		if(status_s.readyState == 4) // Return Request
 		{
-			$("#console").fadeIn(200).html(status_s.responseText);
-			$("#console").delay(3000).animate({bottom:"-50px"},500);
-
-			modeListVideo(0);
+			$("#status-"+id).html(status_s.responseText);
 		}				
 	}
 }

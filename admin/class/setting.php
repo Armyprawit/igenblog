@@ -20,6 +20,7 @@
 	
 	// ALL CLASS ////////////////////////////
 	include'class.mydev.php';
+	//include'class.pdoex.php';
 	include'class.admin.php';
 	include'class.analytic.php';
 	include'class.fanpage.php';
@@ -47,6 +48,7 @@
 	$setting = new Setting;
 	$api = new Api;
 	$facebookpage = new FacebookPage;
+	//$pdoex = new PDOEx;
 
 	if($_GET['e'] == loginG){
     	if($admin->loginG($dbHandle,$_POST['username'],$_POST['password'])){

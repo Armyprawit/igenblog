@@ -319,7 +319,7 @@ class Youtube extends MyDev{
 	public function infoChannelData($dbHandle,$event){
 		if($event == 'total'){
 			$stmt = $dbHandle->prepare('SELECT COUNT(ch_id) FROM bl_channel');
-    		$stmt->execute(array($id));
+    		$stmt->execute();
     		$var = $stmt->fetch(PDO::FETCH_ASSOC);
     		return $var['COUNT(ch_id)'];
 		}

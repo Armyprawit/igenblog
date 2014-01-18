@@ -8,11 +8,3 @@ RewriteRule ^cat-([^_]*)\.html$ /category.php?c=$1 [L]
 RewriteRule ^cat-([^_]*)_([^_]*)\.html$ /category.php?c=$1&page=$2 [L]
 
 RewriteRule ^page_([^_]*)\.html$ /video.php?page=$1 [L]
-
-
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^(.+) - [PT,L]
-
-RewriteRule ^(.*) index.php
-

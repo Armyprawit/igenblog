@@ -12,11 +12,6 @@
 	$mtime = explode(" ",$mtime);
 	$mtime = $mtime[1] + $mtime[0];
 	$starttime = $mtime;
-	
-	//COUNT QUERY STATEMENT
-	$res = mysql_query("SHOW SESSION STATUS LIKE 'Questions'");
-	$igen = mysql_fetch_array($res, MYSQL_ASSOC);
-	define("START_QUERIES",$igen['Value']);
 
 	include'class.license.php';
 	include'class.setting.php';
@@ -34,10 +29,10 @@
 	$timeline = new timeline;
 	$article = new Article;
 	$category = new Category;
-	// $youtube = new Youtube;
+	$mydev = new MyDev;
+	$analytic = new Analytic;
 	$video = new Video;
 	$image = new Image;
 	$banner = new Banner;
-	$mydev = new MyDev;
 	$setting = new Setting;
 ?>

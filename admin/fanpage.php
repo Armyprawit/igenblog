@@ -46,7 +46,7 @@
     <div id="mainContent">
         <!-- HEAD TITLE -->
         <div class="mainHead">
-          <div class="title"><i class="fa fa-facebook-square"></i> Facebook Page</div>
+          <div class="title"><i class="fa fa-facebook-square"></i> FB Page</div>
         </div>
 
         <div class="activity">
@@ -58,7 +58,7 @@
           
           <!-- Option -->
           <div class="option">
-            <div class="item btn" onClick="Javascript:createFanpage($('#username').val());"><i class="fa fa-plus-circle"></i> แฟนเพจใหม่</div>
+            <div class="item btn" onClick="Javascript:createFanpage($('#username').val());"><i class="fa fa-plus-circle"></i> เพิ่มเพจ</div>
             <div class="search"><input type="text" class="input-text" id="username" OnKeyUp="Javascript:getMetaFanpage($('#username').val());" placeholder="ค้นหาชื่อหมวด,url,id"></div>
           </div>
 

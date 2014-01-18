@@ -26,6 +26,17 @@ body{
     background: #1abc9c;
 }
 
+.title{
+    width: 94%;
+    text-align: center;
+    padding: 3%;
+    font-size: 4em;
+    font-family: ColabThi-webfont;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 2px #555555;
+}
+
 #login{
     position: fixed;
     top: 33%;
@@ -34,16 +45,10 @@ body{
     display: inline-block;
     background: #ecf0f1;
     padding: 1%;
-    border-radius: 2px;
+    border-radius: 5px;
     border:2px solid #16a085;
     box-shadow: 1px 1px 5px #16a085;
 
-    .title{
-        font-size: 2em;
-        font-family: ColabThi-webfont;
-        margin-bottom: 20px;
-        color: #000000;
-    }
     .input-text{
         background: #FFFFFF;
         float: left;
@@ -60,19 +65,20 @@ body{
         }
     }
     .input-submit{
+        background: #FFFFFF;
         float: left;
         width: 100%;
-        background: #1abc9c;
         border:1px solid #16a085;
-        color: #FFFFFF;
-        font-size: 0.9em;
-        padding: 1.5%;
+        color: #16a085;
+        font-size: 1em;
+        padding: 1%;
         border-radius: 2px;
         margin-bottom: 10px;
         cursor: pointer;
 
         &:hover{
-            background: #16a085;
+            color: #1abc9c;
+            border: 1px solid #1abc9c;
         }
     }
     .alert{
@@ -99,6 +105,7 @@ body{
 
     .title{
         font-size: 1.7em;
+        color: #FF0000;
     }
     .input-text{
         font-size: 0.9em;
@@ -113,27 +120,13 @@ body{
 
 @media only screen and (min-width:520px) and (max-width:759px){
 
-#login{
-    top: 20%;
-    left: 2%;
-    width: 90%;
-    padding: 2%;
-
-    .title{
-        font-size: 1.5em;
-    }
-    .input-text{
-        font-size: 0.9em;
-    }
-    .input-submit{
-        font-size: 0.8em;
-        padding: 2%;
-    }
+.title{
+    width: 94%;
+    padding: 3%;
+    font-size: 4em;
+    margin-bottom: 20px;
+    color: #FFFFFF;
 }
-
-}
-
-@media only screen and (min-width:0px) and (max-width :519px){
 
 #login{
     top: 20%;
@@ -141,15 +134,48 @@ body{
     width: 90%;
     padding: 3%;
 
-    .title{
-        font-size: 1.5em;
-    }
     .input-text{
-        font-size: 0.9em;
+        width: 90%;
+        font-size: 1em;
+        padding: 5%;
+        margin-bottom: 3px;
+        border-radius: 3px;
     }
     .input-submit{
-        font-size: 0.8em;
-        padding: 3%;
+        font-size: 0.9em;
+        padding: 2.5%;
+        border-radius: 3px;
+    }
+}
+
+}
+
+@media only screen and (min-width:0px) and (max-width :519px){
+
+.title{
+    width: 94%;
+    padding: 3%;
+    font-size: 4em;
+    margin-bottom: 20px;
+}
+
+#login{
+    top: 20%;
+    left: 2%;
+    width: 90%;
+    padding: 3%;
+
+    .input-text{
+        width: 90%;
+        font-size: 1em;
+        padding: 5%;
+        margin-bottom: 3px;
+        border-radius: 3px;
+    }
+    .input-submit{
+        font-size: 0.9em;
+        padding: 2.5%;
+        border-radius: 3px;
     }
 }
 

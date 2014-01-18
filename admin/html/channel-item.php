@@ -1,10 +1,12 @@
-            <div class="channelItem" onClick="Javascript:toSelectChannel(<?php echo $var['ch_id'];?>);">
-              <div class="image">
+            <div class="channelItem">
+              <div class="image" onClick="Javascript:toSelectChannel(<?php echo $var['ch_id'];?>);">
                 <img src="<?php echo $var['ch_image'];?>">
               </div>
               <div class="info">
                 <div class="head">
                   <!-- <div class="btn left delete">#<?php //echo $var['ch_id']+1024;?></div> -->
+
+                  <div id="status-<?php echo $var['ch_id'];?>">
                   <?php
                   if($var['ch_status'] == 1){
                     ?><div class="btn left normal" onClick="Javascript:statusChannel(<?php echo $var['ch_id'];?>,<?php echo $var['ch_status'];?>);">ทำงาน</div><?php
@@ -13,6 +15,7 @@
                     ?><div class="btn left delete" onClick="Javascript:statusChannel(<?php echo $var['ch_id'];?>,<?php echo $var['ch_status'];?>);">ปิดอัพเดท</div><?php
                   }
                   ?>
+                  </div>
                   
                   
                 </div>

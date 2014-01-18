@@ -20,6 +20,7 @@
 <!-- Style File -->
 <link rel="stylesheet" href="css/reset.css" type="text/css"/>
 <link rel="stylesheet" href="css/style.css" type="text/css"/>
+<link rel="stylesheet" href="css/offline.css" type="text/css"/>
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 
 <!-- LIB -->
@@ -57,22 +58,16 @@
         <div class="content">
           <div class="versionBox">
             <p>เวอร์ชันปัจจุบัน <span class="s"><?php echo $setting->getSetting($dbHandle,26);?></span></p>
-            <div class="btn">ดาวน์โหลด <p>Version 3.1.2</p></div>
+            <!-- <div class="btn">ดาวน์โหลด <p>Version 3.1.2</p></div> -->
             <!-- <div class="btn">อัพเดทแล้ว</div> -->
-            <div class="note">หลังจากอัพเดทไฟล์แล้ว ให้ท่านคลิกที่ "ปรับปรุงฐานข้อมูล"</div>
-            <div class="btn update">ปรับปรุงฐานข้อมูล</div>
+            <!-- <div class="note">หลังจากอัพเดทไฟล์แล้ว ให้ท่านคลิกที่ "ปรับปรุงฐานข้อมูล"</div> -->
+            <!-- <div class="btn update">ปรับปรุงฐานข้อมูล</div> -->
           </div>
 
           <div class="chartBox">
             <div class="topic"><i class="fa fa-bar-chart-o"></i> กราฟสถิติ</div>
             <div id="timeLoad"></div>
           </div>
-
-          <div class="chartBox">
-            <div class="topic"><i class="fa fa-bar-chart-o"></i> กราฟสถิติ</div>
-            <div id="sqlLoad"></div>
-          </div>
-
 
         </div>
         <div class="activity">

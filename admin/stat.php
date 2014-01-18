@@ -64,11 +64,6 @@
 
           <div class="chartBox">
             <div class="topic"><i class="fa fa-bar-chart-o"></i> กราฟสถิติ</div>
-            <div id="sqlLoad"></div>
-          </div>
-
-          <div class="chartBox">
-            <div class="topic"><i class="fa fa-bar-chart-o"></i> กราฟสถิติ</div>
             <div id="pageAccess"></div>
           </div>
 
