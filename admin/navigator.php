@@ -1,4 +1,7 @@
 <nav id="navigator">
+    <?php
+    if($license->checkLicense($dbHandle,'b0h987g6fd5k')){
+    ?>
     <!-- Facebook Account and Login -->
     <div id="facebookLogin">
         <?php
@@ -19,6 +22,7 @@
         }
         ?>
     </div>
+    <?php }?>
 
     <!-- Main Menu -->
     <div id="mainMenu">
@@ -33,6 +37,10 @@
             <div class="text"> <i class="fa fa-coffee"></i>IGensite</div><div class="s"></div>
         </div>
         </a> -->
+
+        <?php
+        if($license->checkLicense($dbHandle,'b0h987g6fd5k')){
+        ?>
         
         <a href="stat.php" target="_parent">
         <div class="item stat <?php if($pageActive == 'stat'){echo'active';}?>">
@@ -93,6 +101,7 @@
             <div class="s"></div><div class="text"> <i class="fa fa-facebook-square"></i> Facebook Page <span class="total"><?php echo $facebookpage->infoFanpageData($dbHandle,'total');?></div>
         </div>
         </a>
+        <?php }?>
         
         <a href="setting.php" target="_parent">
         <div class="item <?php if($pageActive == 'setting'){echo'active';}?>">

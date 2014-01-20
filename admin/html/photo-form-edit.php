@@ -5,7 +5,7 @@
                     <div class="imageResult" id="imageResult"><img src="<?php echo $var['im_image'];?>"></div>
                     <div class="input">
                         <p><i class="fa fa-camera"></i> ลิ้งรูปภาพ</p>
-                        <input type="text" id="link" class="input-text" autocomplete="off" placeholder="ตัวอย่าง: http://www.domain.com/photo.jpg" autofocus required onKeyUp="Javascript:loadImage($('#link').val());" value="<?php echo $var['im_image'];?>">
+                        <input type="text" id="link" class="input-text" autocomplete="off" placeholder="ตัวอย่าง: http://www.domain.com/photo.jpg" required onKeyUp="Javascript:loadImage($('#link').val());" value="<?php echo $var['im_image'];?>">
                     </div>
                     <script type="text/javascript">
                         loadImage($('#link').val());

@@ -65,6 +65,8 @@ function getMetaFanpage(link){
 		return false;
 	}
 
+	$("#btn-loading").html('<i class="fa fa-spinner fa-spin"></i>');
+
 	meta = false;
 	if(window.XMLHttpRequest) { // Mozilla, Safari,...
 		meta = new XMLHttpRequest();
@@ -101,6 +103,8 @@ function getMetaFanpage(link){
 				$('#list').prepend(meta.responseText);
 			}
 			links = link;
+
+			$("#btn-loading").html('<i class="fa fa-check-circle-o"></i>');
 		}				
 	}
 }

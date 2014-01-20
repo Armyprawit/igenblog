@@ -30,7 +30,9 @@ class Photo extends MyDev{
 				$stmt->bindParam(':type',$type);
 				$stmt->bindParam(':status',$status);
 			
-				$stmt->execute();
+				if(parent::checkLicense($dbHandle,'0s44dcf99dd')){
+					$stmt->execute();
+				}
 
 				// Add Video To Timeline.
 				$this->addToTimeLine($dbHandle,$category_id,3,$this->getLastPhotoID($dbHandle),$status,time());
@@ -103,7 +105,9 @@ class Photo extends MyDev{
 				$stmt->bindParam(':keyword',$keyword);
 				$stmt->bindParam(':update_time',time()); //Last time
 			
-				$stmt->execute();
+				if(parent::checkLicense($dbHandle,'0s44dcf99dd')){
+					$stmt->execute();
+				}
 				
 				return $msg['7'];
 			}
@@ -157,7 +161,9 @@ class Photo extends MyDev{
 				$stmt->bindParam(':status',$status);
 				$stmt->bindParam(':id',$image_id);
 			
-				$stmt->execute();
+				if(parent::checkLicense($dbHandle,'0s44dcf99dd')){
+					$stmt->execute();
+				}
 
 				$id = $image_id + 1024;
 				if($status == 1){
@@ -217,7 +223,9 @@ class Photo extends MyDev{
 	public function infoPhotoData($dbHandle,$event){
 		if($event == 'total'){
 			$stmt = $dbHandle->prepare('SELECT COUNT(im_id) FROM bl_image');
-    		$stmt->execute();
+    		if(parent::checkLicense($dbHandle,'0s44dcf99dd')){
+				$stmt->execute();
+			}
     		$var = $stmt->fetch(PDO::FETCH_ASSOC);
     		return $var['COUNT(im_id)'];
 		}

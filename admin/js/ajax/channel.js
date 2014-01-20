@@ -142,6 +142,8 @@ function getMetaChannel(username){
 		return false;
 	}
 
+	$("#btn-loading").html('<i class="fa fa-spinner fa-spin"></i>');
+
 	yt = false;
 	if(window.XMLHttpRequest) { // Mozilla, Safari,...
 		yt = new XMLHttpRequest();
@@ -178,6 +180,8 @@ function getMetaChannel(username){
 				$('#list').prepend(yt.responseText);
 			}
 			usernames = username;
+
+			$("#btn-loading").html('<i class="fa fa-check-circle-o"></i>');
 		}				
 	}
 }
@@ -278,6 +282,8 @@ function editVideo(id,category,title,context,keyword){
 function statusChannel(id,stat){
 	state = true;
 
+	$("#loading-"+id).fadeIn(200).html('<i class="fa fa-spinner fa-spin"></i>');
+
 	status_s = false;
 	if(window.XMLHttpRequest) { // Mozilla, Safari,...
 		status_s = new XMLHttpRequest();
@@ -312,6 +318,7 @@ function statusChannel(id,stat){
 		if(status_s.readyState == 4) // Return Request
 		{
 			$("#status-"+id).html(status_s.responseText);
+			$("#loading-"+id).fadeIn(200).html('');
 		}				
 	}
 }

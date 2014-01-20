@@ -2,7 +2,7 @@
 //Message Set
 include_once'var-message.php';
 
-class Category{
+class Category extends Mydev{
 	public function newCategory($dbHandle,$title,$description,$url,$keyword,$image){
 		global $msg;
 		$stmt = $dbHandle->prepare('SELECT ca_id FROM bl_category WHERE ca_title = ?');
@@ -19,8 +19,10 @@ class Category{
 				$stmt->bindParam(':image',$image);
 				$stmt->bindParam(':c_time',time()); //Create Time
 				$stmt->bindParam(':l_time',time()); //Last time
-			
-				$stmt->execute();
+
+				if(parent::checkLicense($dbHandle,'001cc43dd53')){
+					$stmt->execute();
+				}
 				
 				return $msg['7'];
 			}
@@ -44,7 +46,9 @@ class Category{
 			$stmt->bindParam(':time',time());
 			$stmt->bindParam(':id',$category_id);
 			
-			$stmt->execute();
+			if(parent::checkLicense($dbHandle,'001cc43dd53')){
+				$stmt->execute();
+			}
 			
 			return $msg['0'];
 			
@@ -62,7 +66,9 @@ class Category{
 				$stmt->bindParam(':status',$status);
 				$stmt->bindParam(':id',$id);
 			
-				$stmt->execute();
+				if(parent::checkLicense($dbHandle,'001cc43dd53')){
+					$stmt->execute();
+				}
 
 				$id = 0;
 				if($status == 1){
@@ -123,7 +129,9 @@ class Category{
 		try{
     		$stmt = $dbHandle->prepare('SELECT ca_id,ca_title,ca_url,ca_description,ca_status FROM bl_category WHERE ca_status = :status ORDER BY ca_create_time DESC');
 			$stmt->bindParam(':status',$status);
-    		$stmt->execute();
+    		if(parent::checkLicense($dbHandle,'001cc43dd53')){
+				$stmt->execute();
+			}
 			while($var = $stmt->fetch(PDO::FETCH_ASSOC)){
 				if($event=="normal"){
 					include'html/category-item.php';
@@ -148,7 +156,9 @@ class Category{
     		$stmt->bindValue(2,"%$q%",PDO::PARAM_STR);
     		$stmt->bindValue(3,"%$q%",PDO::PARAM_STR);
     		$stmt->bindValue(4,"%$q%",PDO::PARAM_STR);
-    		$stmt->execute();
+    		if(parent::checkLicense($dbHandle,'001cc43dd53')){
+				$stmt->execute();
+			}
 			while($var = $stmt->fetch(PDO::FETCH_ASSOC)){
 				include'../html/category-item.php';
 			}
@@ -160,7 +170,9 @@ class Category{
 		//Mode :1 = Normal, 0 = Ajax
 		try{
     		$stmt = $dbHandle->prepare('SELECT ca_id,ca_title FROM bl_category WHERE ca_status = 1 ORDER BY ca_create_time DESC');
-    		$stmt->execute();
+    		if(parent::checkLicense($dbHandle,'001cc43dd53')){
+				$stmt->execute();
+			}
 			while($var = $stmt->fetch(PDO::FETCH_ASSOC)){
 				if($mode == '1'){
 					include'html/category-select-form.php';
@@ -186,7 +198,9 @@ class Category{
 	public function infoCategoryData($dbHandle,$event){
 		if($event == 'total'){
 			$stmt = $dbHandle->prepare('SELECT COUNT(ca_id) FROM bl_category');
-    		$stmt->execute();
+    		if(parent::checkLicense($dbHandle,'001cc43dd53')){
+				$stmt->execute();
+			}
     		$var = $stmt->fetch(PDO::FETCH_ASSOC);
     		return $var['COUNT(ca_id)'];
 		}

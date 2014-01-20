@@ -18,6 +18,8 @@
                   }
                   ?>
                   </div>
+
+                  <div class="btn left loading" id="loading-<?php echo $var['ar_id'];?>"></div>
                   
               		
               	</div>
@@ -25,7 +27,7 @@
                 <?php $var['ar_title'] = str_replace($q,"<span class=\"highlight\">$q</span>",$var['ar_title']);?>
                 <?php $var['ar_description'] = str_replace($q,"<span class=\"highlight\">$q</span>",$var['ar_description']);?>
 
-                <h1><?php echo stripslashes($var['ar_title']);?> <span id="loading-<?php echo $var['ar_id'];?>"></span></h1>
+                <h1><?php echo stripslashes($var['ar_title']);?> <a href="../read-<?php echo $var['ar_id']+1024;?>-<?php echo parent::urlSEO($var['ar_title']);?>.html" target="_bank"><i class="fa fa-globe"></i></a> <span id="loading-<?php echo $var['ar_id'];?>"></span></h1>
                 <div class="text"><?php echo iconv_substr(stripslashes($var['ar_description']),0,320,"UTF-8").'...';?></div>
               </div>
             </div>

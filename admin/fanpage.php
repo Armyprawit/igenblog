@@ -2,6 +2,9 @@
 <?php require'sdk/facebook-sdk/facebook.php';?>
 <?php include'get-facebook-user.php';?>
 <?php
+  if(!$license->checkLicense($dbHandle,'b0h987g6fd5k')){
+    header('Location:index.php');
+  }
   //Page this Active (Menu Navigator Css Style)
   $pageActive = 'facebookpage';
 ?>
@@ -58,8 +61,8 @@
           
           <!-- Option -->
           <div class="option">
-            <div class="item btn" onClick="Javascript:createFanpage($('#username').val());"><i class="fa fa-plus-circle"></i> เพิ่มเพจ</div>
-            <div class="search"><input type="text" class="input-text" id="username" OnKeyUp="Javascript:getMetaFanpage($('#username').val());" placeholder="ค้นหาชื่อหมวด,url,id"></div>
+            <div class="item btn" onClick="Javascript:createFanpage($('#username').val());"><span id="btn-loading"><i class="fa fa-plus-circle"></i></span> เพิ่มเพจ</div>
+            <div class="search"><input type="text" class="input-text" id="username" OnKeyUp="Javascript:getMetaFanpage($('#username').val());" placeholder="https://www.facebook.com/igensite"></div>
           </div>
 
           <!-- Display -->

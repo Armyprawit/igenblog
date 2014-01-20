@@ -1,3 +1,12 @@
+<?php
+//Start Session and Cookie.
+session_start();
+ob_start();
+
+if($_SESSION['adminG'] == 'igenblog'){
+  header('Location:index.php');
+}
+?>
 <!doctype html>
 <html>
 <head>
@@ -26,8 +35,8 @@
     
     
     <form action="index.php?e=loginG" target="_parent" method="POST">
-      <input type="text" name="username" class="input-text" placeholder="username" autofocus autocomplete="off">
-      <input type="password" name="password" class="input-text" placeholder="password">
+      <input type="text" name="username" class="input-text" placeholder="Username" autofocus autocomplete="off">
+      <input type="password" name="password" class="input-text" placeholder="Password">
       <?php if($_GET['e'] == 'fail'){?>
         <div class="alert"><i class="fa fa-exclamation-circle"></i> ตรวจสอบ Username หรือ Password อีกครั้ง</div>
       <?php }?>

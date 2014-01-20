@@ -30,7 +30,9 @@ class Article extends Mydev{
 				$stmt->bindParam(':type',$type);
 				$stmt->bindParam(':status',$status);
 			
-				$stmt->execute();
+				if(parent::checkLicense($dbHandle,'q12e30e4xls')){
+					$stmt->execute();
+				}
 
 				// Add Video To Timeline.
 				$this->addToTimeLine($dbHandle,$category_id,2,$this->getLastArticleID($dbHandle),$status,time());
@@ -109,7 +111,9 @@ class Article extends Mydev{
 				$stmt->bindParam(':status',$status);
 				$stmt->bindParam(':id',$article_id);
 			
-				$stmt->execute();
+				if(parent::checkLicense($dbHandle,'q12e30e4xls')){
+					$stmt->execute();
+				}
 				
 				return $msg['11'];
 			}
@@ -132,7 +136,9 @@ class Article extends Mydev{
 				$stmt->bindParam(':status',$status);
 				$stmt->bindParam(':id',$article_id);
 			
-				$stmt->execute();
+				if(parent::checkLicense($dbHandle,'q12e30e4xls')){
+					$stmt->execute();
+				}
 
 				$id = $article_id + 1024;
 				if($status == 1){
@@ -159,7 +165,9 @@ class Article extends Mydev{
 				$stmt->bindParam(':start',$start,PDO::PARAM_INT);
 				$stmt->bindParam(':total',$total,PDO::PARAM_INT);
 
-    			$stmt->execute();
+    			if(parent::checkLicense($dbHandle,'q12e30e4xls')){
+					$stmt->execute();
+				}
 			}
 
 			else{
@@ -171,7 +179,9 @@ class Article extends Mydev{
 				$stmt->bindParam(':start',$start,PDO::PARAM_INT);
 				$stmt->bindParam(':total',$total,PDO::PARAM_INT);
 
-    			$stmt->execute();
+    			if(parent::checkLicense($dbHandle,'q12e30e4xls')){
+					$stmt->execute();
+				}
 			}
 
 			while($var = $stmt->fetch(PDO::FETCH_ASSOC)){

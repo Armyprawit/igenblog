@@ -18,14 +18,15 @@
                   }
                   ?>
                   </div>
-                  
+
+                  <div class="btn left loading" id="loading-<?php echo $var['vi_id'];?>"></div>
                   
                 </div>
 
                 <?php $var['vi_title'] = str_replace($q,"<span class=\"highlight\">$q</span>",$var['vi_title']);?>
                 <?php $var['vi_description'] = str_replace($q,"<span class=\"highlight\">$q</span>",$var['vi_description']);?>
 
-                <div class="name"><?php echo stripslashes($var['vi_title']);?> <span id="loading-<?php echo $var['vi_id'];?>"></span></div>
+                <div class="name"><?php echo stripslashes($var['vi_title']);?> <span id="loading-<?php echo $var['vi_id'];?>"> <a href="../play-<?php echo $var['vi_id']+1024;?>-<?php echo parent::urlSEO($var['vi_title']);?>.html" target="_bank"><i class="fa fa-globe"></i></a> </span></div>
                 <div class="link"><?php echo $var['vi_code'];?></div>
                 <div class="description"><?php echo iconv_substr(stripslashes($var['vi_description']),0,250,"UTF-8").'...';?></div>
               </div>

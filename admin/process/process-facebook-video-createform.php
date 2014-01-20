@@ -8,7 +8,7 @@
 
                 <p><i class="fa fa-youtube-play"></i> ลิ้งวิดีโอ <span id="loading"></span></p>
 
-                <input type="text" name="link" id="link" placeholder="Youtube, Vimeo, Dailymotion" class="input-text" autocomplete="off" autofocus required value="<?php echo $var['ff_id'];?>">
+                <input type="text" name="link" id="link" placeholder="Youtube, Vimeo, Dailymotion" class="input-text" autocomplete="off" required value="<?php echo $var['ff_id'];?>">
                 <div class="text"><i class="fa fa-hand-o-right"></i> ตัวอย่าง : http://www.youtube.com/watch?v=9xOl9dfZMcE</div>
 
                 <div class="image">

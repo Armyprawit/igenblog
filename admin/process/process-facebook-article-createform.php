@@ -15,7 +15,7 @@
 
                     <div class="input">
                         <p>ลิ้งรูปภาพ</p>
-                        <input type="text" id="image" class="input-text" autocomplete="off" placeholder="ตัวอย่าง: http://www.domain.com/photo.jpg" autofocus required onKeyUp="Javascript:loadImage($('#image').val());" value="<?php echo $var['ff_source'];?>">
+                        <input type="text" id="image" class="input-text" autocomplete="off" placeholder="ตัวอย่าง: http://www.domain.com/photo.jpg" required onKeyUp="Javascript:loadImage($('#image').val());" value="<?php echo $var['ff_source'];?>">
                     </div>
 
                     <script type="text/javascript">
@@ -24,7 +24,7 @@
                 </div>
 
                 <p>บทความ</p>
-                <input type="text" id="title" class="input-text" autocomplete="off" placeholder="หัวข้อบทความ" autofocus required>
+                <input type="text" id="title" class="input-text" autocomplete="off" placeholder="หัวข้อบทความ" required>
                 
                 <textarea id="textArea" class="input-area" onKeyUp="Javascript:exampleArticle($('#textArea').val());"><?php echo $var['ff_message'];?></textarea>
                 <?php include'../html/editor.php';?>

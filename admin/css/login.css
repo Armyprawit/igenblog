@@ -15,7 +15,7 @@
 }
 body {
   font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
-  background: #1abc9c;
+  background: #ecf0f1;
 }
 .title {
   width: 94%;
@@ -24,50 +24,54 @@ body {
   font-size: 4em;
   font-family: ColabThi-webfont;
   margin-bottom: 20px;
-  color: #FFFFFF;
-  text-shadow: 1px 1px 2px #555555;
+  color: #333333;
+  text-shadow: 0px 1px 1px #999999;
 }
 #login {
   position: fixed;
   top: 33%;
-  left: 33%;
-  width: 31%;
+  left: 39%;
+  width: 21%;
   display: inline-block;
-  background: #ecf0f1;
+  background: #FFFFFF;
   padding: 1%;
   border-radius: 5px;
-  border: 2px solid #16a085;
-  box-shadow: 1px 1px 5px #16a085;
+  border: 1px solid #DDDDDD;
+  font-family: thaisansneue-light;
 }
 #login .input-text {
+  font-family: thaisansneue-light;
   background: #FFFFFF;
   float: left;
   width: 96%;
-  font-size: 0.9em;
-  padding: 2%;
-  margin-bottom: 15px;
+  font-size: 1.4em;
+  padding: 1%;
+  margin-bottom: 20px;
   text-align: center;
   color: #555555;
-  border: 1px solid #DDDDDD;
+  border-radius: 3px;
+  border: 0px;
+  border-bottom: 1px dotted #CCCCCC;
 }
 #login .input-text:focus {
-  border: 1px dotted #222222;
+  border-bottom: 1px dotted #555555;
 }
 #login .input-submit {
+  font-family: thaisansneue-light;
   background: #FFFFFF;
   float: left;
-  width: 100%;
-  border: 1px solid #16a085;
-  color: #16a085;
-  font-size: 1em;
+  width: 50%;
+  border: 1px solid #2ecc71;
+  color: #2ecc71;
+  font-size: 1.2em;
   padding: 1%;
   border-radius: 2px;
   margin-bottom: 10px;
   cursor: pointer;
 }
 #login .input-submit:hover {
-  color: #1abc9c;
-  border: 1px solid #1abc9c;
+  color: #27ae60;
+  border: 1px solid #27ae60;
 }
 #login .alert {
   color: #e74c3c;
@@ -77,54 +81,76 @@ body {
   text-align: center;
 }
 #login p {
-  font-size: 0.8em;
+  font-size: 1.2em;
   text-align: right;
   color: #AAAAAA;
 }
 @media only screen and (min-width: 760px) and (max-width: 1099px) {
-  #login {
-    top: 20%;
-    left: 22%;
-    width: 50%;
-    padding: 2%;
+  .title {
+    width: 94%;
+    padding: 3%;
+    font-size: 3.5em;
+    margin-bottom: 20px;
   }
-  #login .title {
-    font-size: 1.7em;
-    color: #FF0000;
+  #login {
+    top: 33%;
+    left: 30%;
+    width: 36%;
+    padding: 2%;
   }
   #login .input-text {
-    font-size: 0.9em;
+    width: 96%;
+    font-size: 1.4em;
+    padding: 1%;
+    margin-bottom: 20px;
   }
   #login .input-submit {
+    width: 50%;
+    font-size: 1.2em;
+    padding: 1%;
+    margin-bottom: 10px;
+  }
+  #login .alert {
     font-size: 0.9em;
-    padding: 2%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  #login p {
+    font-size: 1.2em;
   }
 }
 @media only screen and (min-width: 520px) and (max-width: 759px) {
   .title {
     width: 94%;
     padding: 3%;
-    font-size: 4em;
-    margin-bottom: 20px;
-    color: #FFFFFF;
+    font-size: 2.5em;
+    margin-bottom: 10px;
   }
   #login {
-    top: 20%;
-    left: 2%;
-    width: 90%;
-    padding: 3%;
+    top: 33%;
+    left: 25%;
+    width: 46%;
+    padding: 2%;
   }
   #login .input-text {
-    width: 90%;
-    font-size: 1em;
-    padding: 5%;
-    margin-bottom: 3px;
-    border-radius: 3px;
+    width: 96%;
+    font-size: 1.4em;
+    padding: 1%;
+    margin-bottom: 20px;
   }
   #login .input-submit {
+    width: 50%;
+    font-size: 1.2em;
+    padding: 1%;
+    margin-bottom: 10px;
+  }
+  #login .alert {
     font-size: 0.9em;
-    padding: 2.5%;
-    border-radius: 3px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  #login p {
+    font-size: 1.2em;
   }
 }
 @media only screen and (min-width: 0px) and (max-width: 519px) {
@@ -135,21 +161,29 @@ body {
     margin-bottom: 20px;
   }
   #login {
-    top: 20%;
-    left: 2%;
-    width: 90%;
+    top: 33%;
+    left: 13%;
+    width: 66%;
     padding: 3%;
   }
   #login .input-text {
-    width: 90%;
-    font-size: 1em;
-    padding: 5%;
-    margin-bottom: 3px;
-    border-radius: 3px;
+    width: 96%;
+    font-size: 1.4em;
+    padding: 1%;
+    margin-bottom: 20px;
   }
   #login .input-submit {
+    width: 50%;
+    font-size: 1.2em;
+    padding: 1%;
+    margin-bottom: 10px;
+  }
+  #login .alert {
     font-size: 0.9em;
-    padding: 2.5%;
-    border-radius: 3px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  #login p {
+    font-size: 1.2em;
   }
 }

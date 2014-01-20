@@ -73,10 +73,9 @@ body {
   width: 98%;
   display: inline-block;
   background: #FFFFFF;
-  border-top: 1px solid #777777;
+  border-top: 1px solid #AAAAAA;
   text-align: center;
   padding: 1%;
-  box-shadow: 0px -1px 3px #cccccc;
   display: none;
 }
 #loadingProcess p {
@@ -241,14 +240,14 @@ body {
   font-size: 0.8em;
   margin-right: 5px;
   border-radius: 2px;
-  border: 1px solid #1abc9c;
-  color: #1abc9c;
+  border: 1px solid #DDDDDD;
+  color: #CCCCCC;
 }
 #display #header #stat .item i {
   padding: 8px;
   font-size: 1.2em;
-  background: #1abc9c;
-  color: #16a085;
+  background: #F5F5F5;
+  color: #AAAAAA;
 }
 #display #header #stat .item .text {
   padding: 5px;
@@ -348,6 +347,31 @@ body {
   display: inline-block;
   float: left;
   padding-left: 1%;
+}
+#display #mainContent .content .alertBox {
+  width: 96%;
+  display: inline-block;
+  float: left;
+  background: #FFFFFF;
+  text-align: center;
+  padding: 2%;
+  margin-bottom: 20px;
+  box-shadow: 0px 1px 2px #AAAAAA;
+  border-radius: 2px;
+}
+#display #mainContent .content .alertBox p {
+  font-size: 1.2em;
+  line-height: 40px;
+  color: #555555;
+}
+#display #mainContent .content .alertBox .alert {
+  color: #e74c3c;
+}
+#display #mainContent .content .alertBox a {
+  color: #c0392b;
+}
+#display #mainContent .content .alertBox a:hover {
+  text-decoration: underline;
 }
 #display #mainContent .content .versionBox {
   width: 96%;
@@ -558,6 +582,11 @@ body {
   margin-right: 0px;
   margin-left: 5px;
 }
+#display #mainContent .content .display .bannerItem .info .head .loading {
+  border: 0px;
+  font-size: 1.2em;
+  padding: 0.5%;
+}
 #display #mainContent .content .display .bannerItem .info .head .normal {
   border: 1px solid #2ecc71;
   color: #2ecc71;
@@ -658,6 +687,12 @@ body {
   margin-right: 0px;
   margin-left: 5px;
 }
+#display #mainContent .content .display .photoItem .info .head .loading,
+#display #mainContent .content .display .articleItem .info .head .loading {
+  border: 0px;
+  font-size: 1.2em;
+  padding: 0.5%;
+}
 #display #mainContent .content .display .photoItem .info .head .normal,
 #display #mainContent .content .display .articleItem .info .head .normal {
   border: 1px solid #2ecc71;
@@ -677,6 +712,14 @@ body {
 #display #mainContent .content .display .articleItem .info .head .delete:hover {
   border: 1px solid #7f8c8d;
   color: #7f8c8d;
+}
+#display #mainContent .content .display .photoItem .info a,
+#display #mainContent .content .display .articleItem .info a {
+  color: #e74c3c;
+}
+#display #mainContent .content .display .photoItem .info a:hover,
+#display #mainContent .content .display .articleItem .info a:hover {
+  color: #c0392b;
 }
 #display #mainContent .content .display .photoItem .info h1,
 #display #mainContent .content .display .articleItem .info h1 {
@@ -750,6 +793,11 @@ body {
   margin-right: 0px;
   margin-left: 5px;
 }
+#display #mainContent .content .display .videoItem .info .head .loading {
+  border: 0px;
+  font-size: 1.2em;
+  padding: 0.5%;
+}
 #display #mainContent .content .display .videoItem .info .head .normal {
   border: 1px solid #2ecc71;
   color: #2ecc71;
@@ -765,6 +813,12 @@ body {
 #display #mainContent .content .display .videoItem .info .head .delete:hover {
   border: 1px solid #7f8c8d;
   color: #7f8c8d;
+}
+#display #mainContent .content .display .videoItem .info a {
+  color: #e74c3c;
+}
+#display #mainContent .content .display .videoItem .info a:hover {
+  color: #c0392b;
 }
 #display #mainContent .content .display .videoItem .info .name {
   font-size: 0.9em;
@@ -864,6 +918,13 @@ body {
   float: right;
   margin-right: 0px;
   margin-left: 5px;
+}
+#display #mainContent .content .display .fanpageItem .info .head .loading,
+#display #mainContent .content .display .channelItem .info .head .loading,
+#display #mainContent .content .display .facebookFeedItem .info .head .loading {
+  border: 0px;
+  font-size: 1.2em;
+  padding: 0.5%;
 }
 #display #mainContent .content .display .fanpageItem .info .head .normal,
 #display #mainContent .content .display .channelItem .info .head .normal,
@@ -975,6 +1036,11 @@ body {
   margin-right: 0px;
   margin-left: 5px;
 }
+#display #mainContent .content .display .categoryItem .info .head .loading {
+  border: 0px;
+  font-size: 1.2em;
+  padding: 0.5%;
+}
 #display #mainContent .content .display .categoryItem .info .head .normal {
   border: 1px solid #2ecc71;
   color: #2ecc71;
@@ -998,6 +1064,15 @@ body {
   font-size: 1.3em;
   margin-bottom: 10px;
   color: #333333;
+}
+#display #mainContent .content .display .categoryItem .name i {
+  font-size: 0.8em !important;
+}
+#display #mainContent .content .display .categoryItem .name a {
+  color: #e74c3c;
+}
+#display #mainContent .content .display .categoryItem .name a:hover {
+  color: #c0392b;
 }
 #display #mainContent .content .display .categoryItem .description {
   float: left;
@@ -1196,6 +1271,7 @@ body {
   /* Handle */
 }
 #display #mainContent .activity .form p {
+  width: 100%;
   font-size: 0.8em;
   margin-bottom: 10px;
   float: left;
@@ -1380,9 +1456,9 @@ body {
 }
 #display #mainContent .activity .form .control .btn {
   float: left;
-  background: #1abc9c;
-  border: 1px solid #16a085;
-  color: #FFFFFF;
+  background: #FFFFFF;
+  border: 1px solid #95a5a6;
+  color: #95a5a6;
   padding: 5px;
   font-size: 0.7em;
   cursor: pointer;
@@ -1391,7 +1467,8 @@ body {
   border-radius: 2px;
 }
 #display #mainContent .activity .form .control .btn:hover {
-  background: #16a085;
+  border: 1px solid #7f8c8d;
+  color: #7f8c8d;
 }
 #display #mainContent .activity .form .control .right {
   float: right;
@@ -1440,17 +1517,18 @@ body {
   background: #c0392b;
 }
 #display #mainContent .activity .form .input-submit {
-  background: #1abc9c;
-  border: 1px solid #16a085;
+  background: #FFFFFF;
+  border: 1px solid #2ecc71;
+  color: #2ecc71;
   font-size: 0.9em;
   padding: 1.5%;
-  color: #FFFFFF;
   cursor: pointer;
   border-radius: 2px;
   float: left;
 }
 #display #mainContent .activity .form .input-submit:hover {
-  background: #16a085;
+  border: 1px solid #27ae60;
+  color: #27ae60;
 }
 #display #mainContent .activity .form .s {
   margin-bottom: 20px;
@@ -2910,8 +2988,8 @@ body {
 @media only screen and (min-width: 0px) and (max-width: 519px) {
   #btnMenu {
     position: fixed;
-    top: 2%;
-    right: 2%;
+    top: 1%;
+    right: 1%;
     font-size: 2em;
     padding: 3%;
     border-radius: 3px;

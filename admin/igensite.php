@@ -1,6 +1,11 @@
 <?php include'class/setting.php';?>
 <?php require'sdk/facebook-sdk/facebook.php';?>
 <?php include'get-facebook-user.php';?>
+<?php
+  if(!$license->checkLicense($dbHandle,'b0h987g6fd5k')){
+    header('Location:index.php');
+  }
+?>
 <!doctype html>
 <html>
 <head>

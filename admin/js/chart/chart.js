@@ -72,7 +72,7 @@ $(function(){
 
 
     // Show Chart Timeload
-    $.getJSON( "../admin/api/log.php", function(data) {
+    $.getJSON( "../admin/api/log.php?type=all&total=10", function(data) {
         $.each(data.data.items, function(k,v) {
             timeload.push(v.timeLoad);
         });
@@ -183,7 +183,7 @@ $(function(){
 
 
     // Graph Page Access
-     $.getJSON( "../admin/api/page-access.php", function(data) {
+     $.getJSON( "../admin/api/page-access.php?e=igensite", function(data) {
         $.each(data.data.items, function(k,v) {
             pageAccess.push([v.page,v.value]);
         });
@@ -218,46 +218,6 @@ $(function(){
             data: pageAccess
         }]
         });
-    });
-
-    // Graph Online
-     $.getJSON( "../admin/api/page-access.php", function(data) {
-        $.each(data.data.items, function(k,v) {
-        });
-
-        $('#online').highcharts({
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false
-        },
-        title: {
-            text: 'กำลังออนไลน์'
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.0f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    color: '#000000',
-                    connectorColor: '#000000',
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-                }
-            }
-        },
-        series: [{
-            type: 'pie',
-            name: 'Browser share',
-            data: [
-                ['Desktop',45.0],
-                ['Mobile',26.8]
-            ]
-        }]
-    });
     });
 
 });

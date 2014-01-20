@@ -1,6 +1,3 @@
-                    <input type="submit" class="input-submit" name="submit" value="เพิ่มคลิปใหม่">
-                    <br>
-
                     <div class="image">
                          <div class="item"><img src="http://img.youtube.com/vi/<?php echo $var['code'];?>/1.jpg"></div>
                          <div class="item"><img src="http://img.youtube.com/vi/<?php echo $var['code'];?>/2.jpg"></div>
@@ -8,8 +5,8 @@
                     </div>
 
                     <p>คลิปวิดีโอ</p>
-                    <input type="text" name="title" id="title" class="input-text" autocomplete="off" required value="<?php echo $var['title'];?>">
-                    <textarea id="textArea" class="input-area animated"><?php echo $var['description'];?></textarea>
+                    <input type="text" name="title" id="title" class="input-text" autocomplete="off" required value="<?php echo $var['title'];?>" placeholder="ชื่อคลิปวิดีโอ">
+                    <textarea id="textArea" class="input-area animated" placeholder="ใส่รายละเอียดของคลิป, สามารถใช้ HTML ได้"><?php echo $var['description'];?></textarea>
                     <?php include'editor.php';?>
 
                     <p>หมวดหมู่</p>
@@ -18,7 +15,7 @@
                     </select>
 
                     <p>คำสำคัญ</p>
-                    <input type="text" name="keyword" id="keyword" class="input-text s" value="<?php echo $var1['keyword'];?>">
+                    <input type="text" name="keyword" id="keyword" class="input-text s" value="<?php echo $var1['keyword'];?>" placeholder="ตัวอย่าง: ดินสอ,ดินสอสี,น้ำยาล้างจาน">
                 
                     <br>
                     <input type="submit" class="input-submit" name="submit" value="เพิ่มคลิปใหม่">

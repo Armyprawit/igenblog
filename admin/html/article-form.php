@@ -6,12 +6,12 @@
                     <div class="imageResult" id="imageResult"></div>
                     <div class="input">
                         <p><i class="fa fa-camera"></i> ลิ้งรูปภาพ</p>
-                        <input type="text" id="image" class="input-text" autocomplete="off" placeholder="ตัวอย่าง: http://www.domain.com/photo.jpg" autofocus required onKeyUp="Javascript:loadImage($('#image').val());">
+                        <input type="text" id="image" class="input-text" autocomplete="off" placeholder="ตัวอย่าง: http://www.domain.com/photo.jpg" required onKeyUp="Javascript:loadImage($('#image').val());">
                     </div>
                 </div>
 
                 <p><i class="fa fa-pencil"></i> บทความ</p>
-                <input type="text" id="title" class="input-text" autocomplete="off" placeholder="หัวข้อบทความ" autofocus required>
+                <input type="text" id="title" class="input-text" autocomplete="off" placeholder="หัวข้อบทความ" required>
                 
                 <textarea id="textArea" class="input-area animated" placeholder="เขียนบทความ , สามารถใช้แท็ก html ได้" onKeyUp="Javascript:exampleArticle($('#textArea').val());"></textarea>
                 <?php include'editor.php';?>

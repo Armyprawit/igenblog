@@ -1,6 +1,6 @@
 <?php
 // CLASS MYDEV this Class by igensite.com
-class MyDev{
+class MyDev extends License{
 
 	function convDuration($time){
 		$h = round($time/3600,0);

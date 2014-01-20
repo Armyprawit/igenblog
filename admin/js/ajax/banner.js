@@ -116,6 +116,8 @@ function editBanner(id,title,image,link,zone){
 function statusBanner(id,stat){
 	state = true;
 
+	$("#loading-"+id).fadeIn(200).html('<i class="fa fa-spinner fa-spin"></i>');
+
 	status_s = false;
 	if(window.XMLHttpRequest) { // Mozilla, Safari,...
 		status_s = new XMLHttpRequest();
@@ -150,6 +152,7 @@ function statusBanner(id,stat){
 		if(status_s.readyState == 4) // Return Request
 		{
 			$("#status-"+id).html(status_s.responseText);
+			$("#loading-"+id).fadeIn(200).html('');
 		}				
 	}
 }

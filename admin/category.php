@@ -2,6 +2,9 @@
 <?php require'sdk/facebook-sdk/facebook.php';?>
 <?php include'get-facebook-user.php';?>
 <?php
+  if(!$license->checkLicense($dbHandle,'b0h987g6fd5k')){
+    header('Location:index.php');
+  }
   //Page this Active (Menu Navigator Css Style)
   $pageActive = 'category';
 ?>

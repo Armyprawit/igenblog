@@ -1,4 +1,4 @@
-            <div class="videoItem meta" onClick="Javascript:toSelectChannel(<?php echo $var['ch_id'];?>);">
+            <div class="channelItem meta" onClick="Javascript:toSelectChannel(<?php echo $var['ch_id'];?>);">
               <div class="image">
                 <img src="<?php echo $var['image'];?>">
               </div>

@@ -17,7 +17,7 @@
 
                     <div class="input">
                         <p><i class="fa fa-camera"></i> ลิ้งรูปภาพ</p>
-                        <input type="text" id="image" class="input-text" autocomplete="off" placeholder="ตัวอย่าง: http://www.domain.com/photo.jpg" autofocus required onBlur="Javascript:loadImage($('#image').val());" value="<?php echo $var['ff_source'];?>">
+                        <input type="text" id="image" class="input-text" autocomplete="off" placeholder="ตัวอย่าง: http://www.domain.com/photo.jpg" required onBlur="Javascript:loadImage($('#image').val());" value="<?php echo $var['ff_source'];?>">
                     </div>
                     
                     <script type="text/javascript">

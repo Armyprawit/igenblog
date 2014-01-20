@@ -1,5 +1,4 @@
 <?php
 	include'../class/setting.php';
-	$total = 50;
-	$api->log($dbHandle,$total);
+	$api->log($dbHandle,$_GET['type'],$_GET['total']+0);
 ?>

@@ -19,6 +19,7 @@
 	define("START_QUERIES",$igen['Value']);
 	
 	// ALL CLASS ////////////////////////////
+	include'class.license.php';
 	include'class.mydev.php';
 	//include'class.pdoex.php';
 	include'class.admin.php';
@@ -35,6 +36,7 @@
 	include'class.api.php';
 	
 	//CREATE OBJECT
+	$license = new License;
 	$admin = new Admin;
 	$analytic = new Analytic;
 	$article = new Article;

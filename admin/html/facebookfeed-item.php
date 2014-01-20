@@ -18,6 +18,9 @@
                     <?php
                   }
                   ?>
+
+                  <div class="btn left loading" id="loading-<?php echo $var['ff_id'];?>"></div>
+
                   <div class="btn right delete" ondblclick="Javascript:deleteFeed('<?php echo $var['ff_id'];?>');">ลบ</div>
                   
                 </div>

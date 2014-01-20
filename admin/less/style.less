@@ -106,10 +106,9 @@ body{
     width: 98%;
     display: inline-block;
     background: #FFFFFF;
-    border-top: 1px solid #777777;
+    border-top: 1px solid #AAAAAA;
     text-align: center;
     padding: 1%;
-    box-shadow: 0px -1px 3px #CCCCCC;
     display: none;
 
     p{
@@ -316,14 +315,14 @@ body{
                 font-size: 0.8em;
                 margin-right: 5px;
                 border-radius: 2px;
-                border:1px solid @colorBase4;
-                color: @colorBase4;
+                border:1px solid #DDDDDD;
+                color: #CCCCCC;
 
                 i{
                     padding: 8px;
                     font-size: 1.2em;
-                    background: @colorBase4;
-                    color: @colorBase5;
+                    background: #F5F5F5;
+                    color: #AAAAAA;
                 }
                 .text{
                     padding: 5px;
@@ -442,6 +441,33 @@ body{
             display: inline-block;
             float: left;
             padding-left: 1%;
+
+            .alertBox{
+                width: 96%;
+                display: inline-block;;
+                float: left;
+                background: #FFFFFF;
+                text-align: center;
+                padding: 2%;
+                margin-bottom: 20px;
+                box-shadow: 0px 1px 2px #AAAAAA;
+                border-radius: 2px;
+
+                p{
+                    font-size: 1.2em;
+                    line-height: 40px;
+                    color: #555555;
+                }
+                .alert{
+                    color: #e74c3c;
+                }
+                a{
+                    color: #c0392b;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
 
             // Version Box index.php
             .versionBox{
@@ -678,6 +704,11 @@ body{
                                 margin-right: 0px;
                                 margin-left: 5px;
                             }
+                            .loading{
+                                border:0px;
+                                font-size: 1.2em;
+                                padding: 0.5%;
+                            }
                             .normal{
                                 border:1px solid #2ecc71;
                                 color: #2ecc71;
@@ -775,6 +806,11 @@ body{
                                 margin-right: 0px;
                                 margin-left: 5px;
                             }
+                            .loading{
+                                border:0px;
+                                font-size: 1.2em;
+                                padding: 0.5%;
+                            }
                             .normal{
                                 border:1px solid #2ecc71;
                                 color: #2ecc71;
@@ -790,6 +826,13 @@ body{
                                     border:1px solid #7f8c8d;
                                     color: #7f8c8d;
                                 }
+                            }
+                        }
+
+                        a{
+                            color: #e74c3c;
+                            &:hover{
+                                color: #c0392b;
                             }
                         }
 
@@ -867,6 +910,11 @@ body{
                                 margin-right: 0px;
                                 margin-left: 5px;
                             }
+                            .loading{
+                                border:0px;
+                                font-size: 1.2em;
+                                padding: 0.5%;
+                            }
                             .normal{
                                 border:1px solid #2ecc71;
                                 color: #2ecc71;
@@ -882,6 +930,13 @@ body{
                                     border:1px solid #7f8c8d;
                                     color: #7f8c8d;
                                 }
+                            }
+                        }
+
+                        a{
+                            color: #e74c3c;
+                            &:hover{
+                                color: #c0392b;
                             }
                         }
 
@@ -973,6 +1028,11 @@ body{
                                 margin-right: 0px;
                                 margin-left: 5px;
                             }
+                            .loading{
+                                border:0px;
+                                font-size: 1.2em;
+                                padding: 0.5%;
+                            }
                             .normal{
                                 border:1px solid #2ecc71;
                                 color: #2ecc71;
@@ -1017,11 +1077,6 @@ body{
                             color: #333333;
                             font-weight: bold;
                         }
-                        // .link{
-                        //     font-size: 0.7em;
-                        //     margin-bottom: 5px;
-                        //     color: @colorBase5;
-                        // }
                         .description{
                             font-size: 0.8em;
                             line-height: 17px;
@@ -1078,6 +1133,11 @@ body{
                                 margin-right: 0px;
                                 margin-left: 5px;
                             }
+                            .loading{
+                                border:0px;
+                                font-size: 1.2em;
+                                padding: 0.5%;
+                            }
                             .normal{
                                 border:1px solid #2ecc71;
                                 color: #2ecc71;
@@ -1102,6 +1162,17 @@ body{
                         font-size: 1.3em;
                         margin-bottom: 10px;
                         color: #333333;
+
+                        i{
+                            font-size: 0.8em !important;
+                        }
+
+                        a{
+                            color: #e74c3c;
+                            &:hover{
+                                color: #c0392b;
+                            }
+                        }
                     }
                     .description{
                         .layouts;
@@ -1321,6 +1392,7 @@ body{
                 border-radius: 2px;
 
                 p{
+                    width: 100%;
                     font-size: 0.8em;
                     margin-bottom: 10px;
                     float: left;
@@ -1533,9 +1605,9 @@ body{
 
                     .btn{
                         float: left;
-                        background: @colorBase4;
-                        border:1px solid @colorBase5;
-                        color: #FFFFFF;
+                        background: #FFFFFF;
+                        border:1px solid #95a5a6;
+                        color: #95a5a6;
                         padding: 5px;
                         font-size: 0.7em;
                         cursor: pointer;
@@ -1544,7 +1616,8 @@ body{
                         border-radius: 2px;
 
                         &:hover{
-                            background: @colorBase5;
+                            border:1px solid #7f8c8d;
+                            color: #7f8c8d;
                         }
                     }
 
@@ -1606,17 +1679,18 @@ body{
                 }
 
                 .input-submit{
-                    background:@colorBase4;
-                    border:1px solid @colorBase5;
+                    background: #FFFFFF;
+                    border:1px solid #2ecc71;
+                    color:#2ecc71;
                     font-size: 0.9em;
                     padding: 1.5%;
-                    color:#FFFFFF;
                     cursor: pointer;
                     border-radius: 2px;
                     float: left;
 
                     &:hover{
-                        background: @colorBase5;
+                        border:1px solid #27ae60;
+                        color:#27ae60;
                     }
                 }
 
@@ -3334,8 +3408,8 @@ body{
 
 #btnMenu{
     position: fixed;
-    top: 2%;
-    right: 2%;
+    top: 1%;
+    right: 1%;
     font-size: 2em;
     padding: 3%;
     border-radius: 3px;

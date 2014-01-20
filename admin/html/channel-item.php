@@ -16,7 +16,8 @@
                   }
                   ?>
                   </div>
-                  
+
+                  <div class="btn left loading" id="loading-<?php echo $var['ch_id'];?>"></div>
                   
                 </div>
 

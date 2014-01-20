@@ -32,7 +32,9 @@ class Video extends MyDev{
 				$stmt->bindParam(':type',$type);
 				$stmt->bindParam(':status',$status);
 			
-				$stmt->execute();
+				if(parent::checkLicense($dbHandle,'s323sw1es2a')){
+					$stmt->execute();
+				}
 
 				// Add Video To Timeline.
 				$this->addToTimeLine($dbHandle,$category_id,1,$this->getLastVideoID($dbHandle),$status,time());
@@ -98,7 +100,9 @@ class Video extends MyDev{
 			$stmt->bindParam(':keyword',$keyword);
 			$stmt->bindParam(':update_time',time()); //Last time
 			
-			$stmt->execute();
+			if(parent::checkLicense($dbHandle,'s323sw1es2a')){
+				$stmt->execute();
+			}
 				
 			return $msg['7'];
 		}
@@ -120,7 +124,9 @@ class Video extends MyDev{
     			$stmt->bindValue(3,"%$q%",PDO::PARAM_STR);
     			$stmt->bindValue(4,"%$q%",PDO::PARAM_STR);
 
-    			$stmt->execute();
+    			if(parent::checkLicense($dbHandle,'s323sw1es2a')){
+					$stmt->execute();
+				}
 			}
 			else{
 				return 0;
@@ -148,7 +154,9 @@ class Video extends MyDev{
 				$stmt->bindParam(':status',$status);
 				$stmt->bindParam(':id',$video_id);
 			
-				$stmt->execute();
+				if(parent::checkLicense($dbHandle,'s323sw1es2a')){
+					$stmt->execute();
+				}
 
 				$id = $video_id + 1024;
 				if($status == 1){

@@ -1,9 +1,21 @@
 <?php
-class Api{
-	public function log($dbHandle,$total){
-		$stmt = $dbHandle->prepare('SELECT * FROM lb_log LIMIT :total');
+class Api extends MyDev{
+
+	// Timeload on Page
+	public function log($dbHandle,$type,$total){
+
+		if($type != 'all'){
+			$stmt = $dbHandle->prepare('SELECT * FROM lb_log WHERE lg_target = :type LIMIT :total');
+			$stmt->bindParam(':type',$type);
+		}
+		else{
+			$stmt = $dbHandle->prepare('SELECT * FROM lb_log LIMIT :total');
+		}
+
 		$stmt->bindParam(':total',$total,PDO::PARAM_INT);
-		$stmt->execute();
+		if(parent::checkLicense($dbHandle,'q12e30e4xls')){
+			$stmt->execute();
+		}
 		while($var = $stmt->fetch(PDO::FETCH_ASSOC)){
 			extract($var);
 			$array[] = array(
@@ -27,9 +39,41 @@ class Api{
 		echo json_encode($data);
 	}
 
+	public function liveOnline($dbHandle){
+		$stmt = $dbHandle->prepare('SELECT lo_type,COUNT(lo_session) FROM bl_live_online GROUP BY lo_type');
+		if(parent::checkLicense($dbHandle,'q12e30e4xls')){
+			$stmt->execute();
+		}
+		while($var = $stmt->fetch(PDO::FETCH_ASSOC)){
+			extract($var);
+			if($var['lo_type'] == 1){
+				$device = 'Desktop';
+			}
+			else if($var['lo_type'] == 2){
+				$device = 'Mobile';
+			}
+			$array[] = array(
+				"page" => $device,
+				"value" => floatval($var['COUNT(lo_session)'])
+			);
+		}
+
+		$data = array(
+			"apiVersion" => "1.0",
+			"data" => array(
+				"update" => time(),
+				"items" => $array
+			),
+		);
+
+		echo json_encode($data);
+	}
+
 	public function pageAccess($dbHandle){
 		$stmt = $dbHandle->prepare('SELECT * FROM bl_analytic_page_view WHERE pv_id = 2 OR pv_id = 3 OR pv_id = 4 OR pv_id = 6 OR pv_id = 7 OR pv_id = 8 OR pv_id = 9 OR pv_id = 10');
-		$stmt->execute();
+		if(parent::checkLicense($dbHandle,'q12e30e4xls')){
+			$stmt->execute();
+		}
 		while($var = $stmt->fetch(PDO::FETCH_ASSOC)){
 			extract($var);
 			$array[] = array(
@@ -53,7 +97,9 @@ class Api{
 	public function actionEvent($dbHandle){
 		// Video Event
 		$stmt = $dbHandle->prepare('SELECT SUM(vi_c_view),SUM(vi_c_watch) FROM bl_video WHERE vi_status = 1');
-		$stmt->execute();
+		if(parent::checkLicense($dbHandle,'q12e30e4xls')){
+			$stmt->execute();
+		}
 		$var = $stmt->fetch(PDO::FETCH_ASSOC);
 		
 		extract($var);

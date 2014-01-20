@@ -6,12 +6,12 @@
                     <div class="imageResult" id="imageResult"><img src="<?php echo $var['ar_image'];?>"></div>
                     <div class="input">
                         <p><i class="fa fa-camera"></i> ลิ้งรูปภาพ</p>
-                        <input type="text" id="image" class="input-text" autocomplete="off" placeholder="ตัวอย่าง: http://www.domain.com/photo.jpg" autofocus required onKeyUp="Javascript:loadImage($('#image').val());" value="<?php echo $var['ar_image'];?>">
+                        <input type="text" id="image" class="input-text" autocomplete="off" placeholder="ตัวอย่าง: http://www.domain.com/photo.jpg" required onKeyUp="Javascript:loadImage($('#image').val());" value="<?php echo $var['ar_image'];?>">
                     </div>
                 </div>
 
                 <p><i class="fa fa-pencil"></i> บทความ</p>
-                <input type="text" id="title" class="input-text" autocomplete="off" placeholder="หัวข้อบทความ" autofocus required value="<?php echo stripslashes($var['ar_title']);?>">
+                <input type="text" id="title" class="input-text" autocomplete="off" placeholder="หัวข้อบทความ" required value="<?php echo stripslashes($var['ar_title']);?>">
                 
                 <textarea id="textArea" class="input-area animated" placeholder="เขียนบทความ , สามารถใช้แท็ก html ได้" onKeyUp="Javascript:exampleArticle($('#textArea').val());"><?php echo stripslashes($mydev->br2nl($var['ar_text']));?></textarea>
                 <?php include'editor.php';?>
@@ -29,7 +29,7 @@
                 <input type="text" id="credit" class="input-text s" placeholder="http://www.igensite.com" value="<?php echo $var['ar_credit'];?>">
                 
                 <br>
-                <div class="btn-delete"><i class="fa fa-times"></i> ลบบทความ</div>
-                <input type="submit" class="input-submit" name="submit" value="บันทึกบทความ">
+                <!-- <div class="btn-delete"><i class="fa fa-times"></i> ลบบทความ</div> -->
+                <input type="submit" class="input-submit" name="submit" value="อัพเดทข้อมูล">
             </form>
             </div>

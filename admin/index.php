@@ -35,7 +35,7 @@
 <!-- Highcharts -->
 <script type="text/javascript" src="highcharts/highcharts.js"></script>
 <script type="text/javascript" src="highcharts/modules/exporting.js"></script>
-<script type="text/javascript" src="js/chart/chart.js"></script>
+<script type="text/javascript" src="js/chart/timeload.js"></script>
 
 
 </head>
@@ -56,6 +56,9 @@
         <div class="option">
         </div>
         <div class="content">
+          <?php
+          if($license->checkLicense($dbHandle,'b0h987g6fd5k')){
+          ?>
           <div class="versionBox">
             <p>เวอร์ชันปัจจุบัน <span class="s"><?php echo $setting->getSetting($dbHandle,26);?></span></p>
             <!-- <div class="btn">ดาวน์โหลด <p>Version 3.1.2</p></div> -->
@@ -63,29 +66,63 @@
             <!-- <div class="note">หลังจากอัพเดทไฟล์แล้ว ให้ท่านคลิกที่ "ปรับปรุงฐานข้อมูล"</div> -->
             <!-- <div class="btn update">ปรับปรุงฐานข้อมูล</div> -->
           </div>
+          <?php }?>
+
+          <?php
+          if(!$license->checkLicense($dbHandle,'b0h987g6fd5k')){
+          ?>
+          <div class="alertBox">
+            <p class="alert"><i class="fa fa-exclamation-circle"></i> ท่านใส่ Website Secret Key ไม่ถูกต้อง</p>
+            <p>ใส่คีย์ที่นี่ <a href="setting.php" target="_parent">ตั้งค่า</a> -> Site Setting -> Website Secret Key</p>
+            <p><a href="http://igensite.com/key.php" target="_bank"><i class="fa fa-hand-o-right"></i> ยังไม่มีคีย์</a></p>
+          </div>
+          <?php }?>
+
+          <?php
+          if($license->checkLicense($dbHandle,'b0h987g6fd5k')){
+          ?>
+          <div class="chartBox">
+            <div class="topic"><i class="fa fa-bar-chart-o"></i> กราฟสถิติ</div>
+            <div id="timeloadAll"></div>
+          </div>
 
           <div class="chartBox">
             <div class="topic"><i class="fa fa-bar-chart-o"></i> กราฟสถิติ</div>
-            <div id="timeLoad"></div>
+            <div id="timeloadPlayer"></div>
           </div>
+
+          <div class="chartBox">
+            <div class="topic"><i class="fa fa-bar-chart-o"></i> กราฟสถิติ</div>
+            <div id="timeloadRead"></div>
+          </div>
+
+          <div class="chartBox">
+            <div class="topic"><i class="fa fa-bar-chart-o"></i> กราฟสถิติ</div>
+            <div id="timeloadPhoto"></div>
+          </div> 
+          <?php }?>         
 
         </div>
         <div class="activity">
 
+          <?php
+          if($license->checkLicense($dbHandle,'b0h987g6fd5k')){
+          ?>
           <div class="topBox">
             <div class="topic"><i class="fa fa-arrow-up"></i> คลิปวิดีโอยอดนิยม</div>
-            <?php $video->monitorAllVideo($dbHandle,'view',5);?>
+            <?php $video->monitorAllVideo($dbHandle,'view',10);?>
           </div>
 
           <div class="topBox">
             <div class="topic"><i class="fa fa-arrow-up"></i> บทความยอดนิยม</div>
-            <?php $article->monitorAllArticle($dbHandle,'view',5);?>
+            <?php $article->monitorAllArticle($dbHandle,'view',10);?>
           </div>
 
           <div class="topBox">
             <div class="topic"><i class="fa fa-arrow-up"></i> ภาพยอดนิยม</div>
-            <?php $photo->monitorAllPhoto($dbHandle,'view',5);?>
+            <?php $photo->monitorAllPhoto($dbHandle,'view',10);?>
           </div>
+          <?php }?>
 
         </div>
     </div>
