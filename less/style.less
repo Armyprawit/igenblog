@@ -1,9 +1,16 @@
 @colorBase1:#34495e;
 @colorBase2:#2c3e50;
-@colorBase3:#4A6988;
-@colorBase4:#2980b9;
 
-@colorBase5:#16a085;
+//Background Color
+@colorBase3:#EEEEEE;
+
+//Text Hoder Color
+@colorBase4:#3498db;
+
+//Background Content Color
+@colorBase5:#FFFFFF;
+
+
 
 @fontStyle1:ColabThi-webfont;
 @fontStyle2:thaisansneue-light;
@@ -48,12 +55,12 @@
 /* Let's get this party started */
 body::-webkit-scrollbar {
     width: 7px;
-    background: #EEEEEE;
+    background: @colorBase3;
 }
 /* Track */
 body::-webkit-scrollbar-track { 
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
 }
 /* Handle */
 body::-webkit-scrollbar-thumb {background:@colorBase1;}
@@ -61,13 +68,13 @@ body::-webkit-scrollbar-thumb:window-inactive {}
 
 body{
     font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
-    background: #EEEEEE;
+    background: @colorBase3;
     overflow: scroll;
 }
 
 #btnMenu{
     position: fixed;
-    bottom: 1%;
+    top: 2%;
     right: 1%;
     font-size: 2em;
     z-index: 20;
@@ -77,10 +84,33 @@ body{
     padding: 3%;
     border-radius: 3px;
     cursor: pointer;
+    display: inline-block;
     display: none;
 
     &:hover{
         background: #000000;
+    }
+}
+
+#bar{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    display: inline-block;
+    z-index: 10;
+    display: none;
+
+    .box{
+        float: left;
+        width: 20%;
+        height: 7px;
+    }
+    .a{
+        background: #34495e;
+    }
+    .b{
+        background: #2980b9;
     }
 }
 
@@ -102,7 +132,7 @@ body{
         font-family: 'Unica One', cursive;
         font-size: 4em;
         text-align: center;
-        color: #EEEEEE;
+        color: @colorBase3;
         text-shadow: 2px 2px 3px #444444;
 
         .s{
@@ -121,7 +151,7 @@ body{
         display: inline-block;
         font-size: 0.9em;
         line-height: 10px;
-        color: #CCCCCC;
+        color: @colorBase3;
 
         i{
             color: @colorBase3;
@@ -270,6 +300,7 @@ body{
         width: 100%;
         float: left;
         display: inline-block;
+        padding-bottom: 20px;
 
         #show{
             width: 66%;
@@ -429,10 +460,6 @@ body{
                     height:500px !important;
                     border:0px !important;
                 }
-                
-                // -webkit-column-count: 2; 
-                // -webkit-column-rule: 1px solid #bbb;
-                // -webkit-column-gap: 2em;
             }
 
             .comment{
@@ -451,7 +478,7 @@ body{
             float: left;
             display: inline-block;
             padding: 2%;
-            background: #EEEEEE;
+            background: @colorBase3;
             text-align: right;
             border-bottom: 1px dotted #DDDDDD;
             
@@ -463,6 +490,7 @@ body{
                 color: @colorBase1;
             }
             p{
+                width: 45%;
                 font-size: 0.9em;
                 color: #AAAAAA;
 
@@ -478,7 +506,7 @@ body{
             width: 31%;
             display: inline-block;
             margin: 1%;
-            background: #FFFFFF;
+            background: @colorBase5;
             box-shadow: 0px 0px 3px #AAAAAA;
             border-radius: 2px;
 
@@ -512,7 +540,7 @@ body{
                     left: 5%;
 
                     border-top: 10px solid transparent;
-                    border-bottom: 10px solid #FFFFFF;
+                    border-bottom: 10px solid @colorBase5;
                     border-right: 10px solid transparent;
                     border-left: 10px solid transparent;
                 }
@@ -590,17 +618,23 @@ body{
                 }
             }
         }
-
-        .loading{
-            width: 96%;
-            float: left;
-            display: inline-block;
-            padding: 2%;
-            text-align: center;
-            font-size: 0.9em;
-            color: @colorBase1;
-        }
     }
+}
+
+.loading{
+    width: 96%;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    float: left;
+    display: inline-block;
+    padding: 2%;
+    text-align: right;
+    font-size: 1em;
+    color: #FFFFFF;
+    background: #333333;
+    background: rgba(5, 5, 5, 0.7);
+    display: none;
 }
 
 #feature{
@@ -677,7 +711,7 @@ body{
         float: left;
         width: 96%;
         display: inline-block;
-        background: #FFFFFF;
+        background: @colorBase5;
         margin: 2%;
         box-shadow: 0px 0px 3px #AAAAAA;
         border-radius: 2px;
@@ -711,7 +745,7 @@ body{
                 left: 5%;
 
                 border-top: 10px solid transparent;
-                border-bottom: 10px solid #FFFFFF;
+                border-bottom: 10px solid @colorBase5;
                 border-right: 10px solid transparent;
                 border-left: 10px solid transparent;
             }
@@ -801,7 +835,7 @@ body{
 @media only screen and (min-width:760px) and (max-width:1099px){
 
 #btnMenu{
-    bottom: 1%;
+    top: 2%;
     right: 1%;
     font-size: 2em;
     padding: 2%;
@@ -1083,7 +1117,7 @@ body{
 @media only screen and (min-width:520px) and (max-width:759px){
 
 #btnMenu{
-    bottom: 1%;
+    top: 2%;
     right: 1%;
     font-size: 2em;
     padding: 2%;
@@ -1365,11 +1399,21 @@ body{
 @media only screen and (min-width:0px) and (max-width :519px){
 
 #btnMenu{
-    bottom: 1%;
+    top: 2%;
     right: 1%;
     font-size: 2em;
     padding: 4%;
     display: block;
+}
+
+#bar{
+    display: inline-block;
+
+    .box{
+        float: left;
+        width: 20%;
+        height: 7px;
+    }
 }
 
 #header{
@@ -1443,8 +1487,10 @@ body{
 }
 
 #mainContent{
-    width: 100%;
+    width: 98%;
+    padding: 1%;
     margin-left: 0%;
+    margin-top: 10px;
 
     .mainContent{
         width: 100%;
@@ -1634,6 +1680,12 @@ body{
             color: @colorBase1;
         }
     }
+}
+
+.loading{
+    width: 92%;
+    padding: 4%;
+    font-size: 1em;
 }
 
 #feature{

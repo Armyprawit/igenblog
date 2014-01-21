@@ -7,6 +7,7 @@ var loading = false;
 var editForm = false;
 var index = 5;
 var state = true;
+var deletes = false;
 
 // scroll event to load more Photo.
 $(window).scroll(function() {
@@ -105,6 +106,53 @@ function getMetaFanpage(link){
 			links = link;
 
 			$("#btn-loading").html('<i class="fa fa-check-circle-o"></i>');
+		}				
+	}
+}
+
+function deletePage(id){
+	state = true;
+	showLiveView('close');
+	$("#console").animate({bottom:"0px"},800);
+
+	deletes = false;
+	if(window.XMLHttpRequest) { // Mozilla, Safari,...
+		deletes = new XMLHttpRequest();
+			if (deletes.overrideMimeType) {
+				deletes.overrideMimeType('text/html');
+			}
+	}else if (window.ActiveXObject) { // IE
+		try{
+			deletes = new ActiveXObject("Msxml2.XMLHTTP");
+		} catch (e) {
+			try {
+				deletes = new ActiveXObject("Microsoft.XMLHTTP");
+			} catch (e) {}
+		}
+	}
+	
+	if (!deletes) {
+		alert('Cannot delete XMLHTTP instance');
+		return false;
+	}
+	var url = 'process/process-fanpage-delete.php';
+	var pmeters = 'id='+id;
+	deletes.open('POST',url,true);
+
+	deletes.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	deletes.send(pmeters);			
+	deletes.onreadystatechange = function(){
+		if(deletes.readyState == 3)  // Loading Request
+		{
+			$("#console").html('<i class="fa fa-spinner fa-spin"></i> รอสักครู่...');
+		}
+		if(deletes.readyState == 4) // Return Request
+		{
+			$("#console").fadeIn(200).html(deletes.responseText);
+			$("#console").delay(3000).animate({bottom:"-50px"},500);
+
+			//modeListFacebookFeed($('#feedType').val());
+			$("#"+id+"").slideUp(400);
 		}				
 	}
 }

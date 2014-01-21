@@ -150,22 +150,30 @@ class Video extends MyDev{
 		try{
 			$stmt = $dbHandle->prepare('UPDATE bl_video SET vi_status = :status,vi_update_time = :update_time WHERE vi_id = :id');
 
-				$stmt->bindParam(':update_time',time()); //Last time
-				$stmt->bindParam(':status',$status);
-				$stmt->bindParam(':id',$video_id);
+			$stmt->bindParam(':update_time',time()); //Last time
+			$stmt->bindParam(':status',$status);
+			$stmt->bindParam(':id',$video_id);
 			
-				if(parent::checkLicense($dbHandle,'s323sw1es2a')){
-					$stmt->execute();
-				}
-
-				$id = $video_id + 1024;
-				if($status == 1){
-					return '<span class="style-2"><i class="fa fa-globe"></i> เผยแพร่ #'.$id.'</span>';
-				}
-				else if($status == 0){
-					return '<span class="style-3"><i class="fa fa-file-text-o"></i> ฉบับร่าง #'.$id.'</span>';
-				}
+			if(parent::checkLicense($dbHandle,'s323sw1es2a')){
+				$stmt->execute();
 			}
+
+			// Update Status in Timeline
+			$stmt = $dbHandle->prepare('UPDATE bl_timeline SET tl_status = :status,tl_last_time = :update_time WHERE tl_content_id = :id AND tl_type = 1');
+
+			$stmt->bindParam(':update_time',time()); //Last time
+			$stmt->bindParam(':status',$status);
+			$stmt->bindParam(':id',$video_id);
+			$stmt->execute();
+
+			$id = $video_id + 1024;
+			if($status == 1){
+				return '<span class="style-2"><i class="fa fa-globe"></i> เผยแพร่ #'.$id.'</span>';
+			}
+			else if($status == 0){
+				return '<span class="style-3"><i class="fa fa-file-text-o"></i> ฉบับร่าง #'.$id.'</span>';
+			}
+		}
 		catch(PDOException $e){
 			return $msg['0'];
 		}

@@ -1,4 +1,4 @@
-            <div class="channelItem">
+            <div class="channelItem" id="<?php echo $var['ch_id'];?>">
               <div class="image" onClick="Javascript:toSelectChannel(<?php echo $var['ch_id'];?>);">
                 <img src="<?php echo $var['ch_image'];?>">
               </div>
@@ -17,6 +17,8 @@
                   ?>
                   </div>
 
+                  <div class="btn right delete" ondblclick="Javascript:deleteChannel('<?php echo $var['ch_id'];?>');">ลบ</div>
+
                   <div class="btn left loading" id="loading-<?php echo $var['ch_id'];?>"></div>
                   
                 </div>
@@ -27,6 +29,6 @@
                 <div class="fanpage"><i class="fa fa-clock-o"></i> <?php echo parent::fb_thaidate($var['ch_update_time']);?> / <a href="http://www.youtube.com/user/<?php echo $var['ch_username'];?>" target="_bank"><i class="fa fa-youtube-play"></i> <?php echo $var['ch_username'];?></a></div>
 
                 <div class="name"><?php echo $var['ch_title'];?> <span id="loading-<?php echo $var['vi_id'];?>"></span></div>
-                <div class="description"><?php echo iconv_substr($var['ch_description'],0,320,"UTF-8").'...';?></div>
+                <div class="description"><?php echo iconv_substr($var['ch_description'],0,120,"UTF-8").'...';?></div>
               </div>
             </div>

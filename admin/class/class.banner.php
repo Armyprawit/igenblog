@@ -123,6 +123,23 @@ class Banner{
 		catch(PDOException $e){echo'ERROR:'.$e->getMessage();}
 	}
 
+	// Delete Category with Change Category id all content
+	public function deleteBanner($dbHandle,$banner_id){
+		global $msg;
+		try{
+			// Delete Category
+			$stmt = $dbHandle->prepare('DELETE FROM bl_banner WHERE ba_id = :id');
+			$stmt->bindParam(':id',$banner_id);
+			
+			$stmt->execute();
+
+			return $msg['7'];
+		}
+		catch(PDOException $e){
+			return $msg['0'];
+		}
+	}
+
 
 	// GET VIDEO DATA
 	public function getBannerData($dbHandle,$id){

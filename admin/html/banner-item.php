@@ -1,4 +1,4 @@
-			<div class="bannerItem">
+			<div class="bannerItem" id="<?php echo $var['ba_id'];?>">
               <div class="photo" onclick="Javascript:toSelectBanner(<?php echo $var['ba_id'];?>);">
                 <img src="<?php echo $var['ba_image'];?>">
               </div>
@@ -18,6 +18,8 @@
                   }
                   ?>
                   </div>
+
+                  <div class="btn right delete" ondblclick="Javascript:deleteBanner('<?php echo $var['ba_id'];?>');">ลบ</div>
 
                   <div class="btn left loading" id="loading-<?php echo $var['ba_id'];?>"></div>
                   

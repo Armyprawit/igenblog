@@ -28,6 +28,6 @@
 
                 <div class="name"><?php echo stripslashes($var['vi_title']);?> <span id="loading-<?php echo $var['vi_id'];?>"> <a href="../play-<?php echo $var['vi_id']+1024;?>-<?php echo parent::urlSEO($var['vi_title']);?>.html" target="_bank"><i class="fa fa-globe"></i></a> </span></div>
                 <div class="link"><?php echo $var['vi_code'];?></div>
-                <div class="description"><?php echo iconv_substr(stripslashes($var['vi_description']),0,250,"UTF-8").'...';?></div>
+                <div class="description"><?php echo iconv_substr(stripslashes($var['vi_description']),0,120,"UTF-8").'...';?></div>
               </div>
             </div>

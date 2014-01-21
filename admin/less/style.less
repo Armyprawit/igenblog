@@ -117,12 +117,46 @@ body{
         padding: 5px;
     }
 }
+
+#bar{
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    display: inline-block;
+    z-index: 20;
+
+    .box{
+        float: left;
+        height: 5px;
+        width: 14.28%;
+        display: inline-block;
+        background: #FF0000;
+    }
+
+    .a{
+        background: #1abc9c;
+    }
+    .b{
+        background: #e67e22;
+    }
+    .c{
+        background: #e74c3c;
+    }
+    .d{
+        background: #3498db;
+    }
+    .e{
+        background: #34495e;
+    }
+}
+
 #navigator{
     background: #FFFFFF;
     width: @navigatorWidth;
     height: 100%;
     position: fixed;
-    top:0px;
+    top:5px;
     left: 0px;
     overflow: auto;
     z-index: 10;
@@ -284,6 +318,7 @@ body{
     float: left;
     display: inline-block;
     position: relative;
+    margin-top: 5px;
     padding-bottom: 50px;
 
     #header{
@@ -1365,6 +1400,7 @@ body{
                         font-size: 0.9em;
                         color: #333333;
                         margin-bottom: 5px;
+                        line-height: 25px;
                     }
                     .time{
                         float: left;

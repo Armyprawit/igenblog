@@ -28,6 +28,6 @@
                 <?php $var['ar_description'] = str_replace($q,"<span class=\"highlight\">$q</span>",$var['ar_description']);?>
 
                 <h1><?php echo stripslashes($var['ar_title']);?> <a href="../read-<?php echo $var['ar_id']+1024;?>-<?php echo parent::urlSEO($var['ar_title']);?>.html" target="_bank"><i class="fa fa-globe"></i></a> <span id="loading-<?php echo $var['ar_id'];?>"></span></h1>
-                <div class="text"><?php echo iconv_substr(stripslashes($var['ar_description']),0,320,"UTF-8").'...';?></div>
+                <div class="text"><?php echo iconv_substr(stripslashes($var['ar_description']),0,120,"UTF-8").'...';?></div>
               </div>
             </div>

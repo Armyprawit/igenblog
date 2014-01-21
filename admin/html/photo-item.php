@@ -23,7 +23,7 @@
                   
                 </div>
                 <div class="text">
-                	<?php echo stripslashes($var['im_description']);?> <a href="../image-<?php echo $var['im_id']+1024;?>-<?php echo parent::urlSEO(iconv_substr($var['im_description'],0,70,"UTF-8"));?>.html" target="_bank"><i class="fa fa-globe"></i></a> <span id="loading-<?php echo $var['im_id'];?>"></span>
+                	<?php echo iconv_substr(stripslashes($var['im_description']),0,120,"UTF-8").'...';?> <a href="../image-<?php echo $var['im_id']+1024;?>-<?php echo parent::urlSEO(iconv_substr($var['im_description'],0,70,"UTF-8"));?>.html" target="_bank"><i class="fa fa-globe"></i></a> <span id="loading-<?php echo $var['im_id'];?>"></span>
                 </div>
               </div>
             </div>

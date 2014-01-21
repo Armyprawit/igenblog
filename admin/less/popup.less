@@ -163,6 +163,52 @@ body{
             text-align: center;
         }
 
+        #form{
+            width: 96%;
+            float: left;
+            display: inline-block;
+            margin: 2%;
+
+            .input-select{
+                background:@colorBase3;
+                border: 0px;
+                font-size: 0.8em;
+                padding: 1%;
+                width: 100%;
+                color: @textColor1;
+                margin-bottom: 5px;
+                border-radius: 2px;
+                border: 1px solid #EEEEEE;
+                outline: 0;
+
+                &:focus{
+                    border: 1px dotted #AAAAAA;
+                }
+            }
+
+            .input-submit{
+                width: 50%;
+                text-align: center;
+                background: #FFFFFF;
+                border:1px solid #2ecc71;
+                color:#2ecc71;
+                font-size: 0.9em;
+                padding: 1.5%;
+                cursor: pointer;
+                border-radius: 2px;
+                float: left;
+
+                &:hover{
+                    border:1px solid #27ae60;
+                    color:#27ae60;
+                }
+            }
+
+            .s{
+                margin-bottom: 20px;
+            }
+        }
+
         #result{
             width: 96%;
             float: left;

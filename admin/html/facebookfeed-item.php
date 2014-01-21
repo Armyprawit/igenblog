@@ -29,7 +29,7 @@
                 <?php $var['fp_description'] = str_replace($q,"<span class=\"highlight\">$q</span>",$var['fp_description']);?>
 
                 <div class="fanpage"><i class="fa fa-clock-o"></i> <?php echo parent::fb_thaidate($var['ff_update_time']);?> / <a href="<?php echo $var['fp_link'];?>" target="_bank"><i class="fa fa-facebook-square"></i> <?php echo $var['fp_name'];?></a></div>
-                <div class="description"><?php echo iconv_substr(stripslashes($var['ff_message']),0,300,"UTF-8").'...';?></div>
+                <div class="description"><?php echo iconv_substr(stripslashes($var['ff_message']),0,120,"UTF-8").'...';?></div>
                 
               </div>
             </div>

@@ -17,6 +17,36 @@ body {
   font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
   background: #ecf0f1;
 }
+#bar {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  display: inline-block;
+  z-index: 20;
+}
+#bar .box {
+  float: left;
+  height: 5px;
+  width: 14.28%;
+  display: inline-block;
+  background: #FF0000;
+}
+#bar .a {
+  background: #1abc9c;
+}
+#bar .b {
+  background: #e67e22;
+}
+#bar .c {
+  background: #e74c3c;
+}
+#bar .d {
+  background: #3498db;
+}
+#bar .e {
+  background: #34495e;
+}
 .title {
   width: 94%;
   text-align: center;

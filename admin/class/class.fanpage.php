@@ -140,6 +140,23 @@ class FacebookPage extends MyDev{
 		}
 		catch(PDOException $e){echo'ERROR:'.$e->getMessage();}
 	}
+
+	// Delete Category with Change Category id all content
+	public function deletePage($dbHandle,$page_id){
+		global $msg;
+		try{
+			// Delete Category
+			$stmt = $dbHandle->prepare('DELETE FROM bl_facebook_page WHERE fp_id = :id');
+			$stmt->bindParam(':id',$page_id);
+			
+			$stmt->execute();
+
+			return $msg['7'];
+		}
+		catch(PDOException $e){
+			return $msg['0'];
+		}
+	}
 	
 	// GET FANPAGE DATA
 	public function getFanpageData($dbHandle,$id){

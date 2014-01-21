@@ -43,7 +43,10 @@
 
 
 <div id="display">
-    <?php include'header.php';?>
+    <?php
+      include'bar.php';
+      include'header.php';
+    ?>
 
     <div id="mainContent">
         <!-- HEAD TITLE -->

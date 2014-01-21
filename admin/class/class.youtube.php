@@ -55,21 +55,9 @@ class Youtube extends MyDev{
 	public function getVideoDataByChannelAPI($username,$start,$total){
 		$url = 'http://gdata.youtube.com/feeds/api/users/'.$username.'/uploads?v=2&alt=jsonc&start-index='.$start.'&max-results='.$total;
 		$json = file_get_contents($url);
-		$data = json_decode($json);
-		
-		if($data->data->items){
-			foreach ( $data->data->items as $data ){
-				$video['title'] = $data->title;
-				$video['description'] = $data->description;
-				$video['code'] = $data->id;
-				$video['image_mini'] = $data->thumbnail->sqDefault;
-				$video['image_hd'] = $data->thumbnail->hqDefault;
-				$video['uploader'] = $data->uploader;
-				$video['duration'] = $data->duration;
-			}
-			
-			return $video;
-		}
+		$data = json_decode($json,true);
+
+		return $data;
 	}
 
 
@@ -220,6 +208,7 @@ class Youtube extends MyDev{
 	public function newVideoYoutube($dbHandle,$category_id,$title,$text,$duration,$keyword,$image_mini,$image_hd,$code,$uploader,$type,$status,$start){
 		global $msg;
 		$duplicate = false;
+		$state = '';
 
 		$stmt = $dbHandle->prepare('SELECT vi_id FROM bl_video WHERE vi_code = ?');
     	$stmt->execute(array($code));
@@ -256,19 +245,14 @@ class Youtube extends MyDev{
 				// Add Video To Timeline.
 				$this->addToTimeLine($dbHandle,$category_id,1,$this->getLastVideoID($dbHandle),$status,time());
 
-				include'../html/update-video-item.php';
-				
-				//return $msg['7'];
+				return $state = 'complete';
 			}
 			catch(PDOException $e){
-				//return $msg['5'];
-				//return $e->getMessage();
+				return $state = 'error';
 			}
 		}
 		else{
-			//return $msg['8'];
-			$duplicate = true;
-			include'../html/update-video-item.php';
+			return $state = 'already';
 		}
 	}
 
@@ -299,11 +283,28 @@ class Youtube extends MyDev{
 	}
 	// GET Last Id of Content
 	public function getLastVideoID($dbHandle){
-		$stmt = $dbHandle->prepare('SELECT vi_id FROM bl_video ORDER BY vi_post_time DESC LIMIT 1');
+		$stmt = $dbHandle->prepare('SELECT vi_id FROM bl_video ORDER BY vi_id DESC LIMIT 1');
     	$stmt->execute();
 		$var = $stmt->fetch(PDO::FETCH_ASSOC);
 		
 		return $var['vi_id'];
+	}
+
+	// Delete Category with Change Category id all content
+	public function deleteChannel($dbHandle,$channel_id){
+		global $msg;
+		try{
+			// Delete Category
+			$stmt = $dbHandle->prepare('DELETE FROM bl_channel WHERE ch_id = :id');
+			$stmt->bindParam(':id',$channel_id);
+			
+			$stmt->execute();
+
+			return $msg['7'];
+		}
+		catch(PDOException $e){
+			return $msg['0'];
+		}
 	}
 
 

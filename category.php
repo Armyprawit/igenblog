@@ -92,6 +92,7 @@ include'header.php';
   	</div>
     <?php $timeline->getFeedTimeline($dbHandle,'feed','normal',4,$categoryData['ca_id'],0,21);?>
   </div>
+  <div class="loading" id="loadingMore"><i class="fa fa-spinner fa-spin"></i> กำลังโหลด...</div>
 </div>
 
 </body>

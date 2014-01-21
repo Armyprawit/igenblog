@@ -17,6 +17,9 @@ $(window).scroll(function() {
 function loadingFeed(category,type,start){
 	state = true;
 	loading = false;
+
+	$("#loadingMore").fadeIn(100);
+
 	if(window.XMLHttpRequest) { // Mozilla, Safari,...
 		loading = new XMLHttpRequest();
 			if (loading.overrideMimeType) {
@@ -52,6 +55,8 @@ function loadingFeed(category,type,start){
 			$('#feedDisplay').append(loading.responseText);
 			console.log("start:"+start+' / type:'+type+' / cat:'+category);
 			index+=21;
+
+			$("#loadingMore").fadeOut(400);
 		}				
 	}
 }

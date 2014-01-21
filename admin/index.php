@@ -12,7 +12,7 @@
 <!-- Responsive -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>หน้าแรก : IGENBLOG <?php echo $setting->getSetting($dbHandle,26);?></title>
+<title>IGENBLOG <?php echo $setting->getSetting($dbHandle,26);?></title>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="image/favicon/icon.ico" />
@@ -45,7 +45,10 @@
 <?php include'navigator.php';?>
 
 <div id="display">
-    <?php include'header.php';?>
+    <?php
+      include'bar.php';
+      include'header.php';
+    ?>
 
     <div id="mainContent">
         <!-- HEAD TITLE -->

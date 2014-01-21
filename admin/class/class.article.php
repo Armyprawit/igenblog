@@ -132,22 +132,30 @@ class Article extends Mydev{
 		try{
 			$stmt = $dbHandle->prepare('UPDATE bl_article SET ar_status = :status,ar_update_time = :update_time WHERE ar_id = :id');
 
-				$stmt->bindParam(':update_time',time()); //Last time
-				$stmt->bindParam(':status',$status);
-				$stmt->bindParam(':id',$article_id);
+			$stmt->bindParam(':update_time',time()); //Last time
+			$stmt->bindParam(':status',$status);
+			$stmt->bindParam(':id',$article_id);
 			
-				if(parent::checkLicense($dbHandle,'q12e30e4xls')){
-					$stmt->execute();
-				}
-
-				$id = $article_id + 1024;
-				if($status == 1){
-					return '<span class="style-2"><i class="fa fa-globe"></i> เผยแพร่ #'.$id.'</span>';
-				}
-				else if($status == 0){
-					return '<span class="style-3"><i class="fa fa-file-text-o"></i> ฉบับร่าง #'.$id.'</span>';
-				}
+			if(parent::checkLicense($dbHandle,'q12e30e4xls')){
+				$stmt->execute();
 			}
+
+			// Update Status in Timeline
+			$stmt = $dbHandle->prepare('UPDATE bl_timeline SET tl_status = :status,tl_last_time = :update_time WHERE tl_content_id = :id AND tl_type = 2');
+
+			$stmt->bindParam(':update_time',time()); //Last time
+			$stmt->bindParam(':status',$status);
+			$stmt->bindParam(':id',$article_id);
+			$stmt->execute();
+
+			$id = $article_id + 1024;
+			if($status == 1){
+				return '<span class="style-2"><i class="fa fa-globe"></i> เผยแพร่ #'.$id.'</span>';
+			}
+			else if($status == 0){
+				return '<span class="style-3"><i class="fa fa-file-text-o"></i> ฉบับร่าง #'.$id.'</span>';
+			}
+		}
 		catch(PDOException $e){
 			return $msg['0'];
 		}

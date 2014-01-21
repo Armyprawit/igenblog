@@ -44,7 +44,10 @@
 <?php include'navigator.php';?>
 
 <div id="display">
-    <?php include'header.php';?>
+    <?php
+      include'bar.php';
+      include'header.php';
+    ?>
 
     <div id="mainContent">
         <!-- HEAD TITLE -->
@@ -61,8 +64,10 @@
           
           <!-- Option -->
           <div class="option">
+            <?php if($user){?>
             <div class="item btn" onClick="Javascript:createFanpage($('#username').val());"><span id="btn-loading"><i class="fa fa-plus-circle"></i></span> เพิ่มเพจ</div>
             <div class="search"><input type="text" class="input-text" id="username" OnKeyUp="Javascript:getMetaFanpage($('#username').val());" placeholder="https://www.facebook.com/igensite"></div>
+            <?php }?>
           </div>
 
           <!-- Display -->

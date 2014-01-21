@@ -15,9 +15,6 @@
                     <div class="item"><img src="<?php echo $var['ff_picture'];?>"></div>
                 </div>
 
-                <br>
-                <input type="submit" class="input-submit" name="submit" value="เพิ่มคลิปใหม่">
-
                 <p>คลิปวิดีโอ</p>
                 <input type="text" name="title" id="title" class="input-text" autocomplete="off" required value="<?php echo $var['ff_message'];?>">
                 <textarea id="textArea" class="input-area animated"><?php echo $var['ff_message'];?></textarea>
@@ -30,6 +27,9 @@
 
                 <p>คำสำคัญ</p>
                 <input type="text" name="keyword" id="keyword" class="input-text s" value="<?php echo $var1['keyword'];?>">
+
+                <br>
+                <input type="submit" class="input-submit" name="submit" value="เพิ่มคลิปใหม่">
                 
                 
             </form>

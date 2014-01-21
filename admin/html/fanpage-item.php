@@ -1,4 +1,4 @@
-            <div class="fanpageItem" onclick="Javascript:toSelectFanpage(<?php echo $var['fp_id'];?>);">
+            <div class="fanpageItem" id="<?php echo $var['fp_id'];?>" onclick="Javascript:toSelectFanpage(<?php echo $var['fp_id'];?>);">
               <div class="image">
                 <img src="https://graph.facebook.com/<?php echo $var['fp_id'];?>/picture">
               </div>
@@ -13,6 +13,8 @@
                     ?><div class="btn left delete" onClick="Javascript:statusFanpage(<?php echo $var['fp_id'];?>,<?php echo $var['fp_status'];?>);">ปิดอัพเดท</div><?php
                   }
                   ?>
+
+                  <div class="btn right delete" ondblclick="Javascript:deletePage('<?php echo $var['fp_id'];?>');">ลบ</div>
 
                   <div class="btn left loading" id="loading-<?php echo $var['fp_id'];?>"></div>
                   

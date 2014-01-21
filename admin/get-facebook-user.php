@@ -1,9 +1,9 @@
 <?php
-if($setting->getSetting($dbHandle,3) != "" && $setting->getSetting($dbHandle,23) != ""){
+if($setting->getSetting($dbHandle,3) != "" && $setting->getSetting($dbHandle,15) != ""){
   // Create Facebook api Object
   $facebook = new Facebook(array(
     'appId'  => $setting->getSetting($dbHandle,3),
-    'secret' => $setting->getSetting($dbHandle,23),
+    'secret' => $setting->getSetting($dbHandle,15),
     'fileUpload' => true
   ));
   
